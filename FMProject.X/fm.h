@@ -42,6 +42,15 @@
 #define FMASKSEEK		0x4000		// Register 3, bit 14
 #define FMASKRDCHAN		0xFF80		// Register 2, channel number bits
 
+#define NextChan        PORTAbits.RA0
+#define PrevChan        PORTAbits.RA1
+
+#define VolUp           PORTBbits.RB0
+#define VolDown         PORTBbits.RB5
+
+#define MUTE            PORTGbits.RG0
+
+
 #define BUTN1			0b00000001	// Button number one
 #define BUTN2			0b00000010	// Button number two
 #define BUTN3			0b00000100
@@ -75,6 +84,7 @@ unsigned char FMready(unsigned int *rdy);				// Status is ready or busy
 unsigned char FMid(unsigned int *id);					// Obtain ID number
 unsigned char showFreq(void);						// Display the current f in MHz
 unsigned char FMvers(unsigned int *vsn);				// Obtain version number
+void delay_10ms(unsigned int n);
 
 
 
