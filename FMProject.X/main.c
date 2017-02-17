@@ -77,17 +77,17 @@ unsigned int regImg[18]; // FM register bank images
  *			2 if button is released.
  *
  */
-unsigned char butnEvent(void) {
+int butnEvent(void) {
 
     if (NextChan == 0) //check if the switch is closed
     {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (NextChan == 0) //check if the switch is still closed
         {
+            return 1;
 
-            return 1; //something
         } else {
-            return 0; //something
+            return 0;
         }
     }
 
@@ -96,9 +96,6 @@ unsigned char butnEvent(void) {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (PrevChan == 0) //check if the switch is still closed
         {
-            PORTBbits.RB1 = 1;
-            delay_10ms(20);
-            PORTBbits.RB1 = 0;
             return 2; //something
         } else {
             return 0; //something
@@ -138,7 +135,6 @@ unsigned char butnEvent(void) {
         }
     }
 
-    return 0; // No changes
 }
 //
 // end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -202,7 +198,7 @@ void Init() {
     T0CONbits.TMR0ON = 1; // Start timer
     OpenI2C(MASTER, SLEW_OFF);
     SSPADD = 0x3F;
-    
+
     return;
 }
 //
@@ -455,18 +451,18 @@ unsigned char FMid(unsigned int *id) {
  *
  */
 unsigned char nextChannel() {
-    PORTBbits.RB1 = 1;
-    delay_10ms(20);
-    PORTBbits.RB1 = 0;
+    PORTCbits.RC6 = 1;
+    delay_10ms(50);
+    PORTCbits.RC6 = 0;
 
     // Etc.
     return XS;
 }
 
 unsigned char previousChannel() {
-    PORTBbits.RB2 = 1;
-    delay_10ms(20);
-    PORTBbits.RB2 = 0;
+    PORTCbits.RC7 = 1;
+    delay_10ms(50);
+    PORTCbits.RC7 = 0;
     // Etc.
     return XS;
 }
@@ -526,19 +522,20 @@ unsigned char showFreq() {
 //
 
 void main(void) {
-
-    unsigned char btn;
-    unsigned char evt;
+    int evt;
     unsigned int ui;
-    
     dly(20);
     Init();
+    PORTCbits.RC6 = 0;
+    PORTCbits.RC7 = 0;
+
     FMvers(&ui); // Check we have comms with FM chip
     if (ui != 0x1010) errfm();
     if (FMinit() != XS) errfm();
-    
     for (;;) {
         evt = butnEvent();
+        if (evt == 1) {
+        }
         switch (evt) {
             case 1: nextChannel();
                 break;
