@@ -1,7 +1,7 @@
 
 Memory Summary:
-    Program space        used   722h (  1826) of  4000h bytes   ( 11.1%)
-    Data space           used    40h (    64) of   300h bytes   (  8.3%)
+    Program space        used   702h (  1794) of  4000h bytes   ( 10.9%)
+    Data space           used    45h (    69) of   300h bytes   (  9.0%)
     Configuration bits   used     5h (     5) of     7h words   ( 71.4%)
     ID Location space    used     8h (     8) of     8h bytes   (100.0%)
     Data stack space     used     0h (     0) of   2A0h bytes   (  0.0%)

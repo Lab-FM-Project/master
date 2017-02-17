@@ -84,6 +84,9 @@ int butnEvent(void) {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (NextChan == 0) //check if the switch is still closed
         {
+            PORTCbits.RC6 = 1;
+            delay_10ms(10);
+            PORTCbits.RC6 = 0;
             return 1;
 
         } else {
@@ -451,8 +454,9 @@ unsigned char FMid(unsigned int *id) {
  *
  */
 unsigned char nextChannel() {
+    FMfrequenc(964);
     PORTCbits.RC6 = 1;
-    delay_10ms(50);
+    delay_10ms(10);
     PORTCbits.RC6 = 0;
 
     // Etc.
@@ -460,8 +464,9 @@ unsigned char nextChannel() {
 }
 
 unsigned char previousChannel() {
+    FMfrequenc(1046);
     PORTCbits.RC7 = 1;
-    delay_10ms(50);
+    delay_10ms(10);
     PORTCbits.RC7 = 0;
     // Etc.
     return XS;
@@ -526,16 +531,14 @@ void main(void) {
     unsigned int ui;
     dly(20);
     Init();
-    PORTCbits.RC6 = 0;
-    PORTCbits.RC7 = 0;
+
 
     FMvers(&ui); // Check we have comms with FM chip
     if (ui != 0x1010) errfm();
     if (FMinit() != XS) errfm();
+
     for (;;) {
         evt = butnEvent();
-        if (evt == 1) {
-        }
         switch (evt) {
             case 1: nextChannel();
                 break;

@@ -7736,23 +7736,20 @@ const unsigned int regDflt[18] = {
 unsigned int regImg[18];
 
 # 80
-unsigned int butnEvent(void) {
+int butnEvent(void) {
 
 if (PORTAbits.RA0 == 0)
 {
 for (int c = 0; c <= 10; c++)_delay((unsigned long)((5)*(8000000/4000.0)));
 if (PORTAbits.RA0 == 0)
 {
-
 PORTCbits.RC6 = 1;
+delay_10ms(10);
+PORTCbits.RC6 = 0;
 return 1;
 
-
 } else {
-
-PORTCbits.RC6 = 0;
 return 0;
-
 }
 }
 
@@ -7813,7 +7810,7 @@ for (; d; --d)
 for (i = 100; i; --i);
 }
 
-# 164
+# 161
 void clrscn() {
 
 int i = 0;
@@ -7861,7 +7858,7 @@ SSPADD = 0x3F;
 return;
 }
 
-# 222
+# 219
 void segWrt(unsigned char segOrd, unsigned char state) {
 
 unsigned char bitSelect;
@@ -7874,7 +7871,7 @@ if (state) *LCReg |= bitSelect;
 else *LCReg &= ~bitSelect;
 }
 
-# 248
+# 245
 unsigned char FMwrite(unsigned char adr) {
 
 unsigned int regstr;
@@ -7902,7 +7899,7 @@ IdleI2C();
 return 0;
 }
 
-# 290
+# 287
 unsigned char FMread(unsigned char regAddr, unsigned int *data) {
 
 unsigned char firstByt;
@@ -7937,7 +7934,7 @@ IdleI2C();
 return 0;
 }
 
-# 338
+# 335
 unsigned char FMready(unsigned int *rdy) {
 
 unsigned int sts;
@@ -7948,7 +7945,7 @@ sts &= 0x0020;
 return 0;
 }
 
-# 358
+# 355
 unsigned char FMinit() {
 
 unsigned char ad;
@@ -7972,7 +7969,7 @@ showFreq();
 return 0;
 }
 
-# 394
+# 391
 unsigned char FMfrequenc(unsigned int f) {
 
 unsigned int dat;
@@ -7993,21 +7990,22 @@ if (FMready(&dat) != 0) return 1;
 return 0;
 }
 
-# 426
+# 423
 unsigned char FMvers(unsigned int *vsn) {
 if (FMread(0x1C, vsn) != 0) return 1;
 return 0;
 }
 
-# 441
+# 438
 unsigned char FMid(unsigned int *id) {
 
 if (FMread(0x1B, id) != 0) return 1;
 return 0;
 }
 
-# 459
+# 456
 unsigned char nextChannel() {
+FMfrequenc(964);
 PORTCbits.RC6 = 1;
 delay_10ms(10);
 PORTCbits.RC6 = 0;
@@ -8017,6 +8015,7 @@ return 0;
 }
 
 unsigned char previousChannel() {
+FMfrequenc(1046);
 PORTCbits.RC7 = 1;
 delay_10ms(10);
 PORTCbits.RC7 = 0;
@@ -8042,14 +8041,14 @@ unsigned char MuteHard(unsigned char down) {
 return 0;
 }
 
-# 505
+# 504
 void errfm() {
 
 ;
 for (;;);
 }
 
-# 521
+# 520
 unsigned char showFreq() {
 
 ;
@@ -8059,51 +8058,12 @@ return 0;
 
 
 
-int buttontn(void) {
-if (PORTAbits.RA0 == 0)
-{
-for (int c = 0; c <= 10; c++)_delay((unsigned long)((5)*(8000000/4000.0)));
-if (PORTAbits.RA0 == 0)
-{
-return 1;
-
-} else {
-return 0;
-}
-}
-
-if (PORTAbits.RA1 == 0)
-{
-for (int c = 0; c <= 10; c++)_delay((unsigned long)((5)*(8000000/4000.0)));
-if (PORTAbits.RA1 == 0)
-{
-return 2;
-} else {
-return 0;
-}
-}
-}
-
 void main(void) {
-
-unsigned char btn;
-unsigned int evt;
+int evt;
 unsigned int ui;
-int k;
 dly(20);
 Init();
-PORTCbits.RC6 = 0;
-PORTCbits.RC7 = 0;
-while (1) {
-k = buttontn();
-switch (k) {
-case 1: nextChannel();
-break;
-case 2: previousChannel();
-default: break;
 
-}
-}
 
 FMvers(&ui);
 if (ui != 0x1010) errfm();
@@ -8111,8 +8071,6 @@ if (FMinit() != 0) errfm();
 
 for (;;) {
 evt = butnEvent();
-if (evt == 1) {
-}
 switch (evt) {
 case 1: nextChannel();
 break;
