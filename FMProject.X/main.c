@@ -39,8 +39,7 @@
 #define _XTAL_FREQ 8000000
 #include <plib/i2c.h>
 #include "fm.h"
-
-
+#include "types.h"
 
 
 // FM register bank defaults -
@@ -388,6 +387,44 @@ unsigned char FMinit() {
  * @return XS on success or XF on error.
  *
  */
+unsigned char setVolume(int volume) {
+    unsigned int dat;
+    unsigned int cn; // AR1010 channel number
+
+    // Put volume value in range 0 - 18
+	unsigned char temp_vol = volume;
+	
+	if(temp_vol < 0)
+		temp_vol = 0;
+	else if(temp_vol > 18)
+		temp_vol = 18;
+    
+
+    const unsigned char volume_map[19] = {
+        0x0F, 0xCF, 0xDF, 0xFF, 0xCB,
+        0xDB, 0xFB, 0xFA, 0xF9, 0xF8,
+        0xF7, 0xD6, 0xE6, 0xF6, 0xE3,
+        0xF3, 0xF2, 0xF1, 0xF0
+    };
+    
+    // Volume values are held in registers 3 (D7-10) and 14 (D12-15)
+	unsigned char volume_setting = volume_map[temp_vol];
+
+	regImg[3] &= 0xF87F;		// Zero the bits to change (D7-10)
+	regImg[3] |= ((volume_setting & 0x0F) << 7);    // Place 4 LSBs of volume at D7-10
+	if (FMwrite(3) != XS) return XF;
+    regImg[14] &= 0x0FFF;		// Zero the bits to change (D12-15)
+	regImg[14] |= ((volume_setting & 0xF0) << 8);      // Place 4 MSBs of volume at D12-15
+	if (FMwrite(14) != XS) return XF;
+
+    do {
+        dly(2);
+        if (FMready(&dat) != XS) return XF;
+    } while (!dat);
+    return XS;
+
+}
+
 unsigned char FMfrequenc(unsigned int f) {
 
     unsigned int dat;
@@ -472,14 +509,20 @@ unsigned char previousChannel() {
     return XS;
 }
 
-unsigned char VolumeUp(unsigned char down) {
-
+unsigned char VolumeUp() {
+    setVolume(18);
+    PORTCbits.RC6 = 1;
+    delay_10ms(10);
+    PORTCbits.RC6 = 0;
     // Etc.
     return XS;
 }
 
-unsigned char VolumeDown(unsigned char down) {
-
+unsigned char VolumeDown() {
+    setVolume(10);
+    PORTCbits.RC7 = 1;
+    delay_10ms(10);
+    PORTCbits.RC7 = 0;
     // Etc.
     return XS;
 }
@@ -544,9 +587,9 @@ void main(void) {
                 break;
             case 2: previousChannel();
                 break;
-            case 3: VolumeUp(FALSE);
+            case 3: VolumeUp();
                 break;
-            case 4: VolumeDown(FALSE);
+            case 4: VolumeDown();
                 break;
             case 5: MuteHard(FALSE);
                 break;
