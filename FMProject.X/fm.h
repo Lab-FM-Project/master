@@ -84,6 +84,9 @@ unsigned char FMready(unsigned int *rdy);				// Status is ready or busy
 unsigned char FMid(unsigned int *id);					// Obtain ID number
 unsigned char showFreq(void);						// Display the current f in MHz
 unsigned char FMvers(unsigned int *vsn);				// Obtain version number
+unsigned char nextChannel();
+unsigned char previousChannel();
+
 void delay_10ms(unsigned int n);
 
 

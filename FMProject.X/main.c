@@ -77,63 +77,67 @@ unsigned int regImg[18]; // FM register bank images
  *			2 if button is released.
  *
  */
-unsigned char butnEvent(unsigned char *butn) {
+unsigned char butnEvent(void) {
 
     if (NextChan == 0) //check if the switch is closed
     {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (NextChan == 0) //check if the switch is still closed
         {
-            return; //something
+
+            return 1; //something
         } else {
-            return; //something
+            return 0; //something
         }
     }
-    
-        if (PrevChan == 0) //check if the switch is closed
+
+    if (PrevChan == 0) //check if the switch is closed
     {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (PrevChan == 0) //check if the switch is still closed
         {
-            return; //something
+            PORTBbits.RB1 = 1;
+            delay_10ms(20);
+            PORTBbits.RB1 = 0;
+            return 2; //something
         } else {
-            return; //something
+            return 0; //something
         }
     }
-    
-        if (VolUp == 0) //check if the switch is closed
+
+    if (VolUp == 0) //check if the switch is closed
     {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (VolUp == 0) //check if the switch is still closed
         {
-            return; //something
+            return 3; //something
         } else {
-            return; //something
+            return 0; //something
         }
     }
-    
-        if (VolDown == 0) //check if the switch is closed
+
+    if (VolDown == 0) //check if the switch is closed
     {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (VolDown == 0) //check if the switch is still closed
         {
-            return; //something
+            return 4; //something
         } else {
-            return; //something
+            return 0; //something
         }
     }
-    
-            if (MUTE == 0) //check if the switch is closed
+
+    if (MUTE == 0) //check if the switch is closed
     {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (MUTE == 0) //check if the switch is still closed
         {
-            return; //something
+            return 5; //something
         } else {
-            return; //something
+            return 0; //something
         }
     }
-    
+
     return 0; // No changes
 }
 //
@@ -198,6 +202,8 @@ void Init() {
     T0CONbits.TMR0ON = 1; // Start timer
     OpenI2C(MASTER, SLEW_OFF);
     SSPADD = 0x3F;
+    
+    return;
 }
 //
 // end Init ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -448,13 +454,36 @@ unsigned char FMid(unsigned int *id) {
  * @return XS on success or XF on error.
  *
  */
-unsigned char nextChan(unsigned char up) {
+unsigned char nextChannel() {
+    PORTBbits.RB1 = 1;
+    delay_10ms(20);
+    PORTBbits.RB1 = 0;
 
     // Etc.
     return XS;
 }
 
-unsigned char prevChan(unsigned char down) {
+unsigned char previousChannel() {
+    PORTBbits.RB2 = 1;
+    delay_10ms(20);
+    PORTBbits.RB2 = 0;
+    // Etc.
+    return XS;
+}
+
+unsigned char VolumeUp(unsigned char down) {
+
+    // Etc.
+    return XS;
+}
+
+unsigned char VolumeDown(unsigned char down) {
+
+    // Etc.
+    return XS;
+}
+
+unsigned char MuteHard(unsigned char down) {
 
     // Etc.
     return XS;
@@ -501,27 +530,32 @@ void main(void) {
     unsigned char btn;
     unsigned char evt;
     unsigned int ui;
-
+    
     dly(20);
     Init();
     FMvers(&ui); // Check we have comms with FM chip
     if (ui != 0x1010) errfm();
     if (FMinit() != XS) errfm();
+    
     for (;;) {
-        evt = butnEvent(&btn);
-        if (evt == 1) switch (btn) {
-                case BUTN1: nextChan(TRUE);
-                    break;
-                case BUTN2: nextChan(FALSE);
-                    break;
+        evt = butnEvent();
+        switch (evt) {
+            case 1: nextChannel();
+                break;
+            case 2: previousChannel();
+                break;
+            case 3: VolumeUp(FALSE);
+                break;
+            case 4: VolumeDown(FALSE);
+                break;
+            case 5: MuteHard(FALSE);
+                break;
+                // ...
+            case 8: errfm();
+                break;
 
-
-                    // ...
-
-                case BUTN8: errfm();
-                    break;
-                default: break;
-            }
+            default: break;
+        }
     }
 }
 
