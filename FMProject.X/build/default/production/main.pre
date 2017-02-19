@@ -7821,7 +7821,7 @@ return 5;
 return 0;
 }
 }
-
+return 0;
 }
 
 
@@ -7991,7 +7991,9 @@ setBitInRegister(hardmute_bit[0], hardmute_bit[1], bitState);
 unsigned short seek(char direction) {
 
 # 395
-unsigned short temp = 0, curChannel;
+unsigned short curChannel;
+unsigned short temp = 0;
+unsigned int status;
 
 
 setHardmute(1);
@@ -8009,14 +8011,17 @@ setSeekDirection(direction);
 
 setBitInRegister(seek_bit[0], seek_bit[1], 1);
 
+while (temp == 0) {
+if (FMread(0x13, &status) != 0) return 1;
+temp = status & 0x0020;
+}
 
-while (regImg[2] == 0)
-regImg[2] = regImg[0x13] & 0x0020;
+
+if (FMread(0x13, &status) != 0) return 1;
+temp = status & 0x0010;
 
 
-regImg[2] = regImg[0x13] & 0x0010;
-
-if (regImg[2] != 0)
+if (temp != 0)
 tuneWithAutoHiLo();
 
 
@@ -8027,7 +8032,6 @@ regImg[2] = regImg[2] & 0xFE00;
 regImg[2] |= curChannel;
 FMwrite(2);
 
-
 return frequency();
 }
 
@@ -8035,9 +8039,10 @@ return frequency();
 
 unsigned char readLOInjection(unsigned char loHi) {
 
-# 447
+# 451
 unsigned char rssi_val = 0;
-
+unsigned short temp = 0;
+unsigned int status;
 
 if (loHi == 1)
 regImg[11] = regImg[11] | ~(0x7FFA);
@@ -8050,11 +8055,16 @@ FMwrite(11);
 setBitInRegister(tune_bit[0], tune_bit[1], 1);
 
 
-while (regImg[11] == 0)
-regImg[11] = regImg[0x13] & 0x0020;
+
+while (temp == 0) {
+if (FMread(0x13, &status) != 0) return 1;
+temp = status & 0x0020;
+}
 
 
-rssi_val = (regImg[0x12] & 0xFE00) >> 9;
+
+if (FMread(0x13, &status) != 0) return 1;
+rssi_val = (status & 0xFE00) >> 9;
 
 
 setBitInRegister(tune_bit[0], tune_bit[1], 0);
@@ -8066,9 +8076,10 @@ return rssi_val;
 
 void tuneWithAutoHiLo() {
 
-# 503
+# 513
 unsigned char rssi_lo, rssi_hi;
-unsigned short curChannel;
+unsigned short curChannel, temp = 0;
+unsigned int status;
 
 
 setHardmute(1);
@@ -8107,20 +8118,21 @@ setBitInRegister(hiloside_bit[0], hiloside_bit[1], 1);
 setBitInRegister(tune_bit[0], tune_bit[1], 1);
 
 
-while (regImg[2] == 0)
-regImg[2] = regImg[0x13] & 0x0020;
-
+while (temp == 0) {
+if (FMread(0x13, &status) == 0);
+temp = status & 0x0020;
+}
 
 setHardmute(0);
 }
 
 unsigned short frequency() {
-unsigned short data;
+unsigned int data;
 FMread(0x13, &data);
 return (((data & 0xFF80) >> 7) + 690);
 }
 
-# 567
+# 579
 unsigned char FMready(unsigned int *rdy) {
 
 unsigned int sts;
@@ -8131,7 +8143,7 @@ sts &= 0x0020;
 return 0;
 }
 
-# 587
+# 599
 unsigned char FMinit() {
 
 unsigned char ad;
@@ -8155,13 +8167,13 @@ showFreq();
 return 0;
 }
 
-# 623
+# 635
 unsigned char setVolume(int volume) {
 unsigned int dat;
 unsigned int cn;
 
 
-unsigned char temp_vol = volume;
+signed char temp_vol = volume;
 
 if (temp_vol < 0)
 temp_vol = 0;
@@ -8214,20 +8226,20 @@ if (FMready(&dat) != 0) return 1;
 return 0;
 }
 
-# 693
+# 705
 unsigned char FMvers(unsigned int *vsn) {
 if (FMread(0x1C, vsn) != 0) return 1;
 return 0;
 }
 
-# 708
+# 720
 unsigned char FMid(unsigned int *id) {
 
 if (FMread(0x1B, id) != 0) return 1;
 return 0;
 }
 
-# 726
+# 738
 unsigned char nextChannel() {
 FMfrequenc(964);
 PORTCbits.RC6 = 1;
@@ -8249,7 +8261,7 @@ return 0;
 }
 
 unsigned char VolumeUp() {
-char dir = "u";
+char dir = 'u';
 seek(dir);
 
 
@@ -8261,7 +8273,7 @@ return 0;
 }
 
 unsigned char VolumeDown() {
-char dir = "d";
+char dir = 'd';
 seek(dir);
 
 
@@ -8296,14 +8308,14 @@ PORTCbits.RC7 = 0;
 return 0;
 }
 
-# 805
+# 817
 void errfm() {
 
 ;
 for (;;);
 }
 
-# 821
+# 833
 unsigned char showFreq() {
 
 ;

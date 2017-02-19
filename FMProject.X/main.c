@@ -167,7 +167,7 @@ int butnEvent(void) {
             return 0; //something
         }
     }
-
+    return 0;
 }
 //
 // end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -392,7 +392,9 @@ unsigned short seek(char direction) {
      10 Update  Functions  (optional,  but  remember  to  update  CHAN  with  the  seek in READCHAN before next seek) 
      */
 
-    unsigned short temp = 0, curChannel;
+    unsigned short curChannel;
+    unsigned short temp = 0;
+    unsigned int status;
 
     // 1 May put in later
     setHardmute(1);
@@ -410,24 +412,26 @@ unsigned short seek(char direction) {
     // 6 Set seek bit to enable seek -----------------------------------------
     setBitInRegister(seek_bit[0], seek_bit[1], 1);
 
-    // 7 Wait for tune to stabilize (STC flag)
-    while (regImg[2] == 0)
-        regImg[2] = regImg[0x13] & 0x0020;
+    while (temp == 0) {
+        if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+        temp = status & 0x0020;
+    }
 
     // 8 Check if tune was successful, tune with Auto Hi Lo if not
-    regImg[2] = regImg[0x13] & 0x0010;
+    if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+    temp = status & 0x0010;
 
-    if (regImg[2] != 0)
+
+    if (temp != 0)
         tuneWithAutoHiLo();
 
     // 9 May put in later
     setHardmute(0);
-    // 4. Set CHAN from READCHAN ----------------------------------------------
+    // 10 Update CHAN from result (READCHAN) ------------------------------------
     curChannel = frequency() - 690;
     regImg[2] = regImg[2] & CHAN_MASK;
     regImg[2] |= curChannel;
     FMwrite(2);
-
 
     return frequency();
 }
@@ -445,7 +449,8 @@ unsigned char readLOInjection(unsigned char loHi) {
      */
 
     unsigned char rssi_val = 0;
-
+    unsigned short temp = 0;
+    unsigned int status;
     // 1. Set R11 - D15, D2-D0 - clear for low-side, set for high-side
     if (loHi == 1)
         regImg[11] = regImg[11] | ~(0x7FFA);
@@ -458,11 +463,16 @@ unsigned char readLOInjection(unsigned char loHi) {
     setBitInRegister(tune_bit[0], tune_bit[1], 1);
 
     // 3. Wait for STC flag to stabilise -----------
-    while (regImg[11] == 0)
-        regImg[11] = regImg[0x13] & 0x0020;
-    
+
+    while (temp == 0) {
+        if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+        temp = status & 0x0020;
+    }
+
     // 4. Get RSSI value (R0x12, D9-D15)
-    rssi_val = (regImg[0x12] & 0xFE00) >> 9;
+
+    if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+    rssi_val = (status & 0xFE00) >> 9;
 
     // 5. Clear tune bit -----------------------------
     setBitInRegister(tune_bit[0], tune_bit[1], 0);
@@ -501,7 +511,8 @@ void tuneWithAutoHiLo() {
      */
 
     unsigned char rssi_lo, rssi_hi;
-    unsigned short curChannel;
+    unsigned short curChannel, temp = 0;
+    unsigned int status;
 
     // 1. Set hardware mute
     setHardmute(1);
@@ -540,15 +551,16 @@ void tuneWithAutoHiLo() {
     setBitInRegister(tune_bit[0], tune_bit[1], 1);
 
     // 9. Wait for STC flag to stabilise --------------------------------------
-    while (regImg[2] == 0)
-        regImg[2] = regImg[0x13] & 0x0020;
-
+    while (temp == 0) {
+        if (FMread(FMCHIPSTSADR, &status) == XS);
+        temp = status & 0x0020;
+    }
     // 10. Clear hardware mute
     setHardmute(0);
 }
 
 unsigned short frequency() {
-    unsigned short data;
+    unsigned int data;
     FMread(ADDR_STATUS, &data);
     return (((data & MASK_READCHAN) >> SHIFT_READCHAN) + 690);
 }
@@ -625,7 +637,7 @@ unsigned char setVolume(int volume) {
     unsigned int cn; // AR1010 channel number
 
     // Put volume value in range 0 - 18
-    unsigned char temp_vol = volume;
+    signed char temp_vol = volume;
 
     if (temp_vol < 0)
         temp_vol = 0;
@@ -744,7 +756,7 @@ unsigned char previousChannel() {
 }
 
 unsigned char VolumeUp() {
-        char dir = "u";
+    char dir = 'u';
     seek(dir);
     //setVolume(18);
     //setHardmute(1);
@@ -756,7 +768,7 @@ unsigned char VolumeUp() {
 }
 
 unsigned char VolumeDown() {
-        char dir = "d";
+    char dir = 'd';
     seek(dir);
     //setVolume(10);
     //setHardmute(0);
