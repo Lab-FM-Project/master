@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //LCD Functions Developed by electroSome
 
 
@@ -474,4 +474,3 @@ void LCDGoto(int pos,int ln)
 #endif
 
 #endif	/* _LCD_XC_H */
->>>>>>> origin/master
