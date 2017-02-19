@@ -2,7 +2,7 @@
 # 1 "main.c"
 
 
-# 26
+# 24
 #pragma config OSC = INTIO7
 #pragma config FCMEN = OFF
 #pragma config IESO = OFF
@@ -8297,7 +8297,7 @@ PORTCbits.RC7 = 0;
 return 0;
 }
 
-# 46 "main.c"
+# 42 "main.c"
 void main(void) {
 int evt;
 unsigned int ui;

@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.38 build -256452561 
-                                                                                               Sun Feb 19 18:32:54 2017
+                                                                                               Sun Feb 19 18:39:55 2017
 
 Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010351
      1                           	processor	18F6490
@@ -455,7 +455,7 @@ Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010
    449 ;;
    450 ;; *************** function _main *****************
    451 ;; Defined at:
-   452 ;;		line 46 in file "main.c"
+   452 ;;		line 42 in file "main.c"
    453 ;; Parameters:    Size  Location     Type
    454 ;;		None
    455 ;; Auto vars:     Size  Location     Type
@@ -502,9 +502,9 @@ Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010
    496  000916                     _main:
    497                           	opt stack 23
    498                           
-   499                           ;main.c: 47: int evt;
-   500                           ;main.c: 48: unsigned int ui;
-   501                           ;main.c: 49: dly(20);
+   499                           ;main.c: 43: int evt;
+   500                           ;main.c: 44: unsigned int ui;
+   501                           ;main.c: 45: dly(20);
    502                           
    503                           ;incstack = 0
    504  000916  0E00               	movlw	0
@@ -513,20 +513,20 @@ Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010
    507  00091C  6E01               	movwf	dly@d,c
    508  00091E  EC69  F007         	call	_dly	;wreg free
    509                           
-   510                           ;main.c: 50: Init();
+   510                           ;main.c: 46: Init();
    511  000922  EC01  F007         	call	_Init	;wreg free
    512                           
-   513                           ;main.c: 52: PORTCbits.RC6 = 1;
+   513                           ;main.c: 48: PORTCbits.RC6 = 1;
    514  000926  8C82               	bsf	3970,6,c	;volatile
    515                           
-   516                           ;main.c: 54: FMvers(&ui);
+   516                           ;main.c: 50: FMvers(&ui);
    517  000928  0E2F               	movlw	low main@ui
    518  00092A  6E0C               	movwf	FMvers@vsn,c
    519  00092C  0E00               	movlw	high main@ui
    520  00092E  6E0D               	movwf	FMvers@vsn+1,c
    521  000930  EC23  F008         	call	_FMvers	;wreg free
    522                           
-   523                           ;main.c: 55: if (ui != 0x1010) errfm();
+   523                           ;main.c: 51: if (ui != 0x1010) errfm();
    524  000934  0E10               	movlw	16
    525  000936  182F               	xorwf	main@ui,w,c
    526  000938  E103               	bnz	u1750
@@ -536,13 +536,13 @@ Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010
    530  000940                     u1750:
    531  000940  EC2B  F008         	call	_errfm	;wreg free
    532                           
-   533                           ;main.c: 56: if (FMinit() != 0) errfm();
+   533                           ;main.c: 52: if (FMinit() != 0) errfm();
    534  000944  EC55  F005         	call	_FMinit	;wreg free
    535  000948  0900               	iorlw	0
    536  00094A  A4D8               	btfss	status,2,c
    537  00094C  EC2B  F008         	call	_errfm	;wreg free
    538                           
-   539                           ;main.c: 57: FMfrequenc(964);
+   539                           ;main.c: 53: FMfrequenc(964);
    540  000950  0E03               	movlw	3
    541  000952  6E13               	movwf	FMfrequenc@f+1,c
    542  000954  0EC4               	movlw	196
@@ -550,57 +550,57 @@ Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010
    544  000958  EC17  F006         	call	_FMfrequenc	;wreg free
    545  00095C                     l2252:
    546                           
-   547                           ;main.c: 60: evt = butnEvent();
+   547                           ;main.c: 56: evt = butnEvent();
    548  00095C  ECAD  F001         	call	_butnEvent	;wreg free
    549  000960  C001  F02D         	movff	?_butnEvent,main@evt
    550  000964  C002  F02E         	movff	?_butnEvent+1,main@evt+1
    551                           
-   552                           ;main.c: 61: switch (evt) {
+   552                           ;main.c: 57: switch (evt) {
    553  000968  D019               	goto	l2272
    554  00096A                     l2254:
    555  00096A  ECB5  F007         	call	_nextChannel	;wreg free
    556                           
-   557                           ;main.c: 63: break;
+   557                           ;main.c: 59: break;
    558  00096E  D7F6               	goto	l2252
    559  000970                     l2256:
    560  000970  ECA6  F007         	call	_previousChannel	;wreg free
    561                           
-   562                           ;main.c: 65: break;
+   562                           ;main.c: 61: break;
    563  000974  D7F3               	goto	l2252
    564  000976                     l2258:
    565  000976  ECD3  F007         	call	_VolumeUp	;wreg free
    566                           
-   567                           ;main.c: 67: break;
+   567                           ;main.c: 63: break;
    568  00097A  D7F0               	goto	l2252
    569  00097C                     l2260:
    570  00097C  ECE1  F007         	call	_VolumeDown	;wreg free
    571                           
-   572                           ;main.c: 69: break;
+   572                           ;main.c: 65: break;
    573  000980  D7ED               	goto	l2252
    574  000982                     l2262:
    575  000982  0E00               	movlw	0
    576  000984  EC2C  F008         	call	_MuteHard
    577                           
-   578                           ;main.c: 71: break;
+   578                           ;main.c: 67: break;
    579  000988  D7E9               	goto	l2252
    580  00098A                     l2264:
    581  00098A  EC08  F008         	call	_SeekUP	;wreg free
    582                           
-   583                           ;main.c: 73: break;
+   583                           ;main.c: 69: break;
    584  00098E  D7E6               	goto	l2252
    585  000990                     l2266:
    586  000990  EC11  F008         	call	_SeekDOWN	;wreg free
    587                           
-   588                           ;main.c: 75: break;
+   588                           ;main.c: 71: break;
    589  000994  D7E3               	goto	l2252
    590  000996                     l2268:
    591  000996  EC2B  F008         	call	_errfm	;wreg free
    592                           
-   593                           ;main.c: 81: }
+   593                           ;main.c: 77: }
    594                           
-   595                           ;main.c: 80: default: break;
+   595                           ;main.c: 76: default: break;
    596                           
-   597                           ;main.c: 78: break;
+   597                           ;main.c: 74: break;
    598  00099A  D7E0               	goto	l2252
    599  00099C                     l2272:
    600  00099C  C02D  F02B         	movff	main@evt,??_main
@@ -651,7 +651,7 @@ Microchip Technology Omniscient Code Generator v1.38 (Free mode) build 201607010
    644  0009DA  B4D8               	btfsc	status,2,c
    645  0009DC  D7DC               	goto	l2268
    646                           
-   647                           ;main.c: 82: }
+   647                           ;main.c: 78: }
    648  0009DE  D7BE               	goto	l2252
    649  0009E0                     __end_of_main:
    650                           	opt stack 0
@@ -4904,7 +4904,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.38 build -256452561 
-Symbol Table                                                                                   Sun Feb 19 18:32:54 2017
+Symbol Table                                                                                   Sun Feb 19 18:39:55 2017
 
     readLOInjection@rssi_val 0018                  __CFG_CP$OFF 000000                  _SSPSTATbits 000FC7  
                          l93 0D3E                           l88 0D02                           l98 09E4  

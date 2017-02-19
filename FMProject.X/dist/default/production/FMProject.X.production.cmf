@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+$C:\Users\Miro\AppData\Local\Temp\scio.obj
 idloc IDLOC 0 200000 200000 8 1
 end_init CODE 0 0 0 4 1
 config CONFIG 0 300000 300000 A 1
@@ -386,48 +386,48 @@ F4C text1 CODE >798:C:\Users\Miro\Documents\GitHub\master\FMProject.X\fm.h
 F58 text1 CODE >799:C:\Users\Miro\Documents\GitHub\master\FMProject.X\fm.h
 F5A text1 CODE >800:C:\Users\Miro\Documents\GitHub\master\FMProject.X\fm.h
 F66 text1 CODE >801:C:\Users\Miro\Documents\GitHub\master\FMProject.X\fm.h
-916 text0 CODE >46:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-916 text0 CODE >49:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-922 text0 CODE >50:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-926 text0 CODE >52:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-928 text0 CODE >54:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-934 text0 CODE >55:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-944 text0 CODE >56:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-950 text0 CODE >57:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-95C text0 CODE >60:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-968 text0 CODE >61:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-96A text0 CODE >62:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-96E text0 CODE >63:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-970 text0 CODE >64:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-974 text0 CODE >65:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-976 text0 CODE >66:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-97A text0 CODE >67:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-97C text0 CODE >68:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-980 text0 CODE >69:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-982 text0 CODE >70:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-988 text0 CODE >71:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-98A text0 CODE >72:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-98E text0 CODE >73:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-990 text0 CODE >74:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-994 text0 CODE >75:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-996 text0 CODE >77:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-99A text0 CODE >81:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-99C text0 CODE >61:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-9DE text0 CODE >82:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
-FFA cinit CODE >781:C:\Users\Miro\AppData\Local\Temp\s1bc.
-FFA cinit CODE >783:C:\Users\Miro\AppData\Local\Temp\s1bc.
-FFA cinit CODE >786:C:\Users\Miro\AppData\Local\Temp\s1bc.
-FFA cinit CODE >798:C:\Users\Miro\AppData\Local\Temp\s1bc.
-FFE cinit CODE >799:C:\Users\Miro\AppData\Local\Temp\s1bc.
-1000 cinit CODE >800:C:\Users\Miro\AppData\Local\Temp\s1bc.
-1000 cinit CODE >801:C:\Users\Miro\AppData\Local\Temp\s1bc.
-1002 cinit CODE >802:C:\Users\Miro\AppData\Local\Temp\s1bc.
-1004 cinit CODE >803:C:\Users\Miro\AppData\Local\Temp\s1bc.
-1006 cinit CODE >809:C:\Users\Miro\AppData\Local\Temp\s1bc.
-1006 cinit CODE >812:C:\Users\Miro\AppData\Local\Temp\s1bc.
-1008 cinit CODE >813:C:\Users\Miro\AppData\Local\Temp\s1bc.
-100A cinit CODE >814:C:\Users\Miro\AppData\Local\Temp\s1bc.
-100C cinit CODE >815:C:\Users\Miro\AppData\Local\Temp\s1bc.
+916 text0 CODE >42:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+916 text0 CODE >45:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+922 text0 CODE >46:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+926 text0 CODE >48:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+928 text0 CODE >50:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+934 text0 CODE >51:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+944 text0 CODE >52:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+950 text0 CODE >53:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+95C text0 CODE >56:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+968 text0 CODE >57:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+96A text0 CODE >58:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+96E text0 CODE >59:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+970 text0 CODE >60:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+974 text0 CODE >61:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+976 text0 CODE >62:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+97A text0 CODE >63:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+97C text0 CODE >64:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+980 text0 CODE >65:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+982 text0 CODE >66:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+988 text0 CODE >67:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+98A text0 CODE >68:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+98E text0 CODE >69:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+990 text0 CODE >70:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+994 text0 CODE >71:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+996 text0 CODE >73:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+99A text0 CODE >77:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+99C text0 CODE >57:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+9DE text0 CODE >78:C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
+FFA cinit CODE >781:C:\Users\Miro\AppData\Local\Temp\scio.
+FFA cinit CODE >783:C:\Users\Miro\AppData\Local\Temp\scio.
+FFA cinit CODE >786:C:\Users\Miro\AppData\Local\Temp\scio.
+FFA cinit CODE >798:C:\Users\Miro\AppData\Local\Temp\scio.
+FFE cinit CODE >799:C:\Users\Miro\AppData\Local\Temp\scio.
+1000 cinit CODE >800:C:\Users\Miro\AppData\Local\Temp\scio.
+1000 cinit CODE >801:C:\Users\Miro\AppData\Local\Temp\scio.
+1002 cinit CODE >802:C:\Users\Miro\AppData\Local\Temp\scio.
+1004 cinit CODE >803:C:\Users\Miro\AppData\Local\Temp\scio.
+1006 cinit CODE >809:C:\Users\Miro\AppData\Local\Temp\scio.
+1006 cinit CODE >812:C:\Users\Miro\AppData\Local\Temp\scio.
+1008 cinit CODE >813:C:\Users\Miro\AppData\Local\Temp\scio.
+100A cinit CODE >814:C:\Users\Miro\AppData\Local\Temp\scio.
+100C cinit CODE >815:C:\Users\Miro\AppData\Local\Temp\scio.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -449,19 +449,19 @@ __end_of_regDflt 325 0 SMALLCONST 0 smallconst dist/default/production\FMProject
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/production\FMProject.X.production.obj
 __end_of_hiloctrl1_bit 340 0 SMALLCONST 0 smallconst dist/default/production\FMProject.X.production.obj
 __end_of_hiloctrl2_bit 344 0 SMALLCONST 0 smallconst dist/default/production\FMProject.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Miro\AppData\Local\Temp\scio.obj
 __CFG_MCLRE$ON 0 0 ABS 0 - dist/default/production\FMProject.X.production.obj
 __end_of_delay_10ms F4C 0 CODE 0 text17 dist/default/production\FMProject.X.production.obj
 _IdleI2C 1034 0 CODE 0 text29 dist/default/production\FMProject.X.production.obj
 __end_of_FMfrequenc CC8 0 CODE 0 text3 dist/default/production\FMProject.X.production.obj
 __Lsmallconst 300 0 SMALLCONST 0 smallconst dist/default/production\FMProject.X.production.obj
 _Init E02 0 CODE 0 text19 dist/default/production\FMProject.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+___sp 0 0 STACK 2 stack C:\Users\Miro\AppData\Local\Temp\scio.obj
 _main 916 0 CODE 0 text0 dist/default/production\FMProject.X.production.obj
 _seek 740 0 CODE 0 text8 dist/default/production\FMProject.X.production.obj
 dly@d 1 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
 dly@i 3 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
-start 0 0 CODE 0 init C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+start 0 0 CODE 0 init C:\Users\Miro\AppData\Local\Temp\scio.obj
 setVolume@F6671 325 0 SMALLCONST 0 smallconst dist/default/production\FMProject.X.production.obj
 tuneWithAutoHiLo@curChannel 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
 __CFG_BOREN$OFF 0 0 ABS 0 - dist/default/production\FMProject.X.production.obj
@@ -481,11 +481,11 @@ __end_of_SeekUP 1022 0 CODE 0 text15 dist/default/production\FMProject.X.product
 _T0CONbits FD5 0 ABS 0 - dist/default/production\FMProject.X.production.obj
 __end_of_SeekDOWN 1034 0 CODE 0 text16 dist/default/production\FMProject.X.production.obj
 __end_of_butnEvent 594 0 CODE 0 text5 dist/default/production\FMProject.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\s1bc.obj
-intlevel0 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\s1bc.obj
-intlevel1 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\s1bc.obj
-intlevel2 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\s1bc.obj
-intlevel3 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+__accesstop 60 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\scio.obj
+intlevel0 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\scio.obj
+intlevel1 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\scio.obj
+intlevel2 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\scio.obj
+intlevel3 0 0 CODE 0 text C:\Users\Miro\AppData\Local\Temp\scio.obj
 __size_of_butnEvent 0 0 ABS 0 - dist/default/production\FMProject.X.production.obj
 _setSeekDirection DA8 0 CODE 0 text13 dist/default/production\FMProject.X.production.obj
 __size_of_readLOInjection 0 0 ABS 0 - dist/default/production\FMProject.X.production.obj
@@ -502,8 +502,8 @@ __end_ofsetVolume@F6671 338 0 SMALLCONST 0 smallconst dist/default/production\FM
 tuneWithAutoHiLo@status 21 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
 _nextChannel F6A 0 CODE 0 text2 dist/default/production\FMProject.X.production.obj
 _ADCON1 FC1 0 ABS 0 - dist/default/production\FMProject.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Miro\AppData\Local\Temp\s1bc.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Miro\AppData\Local\Temp\scio.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Miro\AppData\Local\Temp\scio.obj
 setHardmute@bitState 12 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
 __size_of_ReadI2C 0 0 ABS 0 - dist/default/production\FMProject.X.production.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\FMProject.X.production.obj
@@ -570,7 +570,7 @@ __Htext9 0 0 ABS 0 text9 dist/default/production\FMProject.X.production.obj
 __size_of_OpenI2C 0 0 ABS 0 - dist/default/production\FMProject.X.production.obj
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\FMProject.X.production.obj
 __Hbigram 0 0 ABS 0 bigram dist/default/production\FMProject.X.production.obj
-__smallconst 300 0 SMALLCONST 0 smallconst C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+__smallconst 300 0 SMALLCONST 0 smallconst C:\Users\Miro\AppData\Local\Temp\scio.obj
 __Hcomram 0 0 ABS 0 comram dist/default/production\FMProject.X.production.obj
 __Hconfig 30000A 0 CONFIG 0 config dist/default/production\FMProject.X.production.obj
 _tune_bit 354 0 SMALLCONST 0 smallconst dist/default/production\FMProject.X.production.obj
@@ -719,8 +719,8 @@ __Lfardata 0 0 FARRAM 0 fardata dist/default/production\FMProject.X.production.o
 _seekup_bit 34C 0 SMALLCONST 0 smallconst dist/default/production\FMProject.X.production.obj
 WriteI2C@data_out 2 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
 seek@direction 25 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
-stackhi 2FF 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\s1bc.obj
-stacklo 60 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+stackhi 2FF 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\scio.obj
+stacklo 60 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\scio.obj
 __Lintcode 0 0 CODE 0 intcode dist/default/production\FMProject.X.production.obj
 __end_of_IdleI2C 1046 0 CODE 0 text29 dist/default/production\FMProject.X.production.obj
 __Lintret 0 0 ABS 0 intret dist/default/production\FMProject.X.production.obj
@@ -788,7 +788,7 @@ __Ltext27 0 0 ABS 0 text27 dist/default/production\FMProject.X.production.obj
 __Ltext28 0 0 ABS 0 text28 dist/default/production\FMProject.X.production.obj
 __Ltext29 0 0 ABS 0 text29 dist/default/production\FMProject.X.production.obj
 __Ltext30 0 0 ABS 0 text30 dist/default/production\FMProject.X.production.obj
-__ramtop 300 0 RAM 0 ramtop C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+__ramtop 300 0 RAM 0 ramtop C:\Users\Miro\AppData\Local\Temp\scio.obj
 setBitInRegister@bitRegister 8 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
 setBitInRegister@address 11 0 COMRAM 1 cstackCOMRAM dist/default/production\FMProject.X.production.obj
 __end_of_previousChannel F6A 0 CODE 0 text1 dist/default/production\FMProject.X.production.obj
@@ -851,7 +851,7 @@ __Lbss 0 0 RAM 1 bss dist/default/production\FMProject.X.production.obj
 __Lram 0 0 ABS 0 ram dist/default/production\FMProject.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\FMProject.X.production.obj
 _errfm 1056 0 CODE 0 text4 dist/default/production\FMProject.X.production.obj
-___extmem_base 2000 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\s1bc.obj
+___extmem_base 2000 0 ABS 0 - C:\Users\Miro\AppData\Local\Temp\scio.obj
 _VolumeUp FA6 0 CODE 0 text6 dist/default/production\FMProject.X.production.obj
 _SSPSTATbits FC7 0 ABS 0 - dist/default/production\FMProject.X.production.obj
 _FMready E4A 0 CODE 0 text26 dist/default/production\FMProject.X.production.obj
