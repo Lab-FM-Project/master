@@ -7711,32 +7711,10 @@ unsigned char previousChannel();
 
 void delay_10ms(unsigned int n);
 
-# 13 "types.h"
-typedef unsigned char u08;
-typedef signed char s08;
-typedef unsigned short u16;
-typedef signed short s16;
-typedef unsigned long u32;
-typedef signed long s32;
-typedef unsigned long long u64;
-typedef signed long long s64;
+void tuneWithAutoHiLo();
+unsigned short frequency();
 
-# 50
-typedef unsigned char BOOL;
-typedef unsigned char BYTE;
-typedef unsigned int WORD;
-typedef unsigned long DWORD;
-
-typedef unsigned char UCHAR;
-typedef unsigned int UINT;
-typedef unsigned short USHORT;
-typedef unsigned long ULONG;
-
-typedef char CHAR;
-typedef int INT;
-typedef long LONG;
-
-# 46 "main.c"
+# 45 "main.c"
 const unsigned int regDflt[18] = {
 0xFFFF,
 0x5B15,
@@ -7760,21 +7738,35 @@ const unsigned int regDflt[18] = {
 
 unsigned int regImg[18];
 
-# 79
+
+const unsigned int hardmute_bit[2] = {1, 1};
+const unsigned int softmute_bit[2] = {1, 2};
+const unsigned int seek_bit[2] = {3, 14};
+const unsigned int seekup_bit[2] = {3, 15};
+const unsigned int tune_bit[2] = {2, 9};
+const unsigned int hiloctrl1_bit[2] = {11, 2};
+const unsigned int hiloctrl2_bit[2] = {11, 0};
+const unsigned int hiloside_bit[2] = {11, 15};
+
+# 98
 int butnEvent(void) {
-
+int timereturn;
 if (PORTAbits.RA0 == 0)
 {
 for (int c = 0; c <= 10; c++)_delay((unsigned long)((5)*(8000000/4000.0)));
 if (PORTAbits.RA0 == 0)
 {
-PORTCbits.RC6 = 1;
-delay_10ms(10);
-PORTCbits.RC6 = 0;
-return 1;
+timereturn = 1;
+for (int c = 0; c <= 10; c++)_delay((unsigned long)((7)*(8000000/4000.0)));
+if (PORTAbits.RA0 == 0) {
+timereturn = 6;
+}
+
+return timereturn;
 
 } else {
-return 0;
+timereturn = 0;
+return timereturn;
 }
 }
 
@@ -7783,9 +7775,17 @@ if (PORTAbits.RA1 == 0)
 for (int c = 0; c <= 10; c++)_delay((unsigned long)((5)*(8000000/4000.0)));
 if (PORTAbits.RA1 == 0)
 {
-return 2;
+timereturn = 2;
+for (int c = 0; c <= 10; c++)_delay((unsigned long)((12)*(8000000/4000.0)));
+if (PORTAbits.RA1 == 0) {
+timereturn = 7;
+}
+
+return timereturn;
+
 } else {
-return 0;
+timereturn = 0;
+return timereturn;
 }
 }
 
@@ -7821,7 +7821,7 @@ return 5;
 return 0;
 }
 }
-
+return 0;
 }
 
 
@@ -7835,7 +7835,7 @@ for (; d; --d)
 for (i = 100; i; --i);
 }
 
-# 160
+# 191
 void clrscn() {
 
 int i = 0;
@@ -7883,7 +7883,7 @@ SSPADD = 0x3F;
 return;
 }
 
-# 218
+# 249
 void segWrt(unsigned char segOrd, unsigned char state) {
 
 unsigned char bitSelect;
@@ -7896,7 +7896,7 @@ if (state) *LCReg |= bitSelect;
 else *LCReg &= ~bitSelect;
 }
 
-# 244
+# 275
 unsigned char FMwrite(unsigned char adr) {
 
 unsigned int regstr;
@@ -7924,7 +7924,7 @@ IdleI2C();
 return 0;
 }
 
-# 286
+# 317
 unsigned char FMread(unsigned char regAddr, unsigned int *data) {
 
 unsigned char firstByt;
@@ -7959,18 +7959,191 @@ IdleI2C();
 return 0;
 }
 
-# 334
+
+
+
+void setBitInRegister(unsigned char address, unsigned char bitRegister, unsigned char bitState) {
+
+if (bitState == 1)
+regImg[address] = regImg[address] | (1 << bitRegister);
+else
+regImg[address] = regImg[address] & ~(1 << bitRegister);
+
+FMwrite(address);
+}
+
+
+
+void setSeekDirection(char direction) {
+
+if (direction == 'd')
+setBitInRegister(seekup_bit[0], seekup_bit[1], 0);
+else if (direction == 'u')
+setBitInRegister(seekup_bit[0], seekup_bit[1], 1);
+}
+
+void setHardmute(unsigned char bitState) {
+setBitInRegister(hardmute_bit[0], hardmute_bit[1], bitState);
+}
+
+
+
+unsigned short seek(char direction) {
+
+# 395
+unsigned short curChannel;
+unsigned short temp = 0;
+unsigned int status;
+
+
+setHardmute(1);
+
+setBitInRegister(tune_bit[0], tune_bit[1], 0);
+
+
+
+
+setBitInRegister(seek_bit[0], seek_bit[1], 0);
+
+
+setSeekDirection(direction);
+
+
+setBitInRegister(seek_bit[0], seek_bit[1], 1);
+
+while (temp == 0) {
+if (FMread(0x13, &status) != 0) return 1;
+temp = status & 0x0020;
+}
+
+
+if (FMread(0x13, &status) != 0) return 1;
+temp = status & 0x0010;
+
+
+if (temp != 0)
+tuneWithAutoHiLo();
+
+
+setHardmute(0);
+
+curChannel = frequency() - 690;
+regImg[2] = regImg[2] & 0xFE00;
+regImg[2] |= curChannel;
+FMwrite(2);
+
+return frequency();
+}
+
+
+
+unsigned char readLOInjection(unsigned char loHi) {
+
+# 451
+unsigned char rssi_val = 0;
+unsigned short temp = 0;
+unsigned int status;
+
+if (loHi == 1)
+regImg[11] = regImg[11] | ~(0x7FFA);
+else
+regImg[11] = regImg[11] & 0x7FFA;
+
+FMwrite(11);
+
+
+setBitInRegister(tune_bit[0], tune_bit[1], 1);
+
+
+
+while (temp == 0) {
+if (FMread(0x13, &status) != 0) return 1;
+temp = status & 0x0020;
+}
+
+
+
+if (FMread(0x13, &status) != 0) return 1;
+rssi_val = (status & 0xFE00) >> 9;
+
+
+setBitInRegister(tune_bit[0], tune_bit[1], 0);
+
+return rssi_val;
+}
+
+
+
+void tuneWithAutoHiLo() {
+
+# 513
+unsigned char rssi_lo, rssi_hi;
+unsigned short curChannel, temp = 0;
+unsigned int status;
+
+
+setHardmute(1);
+
+setBitInRegister(tune_bit[0], tune_bit[1], 0);
+
+
+setBitInRegister(seek_bit[0], seek_bit[1], 0);
+
+
+curChannel = frequency() - 690;
+regImg[2] = regImg[2] & 0xFE00;
+regImg[2] |= curChannel;
+FMwrite(2);
+
+
+rssi_lo = readLOInjection(0);
+
+
+rssi_hi = readLOInjection(1);
+
+
+if (rssi_hi > rssi_lo) {
+
+setBitInRegister(hiloctrl1_bit[0], hiloctrl1_bit[1], 1);
+setBitInRegister(hiloctrl2_bit[0], hiloctrl2_bit[1], 1);
+setBitInRegister(hiloside_bit[0], hiloside_bit[1], 0);
+} else {
+
+setBitInRegister(hiloctrl1_bit[0], hiloctrl1_bit[1], 0);
+setBitInRegister(hiloctrl2_bit[0], hiloctrl2_bit[1], 0);
+setBitInRegister(hiloside_bit[0], hiloside_bit[1], 1);
+}
+
+
+setBitInRegister(tune_bit[0], tune_bit[1], 1);
+
+
+while (temp == 0) {
+if (FMread(0x13, &status) == 0);
+temp = status & 0x0020;
+}
+
+setHardmute(0);
+}
+
+unsigned short frequency() {
+unsigned int data;
+FMread(0x13, &data);
+return (((data & 0xFF80) >> 7) + 690);
+}
+
+# 579
 unsigned char FMready(unsigned int *rdy) {
 
 unsigned int sts;
 
 if (FMread(0x13, &sts) != 0) return 1;
 sts &= 0x0020;
-*rdy = sts ? -1 : 0;
+*rdy = sts ? 1 : 0;
 return 0;
 }
 
-# 354
+# 599
 unsigned char FMinit() {
 
 unsigned char ad;
@@ -7994,17 +8167,17 @@ showFreq();
 return 0;
 }
 
-# 390
+# 635
 unsigned char setVolume(int volume) {
 unsigned int dat;
 unsigned int cn;
 
 
-unsigned char temp_vol = volume;
+signed char temp_vol = volume;
 
-if(temp_vol < 0)
+if (temp_vol < 0)
 temp_vol = 0;
-else if(temp_vol > 18)
+else if (temp_vol > 18)
 temp_vol = 18;
 
 
@@ -8053,20 +8226,20 @@ if (FMready(&dat) != 0) return 1;
 return 0;
 }
 
-# 460
+# 705
 unsigned char FMvers(unsigned int *vsn) {
 if (FMread(0x1C, vsn) != 0) return 1;
 return 0;
 }
 
-# 475
+# 720
 unsigned char FMid(unsigned int *id) {
 
 if (FMread(0x1B, id) != 0) return 1;
 return 0;
 }
 
-# 493
+# 738
 unsigned char nextChannel() {
 FMfrequenc(964);
 PORTCbits.RC6 = 1;
@@ -8078,7 +8251,8 @@ return 0;
 }
 
 unsigned char previousChannel() {
-FMfrequenc(1046);
+
+FMfrequenc(958);
 PORTCbits.RC7 = 1;
 delay_10ms(10);
 PORTCbits.RC7 = 0;
@@ -8087,7 +8261,10 @@ return 0;
 }
 
 unsigned char VolumeUp() {
-setVolume(18);
+char dir = 'u';
+seek(dir);
+
+
 PORTCbits.RC6 = 1;
 delay_10ms(10);
 PORTCbits.RC6 = 0;
@@ -8096,7 +8273,10 @@ return 0;
 }
 
 unsigned char VolumeDown() {
-setVolume(10);
+char dir = 'd';
+seek(dir);
+
+
 PORTCbits.RC7 = 1;
 delay_10ms(10);
 PORTCbits.RC7 = 0;
@@ -8110,14 +8290,32 @@ unsigned char MuteHard(unsigned char down) {
 return 0;
 }
 
-# 547
+unsigned char SeekUP() {
+
+PORTCbits.RC7 = 1;
+delay_10ms(10);
+PORTCbits.RC7 = 0;
+
+return 0;
+}
+
+unsigned char SeekDOWN() {
+
+PORTCbits.RC7 = 1;
+delay_10ms(10);
+PORTCbits.RC7 = 0;
+
+return 0;
+}
+
+# 817
 void errfm() {
 
 ;
 for (;;);
 }
 
-# 563
+# 833
 unsigned char showFreq() {
 
 ;
@@ -8137,8 +8335,9 @@ Init();
 FMvers(&ui);
 if (ui != 0x1010) errfm();
 if (FMinit() != 0) errfm();
-
+FMfrequenc(964);
 for (;;) {
+
 evt = butnEvent();
 switch (evt) {
 case 1: nextChannel();
@@ -8150,6 +8349,10 @@ break;
 case 4: VolumeDown();
 break;
 case 5: MuteHard(0);
+break;
+case 6: SeekUP();
+break;
+case 7: SeekDOWN();
 break;
 
 case 8: errfm();

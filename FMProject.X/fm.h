@@ -89,6 +89,8 @@ unsigned char previousChannel();
 
 void delay_10ms(unsigned int n);
 
+void tuneWithAutoHiLo();
+unsigned short frequency();
 
 
 //
