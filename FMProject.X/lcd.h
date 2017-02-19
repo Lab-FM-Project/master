@@ -1,7 +1,7 @@
 
 //LCD Functions Developed by electroSome
 
-
+#include <stdlib.h>
 void Lcd_Port(char a)
 {
 	if(a & 1)
@@ -117,20 +117,18 @@ void Lcd_Shift_Left()
 
 void homescreen(float freq)
 {
-	char output[50];
-    snprintf(output, 50, "%f", freq);
-
-printf("%s", output);
+	
     Lcd_Clear();
+    char output[5];
+    snprintf(output, 5, "%d", freq);
     Lcd_Set_Cursor(1,1);
-    Lcd_Write_String(c);
+    Lcd_Write_String("Radio 1");
     
     Lcd_Set_Cursor(2,1);
     
-   Lcd_Write_String("89.5");
+   Lcd_Write_String(output);
    Lcd_Write_String("MHZ");
 }
-=======
 /**
     Header File for Module lcd.c
 
