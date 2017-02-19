@@ -31,6 +31,7 @@
 [v _ReadI2C ReadI2C `(uc  1 e 1 0 ]
 "12 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\i2c\i2c_writ.c
 [v _WriteI2C WriteI2C `(c  1 e 1 0 ]
+<<<<<<< HEAD
 "78 C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
 [v _butnEvent butnEvent `(i  1 e 2 0 ]
 "142
@@ -68,6 +69,61 @@
 "569
 [v _main main `(v  1 e 1 0 ]
 "603
+=======
+"98 /Users/user/Desktop/master/FMProject.X/main.c
+[v _butnEvent butnEvent `(i  1 e 2 0 ]
+"176
+[v _dly dly `(v  1 e 1 0 ]
+"207
+[v _Init Init `(v  1 e 1 0 ]
+"275
+[v _FMwrite FMwrite `(uc  1 e 1 0 ]
+"317
+[v _FMread FMread `(uc  1 e 1 0 ]
+"354
+[v _setBitInRegister setBitInRegister `(v  1 e 1 0 ]
+"366
+[v _setSeekDirection setSeekDirection `(v  1 e 1 0 ]
+"374
+[v _setHardmute setHardmute `(v  1 e 1 0 ]
+"380
+[v _seek seek `(us  1 e 2 0 ]
+"441
+[v _readLOInjection readLOInjection `(uc  1 e 1 0 ]
+"485
+[v _tuneWithAutoHiLo tuneWithAutoHiLo `(v  1 e 1 0 ]
+"562
+[v _frequency frequency `(us  1 e 2 0 ]
+"579
+[v _FMready FMready `(uc  1 e 1 0 ]
+"599
+[v _FMinit FMinit `(uc  1 e 1 0 ]
+"673
+[v _FMfrequenc FMfrequenc `(uc  1 e 1 0 ]
+"705
+[v _FMvers FMvers `(uc  1 e 1 0 ]
+"738
+[v _nextChannel nextChannel `(uc  1 e 1 0 ]
+"748
+[v _previousChannel previousChannel `(uc  1 e 1 0 ]
+"758
+[v _VolumeUp VolumeUp `(uc  1 e 1 0 ]
+"770
+[v _VolumeDown VolumeDown `(uc  1 e 1 0 ]
+"782
+[v _MuteHard MuteHard `(uc  1 e 1 0 ]
+"788
+[v _SeekUP SeekUP `(uc  1 e 1 0 ]
+"797
+[v _SeekDOWN SeekDOWN `(uc  1 e 1 0 ]
+"817
+[v _errfm errfm `(v  1 e 1 0 ]
+"833
+[v _showFreq showFreq `(uc  1 e 1 0 ]
+"842
+[v _main main `(v  1 e 1 0 ]
+"880
+>>>>>>> origin/master
 [v _delay_10ms delay_10ms `(v  1 e 1 0 ]
 "49 C:\Program Files (x86)\Microchip\xc8\v1.38\include\pic18f6490.h
 [v _LCDPS LCDPS `VEuc  1 e 1 @3928 ]
@@ -166,7 +222,11 @@
 [v _PORTBbits PORTBbits `VES143  1 e 1 @3969 ]
 "5105
 [v _PORTC PORTC `VEuc  1 e 1 @3970 ]
+<<<<<<< HEAD
 [s S393 . 1 `uc 1 RC0 1 0 :1:0 
+=======
+[s S401 . 1 `uc 1 RC0 1 0 :1:0 
+>>>>>>> origin/master
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -176,7 +236,11 @@
 `uc 1 RC7 1 0 :1:7 
 ]
 "5159
+<<<<<<< HEAD
 [s S402 . 1 `uc 1 T1OSO 1 0 :1:0 
+=======
+[s S410 . 1 `uc 1 T1OSO 1 0 :1:0 
+>>>>>>> origin/master
 `uc 1 T1OSI 1 0 :1:1 
 `uc 1 CCP1 1 0 :1:2 
 `uc 1 SCK 1 0 :1:3 
@@ -185,7 +249,11 @@
 `uc 1 TX 1 0 :1:6 
 `uc 1 RX 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [s S411 . 1 `uc 1 T13CKI 1 0 :1:0 
+=======
+[s S419 . 1 `uc 1 T13CKI 1 0 :1:0 
+>>>>>>> origin/master
 `uc 1 CCP2C 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SCL 1 0 :1:3 
@@ -194,6 +262,7 @@
 `uc 1 CK 1 0 :1:6 
 `uc 1 DT 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [s S420 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 SEG13 1 0 :1:2 
 `uc 1 SEG12 1 0 :1:3 
@@ -209,6 +278,23 @@
 ]
 [u S433 . 1 `S393 1 . 1 0 `S402 1 . 1 0 `S411 1 . 1 0 `S420 1 . 1 0 `S424 1 . 1 0 `S427 1 . 1 0 `S430 1 . 1 0 ]
 [v _PORTCbits PORTCbits `VES433  1 e 1 @3970 ]
+=======
+[s S428 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 SEG13 1 0 :1:2 
+`uc 1 SEG12 1 0 :1:3 
+]
+[s S432 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 CCP2 1 0 :1:1 
+]
+[s S435 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 PA1 1 0 :1:2 
+]
+[s S438 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 PA2 1 0 :1:1 
+]
+[u S441 . 1 `S401 1 . 1 0 `S410 1 . 1 0 `S419 1 . 1 0 `S428 1 . 1 0 `S432 1 . 1 0 `S435 1 . 1 0 `S438 1 . 1 0 ]
+[v _PORTCbits PORTCbits `VES441  1 e 1 @3970 ]
+>>>>>>> origin/master
 [s S184 . 1 `uc 1 RG0 1 0 :1:0 
 `uc 1 RG1 1 0 :1:1 
 `uc 1 RG2 1 0 :1:2 
@@ -249,7 +335,11 @@
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "7299
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+<<<<<<< HEAD
 [s S804 . 1 `uc 1 TRISC0 1 0 :1:0 
+=======
+[s S859 . 1 `uc 1 TRISC0 1 0 :1:0 
+>>>>>>> origin/master
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -259,11 +349,19 @@
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "7384
+<<<<<<< HEAD
 [u S822 . 1 `S804 1 . 1 0 `S393 1 . 1 0 ]
 [v _TRISCbits TRISCbits `VES822  1 e 1 @3988 ]
 "8091
 [v _TRISG TRISG `VEuc  1 e 1 @3992 ]
 [s S1003 . 1 `uc 1 TMR1IF 1 0 :1:0 
+=======
+[u S877 . 1 `S859 1 . 1 0 `S401 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES877  1 e 1 @3988 ]
+"8091
+[v _TRISG TRISG `VEuc  1 e 1 @3992 ]
+[s S1058 . 1 `uc 1 TMR1IF 1 0 :1:0 
+>>>>>>> origin/master
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
 `uc 1 SSPIF 1 0 :1:3 
@@ -272,12 +370,21 @@
 `uc 1 ADIF 1 0 :1:6 
 ]
 "8448
+<<<<<<< HEAD
 [s S1011 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 TX1IF 1 0 :1:4 
 `uc 1 RC1IF 1 0 :1:5 
 ]
 [u S1015 . 1 `S1003 1 . 1 0 `S1011 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES1015  1 e 1 @3998 ]
+=======
+[s S1066 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 TX1IF 1 0 :1:4 
+`uc 1 RC1IF 1 0 :1:5 
+]
+[u S1070 . 1 `S1058 1 . 1 0 `S1066 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES1070  1 e 1 @3998 ]
+>>>>>>> origin/master
 "10033
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 [s S355 . 1 `uc 1 SEN 1 0 :1:0 
@@ -296,18 +403,27 @@
 [v _SSPCON2 SSPCON2 `VEuc  1 e 1 @4037 ]
 "10377
 [v _SSPCON1 SSPCON1 `VEuc  1 e 1 @4038 ]
+<<<<<<< HEAD
 [s S976 . 1 `uc 1 SSPM 1 0 :4:0 
+=======
+[s S1031 . 1 `uc 1 SSPM 1 0 :4:0 
+>>>>>>> origin/master
 `uc 1 CKP 1 0 :1:4 
 `uc 1 SSPEN 1 0 :1:5 
 `uc 1 SSPOV 1 0 :1:6 
 `uc 1 WCOL 1 0 :1:7 
 ]
 "10397
+<<<<<<< HEAD
 [s S982 . 1 `uc 1 SSPM0 1 0 :1:0 
+=======
+[s S1037 . 1 `uc 1 SSPM0 1 0 :1:0 
+>>>>>>> origin/master
 `uc 1 SSPM1 1 0 :1:1 
 `uc 1 SSPM2 1 0 :1:2 
 `uc 1 SSPM3 1 0 :1:3 
 ]
+<<<<<<< HEAD
 [u S987 . 1 `S976 1 . 1 0 `S982 1 . 1 0 ]
 [v _SSPCON1bits SSPCON1bits `VES987  1 e 1 @4038 ]
 "10446
@@ -320,6 +436,20 @@
 `uc 1 D_NOT_A 1 0 :1:5 
 ]
 [s S629 . 1 `uc 1 BF 1 0 :1:0 
+=======
+[u S1042 . 1 `S1031 1 . 1 0 `S1037 1 . 1 0 ]
+[v _SSPCON1bits SSPCON1bits `VES1042  1 e 1 @4038 ]
+"10446
+[v _SSPSTAT SSPSTAT `VEuc  1 e 1 @4039 ]
+[s S678 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 R_NOT_W 1 0 :1:2 
+]
+"10548
+[s S681 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 D_NOT_A 1 0 :1:5 
+]
+[s S684 . 1 `uc 1 BF 1 0 :1:0 
+>>>>>>> origin/master
 `uc 1 UA 1 0 :1:1 
 `uc 1 R_nW 1 0 :1:2 
 `uc 1 S 1 0 :1:3 
@@ -328,22 +458,35 @@
 `uc 1 CKE 1 0 :1:6 
 `uc 1 SMP 1 0 :1:7 
 ]
+<<<<<<< HEAD
 [s S644 . 1 `uc 1 . 1 0 :2:0 
+=======
+[s S699 . 1 `uc 1 . 1 0 :2:0 
+>>>>>>> origin/master
 `uc 1 R_W 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D_A 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S649 . 1 `uc 1 . 1 0 :2:0 
+=======
+[s S704 . 1 `uc 1 . 1 0 :2:0 
+>>>>>>> origin/master
 `uc 1 I2C_READ 1 0 :1:2 
 `uc 1 I2C_START 1 0 :1:3 
 `uc 1 I2C_STOP 1 0 :1:4 
 `uc 1 I2C_DAT 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S655 . 1 `uc 1 . 1 0 :2:0 
+=======
+[s S710 . 1 `uc 1 . 1 0 :2:0 
+>>>>>>> origin/master
 `uc 1 nW 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nA 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S660 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_WRITE 1 0 :1:2 
 ]
@@ -351,20 +494,38 @@
 `uc 1 NOT_ADDRESS 1 0 :1:5 
 ]
 [s S666 . 1 `uc 1 . 1 0 :2:0 
+=======
+[s S715 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_WRITE 1 0 :1:2 
+]
+[s S718 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_ADDRESS 1 0 :1:5 
+]
+[s S721 . 1 `uc 1 . 1 0 :2:0 
+>>>>>>> origin/master
 `uc 1 nWRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 nADDRESS 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S671 . 1 `uc 1 . 1 0 :2:0 
+=======
+[s S726 . 1 `uc 1 . 1 0 :2:0 
+>>>>>>> origin/master
 `uc 1 READ_WRITE 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 DATA_ADDRESS 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S676 . 1 `uc 1 . 1 0 :2:0 
+=======
+[s S731 . 1 `uc 1 . 1 0 :2:0 
+>>>>>>> origin/master
 `uc 1 R 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 D 1 0 :1:5 
 ]
+<<<<<<< HEAD
 [s S681 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 DA 1 0 :1:5 
 ]
@@ -385,6 +546,28 @@
 ]
 [u S699 . 1 `S623 1 . 1 0 `S626 1 . 1 0 `S629 1 . 1 0 `S623 1 . 1 0 `S626 1 . 1 0 `S644 1 . 1 0 `S649 1 . 1 0 `S655 1 . 1 0 `S660 1 . 1 0 `S663 1 . 1 0 `S666 1 . 1 0 `S671 1 . 1 0 `S676 1 . 1 0 `S681 1 . 1 0 `S684 1 . 1 0 `S687 1 . 1 0 `S690 1 . 1 0 `S693 1 . 1 0 `S696 1 . 1 0 ]
 [v _SSPSTATbits SSPSTATbits `VES699  1 e 1 @4039 ]
+=======
+[s S736 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 DA 1 0 :1:5 
+]
+[s S739 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 RW 1 0 :1:2 
+]
+[s S742 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 START 1 0 :1:3 
+]
+[s S745 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 STOP 1 0 :1:4 
+]
+[s S748 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 NOT_W 1 0 :1:2 
+]
+[s S751 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 NOT_A 1 0 :1:5 
+]
+[u S754 . 1 `S678 1 . 1 0 `S681 1 . 1 0 `S684 1 . 1 0 `S678 1 . 1 0 `S681 1 . 1 0 `S699 1 . 1 0 `S704 1 . 1 0 `S710 1 . 1 0 `S715 1 . 1 0 `S718 1 . 1 0 `S721 1 . 1 0 `S726 1 . 1 0 `S731 1 . 1 0 `S736 1 . 1 0 `S739 1 . 1 0 `S742 1 . 1 0 `S745 1 . 1 0 `S748 1 . 1 0 `S751 1 . 1 0 ]
+[v _SSPSTATbits SSPSTATbits `VES754  1 e 1 @4039 ]
+>>>>>>> origin/master
 "10647
 [v _SSPADD SSPADD `VEuc  1 e 1 @4040 ]
 "10718
@@ -436,6 +619,7 @@
 ]
 [u S292 . 1 `S270 1 . 1 0 `S279 1 . 1 0 `S288 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES292  1 e 1 @4082 ]
+<<<<<<< HEAD
 "45 C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
 [v _regDflt regDflt `C[18]ui  1 e 36 0 ]
 "66
@@ -532,6 +716,201 @@
 [v _Init Init `(v  1 e 1 0 ]
 {
 "202
+=======
+"45 /Users/user/Desktop/master/FMProject.X/main.c
+[v _regDflt regDflt `C[18]ui  1 e 36 0 ]
+"66
+[v _regImg regImg `[18]ui  1 e 36 0 ]
+"69
+[v _hardmute_bit hardmute_bit `C[2]ui  1 e 4 0 ]
+"71
+[v _seek_bit seek_bit `C[2]ui  1 e 4 0 ]
+"72
+[v _seekup_bit seekup_bit `C[2]ui  1 e 4 0 ]
+"73
+[v _tune_bit tune_bit `C[2]ui  1 e 4 0 ]
+"74
+[v _hiloctrl1_bit hiloctrl1_bit `C[2]ui  1 e 4 0 ]
+"75
+[v _hiloctrl2_bit hiloctrl2_bit `C[2]ui  1 e 4 0 ]
+"76
+[v _hiloside_bit hiloside_bit `C[2]ui  1 e 4 0 ]
+"842
+[v _main main `(v  1 e 1 0 ]
+{
+"844
+[v main@ui ui `ui  1 a 2 46 ]
+"843
+[v main@evt evt `i  1 a 2 44 ]
+"878
+} 0
+"748
+[v _previousChannel previousChannel `(uc  1 e 1 0 ]
+{
+"756
+} 0
+"738
+[v _nextChannel nextChannel `(uc  1 e 1 0 ]
+{
+"746
+} 0
+"673
+[v _FMfrequenc FMfrequenc `(uc  1 e 1 0 ]
+{
+"675
+[v FMfrequenc@dat dat `ui  1 a 2 25 ]
+"676
+[v FMfrequenc@cn cn `ui  1 a 2 23 ]
+"673
+[v FMfrequenc@f f `ui  1 p 2 17 ]
+"691
+} 0
+"817
+[v _errfm errfm `(v  1 e 1 0 ]
+{
+"821
+} 0
+"98
+[v _butnEvent butnEvent `(i  1 e 2 0 ]
+{
+"125
+[v butnEvent@c_518 c `i  1 a 2 9 ]
+"106
+[v butnEvent@c_516 c `i  1 a 2 5 ]
+"162
+[v butnEvent@c_535 c `i  1 a 2 15 ]
+"151
+[v butnEvent@c_528 c `i  1 a 2 13 ]
+"140
+[v butnEvent@c_527 c `i  1 a 2 11 ]
+"121
+[v butnEvent@c_517 c `i  1 a 2 7 ]
+"102
+[v butnEvent@c c `i  1 a 2 3 ]
+"99
+[v butnEvent@timereturn timereturn `i  1 a 2 17 ]
+"171
+} 0
+"758
+[v _VolumeUp VolumeUp `(uc  1 e 1 0 ]
+{
+"759
+[v VolumeUp@dir dir `uc  1 a 1 41 ]
+"768
+} 0
+"770
+[v _VolumeDown VolumeDown `(uc  1 e 1 0 ]
+{
+"771
+[v VolumeDown@dir dir `uc  1 a 1 41 ]
+"780
+} 0
+"380
+[v _seek seek `(us  1 e 2 0 ]
+{
+[v seek@direction direction `uc  1 a 1 wreg ]
+"397
+[v seek@status status `ui  1 a 2 39 ]
+"396
+[v seek@temp temp `us  1 a 2 37 ]
+"395
+[v seek@curChannel curChannel `us  1 a 2 34 ]
+"380
+[v seek@direction direction `uc  1 a 1 wreg ]
+"396
+[v seek@direction direction `uc  1 a 1 36 ]
+"437
+} 0
+"485
+[v _tuneWithAutoHiLo tuneWithAutoHiLo `(v  1 e 1 0 ]
+{
+"515
+[v tuneWithAutoHiLo@status status `ui  1 a 2 32 ]
+"514
+[v tuneWithAutoHiLo@temp temp `us  1 a 2 28 ]
+[v tuneWithAutoHiLo@curChannel curChannel `us  1 a 2 26 ]
+"513
+[v tuneWithAutoHiLo@rssi_hi rssi_hi `uc  1 a 1 31 ]
+[v tuneWithAutoHiLo@rssi_lo rssi_lo `uc  1 a 1 30 ]
+"560
+} 0
+"374
+[v _setHardmute setHardmute `(v  1 e 1 0 ]
+{
+[v setHardmute@bitState bitState `uc  1 a 1 wreg ]
+[v setHardmute@bitState bitState `uc  1 a 1 wreg ]
+[v setHardmute@bitState bitState `uc  1 a 1 17 ]
+"376
+} 0
+"441
+[v _readLOInjection readLOInjection `(uc  1 e 1 0 ]
+{
+[v readLOInjection@loHi loHi `uc  1 a 1 wreg ]
+"453
+[v readLOInjection@status status `ui  1 a 2 24 ]
+"452
+[v readLOInjection@temp temp `us  1 a 2 21 ]
+"451
+[v readLOInjection@rssi_val rssi_val `uc  1 a 1 23 ]
+"441
+[v readLOInjection@loHi loHi `uc  1 a 1 wreg ]
+"451
+[v readLOInjection@loHi loHi `uc  1 a 1 20 ]
+"481
+} 0
+"562
+[v _frequency frequency `(us  1 e 2 0 ]
+{
+"563
+[v frequency@data data `ui  1 a 2 18 ]
+"566
+} 0
+"366
+[v _setSeekDirection setSeekDirection `(v  1 e 1 0 ]
+{
+[v setSeekDirection@direction direction `uc  1 a 1 wreg ]
+[v setSeekDirection@direction direction `uc  1 a 1 wreg ]
+"368
+[v setSeekDirection@direction direction `uc  1 a 1 17 ]
+"372
+} 0
+"354
+[v _setBitInRegister setBitInRegister `(v  1 e 1 0 ]
+{
+[v setBitInRegister@address address `uc  1 a 1 wreg ]
+[v setBitInRegister@address address `uc  1 a 1 wreg ]
+[v setBitInRegister@bitRegister bitRegister `uc  1 p 1 7 ]
+[v setBitInRegister@bitState bitState `uc  1 p 1 8 ]
+"356
+[v setBitInRegister@address address `uc  1 a 1 16 ]
+"362
+} 0
+"788
+[v _SeekUP SeekUP `(uc  1 e 1 0 ]
+{
+"795
+} 0
+"797
+[v _SeekDOWN SeekDOWN `(uc  1 e 1 0 ]
+{
+"804
+} 0
+"880
+[v _delay_10ms delay_10ms `(v  1 e 1 0 ]
+{
+[v delay_10ms@n n `ui  1 p 2 0 ]
+"884
+} 0
+"782
+[v _MuteHard MuteHard `(uc  1 e 1 0 ]
+{
+"786
+} 0
+"207
+[v _Init Init `(v  1 e 1 0 ]
+{
+"236
+>>>>>>> origin/master
 } 0
 "14 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\i2c\i2c_open.c
 [v _OpenI2C OpenI2C `(v  1 e 1 0 ]
@@ -543,6 +922,7 @@
 [v OpenI2C@sync_mode sync_mode `uc  1 a 1 1 ]
 "26
 } 0
+<<<<<<< HEAD
 "457 C:\Users\Miro\Documents\GitHub\master\FMProject.X\main.c
 [v _FMvers FMvers `(uc  1 e 1 0 ]
 {
@@ -609,6 +989,74 @@
 "288
 [v FMread@regAddr regAddr `uc  1 a 1 8 ]
 "315
+=======
+"705 /Users/user/Desktop/master/FMProject.X/main.c
+[v _FMvers FMvers `(uc  1 e 1 0 ]
+{
+[v FMvers@vsn vsn `*.39ui  1 p 2 11 ]
+"708
+} 0
+"599
+[v _FMinit FMinit `(uc  1 e 1 0 ]
+{
+"602
+[v FMinit@dat dat `ui  1 a 2 17 ]
+"601
+[v FMinit@ad ad `uc  1 a 1 19 ]
+"620
+} 0
+"833
+[v _showFreq showFreq `(uc  1 e 1 0 ]
+{
+"837
+} 0
+"176
+[v _dly dly `(v  1 e 1 0 ]
+{
+"178
+[v dly@i i `i  1 a 2 2 ]
+"176
+[v dly@d d `i  1 p 2 0 ]
+"182
+} 0
+"275
+[v _FMwrite FMwrite `(uc  1 e 1 0 ]
+{
+[v FMwrite@adr adr `uc  1 a 1 wreg ]
+"279
+[v FMwrite@secndByt secndByt `uc  1 a 1 5 ]
+"278
+[v FMwrite@firstByt firstByt `uc  1 a 1 4 ]
+"275
+[v FMwrite@adr adr `uc  1 a 1 wreg ]
+"282
+[v FMwrite@adr adr `uc  1 a 1 6 ]
+"300
+} 0
+"579
+[v _FMready FMready `(uc  1 e 1 0 ]
+{
+"581
+[v FMready@sts sts `ui  1 a 2 15 ]
+"579
+[v FMready@rdy rdy `*.39ui  1 p 2 11 ]
+"587
+} 0
+"317
+[v _FMread FMread `(uc  1 e 1 0 ]
+{
+[v FMread@regAddr regAddr `uc  1 a 1 wreg ]
+"320
+[v FMread@secndByt secndByt `uc  1 a 1 10 ]
+"319
+[v FMread@firstByt firstByt `uc  1 a 1 9 ]
+"317
+[v FMread@regAddr regAddr `uc  1 a 1 wreg ]
+[v FMread@data data `*.39ui  1 p 2 2 ]
+"322
+[v FMread@regAddr regAddr `uc  1 a 1 8 ]
+"349
+>>>>>>> origin/master
 } 0
 "12 C:\Program Files (x86)\Microchip\xc8\v1.38\sources\pic18\plib\i2c\i2c_writ.c
 [v _WriteI2C WriteI2C `(c  1 e 1 0 ]

@@ -65,6 +65,26 @@ const unsigned int regDflt[18] = {
 
 unsigned int regImg[18]; // FM register bank images
 
+// Define register/bit arrays for particular functions
+const unsigned int hardmute_bit[2] = {1, 1}; // Register 1 -  xxxx xxxx xxxx xxDx
+const unsigned int softmute_bit[2] = {1, 2}; // Register 1 -  xxxx xxxx xxxx xDxx
+const unsigned int seek_bit[2] = {3, 14}; // Register 3 -  xDxx xxxx xxxx xxxx
+const unsigned int seekup_bit[2] = {3, 15}; // Register 3 -  Dxxx xxxx xxxx xxxx
+const unsigned int tune_bit[2] = {2, 9}; // Register 2 -  xxxx xxDx xxxx xxxx
+const unsigned int hiloctrl1_bit[2] = {11, 2}; // Register 11 - xxxx xxxx xxxx xDxx
+const unsigned int hiloctrl2_bit[2] = {11, 0}; // Register 11 - xxxx xxxx xxxx xxxD
+const unsigned int hiloside_bit[2] = {11, 15}; // Register 11 - Dxxx xxxx xxxx xxxx
+
+#define RSSI_ADDR		0x12	 // Address of the RSSI register
+#define ADDR_STATUS		0x13     // Address of the status register
+#define CHAN_MASK		0xFE00	 // Bit range of register 2's channel setting
+#define SHIFT_READCHAN	7		 // Number of bits to shift to get READCHAN value
+
+#define MASK_ST			0x0008   // Stereo D3 in address 13H
+#define MASK_READCHAN	0xFF80   // D7~D15 in address 13H
+
+#define HILO_MASK		0x7FFA	 // D15, D2 and D0 in register 11 - hi/lo injection bits
+
 /*
  * Obtain latest change in state for the pushbutton set.
  *
@@ -76,17 +96,28 @@ unsigned int regImg[18]; // FM register bank images
  *
  */
 int butnEvent(void) {
-
+    int timereturn;
     if (NextChan == 0) //check if the switch is closed
     {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (NextChan == 0) //check if the switch is still closed
         {
+<<<<<<< HEAD
             
             return 1;
+=======
+            timereturn = 1;
+            for (int c = 0; c <= 10; c++)__delay_ms(7);
+            if (NextChan == 0) {
+                timereturn = 6;
+            }
+
+            return timereturn;
+>>>>>>> origin/master
 
         } else {
-            return 0;
+            timereturn = 0;
+            return timereturn;
         }
     }
 
@@ -95,9 +126,17 @@ int butnEvent(void) {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (PrevChan == 0) //check if the switch is still closed
         {
-            return 2; //something
+            timereturn = 2;
+            for (int c = 0; c <= 10; c++)__delay_ms(12);
+            if (PrevChan == 0) {
+                timereturn = 7;
+            }
+
+            return timereturn;
+
         } else {
-            return 0; //something
+            timereturn = 0;
+            return timereturn;
         }
     }
 
@@ -133,7 +172,7 @@ int butnEvent(void) {
             return 0; //something
         }
     }
-
+    return 0;
 }
 //
 // end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -317,6 +356,220 @@ unsigned char FMread(unsigned char regAddr, unsigned int *data) {
 // end FMread ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
 
+void setBitInRegister(unsigned char address, unsigned char bitRegister, unsigned char bitState) {
+    // Use bitState to decide which masking to use (to 1 or to 0)
+    if (bitState == 1)
+        regImg[address] = regImg[address] | (1 << bitRegister);
+    else
+        regImg[address] = regImg[address] & ~(1 << bitRegister);
+
+    FMwrite(address);
+}
+
+// Set seek direction =================================================================
+
+void setSeekDirection(char direction) {
+    // Change the direction of the seek function: 'u' - up, 'd' - down
+    if (direction == 'd')
+        setBitInRegister(seekup_bit[0], seekup_bit[1], 0);
+    else if (direction == 'u')
+        setBitInRegister(seekup_bit[0], seekup_bit[1], 1);
+}
+
+void setHardmute(unsigned char bitState) {
+    setBitInRegister(hardmute_bit[0], hardmute_bit[1], bitState);
+}
+
+// Seek method ============================================================
+
+unsigned short seek(char direction) {
+    /*
+     PSEUDO-CODE FROM PROGRAMMING GUIDE
+     1 Set hmute Bit 
+     2 Clear TUNE Bit 
+     3 Set CHAN Bits 
+     4 Clear SEEK Bit 
+     5 Set SEEKUP/SPACE/BAND/SEEKTH Bits 
+     6 Enable SEEK Bit 
+     7 Wait STC flag (Seek/Tune Complete, in ?Status? register) 
+     8 If SF then tune with AutoHiLo
+     9 Clear hmute Bit 
+     10 Update  Functions  (optional,  but  remember  to  update  CHAN  with  the  seek in READCHAN before next seek) 
+     */
+
+    unsigned short curChannel;
+    unsigned short temp = 0;
+    unsigned int status;
+
+    // 1 May put in later
+    setHardmute(1);
+    // 2 Unset tune bit ------------------------------------------------------
+    setBitInRegister(tune_bit[0], tune_bit[1], 0);
+
+    // 3 is not required - no override required
+
+    // 4 Unset seek bit ------------------------------------------------------
+    setBitInRegister(seek_bit[0], seek_bit[1], 0);
+
+    // 5 Seek attributes - can be set by other functions ---------------------
+    setSeekDirection(direction);
+
+    // 6 Set seek bit to enable seek -----------------------------------------
+    setBitInRegister(seek_bit[0], seek_bit[1], 1);
+
+    while (temp == 0) {
+        if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+        temp = status & 0x0020;
+    }
+
+    // 8 Check if tune was successful, tune with Auto Hi Lo if not
+    if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+    temp = status & 0x0010;
+
+
+    if (temp != 0)
+        tuneWithAutoHiLo();
+
+    // 9 May put in later
+    setHardmute(0);
+    // 10 Update CHAN from result (READCHAN) ------------------------------------
+    curChannel = frequency() - 690;
+    regImg[2] = regImg[2] & CHAN_MASK;
+    regImg[2] |= curChannel;
+    FMwrite(2);
+
+    return frequency();
+}
+
+// Read low-side or high-side LO injection data =======================================
+
+unsigned char readLOInjection(unsigned char loHi) {
+    /*  PSEUDO-CODE FOR READING LO/HI INJECTION
+        1. Set R11 (clear D15, clear D0/D2) 
+        2. Enable TUNE Bit 
+        3. Wait STC flag (Seek/Tune Complete, in ?Status? register) 
+        4. Get RSSI 
+        5. Clear TUNE Bit
+        6. Return RSSI
+     */
+
+    unsigned char rssi_val = 0;
+    unsigned short temp = 0;
+    unsigned int status;
+    // 1. Set R11 - D15, D2-D0 - clear for low-side, set for high-side
+    if (loHi == 1)
+        regImg[11] = regImg[11] | ~(0x7FFA);
+    else
+        regImg[11] = regImg[11] & 0x7FFA; //0x7FFA - HiLow Mask
+
+    FMwrite(11);
+
+    // 2. Set tune bit -----------------------------
+    setBitInRegister(tune_bit[0], tune_bit[1], 1);
+
+    // 3. Wait for STC flag to stabilise -----------
+
+    while (temp == 0) {
+        if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+        temp = status & 0x0020;
+    }
+
+    // 4. Get RSSI value (R0x12, D9-D15)
+
+    if (FMread(FMCHIPSTSADR, &status) != XS) return XF;
+    rssi_val = (status & 0xFE00) >> 9;
+
+    // 5. Clear tune bit -----------------------------
+    setBitInRegister(tune_bit[0], tune_bit[1], 0);
+
+    return rssi_val;
+}
+
+// Tune with auto high-side/low-side injection ========================================
+
+void tuneWithAutoHiLo() {
+    // * A WORK IN PROGRESS!! *
+
+    /* PSEUDO-CODE from programming guide
+    (1) Set hmute Bit
+    (2) Clear TUNE Bit
+    (3) Clear SEEK Bit 
+    (4) Set BAND/SPACE/CHAN Bits 
+    (5) Read Low-side LO Injection
+        1. Set R11 ( clear D15, clear D0/D2 ) 
+        2. Enable TUNE Bit 
+        3. Wait STC flag (Seek/Tune Complete, in ?Status? register) 
+        4. Get RSSI (RSSI1) 
+        5. Clear TUNE Bit 
+    (6) Read High-side LO Injection 
+        1. Set R11( set D15, set D0/D2 )
+        2. Enable TUNE Bit 
+        3. Wait STC flag (Seek/Tune Complete, in ?Status? register) 
+        4. Get RSSI (RSSI2) 
+        5. Clear TUNE Bit 
+    (7) Compare Hi/Lo Side Signal Strength 
+        1. If (RSSI2 > RSSI1) Set R11( clear D15, set D0/D2), else Set R11( set D15, clear D0/D2 ) 
+    (8)  Enable TUNE Bit
+    (9)  Wait STC flag (Seek/Tune Complete, in ?Status? register) 
+    (10) Clear hmute Bit 
+    (11) Update Functions (optional) 
+     */
+
+    unsigned char rssi_lo, rssi_hi;
+    unsigned short curChannel, temp = 0;
+    unsigned int status;
+
+    // 1. Set hardware mute
+    setHardmute(1);
+    // 2. Clear tune bit ------------------------------------------------------
+    setBitInRegister(tune_bit[0], tune_bit[1], 0);
+
+    // 3. Clear seek bit ------------------------------------------------------
+    setBitInRegister(seek_bit[0], seek_bit[1], 0);
+
+    // 4. Set CHAN from READCHAN ----------------------------------------------
+    curChannel = frequency() - 690;
+    regImg[2] = regImg[2] & CHAN_MASK;
+    regImg[2] |= curChannel;
+    FMwrite(2);
+
+    // 5. Read low-side LO injection ------------------------------------------
+    rssi_lo = readLOInjection(0);
+
+    // 6. Read high-side LO injection -----------------------------------------
+    rssi_hi = readLOInjection(1);
+
+    // 7. Compare signal strength, set bits accordingly -----------------------
+    if (rssi_hi > rssi_lo) {
+        // Set D0 and D2, clear D15 ----------------------------
+        setBitInRegister(hiloctrl1_bit[0], hiloctrl1_bit[1], 1);
+        setBitInRegister(hiloctrl2_bit[0], hiloctrl2_bit[1], 1);
+        setBitInRegister(hiloside_bit[0], hiloside_bit[1], 0);
+    } else {
+        // Clear D0 and D2, set D15 ----------------------------
+        setBitInRegister(hiloctrl1_bit[0], hiloctrl1_bit[1], 0);
+        setBitInRegister(hiloctrl2_bit[0], hiloctrl2_bit[1], 0);
+        setBitInRegister(hiloside_bit[0], hiloside_bit[1], 1);
+    }
+
+    // 8. Enable tune bit -----------------------------------------------------
+    setBitInRegister(tune_bit[0], tune_bit[1], 1);
+
+    // 9. Wait for STC flag to stabilise --------------------------------------
+    while (temp == 0) {
+        if (FMread(FMCHIPSTSADR, &status) == XS);
+        temp = status & 0x0020;
+    }
+    // 10. Clear hardware mute
+    setHardmute(0);
+}
+
+unsigned short frequency() {
+    unsigned int data;
+    FMread(ADDR_STATUS, &data);
+    return (((data & MASK_READCHAN) >> SHIFT_READCHAN) + 690);
+}
+
 /*
  * FMready - See if the FM module is ready.
  *
@@ -376,10 +629,10 @@ unsigned char FMinit() {
 //
 
 /*
- * FMfrequenc(f) -  Tune the FM module to new frequency.  
+ * SetVolume(volume) -  Tune the FM module achieve new volume.  
  *
  *
- * @param f The new frequency as a multiple of 100 kHz.
+ * @param volume has a range from 0 to 18 as an integer. 
  *
  * @return XS on success or XF on error.
  *
@@ -389,13 +642,13 @@ unsigned char setVolume(int volume) {
     unsigned int cn; // AR1010 channel number
 
     // Put volume value in range 0 - 18
-	unsigned char temp_vol = volume;
-	
-	if(temp_vol < 0)
-		temp_vol = 0;
-	else if(temp_vol > 18)
-		temp_vol = 18;
-    
+    signed char temp_vol = volume;
+
+    if (temp_vol < 0)
+        temp_vol = 0;
+    else if (temp_vol > 18)
+        temp_vol = 18;
+
 
     const unsigned char volume_map[19] = {
         0x0F, 0xCF, 0xDF, 0xFF, 0xCB,
@@ -403,16 +656,16 @@ unsigned char setVolume(int volume) {
         0xF7, 0xD6, 0xE6, 0xF6, 0xE3,
         0xF3, 0xF2, 0xF1, 0xF0
     };
-    
-    // Volume values are held in registers 3 (D7-10) and 14 (D12-15)
-	unsigned char volume_setting = volume_map[temp_vol];
 
-	regImg[3] &= 0xF87F;		// Zero the bits to change (D7-10)
-	regImg[3] |= ((volume_setting & 0x0F) << 7);    // Place 4 LSBs of volume at D7-10
-	if (FMwrite(3) != XS) return XF;
-    regImg[14] &= 0x0FFF;		// Zero the bits to change (D12-15)
-	regImg[14] |= ((volume_setting & 0xF0) << 8);      // Place 4 MSBs of volume at D12-15
-	if (FMwrite(14) != XS) return XF;
+    // Volume values are held in registers 3 (D7-10) and 14 (D12-15)
+    unsigned char volume_setting = volume_map[temp_vol];
+
+    regImg[3] &= 0xF87F; // Zero the bits to change (D7-10)
+    regImg[3] |= ((volume_setting & 0x0F) << 7); // Place 4 LSBs of volume at D7-10
+    if (FMwrite(3) != XS) return XF;
+    regImg[14] &= 0x0FFF; // Zero the bits to change (D12-15)
+    regImg[14] |= ((volume_setting & 0xF0) << 8); // Place 4 MSBs of volume at D12-15
+    if (FMwrite(14) != XS) return XF;
 
     do {
         dly(2);
@@ -498,7 +751,8 @@ unsigned char nextChannel() {
 }
 
 unsigned char previousChannel() {
-    FMfrequenc(1046);
+
+    FMfrequenc(958);
     PORTCbits.RC7 = 1;
     delay_10ms(10);
     PORTCbits.RC7 = 0;
@@ -507,7 +761,10 @@ unsigned char previousChannel() {
 }
 
 unsigned char VolumeUp() {
-    setVolume(18);
+    char dir = 'u';
+    seek(dir);
+    //setVolume(18);
+    //setHardmute(1);
     PORTCbits.RC6 = 1;
     delay_10ms(10);
     PORTCbits.RC6 = 0;
@@ -516,7 +773,10 @@ unsigned char VolumeUp() {
 }
 
 unsigned char VolumeDown() {
-    setVolume(10);
+    char dir = 'd';
+    seek(dir);
+    //setVolume(10);
+    //setHardmute(0);
     PORTCbits.RC7 = 1;
     delay_10ms(10);
     PORTCbits.RC7 = 0;
@@ -526,6 +786,24 @@ unsigned char VolumeDown() {
 
 unsigned char MuteHard(unsigned char down) {
 
+    // Etc.
+    return XS;
+}
+
+unsigned char SeekUP() {
+
+    PORTCbits.RC7 = 1;
+    delay_10ms(10);
+    PORTCbits.RC7 = 0;
+    // Etc.
+    return XS;
+}
+
+unsigned char SeekDOWN() {
+
+    PORTCbits.RC7 = 1;
+    delay_10ms(10);
+    PORTCbits.RC7 = 0;
     // Etc.
     return XS;
 }
@@ -577,8 +855,9 @@ void main(void) {
     FMvers(&ui); // Check we have comms with FM chip
     if (ui != 0x1010) errfm();
     if (FMinit() != XS) errfm();
-
+    FMfrequenc(964);
     for (;;) {
+
         evt = butnEvent();
         switch (evt) {
             case 1: nextChannel();
@@ -590,6 +869,10 @@ void main(void) {
             case 4: VolumeDown();
                 break;
             case 5: MuteHard(FALSE);
+                break;
+            case 6: SeekUP();
+                break;
+            case 7: SeekDOWN();
                 break;
                 // ...
             case 8: errfm();
