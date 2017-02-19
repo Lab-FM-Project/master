@@ -126,10 +126,10 @@ void delay_10ms(unsigned int n);
 void tuneWithAutoHiLo();
 unsigned short frequency();
 
-
-
 void Init() {
+    int i;
 
+	OSCCON = 0b01110010;        	// Select 8 MHz internal oscillator
     LCDPS = 0b00110110; // 37 Hz frame frequency
     ADCON1 = 0b00111111; // Make all ADC/IO pins digital
     TRISA = 0b00000011; // RA0 and RA1 pbutton
@@ -153,8 +153,6 @@ void Init() {
 //
 // end Init ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
-
-
 
 /*
  * FMwrite() -  Write a two byte word to the FM module.  The new 
@@ -643,6 +641,140 @@ unsigned char FMid(unsigned int *id) {
 //
 
 /*
+ * errfm() -  Firmware error.   Call this on a showstopper.
+ *
+ *
+ * @return Never!
+ *
+ */
+void errfm() {
+
+    ; // Do something helpful
+    for (;;);
+}
+//
+// end errfm ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//
+//
+
+/*
+ * Display the frequency that the receiver chip is set to.
+ *
+ * @return XS if successful, else XF on failure.
+ *
+ */
+unsigned char showFreq() {
+
+    ; // Etc
+    return XS;
+}
+//
+// end showFreq ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//
+
+void dly(int d) {
+
+    int i = 0;
+
+    for (; d; --d)
+        for (i = 100; i; --i);
+}
+//
+// end dly ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//
+
+void delay_10ms(unsigned int n) {
+    while (n-- != 0) {
+        __delay_ms(12);
+    }
+}
+
+/*
+ * Obtain latest change in state for the pushbutton set.
+ *
+ * @param butn Which button changed.  See fm.h.
+ *
+ * @return 	0 if no button has changed state,
+ *			1 if button is pushed,
+ *			2 if button is released.
+ *
+ */
+int butnEvent(void) {
+    int timereturn;
+    if (NextChan == 0) //check if the switch is closed
+    {
+        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+        if (NextChan == 0) //check if the switch is still closed
+        {
+            timereturn = 1;
+            for (int c = 0; c <= 10; c++)__delay_ms(7);
+            if (NextChan == 0) {
+                timereturn = 6;
+            }
+            return timereturn;
+        } else {
+            timereturn = 0;
+            return timereturn;
+        }
+    }
+
+    if (PrevChan == 0) //check if the switch is closed
+    {
+        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+        if (PrevChan == 0) //check if the switch is still closed
+        {
+            timereturn = 2;
+            for (int c = 0; c <= 10; c++)__delay_ms(12);
+            if (PrevChan == 0) {
+                timereturn = 7;
+            }
+
+            return timereturn;
+
+        } else {
+            timereturn = 0;
+            return timereturn;
+        }
+    }
+
+    if (VolUp == 0) //check if the switch is closed
+    {
+        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+        if (VolUp == 0) //check if the switch is still closed
+        {
+            return 3; //something
+        } else {
+            return 0; //something
+        }
+    }
+
+    if (VolDown == 0) //check if the switch is closed
+    {
+        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+        if (VolDown == 0) //check if the switch is still closed
+        {
+            return 4; //something
+        } else {
+            return 0; //something
+        }
+    }
+
+    if (MUTE == 0) //check if the switch is closed
+    {
+        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+        if (MUTE == 0) //check if the switch is still closed
+        {
+            return 5; //something
+        } else {
+            return 0; //something
+        }
+    }
+    return 0;
+}
+//
+// end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//
+/*
  * nextChan() -  Tune to the next channel.
  *
  * @param up Set to non-zero for next channel up,
@@ -722,149 +854,6 @@ unsigned char SeekDOWN() {
 // end nextChan ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
 //
-
-/*
- * errfm() -  Firmware error.   Call this on a showstopper.
- *
- *
- * @return Never!
- *
- */
-void errfm() {
-
-    ; // Do something helpful
-    for (;;);
-}
-//
-// end errfm ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-//
-
-/*
- * Display the frequency that the receiver chip is set to.
- *
- * @return XS if successful, else XF on failure.
- *
- */
-unsigned char showFreq() {
-
-    ; // Etc
-    return XS;
-}
-//
-// end showFreq ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-
-/*
- * Obtain latest change in state for the pushbutton set.
- *
- * @param butn Which button changed.  See fm.h.
- *
- * @return 	0 if no button has changed state,
- *			1 if button is pushed,
- *			2 if button is released.
- *
- */
-int butnEvent(void) {
-    int timereturn;
-    if (NextChan == 0) //check if the switch is closed
-    {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
-        if (NextChan == 0) //check if the switch is still closed
-        {
-
-
-            return 1;
-
-            timereturn = 1;
-            for (int c = 0; c <= 10; c++)__delay_ms(7);
-            if (NextChan == 0) {
-                timereturn = 6;
-            }
-
-            return timereturn;
-
-
-        } else {
-            timereturn = 0;
-            return timereturn;
-        }
-    }
-
-    if (PrevChan == 0) //check if the switch is closed
-    {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
-        if (PrevChan == 0) //check if the switch is still closed
-        {
-            timereturn = 2;
-            for (int c = 0; c <= 10; c++)__delay_ms(12);
-            if (PrevChan == 0) {
-                timereturn = 7;
-            }
-
-            return timereturn;
-
-        } else {
-            timereturn = 0;
-            return timereturn;
-        }
-    }
-
-    if (VolUp == 0) //check if the switch is closed
-    {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
-        if (VolUp == 0) //check if the switch is still closed
-        {
-            return 3; //something
-        } else {
-            return 0; //something
-        }
-    }
-
-    if (VolDown == 0) //check if the switch is closed
-    {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
-        if (VolDown == 0) //check if the switch is still closed
-        {
-            return 4; //something
-        } else {
-            return 0; //something
-        }
-    }
-
-    if (MUTE == 0) //check if the switch is closed
-    {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
-        if (MUTE == 0) //check if the switch is still closed
-        {
-            return 5; //something
-        } else {
-            return 0; //something
-        }
-    }
-    return 0;
-}
-//
-// end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-
-void dly(int d) {
-
-    int i = 0;
-
-    for (; d; --d)
-        for (i = 100; i; --i);
-}
-//
-// end dly ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-
-
-void delay_10ms(unsigned int n) {
-    while (n-- != 0) {
-        __delay_ms(12);
-    }
-}
 //
 // end receiveFM.h ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //

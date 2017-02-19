@@ -21,8 +21,6 @@
 // 
 // 
 
-
-
 #pragma config OSC = INTIO7     // Internal osc, RA6=CLKO, RA7=I/O
 #pragma config FCMEN = OFF		// Fail-Safe Clock Monitor disabled 
 #pragma config IESO = OFF		// Oscillator Switchover mode disabled 
@@ -39,6 +37,7 @@
 #define _XTAL_FREQ 8000000
 #include <plib/i2c.h>
 #include "fm.h"
+
 
 void main(void) {
     int evt;
