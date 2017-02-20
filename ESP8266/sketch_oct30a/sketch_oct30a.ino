@@ -5,6 +5,9 @@
   - connects to an MQTT server
   - subscribes to the topic "inTopic"
 */
+#include <ESP8266WiFi.h>
+#include <PubSubClient.h>
+//#include <MQTT.h>
 
 const byte ledPin = 14;
 const byte interruptPin = 2;
@@ -19,11 +22,8 @@ int lastButtonState = LOW;   // the previous reading from the input pin
 // will quickly become a bigger number than can be stored in an int.
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
-#include <ESP8266WiFi.h>
-#include <PubSubClient.h>
-#include <MQTT.h>
 
-const char *ssid =  "BTHub6-GP2X";    // cannot be longer than 32 characters!
+const char *ssid =  "Landgate";    // cannot be longer than 32 characters!
 const char *pass =  "TLdRFAHymPW6";   //
 
 #define BUFFER_SIZE 100

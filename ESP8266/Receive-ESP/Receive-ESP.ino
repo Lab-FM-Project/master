@@ -45,20 +45,16 @@ void setup() { //in the setup we initialise the RC switch to a specific pin (12)
 }
 
 void setup_wifi() {
-
   delay(10);
   // We start by connecting to a WiFi network
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-
   WiFi.begin(ssid, password);
-
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.print(".");
   }
-
   Serial.println("");
   Serial.println("WiFi connected");
   Serial.println("IP address: ");
@@ -66,6 +62,7 @@ void setup_wifi() {
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
+  Serial.println("callback function called");
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.print("] ");
@@ -73,7 +70,6 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-
   // Switch on the LED if an 1 was received as first character
   if ((char)payload[0] == '1') {
     digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
@@ -91,9 +87,9 @@ void reconnect() {
     if (client.connect(clientID, clientUserName, clientPassword)) {
       Serial.println("connected");
       // Once connected, publish an announcement...
-      client.publish("outTopic", "hello world");
+      client.publish("remote_rcv", "hello world");
       // ... and resubscribe
-      client.subscribe("inTopic");
+      client.subscribe("remote_ctrl");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
@@ -116,10 +112,9 @@ void loop() {
     lastMsg = now;
     ++value;
     snprintf (msg, 75, "hello world #%ld", value);
-    Serial.print("Publish message: ");
-    Serial.println(msg);
-    client.publish("outTopic", msg);
+ //   Serial.print("Publish message: ");
+  //  Serial.println(msg);
+ //   client.publish("remote_rcv", msg);
   }
-
 }
 
