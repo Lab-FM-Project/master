@@ -854,6 +854,16 @@ unsigned char SeekDOWN() {
 // end nextChan ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
 //
+
+unsigned char saveFavourite() {
+
+    PORTCbits.RC7 = 1;
+    delay_10ms(10);
+    PORTCbits.RC7 = 0;
+    // Etc.
+    return XS;
+}
+
 //
 // end receiveFM.h ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
