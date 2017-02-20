@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=FMProject.X
+PROJECTNAME=FMProjectv2.X
 
 # Active Configuration
 DEFAULTCONF=default
