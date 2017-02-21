@@ -17,7 +17,7 @@
 // of the PIC and the FM tuner module.  The basics of communication
 // over the I2C bus are also covered.
 // 
-// This version contains eevisions needed to compile under MPLABX.
+// This version contains revisions needed to compile under MPLABX.
 // 
 // 
 
@@ -33,49 +33,50 @@
 #pragma config STVREN = OFF		// Stack full/underflow will not cause Reset
 #pragma config CP = OFF			// Program memory block not code-protected 
 
-#include<xc.h>
+#include <xc.h>
 #define _XTAL_FREQ 8000000
 #include <plib/i2c.h>
 #include "fm.h"
-
+#include "fm_readwrite.h"
+#include "fm_functions.h"
 
 void main(void) {
-    int evt;
-    unsigned int ui;
-    dly(20);
-    Init();
+int evt;
+unsigned int ui;
+delay_10ms(2);
+Init();
 
-    PORTCbits.RC6 = 1;
+PORTCbits.RC6 = 1;
 
-    FMvers(&ui); // Check we have comms with FM chip
-    if (ui != 0x1010) errfm();
-    if (FMinit() != XS) errfm();
-    FMfrequenc(964);
-    for (;;) {
+FMvers(&ui); // Check we have comms with FM chip
+if (ui != 0x1010) errfm();
+if (FMinit() != XS) errfm();
+FMfrequenc(964);
+for (;;) {
 
-        evt = butnEvent();
-        switch (evt) {
-            case 1: nextChannel();
-                break;
-            case 2: previousChannel();
-                break;
-            case 3: VolumeUp();
-                break;
-            case 4: VolumeDown();
-                break;
-            case 5: MuteHard(FALSE);
-                break;
-            case 6: SeekUP();
-                break;
-            case 7: SeekDOWN();
-                break;
-                // ...
-            case 8: errfm();
-                break;
+    evt = butnEvent();
+    switch (evt) {
+        case 1: nextChannel();
+            break;
+        case 2: previousChannel();
+            break;
+        case 3: VolumeUp();
+            break;
+        case 4: VolumeDown();
+            break;
+        case 5: MuteHard(FALSE);
+            break;
+        case 6: SeekUP();
+            break;
+        case 7: SeekDOWN();
+            break;
+            // ...
+        case 8: errfm();
+            break;
 
-            default: break;
-        }
+        default: break;
     }
+}
 }
 //
 // end main ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
