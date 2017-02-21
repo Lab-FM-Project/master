@@ -129,7 +129,7 @@ unsigned short frequency();
 void Init() {
     int i;
 
-	OSCCON = 0b01110010;        	// Select 8 MHz internal oscillator
+    OSCCON = 0b01110010; // Select 8 MHz internal oscillator
     LCDPS = 0b00110110; // 37 Hz frame frequency
     ADCON1 = 0b00111111; // Make all ADC/IO pins digital
     TRISA = 0b00000011; // RA0 and RA1 pbutton
@@ -590,6 +590,7 @@ unsigned char FMfrequenc(unsigned int f) {
         cn = FMLOWCHAN;
     else if (cn > FMHIGHCHAN)
         cn = FMHIGHCHAN;
+    
 
     // NB AR1010 retunes on 0 to 1 transition of TUNE bit -	
     regImg[2] &= ~FMASKTUNE;
@@ -774,6 +775,7 @@ int butnEvent(void) {
 //
 // end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
+
 /*
  * nextChan() -  Tune to the next channel.
  *
@@ -850,19 +852,34 @@ unsigned char SeekDOWN() {
     // Etc.
     return XS;
 }
-//
-// end nextChan ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-//
 
-unsigned char saveFavourite() {
-
+unsigned char Favourite1(unsigned char address, unsigned char channel){
     PORTCbits.RC7 = 1;
     delay_10ms(10);
     PORTCbits.RC7 = 0;
     // Etc.
     return XS;
 }
+
+
+
+//
+// end nextChan ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//
+//
+
+unsigned char saveFrequencyEEPROM(unsigned char address, volatile unsigned char channel) {
+    eeprom_write(address, channel);
+    return XS;
+}
+
+unsigned char readFrequencyEEPROM(unsigned char address, volatile unsigned char channel) {
+    unsigned short frequency = 0;
+    frequency = eeprom_read(address, channel); // Writing value 0x9 to EEPROM address 0xE5 using the macro
+    return frequency;
+}
+
+
 
 //
 // end receiveFM.h ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
