@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="yes" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="yes" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
+<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
+<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,19 +53,19 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="yes" active="no"/>
-<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="yes" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
-<layer number="59" name="tCarbon" color="7" fill="1" visible="yes" active="no"/>
-<layer number="60" name="bCarbon" color="7" fill="1" visible="yes" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
+<layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -1487,6 +1487,131 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="1.8034" y1="-2.6289" x2="-1.8034" y2="-2.6289" width="0.0508" layer="39"/>
 <wire x1="-1.8034" y1="-2.6289" x2="-1.8034" y2="2.5019" width="0.0508" layer="39"/>
 </package>
+<package name="POT-DUAL-PTH-PANASONIC-VERT">
+<description>&lt;h3&gt;Panasonic Dual-Gang 12mm PTH Potentiometer&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="http://media.digikey.com/pdf/Data%20Sheets/Panasonic%20Electronic%20Components/EVJC,EVJY.pdf"&gt;Datasheet&lt;/a&gt; (Fits EVJY-00, EVJY-80, EVJY-81, EVJY-10, etc)&lt;/p&gt;</description>
+<wire x1="10.7" y1="6.55" x2="10.7" y2="-6.55" width="0.2032" layer="51"/>
+<wire x1="10.7" y1="-6.55" x2="-6.8" y2="-6.55" width="0.2032" layer="51"/>
+<wire x1="-6.8" y1="-6.55" x2="-6.8" y2="6.55" width="0.2032" layer="51"/>
+<wire x1="-6.8" y1="6.55" x2="10.7" y2="6.55" width="0.2032" layer="51"/>
+<pad name="A2" x="11" y="-5" drill="0.8" shape="square"/>
+<pad name="A1" x="11" y="-3" drill="0.8" shape="square"/>
+<pad name="B1" x="11" y="-1" drill="0.8" shape="square"/>
+<pad name="P$4" x="0" y="-6" drill="2" shape="octagon"/>
+<pad name="P$5" x="0" y="6" drill="2" shape="octagon"/>
+<pad name="B2" x="11" y="1" drill="0.8" shape="square"/>
+<pad name="B3" x="11" y="3" drill="0.8" shape="square"/>
+<pad name="A3" x="11" y="5" drill="0.8" shape="square"/>
+<circle x="0" y="0" radius="3" width="0.127" layer="51"/>
+<wire x1="-6.927" y1="-6.677" x2="-6.927" y2="6.677" width="0.2032" layer="21"/>
+<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
+<text x="-7.112" y="0" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;Name</text>
+<text x="-6.731" y="0" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center">&gt;Value</text>
+<wire x1="-1.746" y1="-6.677" x2="-6.927" y2="-6.677" width="0.2032" layer="21"/>
+<wire x1="10.827" y1="-6.677" x2="1.836" y2="-6.677" width="0.2032" layer="21"/>
+<wire x1="-1.746" y1="6.677" x2="-6.927" y2="6.677" width="0.2032" layer="21"/>
+<wire x1="10.827" y1="6.677" x2="1.836" y2="6.677" width="0.2032" layer="21"/>
+<wire x1="10.827" y1="-5.896" x2="10.827" y2="-6.677" width="0.2032" layer="21"/>
+<wire x1="10.827" y1="6.677" x2="10.827" y2="5.896" width="0.2032" layer="21"/>
+</package>
+<package name="POT-DUAL-PTH-PANASONIC-VERT-KIT">
+<description>&lt;h3&gt;Panasonic Dual-Gang 12mm PTH Potentiometer (KIT Variant)&lt;/h3&gt;
+&lt;p&gt;&lt;b&gt;Warning:&lt;/b&gt; This is the KIT version of this package. This package has a smaller diameter top stop mask, which doesn't cover the diameter of the pad. This means only the bottom side of the pads' copper will be exposed. You'll only be able to solder to the bottom side.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://media.digikey.com/pdf/Data%20Sheets/Panasonic%20Electronic%20Components/EVJC,EVJY.pdf"&gt;Datasheet&lt;/a&gt; (Fits EVJY-00, EVJY-80, EVJY-81, EVJY-10, etc)&lt;/p&gt;</description>
+<wire x1="10.7" y1="6.55" x2="10.7" y2="-6.55" width="0.2032" layer="51"/>
+<wire x1="10.7" y1="-6.55" x2="-6.8" y2="-6.55" width="0.2032" layer="51"/>
+<wire x1="-6.8" y1="-6.55" x2="-6.8" y2="6.55" width="0.2032" layer="51"/>
+<wire x1="-6.8" y1="6.55" x2="10.7" y2="6.55" width="0.2032" layer="51"/>
+<pad name="A2" x="11" y="-5" drill="0.9" shape="long" stop="no"/>
+<pad name="A1" x="11" y="-3" drill="0.9" shape="long" stop="no"/>
+<pad name="B1" x="11" y="-1" drill="0.9" shape="long" stop="no"/>
+<pad name="P$4" x="0" y="-6" drill="2.1" stop="no"/>
+<pad name="P$5" x="0" y="6" drill="2.1" stop="no"/>
+<pad name="B2" x="11" y="1" drill="0.9" shape="long" stop="no"/>
+<pad name="B3" x="11" y="3" drill="0.9" shape="long" stop="no"/>
+<pad name="A3" x="11" y="5" drill="0.9" shape="long" stop="no"/>
+<circle x="0" y="0" radius="3" width="0.127" layer="51"/>
+<wire x1="9.43" y1="6.677" x2="9.43" y2="-6.677" width="0.2032" layer="21"/>
+<wire x1="9.43" y1="-6.677" x2="1.55" y2="-6.677" width="0.2032" layer="21"/>
+<wire x1="-1.55" y1="-6.677" x2="-6.927" y2="-6.677" width="0.2032" layer="21"/>
+<wire x1="-6.927" y1="-6.677" x2="-6.927" y2="6.677" width="0.2032" layer="21"/>
+<wire x1="-6.927" y1="6.677" x2="-1.55" y2="6.677" width="0.2032" layer="21"/>
+<wire x1="1.55" y1="6.677" x2="9.43" y2="6.677" width="0.2032" layer="21"/>
+<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
+<circle x="0" y="6" radius="1.6256" width="0" layer="30"/>
+<circle x="0" y="-6" radius="1.6256" width="0" layer="30"/>
+<circle x="0" y="6" radius="1.05" width="0" layer="29"/>
+<circle x="0" y="-6" radius="1.05" width="0" layer="29"/>
+<circle x="11" y="5" radius="0.45" width="0" layer="29"/>
+<circle x="11" y="3" radius="0.45" width="0" layer="29"/>
+<circle x="11" y="1" radius="0.45" width="0" layer="29"/>
+<circle x="11" y="-1" radius="0.45" width="0" layer="29"/>
+<circle x="11" y="-3" radius="0.45" width="0" layer="29"/>
+<circle x="11" y="-5" radius="0.45" width="0" layer="29"/>
+<polygon width="0.127" layer="30">
+<vertex x="9.6" y="4.940309375"/>
+<vertex x="9.6" y="5.059690625" curve="-90"/>
+<vertex x="10.240309375" y="5.7"/>
+<vertex x="11.759690625" y="5.7" curve="-90"/>
+<vertex x="12.4" y="5.059690625"/>
+<vertex x="12.4" y="4.940309375" curve="-90"/>
+<vertex x="11.759690625" y="4.3"/>
+<vertex x="10.240309375" y="4.3" curve="-90"/>
+</polygon>
+<polygon width="0.127" layer="30">
+<vertex x="9.6" y="2.940309375"/>
+<vertex x="9.6" y="3.059690625" curve="-90"/>
+<vertex x="10.240309375" y="3.7"/>
+<vertex x="11.759690625" y="3.7" curve="-90"/>
+<vertex x="12.4" y="3.059690625"/>
+<vertex x="12.4" y="2.940309375" curve="-90"/>
+<vertex x="11.759690625" y="2.3"/>
+<vertex x="10.240309375" y="2.3" curve="-90"/>
+</polygon>
+<polygon width="0.127" layer="30">
+<vertex x="9.6" y="0.940309375"/>
+<vertex x="9.6" y="1.059690625" curve="-90"/>
+<vertex x="10.240309375" y="1.7"/>
+<vertex x="11.759690625" y="1.7" curve="-90"/>
+<vertex x="12.4" y="1.059690625"/>
+<vertex x="12.4" y="0.940309375" curve="-90"/>
+<vertex x="11.759690625" y="0.3"/>
+<vertex x="10.240309375" y="0.3" curve="-90"/>
+</polygon>
+<polygon width="0.127" layer="30">
+<vertex x="9.6" y="-1.059690625"/>
+<vertex x="9.6" y="-0.940309375" curve="-90"/>
+<vertex x="10.240309375" y="-0.3"/>
+<vertex x="11.759690625" y="-0.3" curve="-90"/>
+<vertex x="12.4" y="-0.940309375"/>
+<vertex x="12.4" y="-1.059690625" curve="-90"/>
+<vertex x="11.759690625" y="-1.7"/>
+<vertex x="10.240309375" y="-1.7" curve="-90"/>
+</polygon>
+<polygon width="0.127" layer="30">
+<vertex x="9.6" y="-3.059690625"/>
+<vertex x="9.6" y="-2.940309375" curve="-90"/>
+<vertex x="10.240309375" y="-2.3"/>
+<vertex x="11.759690625" y="-2.3" curve="-90"/>
+<vertex x="12.4" y="-2.940309375"/>
+<vertex x="12.4" y="-3.059690625" curve="-90"/>
+<vertex x="11.759690625" y="-3.7"/>
+<vertex x="10.240309375" y="-3.7" curve="-90"/>
+</polygon>
+<polygon width="0.127" layer="30">
+<vertex x="9.6" y="-5.059690625"/>
+<vertex x="9.6" y="-4.940309375" curve="-90"/>
+<vertex x="10.240309375" y="-4.3"/>
+<vertex x="11.759690625" y="-4.3" curve="-90"/>
+<vertex x="12.4" y="-4.940309375"/>
+<vertex x="12.4" y="-5.059690625" curve="-90"/>
+<vertex x="11.759690625" y="-5.7"/>
+<vertex x="10.240309375" y="-5.7" curve="-90"/>
+</polygon>
+<text x="-7.112" y="0" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;Name</text>
+<text x="-6.731" y="0" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center">&gt;Value</text>
+</package>
 </packages>
 <symbols>
 <symbol name="RESISTOR">
@@ -1527,6 +1652,35 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <vertex x="2.54" y="-1.016"/>
 <vertex x="2.54" y="1.016"/>
 </polygon>
+</symbol>
+<symbol name="POTENTIOMETER">
+<description>&lt;h3&gt;Potentiometer (Pot)&lt;/h3&gt;
+&lt;p&gt;Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor.&lt;/p&gt;</description>
+<wire x1="0" y1="-5.08" x2="0" y2="-4.572" width="0.1524" layer="94"/>
+<wire x1="0" y1="-4.572" x2="-1.016" y2="-3.81" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="-3.81" x2="1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="-1.016" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.016" y2="1.27" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="1.27" x2="1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="2.54" x2="-1.016" y2="3.81" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="3.81" x2="0" y2="4.572" width="0.254" layer="94"/>
+<wire x1="0" y1="4.572" x2="0" y2="5.08" width="0.1524" layer="94"/>
+<wire x1="2.032" y1="-2.159" x2="2.667" y2="-3.429" width="0.1524" layer="94"/>
+<wire x1="2.667" y1="-3.429" x2="2.032" y2="-3.429" width="0.1524" layer="94"/>
+<wire x1="2.032" y1="-3.429" x2="1.397" y2="-3.429" width="0.1524" layer="94"/>
+<wire x1="1.397" y1="-3.429" x2="2.032" y2="-2.159" width="0.1524" layer="94"/>
+<text x="3.048" y="-0.254" size="1.778" layer="95" font="vector" rot="R270">&gt;NAME</text>
+<text x="-1.27" y="0" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center">&gt;Value</text>
+<pin name="A" x="0" y="-7.62" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="E" x="0" y="7.62" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="S" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+<polygon width="0.2032" layer="94">
+<vertex x="2.54" y="-1.27"/>
+<vertex x="1.27" y="0"/>
+<vertex x="2.54" y="1.27"/>
+</polygon>
+<wire x1="2.032" y1="-4.699" x2="2.032" y2="-3.429" width="0.1524" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1788,6 +1942,52 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <technology name="">
 <attribute name="PROD_ID" value="RES-12428"/>
 <attribute name="VALUE" value="10k"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="POTENTIOMETER_DUAL" prefix="VR" uservalue="yes">
+<description>&lt;h3&gt;Potentiometer (Pot) Dual-Gang&lt;/h3&gt;
+&lt;p&gt;Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor.&lt;/p&gt;
+&lt;p&gt;This is a dua-gang pot - it includes two separate circuits, both controlled by one wiper.&lt;/p&gt;
+&lt;h4&gt;Variants&lt;/h4&gt;
+&lt;h5&gt;PTH-12MM and PTH-12MM-KIT - 12mm Square, PTH Vertical Pots&lt;/h5&gt;
+&lt;ul&gt;&lt;li&gt;Used on the &lt;a href="https://www.sparkfun.com/products/11177"&gt;SparkFun SparkPunk Sound Kit&lt;/a&gt; (filter control)&lt;/li&gt;
+&lt;li&gt;The &lt;b&gt;KIT&lt;/b&gt; variant exposes copper on only one side of the PTH pad, so the part can only be assembled on one side of the PCB. Useful for beginner soldering kits.&lt;/li&gt;
+&lt;/ul&gt;</description>
+<gates>
+<gate name="G$1" symbol="POTENTIOMETER" x="0" y="0"/>
+<gate name="G$2" symbol="POTENTIOMETER" x="20.32" y="0"/>
+</gates>
+<devices>
+<device name="-PTH-12MM-1/20W-20%" package="POT-DUAL-PTH-PANASONIC-VERT">
+<connects>
+<connect gate="G$1" pin="A" pad="A3"/>
+<connect gate="G$1" pin="E" pad="A1"/>
+<connect gate="G$1" pin="S" pad="A2"/>
+<connect gate="G$2" pin="A" pad="B3"/>
+<connect gate="G$2" pin="E" pad="B1"/>
+<connect gate="G$2" pin="S" pad="B2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="RES-11897"/>
+</technology>
+</technologies>
+</device>
+<device name="-PTH-12MM-1/20W-20%-KIT" package="POT-DUAL-PTH-PANASONIC-VERT-KIT">
+<connects>
+<connect gate="G$1" pin="A" pad="A3"/>
+<connect gate="G$1" pin="E" pad="A1"/>
+<connect gate="G$1" pin="S" pad="A2"/>
+<connect gate="G$2" pin="A" pad="B3"/>
+<connect gate="G$2" pin="E" pad="B1"/>
+<connect gate="G$2" pin="S" pad="B2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="RES-11897"/>
 </technology>
 </technologies>
 </device>
@@ -2745,6 +2945,146 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="ESP8266-12E">
+<packages>
+<package name="ESP8266-ESP12E">
+<description>
+&lt;b&gt;ESP8266-12E with additional I/O and GPIO04/05 corrected&lt;/b&gt;&lt;p&gt;
+The author cannot warrant that this library is free from error
+or will meet your specific requirements.&lt;p&gt;
+&lt;author&gt;Created by PuceBaboon.com. Komagane, Nagano, JAPAN&lt;/author&gt;
+</description>
+<wire x1="8.58" y1="-10.16" x2="8.58" y2="13.94" width="0.127" layer="21"/>
+<wire x1="8.58" y1="13.94" x2="-7.62" y2="13.94" width="0.127" layer="21"/>
+<wire x1="-7.62" y1="13.94" x2="-7.62" y2="-10.16" width="0.127" layer="21"/>
+<smd name="8" x="-7.62" y="-8.16" dx="2" dy="1.2" layer="1"/>
+<smd name="7" x="-7.62" y="-6.16" dx="2" dy="1.2" layer="1"/>
+<smd name="6" x="-7.62" y="-4.16" dx="2" dy="1.2" layer="1"/>
+<smd name="5" x="-7.62" y="-2.16" dx="2" dy="1.2" layer="1"/>
+<smd name="4" x="-7.62" y="-0.16" dx="2" dy="1.2" layer="1"/>
+<smd name="3" x="-7.62" y="1.84" dx="2" dy="1.2" layer="1"/>
+<smd name="2" x="-7.62" y="3.84" dx="2" dy="1.2" layer="1"/>
+<smd name="1" x="-7.62" y="5.84" dx="2" dy="1.2" layer="1"/>
+<smd name="9" x="8.58" y="-8.16" dx="2" dy="1.2" layer="1"/>
+<smd name="10" x="8.58" y="-6.16" dx="2" dy="1.2" layer="1"/>
+<smd name="11" x="8.58" y="-4.16" dx="2" dy="1.2" layer="1"/>
+<smd name="12" x="8.58" y="-2.16" dx="2" dy="1.2" layer="1"/>
+<smd name="13" x="8.58" y="-0.16" dx="2" dy="1.2" layer="1"/>
+<smd name="14" x="8.58" y="1.84" dx="2" dy="1.2" layer="1"/>
+<smd name="15" x="8.58" y="3.84" dx="2" dy="1.2" layer="1"/>
+<smd name="16" x="8.58" y="5.84" dx="2" dy="1.2" layer="1"/>
+<text x="-2.62" y="-8.16" size="1.27" layer="21" rot="R90">&gt;NAME</text>
+<text x="-2.62" y="0.95" size="1.27" layer="21">ESP-12E</text>
+<wire x1="-5.08" y1="6.35" x2="-5.08" y2="7.62" width="0.127" layer="51"/>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="12.7" width="0.127" layer="51"/>
+<wire x1="-5.08" y1="12.7" x2="-3.81" y2="12.7" width="0.127" layer="51"/>
+<wire x1="-3.81" y1="12.7" x2="-3.81" y2="8.89" width="0.127" layer="51"/>
+<wire x1="-3.81" y1="8.89" x2="-2.54" y2="8.89" width="0.127" layer="51"/>
+<wire x1="-2.54" y1="8.89" x2="-2.54" y2="12.7" width="0.127" layer="51"/>
+<wire x1="-2.54" y1="12.7" x2="-1.27" y2="12.7" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="12.7" x2="-1.27" y2="8.89" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="8.89" x2="0" y2="8.89" width="0.127" layer="51"/>
+<wire x1="0" y1="8.89" x2="0" y2="12.7" width="0.127" layer="51"/>
+<wire x1="0" y1="12.7" x2="1.27" y2="12.7" width="0.127" layer="51"/>
+<wire x1="1.27" y1="12.7" x2="1.27" y2="8.89" width="0.127" layer="51"/>
+<wire x1="1.27" y1="8.89" x2="2.54" y2="8.89" width="0.127" layer="51"/>
+<wire x1="2.54" y1="8.89" x2="2.54" y2="12.7" width="0.127" layer="51"/>
+<wire x1="2.54" y1="12.7" x2="6.35" y2="12.7" width="0.127" layer="51"/>
+<wire x1="-5.08" y1="7.62" x2="2.54" y2="7.62" width="0.127" layer="51"/>
+<smd name="21" x="3.38" y="-10.16" dx="2" dy="1.2" layer="1" rot="R90"/>
+<smd name="17" x="-4.62" y="-10.16" dx="2" dy="1.2" layer="1" rot="R90"/>
+<smd name="18" x="-2.62" y="-10.16" dx="2" dy="1.2" layer="1" rot="R90"/>
+<wire x1="-7.62" y1="-10.16" x2="8.58" y2="-10.16" width="0.127" layer="21"/>
+<smd name="22" x="5.38" y="-10.16" dx="2" dy="1.2" layer="1" rot="R90"/>
+<smd name="19" x="-0.62" y="-10.16" dx="2" dy="1.2" layer="1" rot="R90"/>
+<smd name="20" x="1.38" y="-10.16" dx="2" dy="1.2" layer="1" rot="R90"/>
+<rectangle x1="-7.62" y1="6.985" x2="8.89" y2="13.97" layer="42"/>
+<rectangle x1="-7.62" y1="6.985" x2="8.89" y2="13.97" layer="41"/>
+</package>
+</packages>
+<symbols>
+<symbol name="ESP12E">
+<description>
+&lt;b&gt;ESP8266-12E with additional I/O and GPIO04/05 corrected&lt;/b&gt;&lt;p&gt;
+The author cannot warrant that this library is free from error
+or will meet your specific requirements.&lt;p&gt;
+&lt;author&gt;Created by PuceBaboon.com. Komagane, Nagano, JAPAN&lt;/author&gt;
+</description>
+<pin name="GND" x="10.16" y="-10.16" length="middle" rot="R180"/>
+<pin name="GPIO15" x="10.16" y="-7.62" length="middle" rot="R180"/>
+<pin name="GPIO2" x="10.16" y="-5.08" length="middle" rot="R180"/>
+<pin name="GPIO0" x="10.16" y="-2.54" length="middle" rot="R180"/>
+<pin name="GPIO4" x="10.16" y="0" length="middle" rot="R180"/>
+<pin name="GPIO5" x="10.16" y="2.54" length="middle" rot="R180"/>
+<pin name="RXD" x="10.16" y="5.08" length="middle" rot="R180"/>
+<pin name="TXD" x="10.16" y="7.62" length="middle" rot="R180"/>
+<pin name="REST" x="-22.86" y="7.62" length="middle"/>
+<pin name="ADC" x="-22.86" y="5.08" length="middle"/>
+<pin name="CH_PD" x="-22.86" y="2.54" length="middle"/>
+<pin name="GPIO16" x="-22.86" y="0" length="middle"/>
+<pin name="GPIO14" x="-22.86" y="-2.54" length="middle"/>
+<pin name="GPIO12" x="-22.86" y="-5.08" length="middle"/>
+<pin name="GPIO13" x="-22.86" y="-7.62" length="middle"/>
+<pin name="VCC" x="-22.86" y="-10.16" length="middle"/>
+<wire x1="-17.78" y1="-20.32" x2="5.08" y2="-20.32" width="0.254" layer="94"/>
+<wire x1="5.08" y1="-20.32" x2="5.08" y2="15.24" width="0.254" layer="94"/>
+<wire x1="5.08" y1="15.24" x2="-17.78" y2="15.24" width="0.254" layer="94"/>
+<wire x1="-17.78" y1="15.24" x2="-17.78" y2="-20.32" width="0.254" layer="94"/>
+<text x="-15.24" y="10.16" size="1.27" layer="94">ESP8266_ESP12E</text>
+<text x="-10.16" y="12.7" size="1.27" layer="94">&gt;NAME</text>
+<pin name="CS0" x="-12.7" y="-25.4" length="middle" rot="R90"/>
+<pin name="MISO" x="-10.16" y="-25.4" length="middle" rot="R90"/>
+<pin name="GPIO9" x="-7.62" y="-25.4" length="middle" rot="R90"/>
+<pin name="GPIO10" x="-5.08" y="-25.4" length="middle" rot="R90"/>
+<pin name="MOSI" x="-2.54" y="-25.4" length="middle" rot="R90"/>
+<pin name="SCLK" x="0" y="-25.4" length="middle" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="ESP8266-12E" prefix="MDL" uservalue="yes">
+<description>
+&lt;b&gt;ESP8266-12E with additional I/O and GPIO04/05 corrected&lt;/b&gt;&lt;p&gt;
+The author cannot warrant that this library is free from error
+or will meet your specific requirements.&lt;p&gt;
+&lt;author&gt;Created by PuceBaboon.com. Komagane, Nagano, JAPAN&lt;/author&gt;
+</description>
+<gates>
+<gate name="G$1" symbol="ESP12E" x="5.08" y="0"/>
+</gates>
+<devices>
+<device name="ESP8266-ESP12E" package="ESP8266-ESP12E">
+<connects>
+<connect gate="G$1" pin="ADC" pad="2"/>
+<connect gate="G$1" pin="CH_PD" pad="3"/>
+<connect gate="G$1" pin="CS0" pad="17"/>
+<connect gate="G$1" pin="GND" pad="9"/>
+<connect gate="G$1" pin="GPIO0" pad="12"/>
+<connect gate="G$1" pin="GPIO10" pad="20"/>
+<connect gate="G$1" pin="GPIO12" pad="6"/>
+<connect gate="G$1" pin="GPIO13" pad="7"/>
+<connect gate="G$1" pin="GPIO14" pad="5"/>
+<connect gate="G$1" pin="GPIO15" pad="10"/>
+<connect gate="G$1" pin="GPIO16" pad="4"/>
+<connect gate="G$1" pin="GPIO2" pad="11"/>
+<connect gate="G$1" pin="GPIO4" pad="13"/>
+<connect gate="G$1" pin="GPIO5" pad="14"/>
+<connect gate="G$1" pin="GPIO9" pad="19"/>
+<connect gate="G$1" pin="MISO" pad="18"/>
+<connect gate="G$1" pin="MOSI" pad="21"/>
+<connect gate="G$1" pin="REST" pad="1"/>
+<connect gate="G$1" pin="RXD" pad="15"/>
+<connect gate="G$1" pin="SCLK" pad="22"/>
+<connect gate="G$1" pin="TXD" pad="16"/>
+<connect gate="G$1" pin="VCC" pad="8"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2767,8 +3107,6 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="C4" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="10uF"/>
 <part name="C5" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="10uF"/>
 <part name="C6" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="10uF"/>
-<part name="R1" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
-<part name="R2" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="C7" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="100uF"/>
 <part name="C8" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="100uF"/>
 <part name="C9" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="100nF"/>
@@ -2788,6 +3126,8 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <part name="R5" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="R9" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="R10" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
+<part name="VR2" library="SparkFun-Resistors" deviceset="POTENTIOMETER_DUAL" device="-PTH-12MM-1/20W-20%"/>
+<part name="MDL1" library="ESP8266-12E" deviceset="ESP8266-12E" device="ESP8266-ESP12E"/>
 </parts>
 <sheets>
 <sheet>
@@ -2813,12 +3153,10 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="X1" gate="G$1" x="157.48" y="127"/>
 <instance part="C1" gate="G$1" x="0" y="172.72"/>
 <instance part="C2" gate="G$1" x="10.16" y="172.72"/>
-<instance part="C3" gate="G$1" x="45.72" y="104.14"/>
-<instance part="C4" gate="G$1" x="33.02" y="104.14"/>
+<instance part="C3" gate="G$1" x="45.72" y="86.36"/>
+<instance part="C4" gate="G$1" x="33.02" y="86.36"/>
 <instance part="C5" gate="G$1" x="-10.16" y="121.92" rot="R90"/>
 <instance part="C6" gate="G$1" x="-2.54" y="127" rot="R90"/>
-<instance part="R1" gate="G$1" x="17.78" y="119.38"/>
-<instance part="R2" gate="G$1" x="27.94" y="124.46"/>
 <instance part="C7" gate="G$1" x="124.46" y="132.08" rot="R90"/>
 <instance part="C8" gate="G$1" x="132.08" y="129.54" rot="R90"/>
 <instance part="C9" gate="G$1" x="137.16" y="121.92"/>
@@ -2838,6 +3176,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <instance part="R5" gate="G$1" x="289.56" y="144.78"/>
 <instance part="R9" gate="G$1" x="297.18" y="134.62"/>
 <instance part="R10" gate="G$1" x="307.34" y="109.22"/>
+<instance part="VR2" gate="G$1" x="15.24" y="111.76"/>
+<instance part="VR2" gate="G$2" x="25.4" y="116.84"/>
+<instance part="MDL1" gate="G$1" x="20.32" y="-2.54"/>
 </instances>
 <busses>
 </busses>
@@ -2953,11 +3294,9 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="C6" gate="G$1" pin="1"/>
 <wire x1="-7.62" y1="127" x2="-15.24" y2="127" width="0.1524" layer="91"/>
 <junction x="-15.24" y="127"/>
-<pinref part="R2" gate="G$1" pin="1"/>
-<wire x1="22.86" y1="124.46" x2="-15.24" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="124.46" x2="-15.24" y2="124.46" width="0.1524" layer="91"/>
 <junction x="-15.24" y="124.46"/>
-<pinref part="R1" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="119.38" x2="-15.24" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="119.38" x2="-15.24" y2="119.38" width="0.1524" layer="91"/>
 <junction x="-15.24" y="119.38"/>
 <pinref part="R4" gate="G$1" pin="1"/>
 <junction x="144.78" y="99.06"/>
@@ -2967,6 +3306,8 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="-15.24" y1="187.96" x2="-22.86" y2="187.96" width="0.1524" layer="91"/>
 <junction x="-15.24" y="187.96"/>
 <label x="-22.86" y="187.96" size="1.778" layer="95"/>
+<pinref part="VR2" gate="G$1" pin="E"/>
+<pinref part="VR2" gate="G$2" pin="E"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="A" pin="AVSS"/>
@@ -3016,6 +3357,11 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <wire x1="121.92" y1="-15.24" x2="121.92" y2="-48.26" width="0.1524" layer="91"/>
 <label x="147.32" y="-48.26" size="1.778" layer="95"/>
 </segment>
+<segment>
+<pinref part="MDL1" gate="G$1" pin="GND"/>
+<wire x1="30.48" y1="-12.7" x2="35.56" y2="-12.7" width="0.1524" layer="91"/>
+<label x="38.1" y="-12.7" size="1.778" layer="95"/>
+</segment>
 </net>
 <net name="N$1" class="0">
 <segment>
@@ -3036,34 +3382,29 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="AR1010_BRKT" gate="1" pin="3"/>
 <pinref part="C4" gate="G$1" pin="2"/>
 <wire x1="2.54" y1="76.2" x2="33.02" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="76.2" x2="33.02" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="76.2" x2="33.02" y2="83.82" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="C4" gate="G$1" pin="1"/>
-<pinref part="R2" gate="G$1" pin="2"/>
-<wire x1="33.02" y1="109.22" x2="33.02" y2="124.46" width="0.1524" layer="91"/>
-<pinref part="U1" gate="A" pin="IN+(1)"/>
-<wire x1="33.02" y1="124.46" x2="58.42" y2="124.46" width="0.1524" layer="91"/>
-<junction x="33.02" y="124.46"/>
+<wire x1="33.02" y1="91.44" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="VR2" gate="G$1" pin="A"/>
+<wire x1="15.24" y1="104.14" x2="33.02" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
-<pinref part="R1" gate="G$1" pin="2"/>
-<pinref part="U1" gate="A" pin="IN+(2)"/>
-<wire x1="22.86" y1="119.38" x2="45.72" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="45.72" y1="119.38" x2="58.42" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="45.72" y1="109.22" x2="45.72" y2="119.38" width="0.1524" layer="91"/>
-<junction x="45.72" y="119.38"/>
+<wire x1="45.72" y1="91.44" x2="45.72" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="VR2" gate="G$2" pin="A"/>
+<wire x1="25.4" y1="109.22" x2="45.72" y2="109.22" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$13" class="0">
 <segment>
 <pinref part="C3" gate="G$1" pin="2"/>
-<wire x1="45.72" y1="101.6" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="83.82" x2="45.72" y2="78.74" width="0.1524" layer="91"/>
 <pinref part="AR1010_BRKT" gate="1" pin="4"/>
 <wire x1="45.72" y1="78.74" x2="2.54" y2="78.74" width="0.1524" layer="91"/>
 </segment>
@@ -3314,6 +3655,23 @@ SparkFun BigTime Watch Kit&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;
 <pinref part="U$1" gate="A" pin="RC3/SCK/SCL"/>
 <wire x1="269.24" y1="101.6" x2="276.86" y2="101.6" width="0.1524" layer="91"/>
 <label x="271.78" y="101.6" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="IN+(1)"/>
+<pinref part="VR2" gate="G$2" pin="S"/>
+<wire x1="58.42" y1="124.46" x2="30.48" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="124.46" x2="30.48" y2="116.84" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$5" class="0">
+<segment>
+<pinref part="U1" gate="A" pin="IN+(2)"/>
+<wire x1="58.42" y1="119.38" x2="38.1" y2="119.38" width="0.1524" layer="91"/>
+<wire x1="38.1" y1="119.38" x2="38.1" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="VR2" gate="G$1" pin="S"/>
+<wire x1="38.1" y1="111.76" x2="20.32" y2="111.76" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
