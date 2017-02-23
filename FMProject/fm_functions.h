@@ -211,6 +211,11 @@ unsigned char setSeekDirection(char direction)
     return XS;
 }
 
+unsigned char enableFM(unsigned char bitState){
+    setBitInRegister(enable[0], enable[1], bitState);
+    return XS;
+}
+
 /*
  * SetVolume(volume) -  Tune the FM module achieve new volume.  
  *
@@ -308,7 +313,6 @@ unsigned char FMinit() {
     if (FMwrite(0) != XS) return XF;
     delay_10ms(2);
     while (FMready(&dat), !dat) __delay_ms(2);
-    showFreq();
     return XS;
 }
 //

@@ -39,6 +39,7 @@
 #include "fm.h"
 #include "fm_readwrite.h"
 #include "fm_functions.h"
+//#include "lcd.h"
 
 void main(void) {
 int evt;

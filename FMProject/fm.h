@@ -49,6 +49,9 @@ const unsigned int regDflt[18] = {
 };
 
 unsigned int regImg[18]; // FM register bank images
+unsigned char VolControl = 9;
+unsigned int FreqControl = 964;
+BOOL hardmute = 0;
 
 // Define register/bit arrays for particular functions
 const unsigned int hardmute_bit[2] = {1, 1}; // Register 1 -  xxxx xxxx xxxx xxDx
@@ -59,23 +62,20 @@ const unsigned int tune_bit[2] = {2, 9}; // Register 2 -  xxxx xxDx xxxx xxxx
 const unsigned int hiloctrl1_bit[2] = {11, 2}; // Register 11 - xxxx xxxx xxxx xDxx
 const unsigned int hiloctrl2_bit[2] = {11, 0}; // Register 11 - xxxx xxxx xxxx xxxD
 const unsigned int hiloside_bit[2] = {11, 15}; // Register 11 - Dxxx xxxx xxxx xxxx
+const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 
 #define RSSI_ADDR		0x12	 // Address of the RSSI register
 #define ADDR_STATUS		0x13     // Address of the status register
 #define CHAN_MASK		0xFE00	 // Bit range of register 2's channel setting
 #define SHIFT_READCHAN	7		 // Number of bits to shift to get READCHAN value
-
 #define MASK_ST			0x0008   // Stereo D3 in address 13H
 #define MASK_READCHAN	0xFF80   // D7~D15 in address 13H
-
 #define HILO_MASK		0x7FFA	 // D15, D2 and D0 in register 11 - hi/lo injection bits
-
 
 #define XS				0			// Exit success
 #define XF				1			// Exit fail
 
 #define FMI2CADR		0x20		// Address (for writes) of FM module on I2C bus
-
 
 #define DEVRD			0x01		// Read not write an I2C device 
 #define FMCHIPVERSADR	0x1C		// Address of FM chip version
@@ -128,6 +128,7 @@ unsigned char setVolume(int volume);
 unsigned char FMfrequenc(unsigned int f);
 unsigned char setHardmute(unsigned char bitState);
 unsigned char setSeekDirection(char direction);
+unsigned char enableFM(unsigned char bitState);
 
 void Init() {
     int i;
@@ -155,38 +156,18 @@ void Init() {
 //
 // end Init ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
+
 /*
  * errfm() -  Firmware error.   Call this on a showstopper.
- *
- *
  * @return Never!
- *
  */
 void errfm() {
 
     ; // Do something helpful
     for (;;);
 }
-//
 // end errfm ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
-//
-
-/*
- * Display the frequency that the receiver chip is set to.
- *
- * @return XS if successful, else XF on failure.
- *
- */
-unsigned char showFreq() {
-
-    ; // Etc
-    return XS;
-}
-//
-// end showFreq ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-//
-
 
 void delay_10ms(unsigned int n) {
     while (n-- != 0) {
@@ -310,9 +291,8 @@ unsigned char previousChannel() {
 }
 
 unsigned char VolumeUp() {
-    char dir = 'u';
-    seek(dir);
-    //setVolume(18);
+    VolControl++;
+    setVolume(VolControl);
     //setHardmute(1);
     PORTCbits.RC6 = 1;
     delay_10ms(10);
@@ -322,10 +302,9 @@ unsigned char VolumeUp() {
 }
 
 unsigned char VolumeDown() {
-    char dir = 'd';
-    seek(dir);
-    //setVolume(10);
-    //setHardmute(0);
+    VolControl--;
+    setVolume(VolControl);
+
     PORTCbits.RC7 = 1;
     delay_10ms(10);
     PORTCbits.RC7 = 0;
@@ -333,27 +312,21 @@ unsigned char VolumeDown() {
     return XS;
 }
 
-unsigned char MuteHard(unsigned char down) {
-
-    // Etc.
+unsigned char MuteHard() {
+    hardmute = !hardmute; 
+    setHardmute(hardmute);
     return XS;
 }
 
 unsigned char SeekUP() {
-
-    PORTCbits.RC7 = 1;
-    delay_10ms(10);
-    PORTCbits.RC7 = 0;
-    // Etc.
+    char dir = 'u';
+    seek(dir);
     return XS;
 }
 
 unsigned char SeekDOWN() {
-
-    PORTCbits.RC7 = 1;
-    delay_10ms(10);
-    PORTCbits.RC7 = 0;
-    // Etc.
+    char dir = 'd';
+    seek(dir);
     return XS;
 }
 
