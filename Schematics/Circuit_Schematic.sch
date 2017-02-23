@@ -3810,6 +3810,77 @@ Distributor Buerklin, 11G810</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="MIRO">
+<packages>
+<package name="SOIC-8">
+<wire x1="-2.362" y1="-1.803" x2="2.362" y2="-1.803" width="0.1524" layer="51"/>
+<wire x1="2.362" y1="-1.803" x2="2.362" y2="1.803" width="0.1524" layer="21"/>
+<wire x1="2.362" y1="1.803" x2="-2.362" y2="1.803" width="0.1524" layer="51"/>
+<wire x1="-2.362" y1="1.803" x2="-2.362" y2="-1.803" width="0.1524" layer="21"/>
+<circle x="-1.8034" y="-0.9906" radius="0.1436" width="0.2032" layer="21"/>
+<smd name="A0" x="-1.905" y="-2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<smd name="A1" x="-0.635" y="-2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<smd name="A2" x="0.635" y="-2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<smd name="GND" x="1.905" y="-2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<smd name="SDA" x="1.905" y="2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<smd name="SCL" x="0.635" y="2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<smd name="WP" x="-0.635" y="2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<smd name="VCC" x="-1.905" y="2.6162" dx="0.6096" dy="2.2098" layer="1"/>
+<text x="-1.27" y="-0.635" size="0.4064" layer="27">&gt;VALUE</text>
+<text x="-1.27" y="0" size="0.4064" layer="25">&gt;NAME</text>
+<rectangle x1="-2.0828" y1="-2.8702" x2="-1.7272" y2="-1.8542" layer="51"/>
+<rectangle x1="-0.8128" y1="-2.8702" x2="-0.4572" y2="-1.8542" layer="51"/>
+<rectangle x1="0.4572" y1="-2.8702" x2="0.8128" y2="-1.8542" layer="51"/>
+<rectangle x1="1.7272" y1="-2.8702" x2="2.0828" y2="-1.8542" layer="51"/>
+<rectangle x1="-2.0828" y1="1.8542" x2="-1.7272" y2="2.8702" layer="51"/>
+<rectangle x1="-0.8128" y1="1.8542" x2="-0.4572" y2="2.8702" layer="51"/>
+<rectangle x1="0.4572" y1="1.8542" x2="0.8128" y2="2.8702" layer="51"/>
+<rectangle x1="1.7272" y1="1.8542" x2="2.0828" y2="2.8702" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="24C64">
+<pin name="A0" x="10.16" y="12.7" length="middle"/>
+<pin name="A1" x="10.16" y="7.62" length="middle"/>
+<pin name="A2" x="10.16" y="2.54" length="middle"/>
+<pin name="GND" x="10.16" y="-2.54" length="middle"/>
+<pin name="VCC" x="38.1" y="12.7" length="middle" rot="R180"/>
+<pin name="WP" x="38.1" y="7.62" length="middle" rot="R180"/>
+<pin name="SCL" x="38.1" y="2.54" length="middle" rot="R180"/>
+<pin name="SDA" x="38.1" y="-2.54" length="middle" rot="R180"/>
+<wire x1="15.24" y1="15.24" x2="15.24" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="15.24" y1="-5.08" x2="33.02" y2="-5.08" width="0.254" layer="94"/>
+<wire x1="33.02" y1="-5.08" x2="33.02" y2="15.24" width="0.254" layer="94"/>
+<wire x1="33.02" y1="15.24" x2="15.24" y2="15.24" width="0.254" layer="94"/>
+<text x="15.24" y="17.78" size="1.778" layer="95">&gt;NAME</text>
+<text x="15.24" y="-10.16" size="1.778" layer="96">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="24C64">
+<gates>
+<gate name="G$1" symbol="24C64" x="-22.86" y="-5.08"/>
+</gates>
+<devices>
+<device name="" package="SOIC-8">
+<connects>
+<connect gate="G$1" pin="A0" pad="A0"/>
+<connect gate="G$1" pin="A1" pad="A1"/>
+<connect gate="G$1" pin="A2" pad="A2"/>
+<connect gate="G$1" pin="GND" pad="GND"/>
+<connect gate="G$1" pin="SCL" pad="SCL"/>
+<connect gate="G$1" pin="SDA" pad="SDA"/>
+<connect gate="G$1" pin="VCC" pad="VCC"/>
+<connect gate="G$1" pin="WP" pad="WP"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -3858,6 +3929,7 @@ Distributor Buerklin, 11G810</description>
 <part name="S1" library="switch" deviceset="255SB" device=""/>
 <part name="U2" library="microchip_fromOneCall" deviceset="23LC1024-I/SN" device=""/>
 <part name="UDA1334ATS/N2_ALEX1" library="UDA1334ATS_ALEX" deviceset="UDA1334ATS/N2_ALEX" device=""/>
+<part name="U$3" library="MIRO" deviceset="24C64" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -3917,6 +3989,7 @@ Distributor Buerklin, 11G810</description>
 <instance part="S1" gate="1" x="5.08" y="187.96" rot="R270"/>
 <instance part="U2" gate="A" x="81.28" y="-63.5"/>
 <instance part="UDA1334ATS/N2_ALEX1" gate="G$1" x="0" y="-50.8"/>
+<instance part="U$3" gate="G$1" x="137.16" y="-81.28"/>
 </instances>
 <busses>
 </busses>
