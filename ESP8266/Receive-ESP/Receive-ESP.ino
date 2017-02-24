@@ -1,4 +1,4 @@
-#include <EEPROM.h>
+//#include <EEPROM.h>
 
 /* Alex Young Semester 2 2016/17
    Implementing WiFi connectivity and MQTT control for the radio receiver project.
@@ -17,6 +17,11 @@
 //#include <pins_nodeMCU.h>
 //#include <MQTT.h>
 #define volUpPin D1
+/*#define volDownPin
+#define freqUpPin
+#define freqDownPin
+*/
+#define msgDelay 100
 
 /*#define user twdgskxg
 #define password vkMS2TFzBxLc
@@ -81,20 +86,34 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-  if ((char)payload[0] == 'u'){
+  if (*topic == "volume" && (char)payload[0] == 'u'){
     digitalWrite(volUpPin, HIGH);
     digitalWrite(BUILTIN_LED, LOW);
-    delay(3000);
+    delay(msgDelay);
     digitalWrite(volUpPin, LOW);
     digitalWrite(BUILTIN_LED, HIGH);
   }
- /* // Switch on the LED if a 1 was received as first character
-  if ((char)payload[0] == '1') {
-    digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
-    // but actually the LED is on; this is because it is active low on the ESP-01)
-  } else {
-    digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
-  } */
+  if (*topic == "volume" && (char)payload[0] == 'd'){
+    digitalWrite(volDownPin, HIGH);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(volDownPin, LOW);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+  if (*topic == "frequency" && (char)payload[0] == 'u'){
+    digitalWrite(freqUpPin, HIGH);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(volUpPin, LOW);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+  if (*topic == "frequency" && (char)payload[0] == 'd'){
+    digitalWrite(freqDownPin, HIGH);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(freqDownPin, LOW);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
 }
 
 void reconnect() {
@@ -129,7 +148,7 @@ void loop() {
   if (now - lastMsg > 2000) {
     lastMsg = now;
     ++value;
-    snprintf (msg, 75, "hello world #%ld", value);
+ //   snprintf (msg, 75, "hello world #%ld", value);
  //   Serial.print("Publish message: ");
   //  Serial.println(msg);
  //   client.publish("remote_rcv", msg);
