@@ -293,6 +293,10 @@ unsigned char previousChannel() {
 unsigned char VolumeUp() {
     VolControl++;
     setVolume(VolControl);
+    Lcd_Clear();
+    VolumeScreen();
+    Lcd_Clear();
+    HomeScreen();
     //setHardmute(1);
     PORTCbits.RC6 = 1;
     delay_10ms(10);
