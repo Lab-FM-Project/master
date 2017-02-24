@@ -1,3 +1,5 @@
+#include <EEPROM.h>
+
 /* Alex Young Semester 2 2016/17
    Implementing WiFi connectivity and MQTT control for the radio receiver project.
  */
@@ -12,17 +14,21 @@
 // including some headers that will be used for the receiver and esp chip
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+//#include <pins_nodeMCU.h>
 //#include <MQTT.h>
+#define volUpPin D1
 
 /*#define user twdgskxg
 #define password vkMS2TFzBxLc
 #define sslport 28296 */
 
 /*const char *ssid =  "AndroidAP";    // cannot be longer than 32 characters!
-const char *pass =  "xhct2880";  // insert your internet SSID and password
-*/
-const char *ssid = "Landgate";
-const char *password = "GlaziersLand2EDgateLaneGU3";
+const char *password =  "xhct2880";  // insert your internet SSID and password */
+
+/*const char *ssid = "Landgate";
+const char *password = "GlaziersLand2EDgateLaneGU3"; */
+const char *ssid = "G5_8814";
+const char *password = "Beano1234";
 const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";
 const char* clientID = "ESP8266Client";
@@ -30,14 +36,19 @@ const char* clientUserName = clientID;
 const char* clientPassword = "mqtt";
 int port = 18296;
 
+
 WiFiClient espClient; //initialising new WifiClient
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 int value = 0;
+char recvMsg[1];
 
 void setup() { //in the setup we initialise the RC switch to a specific pin (12) and setting output as output pin.
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+  pinMode(volUpPin, OUTPUT);
+  digitalWrite(volUpPin, LOW);
+  digitalWrite(BUILTIN_LED, HIGH); //off
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, port);
@@ -70,13 +81,20 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-  // Switch on the LED if an 1 was received as first character
+  if ((char)payload[0] == 'u'){
+    digitalWrite(volUpPin, HIGH);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(3000);
+    digitalWrite(volUpPin, LOW);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+ /* // Switch on the LED if a 1 was received as first character
   if ((char)payload[0] == '1') {
     digitalWrite(BUILTIN_LED, LOW);   // Turn the LED on (Note that LOW is the voltage level
     // but actually the LED is on; this is because it is active low on the ESP-01)
   } else {
     digitalWrite(BUILTIN_LED, HIGH);  // Turn the LED off by making the voltage HIGH
-  }
+  } */
 }
 
 void reconnect() {
