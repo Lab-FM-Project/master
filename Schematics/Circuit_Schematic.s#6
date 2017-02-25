@@ -4038,6 +4038,7 @@ http://www.zetex.com&lt;p&gt;
 <text x="358.14" y="45.72" size="1.778" layer="91">3.3V</text>
 <text x="0" y="-43.18" size="1.778" layer="91">DAC</text>
 <text x="68.58" y="-45.72" size="1.778" layer="91">RAM</text>
+<text x="398.78" y="137.16" size="1.778" layer="91">Vol Up: RB0</text>
 </plain>
 <instances>
 <instance part="AR1010_BRKT" gate="1" x="-5.08" y="78.74" smashed="yes">
@@ -4387,22 +4388,6 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="C9" gate="G$1" pin="2"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <wire x1="137.16" y1="119.38" x2="137.16" y2="114.3" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="RD0" class="0">
-<segment>
-<pinref part="U$2" gate="G$1" pin="DB0"/>
-<pinref part="U$1" gate="A" pin="RD0/SEG0"/>
-<wire x1="152.4" y1="-15.24" x2="152.4" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="60.96" x2="182.88" y2="60.96" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="RD1" class="0">
-<segment>
-<pinref part="U$2" gate="G$1" pin="DB1"/>
-<wire x1="149.86" y1="-15.24" x2="149.86" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="149.86" y1="58.42" x2="182.88" y2="58.42" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="A" pin="RD1/SEG1"/>
 </segment>
 </net>
 <net name="RD2" class="0">
