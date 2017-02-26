@@ -289,8 +289,17 @@ unsigned char previousChannel() {
 }
 
 unsigned char VolumeUp() {
+<<<<<<< HEAD
     //VolControl++;
     setVolume(18);
+=======
+    VolControl++;
+    setVolume(VolControl);
+    Lcd_Clear();
+    VolumeScreen();
+    Lcd_Clear();
+    HomeScreen();
+>>>>>>> origin/master
     //setHardmute(1);
 
 

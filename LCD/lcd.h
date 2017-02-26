@@ -2,6 +2,21 @@
 //LCD Functions Developed by electroSome
 
 #include <stdio.h>
+void Store_mute_symbol();
+void Lcd_Port(char a);
+void Lcd_Cmd(char a);
+void Lcd_Clear();
+void Lcd_Set_Cursor(char a, char b);
+void Lcd_Init();
+void Lcd_Write_Char(char a);
+void Lcd_Write_String(char *a);
+void Lcd_Shift_Right();
+void Lcd_Shift_Left();
+void display_mute_symbol();
+void HomeScreen(float freq);
+void VolumeScreen(int level);
+
+
 void Lcd_Port(char a)
 {
 	if(a & 1)
@@ -33,7 +48,7 @@ void Lcd_Cmd(char a)
         EN  = 0;             // => E = 0
 }
 
-Lcd_Clear()
+void Lcd_Clear()
 {
 	Lcd_Cmd(0);
 	Lcd_Cmd(1);
@@ -59,7 +74,24 @@ void Lcd_Set_Cursor(char a, char b)
 		Lcd_Cmd(y);
 	}
 }
+   
 
+void Store_mute_symbol()
+
+{   
+    
+    Lcd_Cmd(0x40); // set the address to CGRAM
+    Lcd_Write_Char(0x00);
+    Lcd_Write_Char(0x02);
+    Lcd_Write_Char(0x06);
+    Lcd_Write_Char(0x0E);
+    Lcd_Write_Char(0x0E);
+    Lcd_Write_Char(0x06);
+    Lcd_Write_Char(0x02);
+    Lcd_Write_Char(0x00);
+    
+    
+}
 void Lcd_Init()
 {
   Lcd_Port(0x00);
@@ -77,6 +109,8 @@ void Lcd_Init()
   Lcd_Cmd(0x0C);
   Lcd_Cmd(0x00);
   Lcd_Cmd(0x06);
+  //Store_mute_symbol();
+  
 }
 
 void Lcd_Write_Char(char a)
@@ -114,35 +148,38 @@ void Lcd_Shift_Left()
 	Lcd_Cmd(0x08);
 }
 
-void Set_Custom_Characters
 
+
+void display_mute_symbol()
 {
-    Lcd_Cmd(0x01);
+    Lcd_Set_Cursor(1,15);
+    Lcd_Write_Char(0x00);
+    
 }
 
 
-void homescreen(float freq, bool mute)
+void HomeScreen(float freq)
 {
-	Lcd_Write_String("                "); 
+	 
     Lcd_Set_Cursor(1,1);
     if ((103.0 < freq) && (freq <105.0)) Lcd_Write_String("BBC Surrey");
     else Lcd_Write_String("Unknown Station");    
            
     Lcd_Set_Cursor(2,1);
-    Lcd_Write_String("                "); 
     char output[5];
-    sprintf(output, "%.1f MHZ", freq);    
+    sprintf(output, "%.1f MHZ", freq);   
+    Lcd_Write_String(output);
    
 }
 
-void VolumeScreen()
+void VolumeScreen(int level)
 {
 	int count;
     level = level - 2;    
     Lcd_Set_Cursor(1,1);
     Lcd_Write_String("Volume: ");
     Lcd_Set_Cursor(2,1);
-    for (count = 0; count < volcontrol; count++)   
+    for (count = 0; count < level; count++)   
     {
         
         Lcd_Write_String("ÿ");
@@ -153,13 +190,9 @@ void VolumeScreen()
         
         Lcd_Write_String(" ");
     }
-    
-  
-    
 
     
-  
-           
- 
+    
+    
    
 }
