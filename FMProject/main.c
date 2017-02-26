@@ -40,44 +40,84 @@
 #include "fm_readwrite.h"
 #include "fm_functions.h"
 //#include "lcd.h"
+#include <delays.h>
+
+void DelayHalfSecond() {
+    int i;
+    for (i = 0; i < 50; i++)
+        __delay_ms(1000);
+}
+
+
+void interrupt low_priority CheckButtonPressed() {
+    //int vol;
+    //check if the interrupt is caused by the pin RB0
+    if (INTCONbits.INT0F == 1) {
+        PORTCbits.RC6 = 1;
+        __delay_ms(1000);
+        PORTCbits.RC6 = 0;
+        __delay_ms(500);
+        INTCONbits.INT0F = 0;
+        INTCON3bits.INT1F = 0;
+        setVolume(18);
+
+    } else if (INTCON3bits.INT1F == 1) {
+        PORTCbits.RC7 = 1;
+        __delay_ms(1000);
+        PORTCbits.RC7 = 0;
+        __delay_ms(500);
+        INTCON3bits.INT1F = 0;
+        INTCONbits.INT0F = 0;
+        setVolume(0);
+    }
+
+}
 
 void main(void) {
-int evt;
-unsigned int ui;
-delay_10ms(2);
-Init();
+    int evt;
+    unsigned int ui;
+    dly(20);
+    Init();
 
-PORTCbits.RC6 = 1;
+    FMvers(&ui); // Check we have comms with FM chip
+    if (ui != 0x1010) errfm();
+    if (FMinit() != XS) errfm();
+    FMfrequenc(964);
 
-FMvers(&ui); // Check we have comms with FM chip
-if (ui != 0x1010) errfm();
-if (FMinit() != XS) errfm();
-FMfrequenc(964);
-for (;;) {
+    OSCCONbits.IRCF0 = 1;
+    OSCCONbits.IRCF1 = 1;
+    OSCCONbits.IRCF2 = 1;
 
-    evt = butnEvent();
-    switch (evt) {
-        case 1: nextChannel();
-            break;
-        case 2: previousChannel();
-            break;
-        case 3: VolumeUp();
-            break;
-        case 4: VolumeDown();
-            break;
-        case 5: MuteHard(FALSE);
-            break;
-        case 6: SeekUP();
-            break;
-        case 7: SeekDOWN();
-            break;
-            // ...
-        case 8: errfm();
-            break;
+    INTCONbits.GIEH = 1; // Enable High Level interrupts
+    INTCONbits.INT0IE = 1; // Enable the INT0 external interrupt
+    INTCON3bits.INT1IE = 1; // Enable the INT1 external interrupt
 
-        default: break;
+    INTCON2bits.INTEDG0 = 1; // INT0 interrupt on rising edge
+    INTCON2bits.INTEDG1 = 1; // INT1 interrupt on rising edge
+
+    INTCONbits.INT0F = 0; //reset interrupt flag
+    INTCON3bits.INT1F = 0; //reset interrupt flag
+
+    while (1) //infinite loop
+    {
+        //actually we have to put the processor in sleep which i will cover
+        //  in later tutorials
+        evt = butnEvent();
+        switch (evt) {
+            case 1: nextChannel();
+                break;
+            case 2: previousChannel();
+                break;
+            case 5: MuteHard();
+                // ...
+            case 8: errfm();
+                break;
+
+            default: break;
+        }
     }
-}
+
+
 }
 //
 // end main ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

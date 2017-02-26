@@ -88,11 +88,11 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 #define FMASKSEEK		0x4000		// Register 3, bit 14
 #define FMASKRDCHAN		0xFF80		// Register 2, channel number bits
 
-#define NextChan        PORTAbits.RA0
-#define PrevChan        PORTAbits.RA1
+#define NextChan        PORTGbits.RG1
+#define PrevChan        PORTGbits.RG2
 
 #define VolUp           PORTBbits.RB0
-#define VolDown         PORTBbits.RB5
+#define VolDown         PORTBbits.RB1
 
 #define MUTE            PORTGbits.RG0
 
@@ -131,12 +131,15 @@ unsigned char setSeekDirection(char direction);
 unsigned char enableFM(unsigned char bitState);
 
 void Init() {
+
     int i;
+
     OSCCON = 0b01110010; // Select 8 MHz internal oscillator
+    LCDCON = 0b10001000; // Enab LC controller. Static mode. INTRC clock
     LCDPS = 0b00110110; // 37 Hz frame frequency
     ADCON1 = 0b00111111; // Make all ADC/IO pins digital
     TRISA = 0b00000011; // RA0 and RA1 pbutton
-    TRISB = 0b00100001; // RB0 and RB5 pbutton
+    TRISB = 0b00000011; // RB0 and RB1 pbutton
     TRISC = 0b00011000; // RC3 and RC4 do the I2C bus
     TRISG = 0b11111111; // RG0, RG1 & RG3 pbutton
     PORTA = 0;
@@ -150,8 +153,6 @@ void Init() {
     T0CONbits.TMR0ON = 1; // Start timer
     OpenI2C(MASTER, SLEW_OFF);
     SSPADD = 0x3F;
-    setVolume(9);
-    return;
 }
 //
 // end Init ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -161,10 +162,9 @@ void Init() {
  * errfm() -  Firmware error.   Call this on a showstopper.
  * @return Never!
  */
-void errfm() {
+unsigned char errfm() {
 
-    ; // Do something helpful
-    for (;;);
+    return XS;
 }
 // end errfm ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
@@ -192,8 +192,9 @@ int butnEvent(void) {
         for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
         if (NextChan == 0) //check if the switch is still closed
         {
+
             timereturn = 1;
-            for (int c = 0; c <= 10; c++)__delay_ms(7);
+            for (int c = 0; c <= 10; c++)__delay_ms(20);
             if (NextChan == 0) {
                 timereturn = 6;
             }
@@ -201,6 +202,7 @@ int butnEvent(void) {
         } else {
             timereturn = 0;
             return timereturn;
+            PORTCbits.RC6 = 0;
         }
     }
 
@@ -272,49 +274,41 @@ int butnEvent(void) {
  */
 unsigned char nextChannel() {
     FMfrequenc(964);
-    PORTCbits.RC6 = 1;
+    PORTCbits.RC7 = 1;
     delay_10ms(10);
-    PORTCbits.RC6 = 0;
-
-    // Etc.
+    PORTCbits.RC7 = 0;
     return XS;
 }
 
 unsigned char previousChannel() {
 
     FMfrequenc(958);
-    PORTCbits.RC7 = 1;
-    delay_10ms(10);
-    PORTCbits.RC7 = 0;
+
     // Etc.
     return XS;
 }
 
 unsigned char VolumeUp() {
-    VolControl++;
-    setVolume(VolControl);
+    //VolControl++;
+    setVolume(18);
     //setHardmute(1);
-    PORTCbits.RC6 = 1;
-    delay_10ms(10);
-    PORTCbits.RC6 = 0;
+
+
     // Etc.
     return XS;
 }
 
 unsigned char VolumeDown() {
-    VolControl--;
-    setVolume(VolControl);
+    //VolControl--;
+    setVolume(0);
 
-    PORTCbits.RC7 = 1;
-    delay_10ms(10);
-    PORTCbits.RC7 = 0;
     // Etc.
     return XS;
 }
 
 unsigned char MuteHard() {
-    hardmute = !hardmute; 
-    setHardmute(hardmute);
+    //hardmute = !hardmute;
+    //setHardmute(hardmute);
     return XS;
 }
 
@@ -335,6 +329,16 @@ unsigned char SeekDOWN() {
 //
 //
 
+void dly(int d) {
+
+    int i = 0;
+
+    for (; d; --d)
+        for (i = 100; i; --i);
+}
+//
+// end dly ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//
 
 
 //

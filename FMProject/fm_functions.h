@@ -338,7 +338,7 @@ unsigned char FMfrequenc(unsigned int f) {
     regImg[2] |= (cn | FMASKTUNE);
     if (FMwrite(2) != XS) return XF;
     do {
-        __delay_ms(2);
+        dly(2);
         if (FMready(&dat) != XS) return XF;
     } while (!dat);
     return XS;
