@@ -12,7 +12,7 @@ void Lcd_Write_Char(char a);
 void Lcd_Write_String(char *a);
 void Lcd_Shift_Right();
 void Lcd_Shift_Left();
-void display_mute_symbol();
+void display_mute_symbol(unsigned char mute);
 void HomeScreen(float freq);
 void VolumeScreen(int level);
 
@@ -80,15 +80,17 @@ void Store_mute_symbol()
 
 {   
     
-    Lcd_Cmd(0x40); // set the address to CGRAM
-    Lcd_Write_Char(0x00);
+    Lcd_Cmd(0x04);
+    Lcd_Cmd(0x00);// set the address to CGRAM
     Lcd_Write_Char(0x02);
     Lcd_Write_Char(0x06);
-    Lcd_Write_Char(0x0E);
-    Lcd_Write_Char(0x0E);
+    Lcd_Write_Char(0x1e);
+    Lcd_Write_Char(0x1e);
+    Lcd_Write_Char(0x1e);
+    Lcd_Write_Char(0x1e);
     Lcd_Write_Char(0x06);
     Lcd_Write_Char(0x02);
-    Lcd_Write_Char(0x00);
+    
     
     
 }
@@ -109,15 +111,15 @@ void Lcd_Init()
   Lcd_Cmd(0x0C);
   Lcd_Cmd(0x00);
   Lcd_Cmd(0x06);
-  //Store_mute_symbol();
+  Store_mute_symbol();
   
 }
 
 void Lcd_Write_Char(char a)
 {
    char temp,y;
-   temp = a&0x0F;
-   y = a&0xF0;
+   temp = a & 0x0F;
+   y = a & 0xF0;
    RS = 1;             // => RS = 1
    Lcd_Port(y>>4);             //Data transfer
    EN = 1;
@@ -150,10 +152,13 @@ void Lcd_Shift_Left()
 
 
 
-void display_mute_symbol()
+void display_mute_symbol(unsigned char mute)
 {
     Lcd_Set_Cursor(1,15);
     Lcd_Write_Char(0x00);
+    Lcd_Set_Cursor(1,16);
+    if (mute == 1) Lcd_Write_Char(0x78);
+    else Lcd_Write_Char(' ');
     
 }
 
@@ -182,13 +187,13 @@ void VolumeScreen(int level)
     for (count = 0; count < level; count++)   
     {
         
-        Lcd_Write_String("ÿ");
+        Lcd_Write_Char('ÿ');
     }
     
      for (count; count < 17; count++)   
     {
         
-        Lcd_Write_String(" ");
+        Lcd_Write_Char(' ');
     }
 
     

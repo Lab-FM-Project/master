@@ -34,10 +34,10 @@ int main()
   Lcd_Init();
   
   Lcd_Clear();
-  display_mute_symbol();  
+  display_mute_symbol(1);  
   HomeScreen(104);
   
-  
+  PORTDbits.RD1 = 1;
   
   while (1)
   { 
