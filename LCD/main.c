@@ -2,12 +2,7 @@
 #define _XTAL_FREQ 8000000
 
 
-#define RS PORTDbits.RD2
-#define EN PORTDbits.RD3
-#define D4 PORTDbits.RD4
-#define D5 PORTDbits.RD5
-#define D6 PORTDbits.RD6
-#define D7 PORTDbits.RD7
+
 
 #include <xc.h>
 #include "lcd.h"

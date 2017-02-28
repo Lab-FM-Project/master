@@ -2,6 +2,12 @@
 //LCD Functions Developed by electroSome
 
 #include <stdio.h>
+#define RS PORTDbits.RD2
+#define EN PORTDbits.RD3
+#define D4 PORTDbits.RD4
+#define D5 PORTDbits.RD5
+#define D6 PORTDbits.RD6
+#define D7 PORTDbits.RD7
 void Store_mute_symbol();
 void Lcd_Port(char a);
 void Lcd_Cmd(char a);
