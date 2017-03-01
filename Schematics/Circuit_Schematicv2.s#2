@@ -5019,7 +5019,10 @@ No silk outline, but tDocu layer shows pin location.
 <attribute name="NAME" x="434.34" y="179.324" size="1.778" layer="95" font="vector" align="bottom-center"/>
 <attribute name="VALUE" x="347.98" y="154.432" size="1.778" layer="96" font="vector" align="top-center"/>
 </instance>
-<instance part="USB-SERIAL_CONVERTER" gate="J$1" x="441.96" y="63.5" rot="R180"/>
+<instance part="USB-SERIAL_CONVERTER" gate="J$1" x="441.96" y="63.5" smashed="yes" rot="R180">
+<attribute name="VALUE" x="444.5" y="70.866" size="1.778" layer="96" font="vector" rot="R180"/>
+<attribute name="NAME" x="452.12" y="70.612" size="1.778" layer="95" font="vector" rot="R180"/>
+</instance>
 </instances>
 <busses>
 </busses>
