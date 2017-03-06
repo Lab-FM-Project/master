@@ -2,24 +2,24 @@ EAGLE AutoRouter Statistics:
 
 Job           : /Users/user/Desktop/master/Schematics/Circuit_Schematicv2.brd
 
-Start at      : 19:16:30 (03/03/2017)
+Start at      : 14:03:19 (06/03/2017)
 End at        : 01:00:00 (01/01/1970)
-Elapsed time  : 00:00:21
+Elapsed time  : 00:00:00
 
-Signals       :    61   RoutingGrid: 9 mil  Layers: 2
-Connections   :   168   predefined:  1 ( 0 Vias )
+Signals       :    62   RoutingGrid: 9 mil  Layers: 2
+Connections   :   167   predefined:  144 ( 145 Vias )
 
-Router memory :   1188720
+Router memory :   0
 
-Passname          : TopRouter     Route
+Passname          :          
 
-Time per pass     :  00:00:17  00:00:04
-Number of Ripups  :         0         2
-max. Level        :         0         9
-max. Total        :         0         9
+Time per pass     :  00:00:00
+Number of Ripups  :         0
+max. Level        :         0
+max. Total        :         0
 
-Routed            :        37        88
-Vias              :         0        12
-Resolution        :    22.6 %    53.0 %
+Routed            :         0
+Vias              :         0
+Resolution        :    86.2 %
 
 Final             : 
