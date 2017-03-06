@@ -7,21 +7,24 @@ Define the access point name and its password here.
 #define AP_NAME "Landgate"
 #define AP_PASS "GlaziersLand2EDgateLaneGU3"
 
-/*
-#define AP_NAME "G5_8814"
-#define AP_PASS "Beano1234"
-*/
+#ifndef _PLAYER_CONFIG_H_
+#define _PLAYER_CONFIG_H_
 
+/*
+Define the access point name and its password here.
+*/
+/*
+#define AP_NAME "testjmd"
+#define AP_PASS "pannenkoek"
+*/
 /* Define stream URL here. For example, the URL to the MP3 stream of a certain Dutch radio station
 is http://icecast.omroep.nl/3fm-sb-mp3 . This translates of a server name of "icecast.omroep.nl"
 and a path of "/3fm-sb-mp3". The port usually is 80 (the standard HTTP port) */
-
-if 0
+#if 0
 #define PLAY_SERVER "icecast.omroep.nl"
 #define PLAY_PATH "/3fm-sb-mp3"
 #define PLAY_PORT 80
 #endif
-
 /*
 Here's a DI.fm stream
 */
@@ -33,13 +36,12 @@ Here's a DI.fm stream
 
 /* You can use something like this to connect to a local mpd server which has a configured 
 mp3 output: */
-/*
 #if 1
 #define PLAY_SERVER "192.168.33.128"
 #define PLAY_PATH "/"
 #define PLAY_PORT 8000
 #endif
-*/
+
 /* You can also play a non-streaming mp3 file that's hosted somewhere. WARNING: If you do this,
 make sure to comment out the ADD_DEL_SAMPLES define below, or you'll get too fast a playback 
 rate! */

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.2">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -162,6 +162,8 @@
 <circle x="53.068309375" y="47.60838125" radius="1.25" width="0.01" layer="20"/>
 <circle x="-24.032" y="47.608" radius="1.25" width="0.01" layer="20"/>
 <wire x1="55.395" y1="51.09" x2="55.268" y2="51.09" width="0.01" layer="20"/>
+<dimension x1="-83.732" y1="17.94373125" x2="55.268" y2="17.94373125" x3="-14.232" y3="12.192" textsize="1.778" layer="20"/>
+<dimension x1="-83.732" y1="17.94373125" x2="-83.732" y2="51.09" x3="-88.9" y3="34.516865625" textsize="1.778" layer="20"/>
 </plain>
 <libraries>
 <library name="testpad">
