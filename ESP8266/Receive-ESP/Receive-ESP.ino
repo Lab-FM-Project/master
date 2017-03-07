@@ -17,10 +17,14 @@
 //#include <pins_nodeMCU.h>
 //#include <MQTT.h>
 #define volUpPin D1
-/*#define volDownPin
-#define freqUpPin
-#define freqDownPin
-*/
+#define volDownPin D2
+#define stationNextPin D6
+#define stationPrevPin D3
+#define mutePin D2
+#define fav1Pin D0
+#define fav2Pin D7
+#define fav3Pin D4
+
 #define msgDelay 100
 
 /*#define user twdgskxg
@@ -30,10 +34,10 @@
 /*const char *ssid =  "AndroidAP";    // cannot be longer than 32 characters!
 const char *password =  "xhct2880";  // insert your internet SSID and password */
 
-/*const char *ssid = "Landgate";
-const char *password = "GlaziersLand2EDgateLaneGU3"; */
-const char *ssid = "G5_8814";
-const char *password = "Beano1234";
+const char *ssid = "Landgate";
+const char *password = "GlaziersLand2EDgateLaneGU3"; 
+/*const char *ssid = "G5_8814";
+const char *password = "Beano1234";*/
 const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";
 const char* clientID = "ESP8266Client";
@@ -51,9 +55,23 @@ char recvMsg[1];
 
 void setup() { //in the setup we initialise the RC switch to a specific pin (12) and setting output as output pin.
   pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
-  pinMode(volUpPin, OUTPUT);
-  digitalWrite(volUpPin, LOW);
   digitalWrite(BUILTIN_LED, HIGH); //off
+   pinMode(volUpPin, OUTPUT);
+  digitalWrite(volUpPin, HIGH);
+   pinMode(volDownPin, OUTPUT);
+  digitalWrite(volDownPin, HIGH);
+  pinMode(stationNextPin, OUTPUT);
+  digitalWrite(stationNextPin, HIGH);
+   pinMode(stationPrevPin, OUTPUT);
+  digitalWrite(stationPrevPin, HIGH);
+  pinMode(mutePin, OUTPUT);
+  digitalWrite(mutePin, HIGH);
+   pinMode(fav1Pin, OUTPUT);
+  digitalWrite(fav1Pin, HIGH);
+  pinMode(fav2Pin, OUTPUT);
+  digitalWrite(fav2Pin, HIGH);
+   pinMode(fav3Pin, OUTPUT);
+  digitalWrite(fav3Pin, HIGH);
   Serial.begin(115200);
   setup_wifi();
   client.setServer(mqtt_server, port);
@@ -86,32 +104,60 @@ void callback(char* topic, byte* payload, unsigned int length) {
     Serial.print((char)payload[i]);
   }
   Serial.println();
-  if (*topic == "volume" && (char)payload[0] == 'u'){
+  if (topic == "volume" && (char)payload[0] == 'u'){
+    digitalWrite(volUpPin, LOW);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
     digitalWrite(volUpPin, HIGH);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
-    digitalWrite(volUpPin, LOW);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (*topic == "volume" && (char)payload[0] == 'd'){
-    digitalWrite(volDownPin, HIGH);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
+  if (topic == "volume" && (char)payload[0] == 'd'){
     digitalWrite(volDownPin, LOW);
-    digitalWrite(BUILTIN_LED, HIGH);
-  }
-  if (*topic == "frequency" && (char)payload[0] == 'u'){
-    digitalWrite(freqUpPin, HIGH);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
-    digitalWrite(volUpPin, LOW);
+    digitalWrite(volDownPin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (*topic == "frequency" && (char)payload[0] == 'd'){
-    digitalWrite(freqDownPin, HIGH);
+  if (topic == "station" && (char)payload[0] == 'u'){
+    digitalWrite(stationNextPin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
-    digitalWrite(freqDownPin, LOW);
+    digitalWrite(stationNextPin, HIGH);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+  if (topic == "station" && (char)payload[0] == 'd'){
+    digitalWrite(stationPrevPin, LOW);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(stationPrevPin, HIGH);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+  if (topic == "mute" && (char)payload[0] == 'u'){
+    digitalWrite(mutePin, LOW);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(mutePin, HIGH);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+  if (topic == "favourite" && (char)payload[0] == '1'){
+    digitalWrite(fav1Pin, LOW);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(fav1Pin, HIGH);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+  if (topic == "favourite" && (char)payload[0] == '2'){
+    digitalWrite(fav2Pin, LOW);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(fav2Pin, HIGH);
+    digitalWrite(BUILTIN_LED, HIGH);
+  }
+  if (topic == "favourite" && (char)payload[0] == '3'){
+    digitalWrite(fav3Pin, LOW);
+    digitalWrite(BUILTIN_LED, LOW);
+    delay(msgDelay);
+    digitalWrite(fav3Pin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
 }
@@ -126,7 +172,10 @@ void reconnect() {
       // Once connected, publish an announcement...
       client.publish("remote_rcv", "hello world");
       // ... and resubscribe
-      client.subscribe("remote_ctrl");
+      client.subscribe("volume");
+      client.subscribe("station");
+      client.subscribe("mute");
+      client.subscribe("favourite");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
