@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.2">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -737,65 +737,6 @@ at 30/07/2012 11:22:31</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="special">
-<description>&lt;b&gt;Special Devices&lt;/b&gt;&lt;p&gt;
-7-segment displays, switches, heatsinks, crystals, transformers, etc.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="BATTERY">
-<description>&lt;B&gt;BATTERY&lt;/B&gt;&lt;p&gt;
-22 mm</description>
-<wire x1="0.635" y1="2.54" x2="0.635" y2="0" width="0.1524" layer="21"/>
-<wire x1="-2.54" y1="0" x2="-0.635" y2="0" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="0" x2="2.54" y2="0" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="0" x2="0.635" y2="-2.54" width="0.1524" layer="21"/>
-<wire x1="1.27" y1="-3.175" x2="2.54" y2="-3.175" width="0.1524" layer="21"/>
-<wire x1="1.905" y1="-2.54" x2="1.905" y2="-3.81" width="0.1524" layer="21"/>
-<circle x="0" y="0" radius="11.43" width="0.1524" layer="21"/>
-<circle x="0" y="0" radius="10.2362" width="0.1524" layer="21"/>
-<pad name="-" x="-5.715" y="0" drill="1.016" shape="long"/>
-<pad name="+" x="9.525" y="-5.08" drill="1.016" shape="long"/>
-<pad name="+@1" x="9.525" y="5.08" drill="1.016" shape="long"/>
-<text x="-4.1656" y="6.35" size="1.778" layer="25" ratio="10">&gt;NAME</text>
-<text x="-4.445" y="3.81" size="1.778" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="-0.635" y1="-1.27" x2="0" y2="1.27" layer="21"/>
-</package>
-</packages>
-<symbols>
-<symbol name="BATTERY">
-<wire x1="-1.27" y1="3.81" x2="-1.27" y2="-3.81" width="0.4064" layer="94"/>
-<wire x1="0" y1="1.27" x2="0" y2="-1.27" width="0.4064" layer="94"/>
-<wire x1="1.27" y1="3.81" x2="1.27" y2="-3.81" width="0.4064" layer="94"/>
-<wire x1="2.54" y1="1.27" x2="2.54" y2="-1.27" width="0.4064" layer="94"/>
-<wire x1="-2.54" y1="0" x2="-1.524" y2="0" width="0.1524" layer="94"/>
-<text x="-3.81" y="5.08" size="1.778" layer="95">&gt;NAME</text>
-<text x="-3.81" y="-6.35" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="-" x="5.08" y="0" visible="off" length="short" direction="pwr" rot="R180"/>
-<pin name="+" x="-5.08" y="0" visible="off" length="short" direction="pwr"/>
-<pin name="+@1" x="-2.54" y="0" visible="off" length="short" direction="pwr" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="BATTERY" prefix="BAT" uservalue="yes">
-<description>&lt;B&gt;BATTERY&lt;/B&gt;</description>
-<gates>
-<gate name="G$1" symbol="BATTERY" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="BATTERY">
-<connects>
-<connect gate="G$1" pin="+" pad="+"/>
-<connect gate="G$1" pin="+@1" pad="+@1"/>
-<connect gate="G$1" pin="-" pad="-"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="SparkFun-Capacitors">
 <description>&lt;h3&gt;SparkFun Capacitors&lt;/h3&gt;
 This library contains capacitors. 
@@ -1150,131 +1091,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <wire x1="1.8034" y1="-2.6289" x2="-1.8034" y2="-2.6289" width="0.0508" layer="39"/>
 <wire x1="-1.8034" y1="-2.6289" x2="-1.8034" y2="2.5019" width="0.0508" layer="39"/>
 </package>
-<package name="POT-DUAL-PTH-PANASONIC-VERT">
-<description>&lt;h3&gt;Panasonic Dual-Gang 12mm PTH Potentiometer&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href="http://media.digikey.com/pdf/Data%20Sheets/Panasonic%20Electronic%20Components/EVJC,EVJY.pdf"&gt;Datasheet&lt;/a&gt; (Fits EVJY-00, EVJY-80, EVJY-81, EVJY-10, etc)&lt;/p&gt;</description>
-<wire x1="10.7" y1="6.55" x2="10.7" y2="-6.55" width="0.2032" layer="51"/>
-<wire x1="10.7" y1="-6.55" x2="-6.8" y2="-6.55" width="0.2032" layer="51"/>
-<wire x1="-6.8" y1="-6.55" x2="-6.8" y2="6.55" width="0.2032" layer="51"/>
-<wire x1="-6.8" y1="6.55" x2="10.7" y2="6.55" width="0.2032" layer="51"/>
-<pad name="A2" x="11" y="-5" drill="0.8" shape="square"/>
-<pad name="A1" x="11" y="-3" drill="0.8" shape="square"/>
-<pad name="B1" x="11" y="-1" drill="0.8" shape="square"/>
-<pad name="P$4" x="0" y="-6" drill="2" shape="octagon"/>
-<pad name="P$5" x="0" y="6" drill="2" shape="octagon"/>
-<pad name="B2" x="11" y="1" drill="0.8" shape="square"/>
-<pad name="B3" x="11" y="3" drill="0.8" shape="square"/>
-<pad name="A3" x="11" y="5" drill="0.8" shape="square"/>
-<circle x="0" y="0" radius="3" width="0.127" layer="51"/>
-<wire x1="-6.927" y1="-6.677" x2="-6.927" y2="6.677" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
-<text x="-7.112" y="0" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;Name</text>
-<text x="-6.731" y="0" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center">&gt;Value</text>
-<wire x1="-1.746" y1="-6.677" x2="-6.927" y2="-6.677" width="0.2032" layer="21"/>
-<wire x1="10.827" y1="-6.677" x2="1.836" y2="-6.677" width="0.2032" layer="21"/>
-<wire x1="-1.746" y1="6.677" x2="-6.927" y2="6.677" width="0.2032" layer="21"/>
-<wire x1="10.827" y1="6.677" x2="1.836" y2="6.677" width="0.2032" layer="21"/>
-<wire x1="10.827" y1="-5.896" x2="10.827" y2="-6.677" width="0.2032" layer="21"/>
-<wire x1="10.827" y1="6.677" x2="10.827" y2="5.896" width="0.2032" layer="21"/>
-</package>
-<package name="POT-DUAL-PTH-PANASONIC-VERT-KIT">
-<description>&lt;h3&gt;Panasonic Dual-Gang 12mm PTH Potentiometer (KIT Variant)&lt;/h3&gt;
-&lt;p&gt;&lt;b&gt;Warning:&lt;/b&gt; This is the KIT version of this package. This package has a smaller diameter top stop mask, which doesn't cover the diameter of the pad. This means only the bottom side of the pads' copper will be exposed. You'll only be able to solder to the bottom side.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://media.digikey.com/pdf/Data%20Sheets/Panasonic%20Electronic%20Components/EVJC,EVJY.pdf"&gt;Datasheet&lt;/a&gt; (Fits EVJY-00, EVJY-80, EVJY-81, EVJY-10, etc)&lt;/p&gt;</description>
-<wire x1="10.7" y1="6.55" x2="10.7" y2="-6.55" width="0.2032" layer="51"/>
-<wire x1="10.7" y1="-6.55" x2="-6.8" y2="-6.55" width="0.2032" layer="51"/>
-<wire x1="-6.8" y1="-6.55" x2="-6.8" y2="6.55" width="0.2032" layer="51"/>
-<wire x1="-6.8" y1="6.55" x2="10.7" y2="6.55" width="0.2032" layer="51"/>
-<pad name="A2" x="11" y="-5" drill="0.9" shape="long" stop="no"/>
-<pad name="A1" x="11" y="-3" drill="0.9" shape="long" stop="no"/>
-<pad name="B1" x="11" y="-1" drill="0.9" shape="long" stop="no"/>
-<pad name="P$4" x="0" y="-6" drill="2.1" stop="no"/>
-<pad name="P$5" x="0" y="6" drill="2.1" stop="no"/>
-<pad name="B2" x="11" y="1" drill="0.9" shape="long" stop="no"/>
-<pad name="B3" x="11" y="3" drill="0.9" shape="long" stop="no"/>
-<pad name="A3" x="11" y="5" drill="0.9" shape="long" stop="no"/>
-<circle x="0" y="0" radius="3" width="0.127" layer="51"/>
-<wire x1="9.43" y1="6.677" x2="9.43" y2="-6.677" width="0.2032" layer="21"/>
-<wire x1="9.43" y1="-6.677" x2="1.55" y2="-6.677" width="0.2032" layer="21"/>
-<wire x1="-1.55" y1="-6.677" x2="-6.927" y2="-6.677" width="0.2032" layer="21"/>
-<wire x1="-6.927" y1="-6.677" x2="-6.927" y2="6.677" width="0.2032" layer="21"/>
-<wire x1="-6.927" y1="6.677" x2="-1.55" y2="6.677" width="0.2032" layer="21"/>
-<wire x1="1.55" y1="6.677" x2="9.43" y2="6.677" width="0.2032" layer="21"/>
-<circle x="0" y="0" radius="3" width="0.127" layer="21"/>
-<circle x="0" y="6" radius="1.6256" width="0" layer="30"/>
-<circle x="0" y="-6" radius="1.6256" width="0" layer="30"/>
-<circle x="0" y="6" radius="1.05" width="0" layer="29"/>
-<circle x="0" y="-6" radius="1.05" width="0" layer="29"/>
-<circle x="11" y="5" radius="0.45" width="0" layer="29"/>
-<circle x="11" y="3" radius="0.45" width="0" layer="29"/>
-<circle x="11" y="1" radius="0.45" width="0" layer="29"/>
-<circle x="11" y="-1" radius="0.45" width="0" layer="29"/>
-<circle x="11" y="-3" radius="0.45" width="0" layer="29"/>
-<circle x="11" y="-5" radius="0.45" width="0" layer="29"/>
-<polygon width="0.127" layer="30">
-<vertex x="9.6" y="4.940309375"/>
-<vertex x="9.6" y="5.059690625" curve="-90"/>
-<vertex x="10.240309375" y="5.7"/>
-<vertex x="11.759690625" y="5.7" curve="-90"/>
-<vertex x="12.4" y="5.059690625"/>
-<vertex x="12.4" y="4.940309375" curve="-90"/>
-<vertex x="11.759690625" y="4.3"/>
-<vertex x="10.240309375" y="4.3" curve="-90"/>
-</polygon>
-<polygon width="0.127" layer="30">
-<vertex x="9.6" y="2.940309375"/>
-<vertex x="9.6" y="3.059690625" curve="-90"/>
-<vertex x="10.240309375" y="3.7"/>
-<vertex x="11.759690625" y="3.7" curve="-90"/>
-<vertex x="12.4" y="3.059690625"/>
-<vertex x="12.4" y="2.940309375" curve="-90"/>
-<vertex x="11.759690625" y="2.3"/>
-<vertex x="10.240309375" y="2.3" curve="-90"/>
-</polygon>
-<polygon width="0.127" layer="30">
-<vertex x="9.6" y="0.940309375"/>
-<vertex x="9.6" y="1.059690625" curve="-90"/>
-<vertex x="10.240309375" y="1.7"/>
-<vertex x="11.759690625" y="1.7" curve="-90"/>
-<vertex x="12.4" y="1.059690625"/>
-<vertex x="12.4" y="0.940309375" curve="-90"/>
-<vertex x="11.759690625" y="0.3"/>
-<vertex x="10.240309375" y="0.3" curve="-90"/>
-</polygon>
-<polygon width="0.127" layer="30">
-<vertex x="9.6" y="-1.059690625"/>
-<vertex x="9.6" y="-0.940309375" curve="-90"/>
-<vertex x="10.240309375" y="-0.3"/>
-<vertex x="11.759690625" y="-0.3" curve="-90"/>
-<vertex x="12.4" y="-0.940309375"/>
-<vertex x="12.4" y="-1.059690625" curve="-90"/>
-<vertex x="11.759690625" y="-1.7"/>
-<vertex x="10.240309375" y="-1.7" curve="-90"/>
-</polygon>
-<polygon width="0.127" layer="30">
-<vertex x="9.6" y="-3.059690625"/>
-<vertex x="9.6" y="-2.940309375" curve="-90"/>
-<vertex x="10.240309375" y="-2.3"/>
-<vertex x="11.759690625" y="-2.3" curve="-90"/>
-<vertex x="12.4" y="-2.940309375"/>
-<vertex x="12.4" y="-3.059690625" curve="-90"/>
-<vertex x="11.759690625" y="-3.7"/>
-<vertex x="10.240309375" y="-3.7" curve="-90"/>
-</polygon>
-<polygon width="0.127" layer="30">
-<vertex x="9.6" y="-5.059690625"/>
-<vertex x="9.6" y="-4.940309375" curve="-90"/>
-<vertex x="10.240309375" y="-4.3"/>
-<vertex x="11.759690625" y="-4.3" curve="-90"/>
-<vertex x="12.4" y="-4.940309375"/>
-<vertex x="12.4" y="-5.059690625" curve="-90"/>
-<vertex x="11.759690625" y="-5.7"/>
-<vertex x="10.240309375" y="-5.7" curve="-90"/>
-</polygon>
-<text x="-7.112" y="0" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center">&gt;Name</text>
-<text x="-6.731" y="0" size="0.6096" layer="27" font="vector" ratio="20" rot="R90" align="top-center">&gt;Value</text>
-</package>
 </packages>
 <symbols>
 <symbol name="RESISTOR">
@@ -1315,35 +1131,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <vertex x="2.54" y="-1.016"/>
 <vertex x="2.54" y="1.016"/>
 </polygon>
-</symbol>
-<symbol name="POTENTIOMETER">
-<description>&lt;h3&gt;Potentiometer (Pot)&lt;/h3&gt;
-&lt;p&gt;Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor.&lt;/p&gt;</description>
-<wire x1="0" y1="-5.08" x2="0" y2="-4.572" width="0.1524" layer="94"/>
-<wire x1="0" y1="-4.572" x2="-1.016" y2="-3.81" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="-3.81" x2="1.27" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="-1.016" y2="-1.27" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="-1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-1.016" y2="1.27" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="1.27" x2="1.27" y2="2.54" width="0.254" layer="94"/>
-<wire x1="1.27" y1="2.54" x2="-1.016" y2="3.81" width="0.254" layer="94"/>
-<wire x1="-1.016" y1="3.81" x2="0" y2="4.572" width="0.254" layer="94"/>
-<wire x1="0" y1="4.572" x2="0" y2="5.08" width="0.1524" layer="94"/>
-<wire x1="2.032" y1="-2.159" x2="2.667" y2="-3.429" width="0.1524" layer="94"/>
-<wire x1="2.667" y1="-3.429" x2="2.032" y2="-3.429" width="0.1524" layer="94"/>
-<wire x1="2.032" y1="-3.429" x2="1.397" y2="-3.429" width="0.1524" layer="94"/>
-<wire x1="1.397" y1="-3.429" x2="2.032" y2="-2.159" width="0.1524" layer="94"/>
-<text x="3.048" y="-0.254" size="1.778" layer="95" font="vector" rot="R270">&gt;NAME</text>
-<text x="-1.27" y="0" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center">&gt;Value</text>
-<pin name="A" x="0" y="-7.62" visible="off" length="short" direction="pas" rot="R90"/>
-<pin name="E" x="0" y="7.62" visible="off" length="short" direction="pas" rot="R270"/>
-<pin name="S" x="5.08" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-<polygon width="0.2032" layer="94">
-<vertex x="2.54" y="-1.27"/>
-<vertex x="1.27" y="0"/>
-<vertex x="2.54" y="1.27"/>
-</polygon>
-<wire x1="2.032" y1="-4.699" x2="2.032" y2="-3.429" width="0.1524" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -1605,52 +1392,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <technology name="">
 <attribute name="PROD_ID" value="RES-12428"/>
 <attribute name="VALUE" value="10k"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="POTENTIOMETER_DUAL" prefix="VR" uservalue="yes">
-<description>&lt;h3&gt;Potentiometer (Pot) Dual-Gang&lt;/h3&gt;
-&lt;p&gt;Three-terminal potentiometers, with an adjustable wiper and two adjustable resistors. A pot can be used to create a configurable voltage divider, or as a variable resistor.&lt;/p&gt;
-&lt;p&gt;This is a dua-gang pot - it includes two separate circuits, both controlled by one wiper.&lt;/p&gt;
-&lt;h4&gt;Variants&lt;/h4&gt;
-&lt;h5&gt;PTH-12MM and PTH-12MM-KIT - 12mm Square, PTH Vertical Pots&lt;/h5&gt;
-&lt;ul&gt;&lt;li&gt;Used on the &lt;a href="https://www.sparkfun.com/products/11177"&gt;SparkFun SparkPunk Sound Kit&lt;/a&gt; (filter control)&lt;/li&gt;
-&lt;li&gt;The &lt;b&gt;KIT&lt;/b&gt; variant exposes copper on only one side of the PTH pad, so the part can only be assembled on one side of the PCB. Useful for beginner soldering kits.&lt;/li&gt;
-&lt;/ul&gt;</description>
-<gates>
-<gate name="G$1" symbol="POTENTIOMETER" x="0" y="0"/>
-<gate name="G$2" symbol="POTENTIOMETER" x="20.32" y="0"/>
-</gates>
-<devices>
-<device name="-PTH-12MM-1/20W-20%" package="POT-DUAL-PTH-PANASONIC-VERT">
-<connects>
-<connect gate="G$1" pin="A" pad="A3"/>
-<connect gate="G$1" pin="E" pad="A1"/>
-<connect gate="G$1" pin="S" pad="A2"/>
-<connect gate="G$2" pin="A" pad="B3"/>
-<connect gate="G$2" pin="E" pad="B1"/>
-<connect gate="G$2" pin="S" pad="B2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="RES-11897"/>
-</technology>
-</technologies>
-</device>
-<device name="-PTH-12MM-1/20W-20%-KIT" package="POT-DUAL-PTH-PANASONIC-VERT-KIT">
-<connects>
-<connect gate="G$1" pin="A" pad="A3"/>
-<connect gate="G$1" pin="E" pad="A1"/>
-<connect gate="G$1" pin="S" pad="A2"/>
-<connect gate="G$2" pin="A" pad="B3"/>
-<connect gate="G$2" pin="E" pad="B1"/>
-<connect gate="G$2" pin="S" pad="B2"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="PROD_ID" value="RES-11897"/>
 </technology>
 </technologies>
 </device>
@@ -2379,106 +2120,6 @@ or will meet your specific requirements.&lt;p&gt;
 <connect gate="G$1" pin="SCLK" pad="22"/>
 <connect gate="G$1" pin="TXD" pad="16"/>
 <connect gate="G$1" pin="VCC" pad="8"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
-<library name="switch">
-<description>&lt;b&gt;Switches&lt;/b&gt;&lt;p&gt;
-Marquardt, Siemens, C&amp;K, ITT, and others&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="255SB">
-<description>&lt;b&gt;SLIDING SWITCH&lt;/b&gt;&lt;p&gt;
-distributor Buerklin, 11G810</description>
-<wire x1="-5.588" y1="3.048" x2="5.588" y2="3.048" width="0.1524" layer="21"/>
-<wire x1="5.588" y1="-3.048" x2="5.588" y2="3.048" width="0.1524" layer="21"/>
-<wire x1="5.588" y1="-3.048" x2="-5.588" y2="-3.048" width="0.1524" layer="21"/>
-<wire x1="-5.588" y1="3.048" x2="-5.588" y2="-3.048" width="0.1524" layer="21"/>
-<wire x1="3.81" y1="-1.397" x2="3.81" y2="1.397" width="0.1524" layer="51"/>
-<wire x1="-3.81" y1="1.397" x2="-3.81" y2="-1.397" width="0.1524" layer="51"/>
-<wire x1="-0.762" y1="1.27" x2="-0.762" y2="-1.27" width="0.1524" layer="51"/>
-<wire x1="-1.27" y1="0.762" x2="-1.27" y2="-0.762" width="0.1524" layer="51"/>
-<wire x1="3.81" y1="-1.524" x2="-0.762" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-1.778" y1="1.524" x2="-1.778" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-1.778" y1="1.524" x2="-1.27" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-1.778" y1="-1.524" x2="-2.286" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="1.524" x2="-2.286" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="1.524" x2="-1.778" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-2.794" y1="1.016" x2="-2.794" y2="-1.016" width="0.1524" layer="51"/>
-<wire x1="-3.302" y1="1.397" x2="-3.302" y2="-1.397" width="0.1524" layer="51"/>
-<wire x1="-3.81" y1="1.524" x2="-3.302" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-2.286" y1="-1.524" x2="-2.794" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="3.81" y1="-1.524" x2="3.81" y2="-1.397" width="0.1524" layer="21"/>
-<wire x1="3.81" y1="1.524" x2="3.81" y2="1.397" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="-1.27" x2="-0.762" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="-1.524" x2="-1.27" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-1.524" x2="-1.27" y2="-0.762" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="-1.524" x2="-1.778" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-2.794" y1="-1.016" x2="-2.794" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-2.794" y1="-1.524" x2="-3.302" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-3.302" y1="-1.397" x2="-3.302" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-3.302" y1="-1.524" x2="-3.81" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="-1.397" x2="-3.81" y2="-1.524" width="0.1524" layer="21"/>
-<wire x1="-3.81" y1="1.524" x2="-3.81" y2="1.397" width="0.1524" layer="21"/>
-<wire x1="-3.302" y1="1.524" x2="-3.302" y2="1.397" width="0.1524" layer="21"/>
-<wire x1="-3.302" y1="1.524" x2="-2.794" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-2.794" y1="1.524" x2="-2.794" y2="1.016" width="0.1524" layer="21"/>
-<wire x1="-2.794" y1="1.524" x2="-2.286" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="1.524" x2="-1.27" y2="0.762" width="0.1524" layer="21"/>
-<wire x1="-1.27" y1="1.524" x2="-0.762" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="1.524" x2="-0.762" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="1.524" x2="3.81" y2="1.524" width="0.1524" layer="21"/>
-<pad name="1" x="-3.81" y="0" drill="1.1176" shape="long" rot="R90"/>
-<pad name="2" x="0" y="0" drill="1.1176" shape="long" rot="R90"/>
-<pad name="3" x="3.81" y="0" drill="1.1176" shape="long" rot="R90"/>
-<text x="-5.207" y="-2.794" size="1.27" layer="21" ratio="10">1</text>
-<text x="4.191" y="-2.794" size="1.27" layer="21" ratio="10">2</text>
-<text x="-5.588" y="3.556" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="0" y="3.556" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="SIS">
-<wire x1="-3.81" y1="1.905" x2="-3.81" y2="0" width="0.254" layer="94"/>
-<wire x1="-3.81" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
-<wire x1="-3.81" y1="0" x2="-3.81" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="0" x2="-0.762" y2="0" width="0.1524" layer="94"/>
-<wire x1="0.254" y1="0" x2="0.635" y2="0" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-3.175" x2="2.54" y2="-1.905" width="0.254" layer="94"/>
-<wire x1="2.54" y1="-1.905" x2="0.635" y2="3.175" width="0.254" layer="94"/>
-<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
-<wire x1="5.08" y1="2.54" x2="5.08" y2="3.175" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="1.27" y2="2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="2.54" x2="0" y2="3.175" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="1.905" y2="0" width="0.1524" layer="94"/>
-<wire x1="-0.762" y1="0" x2="-0.254" y2="-0.762" width="0.1524" layer="94"/>
-<wire x1="-0.254" y1="-0.762" x2="0.254" y2="0" width="0.1524" layer="94"/>
-<text x="-6.35" y="-1.905" size="1.778" layer="95" rot="R90">&gt;NAME</text>
-<text x="-3.81" y="3.175" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
-<pin name="P" x="2.54" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="S" x="5.08" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-<pin name="O" x="0" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="255SB" prefix="S" uservalue="yes">
-<description>&lt;b&gt;SLIDING SWITCH&lt;/b&gt;&lt;p&gt;
-Distributor Buerklin, 11G810</description>
-<gates>
-<gate name="1" symbol="SIS" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="255SB">
-<connects>
-<connect gate="1" pin="O" pad="1"/>
-<connect gate="1" pin="P" pad="2"/>
-<connect gate="1" pin="S" pad="3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -5790,90 +5431,6 @@ Source: http://www.osram.convergy.de/</description>
 </deviceset>
 </devicesets>
 </library>
-<library name="con-coax">
-<description>&lt;b&gt;Coax Connectors&lt;/b&gt;&lt;p&gt;
-Radiall  and M/A COM.&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="A1944">
-<description>&lt;b&gt;BNC CONNECTOR&lt;/b&gt;&lt;p&gt;
-50 Ohm&lt;p&gt;
-distributor Buerklin 78F2475</description>
-<wire x1="-3.98" y1="-6" x2="3.98" y2="-6" width="0.254" layer="21"/>
-<wire x1="6" y1="-3.98" x2="6" y2="3.98" width="0.254" layer="21"/>
-<wire x1="3.98" y1="6" x2="-3.98" y2="6" width="0.254" layer="21"/>
-<wire x1="-6" y1="3.98" x2="-6" y2="-3.98" width="0.254" layer="21"/>
-<wire x1="-5.25" y1="6" x2="-6" y2="5.25" width="0.254" layer="51"/>
-<wire x1="5.25" y1="6" x2="6" y2="5.25" width="0.254" layer="51"/>
-<wire x1="6" y1="-5.25" x2="5.25" y2="-6" width="0.254" layer="51"/>
-<wire x1="-5.25" y1="-6" x2="-6" y2="-5.25" width="0.254" layer="51"/>
-<wire x1="-1.5" y1="0.5" x2="1.5" y2="0.5" width="0.3048" layer="21" curve="-143.130102"/>
-<wire x1="-1.5" y1="-0.5" x2="1.5" y2="-0.5" width="0.3048" layer="21" curve="143.130102"/>
-<wire x1="-4.572" y1="1.016" x2="-5.461" y2="1.016" width="0.254" layer="21"/>
-<wire x1="-5.461" y1="1.016" x2="-5.461" y2="-1.016" width="0.254" layer="21"/>
-<wire x1="-5.461" y1="-1.016" x2="-4.572" y2="-1.016" width="0.254" layer="21"/>
-<wire x1="4.572" y1="-1.016" x2="5.461" y2="-1.016" width="0.254" layer="21"/>
-<wire x1="5.461" y1="-1.016" x2="5.461" y2="1.016" width="0.254" layer="21"/>
-<wire x1="5.461" y1="1.016" x2="4.572" y2="1.016" width="0.254" layer="21"/>
-<wire x1="-6" y1="5.25" x2="-6" y2="3.81" width="0.254" layer="51"/>
-<wire x1="-6" y1="-3.81" x2="-6" y2="-5.25" width="0.254" layer="51"/>
-<wire x1="-5.25" y1="-6" x2="-3.81" y2="-6" width="0.254" layer="51"/>
-<wire x1="6" y1="-5.25" x2="6" y2="-3.81" width="0.254" layer="51"/>
-<wire x1="3.81" y1="-6" x2="5.25" y2="-6" width="0.254" layer="51"/>
-<wire x1="-3.81" y1="6" x2="-5.25" y2="6" width="0.254" layer="51"/>
-<wire x1="6" y1="3.81" x2="6" y2="5.25" width="0.254" layer="51"/>
-<wire x1="5.25" y1="6" x2="3.81" y2="6" width="0.254" layer="51"/>
-<circle x="0" y="0" radius="4.5961" width="0.254" layer="21"/>
-<pad name="1" x="0" y="0" drill="1.016" diameter="1.778"/>
-<pad name="2" x="5.08" y="5.08" drill="1.016" diameter="1.778"/>
-<pad name="3" x="-5.08" y="5.08" drill="1.016" diameter="1.778"/>
-<pad name="4" x="-5.08" y="-5.08" drill="1.016" diameter="1.778"/>
-<pad name="5" x="5.08" y="-5.08" drill="1.016" diameter="1.778"/>
-<text x="-2.54" y="6.35" size="1.27" layer="25">&gt;NAME</text>
-<text x="-2.54" y="-7.62" size="1.27" layer="27">&gt;VALUE</text>
-</package>
-</packages>
-<symbols>
-<symbol name="BU-BNC">
-<wire x1="-2.54" y1="2.54" x2="-2.54" y2="-2.54" width="0.254" layer="94" curve="-180" cap="flat"/>
-<wire x1="0" y1="-2.54" x2="-0.762" y2="-1.778" width="0.254" layer="94"/>
-<wire x1="0" y1="0" x2="-0.508" y2="0" width="0.1524" layer="94"/>
-<wire x1="-2.54" y1="0.254" x2="-0.762" y2="0.254" width="0.254" layer="94"/>
-<wire x1="-0.762" y1="0.254" x2="-0.508" y2="0" width="0.254" layer="94"/>
-<wire x1="-0.508" y1="0" x2="-0.762" y2="-0.254" width="0.254" layer="94"/>
-<wire x1="-0.762" y1="-0.254" x2="-2.54" y2="-0.254" width="0.254" layer="94"/>
-<text x="-2.54" y="-5.08" size="1.778" layer="96">&gt;VALUE</text>
-<text x="-2.54" y="3.302" size="1.778" layer="95">&gt;NAME</text>
-<pin name="1" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
-<pin name="2" x="2.54" y="-2.54" visible="off" length="short" direction="pas" rot="R180"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="A1944-50" prefix="X">
-<description>&lt;b&gt;BNC CONNECTOR&lt;/b&gt; 50 Ohm&lt;p&gt;
-distributor Buerklin 78F2475</description>
-<gates>
-<gate name="G$1" symbol="BU-BNC" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="A1944">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2 3 4 5"/>
-</connects>
-<technologies>
-<technology name="">
-<attribute name="MF" value="" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="smd-footprints">
 <packages>
 <package name="TDA2822M">
@@ -5946,6 +5503,54 @@ distributor Buerklin 78F2475</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="wirepad">
+<description>&lt;b&gt;Single Pads&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="2,15/1,0">
+<description>&lt;b&gt;THROUGH-HOLE PAD&lt;/b&gt;</description>
+<wire x1="1.143" y1="-1.143" x2="1.143" y2="-0.635" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="-1.143" x2="0.635" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="0.635" x2="1.143" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="1.143" y1="1.143" x2="0.635" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="-0.635" y1="1.143" x2="-1.143" y2="1.143" width="0.1524" layer="21"/>
+<wire x1="-1.143" y1="1.143" x2="-1.143" y2="0.635" width="0.1524" layer="21"/>
+<wire x1="-1.143" y1="-0.635" x2="-1.143" y2="-1.143" width="0.1524" layer="21"/>
+<wire x1="-1.143" y1="-1.143" x2="-0.635" y2="-1.143" width="0.1524" layer="21"/>
+<circle x="0" y="0" radius="1.016" width="0.1524" layer="51"/>
+<pad name="1" x="0" y="0" drill="1.016" diameter="2.159" shape="octagon"/>
+<text x="-1.143" y="1.397" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="0" y="1" size="0.0254" layer="27">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="PAD">
+<wire x1="-1.016" y1="1.016" x2="1.016" y2="-1.016" width="0.254" layer="94"/>
+<wire x1="-1.016" y1="-1.016" x2="1.016" y2="1.016" width="0.254" layer="94"/>
+<text x="-1.143" y="1.8542" size="1.778" layer="95">&gt;NAME</text>
+<text x="-1.143" y="-3.302" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="P" x="2.54" y="0" visible="off" length="short" direction="pas" rot="R180"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="2,15/1,0" prefix="PAD" uservalue="yes">
+<description>&lt;b&gt;THROUGH-HOLE PAD&lt;/b&gt;</description>
+<gates>
+<gate name="1" symbol="PAD" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="2,15/1,0">
+<connects>
+<connect gate="1" pin="P" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -5957,7 +5562,6 @@ distributor Buerklin 78F2475</description>
 </classes>
 <parts>
 <part name="U$1" library="Microchip_By_element14_Batch_1" deviceset="PIC18F6490-I/PT" device=""/>
-<part name="5V_BAT" library="special" deviceset="BATTERY" device="" value="5V"/>
 <part name="AUXJACK" library="pinhead" deviceset="PINHD-1X5" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="10uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="100nF"/>
@@ -5972,11 +5576,9 @@ distributor Buerklin 78F2475</description>
 <part name="R3" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="4.7"/>
 <part name="R4" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="4.7"/>
 <part name="VR1" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="10k"/>
-<part name="VR2" library="SparkFun-Resistors" deviceset="POTENTIOMETER_DUAL" device="-PTH-12MM-1/20W-20%"/>
 <part name="MDL1" library="ESP8266-12E" deviceset="ESP8266-12E" device="ESP8266-ESP12E"/>
 <part name="D1" library="adafruit" deviceset="LED" device=""/>
 <part name="R1" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
-<part name="S1" library="switch" deviceset="255SB" device=""/>
 <part name="U$3" library="MIRO" deviceset="24C64" device=""/>
 <part name="U$4" library="MIRO" deviceset="AR1010" device=""/>
 <part name="Q2" library="ST Microelctronics_By_element14_Batch_1" deviceset="LE33CZ" device=""/>
@@ -6011,7 +5613,6 @@ distributor Buerklin 78F2475</description>
 <part name="DATA" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="CLOCK" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="TP11" library="testpad" deviceset="TPS" device="PAD1-13"/>
-<part name="ANTENNA" library="con-coax" deviceset="A1944-50" device=""/>
 <part name="R10" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="S4" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-PTH-6.0MM-KIT" value="FAV1"/>
 <part name="S5" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-PTH-6.0MM-KIT" value="FAV2"/>
@@ -6019,6 +5620,13 @@ distributor Buerklin 78F2475</description>
 <part name="S6" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-PTH-6.0MM-KIT" value="FAV3"/>
 <part name="R16" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="U$2" library="smd-footprints" deviceset="TDA2822M" device=""/>
+<part name="BAT_GND" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="BAT_5V" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="SWITCH2" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="SWITCH1" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="ANT" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="VR4" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
+<part name="VR5" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
 </parts>
 <sheets>
 <sheet>
@@ -6071,7 +5679,6 @@ distributor Buerklin 78F2475</description>
 </plain>
 <instances>
 <instance part="U$1" gate="A" x="241.3" y="71.12"/>
-<instance part="5V_BAT" gate="G$1" x="-10.16" y="185.42" rot="R180"/>
 <instance part="AUXJACK" gate="A" x="165.1" y="132.08"/>
 <instance part="C1" gate="G$1" x="17.78" y="172.72"/>
 <instance part="C2" gate="G$1" x="27.94" y="172.72"/>
@@ -6086,12 +5693,9 @@ distributor Buerklin 78F2475</description>
 <instance part="R3" gate="G$1" x="137.16" y="109.22" rot="R90"/>
 <instance part="R4" gate="G$1" x="144.78" y="104.14" rot="R90"/>
 <instance part="VR1" gate="R?" x="33.02" y="-50.8" rot="R90"/>
-<instance part="VR2" gate="G$1" x="7.62" y="111.76"/>
-<instance part="VR2" gate="G$2" x="25.4" y="116.84"/>
 <instance part="MDL1" gate="G$1" x="393.7" y="55.88"/>
 <instance part="D1" gate="G$1" x="43.18" y="180.34"/>
 <instance part="R1" gate="G$1" x="43.18" y="167.64" rot="R90"/>
-<instance part="S1" gate="1" x="5.08" y="187.96" rot="R270"/>
 <instance part="U$3" gate="G$1" x="83.82" y="40.64"/>
 <instance part="U$4" gate="G$1" x="-10.16" y="43.18"/>
 <instance part="Q2" gate="A" x="93.98" y="187.96"/>
@@ -6147,7 +5751,6 @@ distributor Buerklin 78F2475</description>
 <instance part="DATA" gate="G$1" x="139.7" y="-58.42"/>
 <instance part="CLOCK" gate="G$1" x="147.32" y="-58.42"/>
 <instance part="TP11" gate="G$1" x="154.94" y="-58.42"/>
-<instance part="ANTENNA" gate="G$1" x="53.34" y="53.34" rot="R180"/>
 <instance part="R10" gate="G$1" x="447.04" y="195.58" rot="R270"/>
 <instance part="S4" gate="G$1" x="447.04" y="180.34" smashed="yes" rot="R270">
 <attribute name="NAME" x="452.12" y="179.324" size="1.778" layer="95" font="vector" align="bottom-center"/>
@@ -6164,6 +5767,13 @@ distributor Buerklin 78F2475</description>
 </instance>
 <instance part="R16" gate="G$1" x="472.44" y="195.58" rot="R270"/>
 <instance part="U$2" gate="G$1" x="71.12" y="119.38"/>
+<instance part="BAT_GND" gate="1" x="-15.24" y="187.96" rot="R270"/>
+<instance part="BAT_5V" gate="1" x="-7.62" y="187.96" rot="R270"/>
+<instance part="SWITCH2" gate="1" x="0" y="187.96" rot="R270"/>
+<instance part="SWITCH1" gate="1" x="7.62" y="187.96"/>
+<instance part="ANT" gate="1" x="55.88" y="53.34" rot="R180"/>
+<instance part="VR4" gate="R?" x="25.4" y="116.84"/>
+<instance part="VR5" gate="R?" x="7.62" y="111.76"/>
 </instances>
 <busses>
 </busses>
@@ -6180,12 +5790,12 @@ distributor Buerklin 78F2475</description>
 <pinref part="D1" gate="G$1" pin="A"/>
 <wire x1="43.18" y1="182.88" x2="43.18" y2="187.96" width="0.1524" layer="91"/>
 <junction x="43.18" y="187.96"/>
-<pinref part="S1" gate="1" pin="O"/>
 <wire x1="10.16" y1="187.96" x2="17.78" y2="187.96" width="0.1524" layer="91"/>
 <junction x="17.78" y="187.96"/>
 <pinref part="Q2" gate="A" pin="VIN"/>
 <wire x1="76.2" y1="187.96" x2="43.18" y2="187.96" width="0.1524" layer="91"/>
 <label x="17.78" y="190.5" size="1.778" layer="95"/>
+<pinref part="SWITCH1" gate="1" pin="P"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="VDD"/>
@@ -6204,9 +5814,11 @@ distributor Buerklin 78F2475</description>
 <wire x1="25.4" y1="124.46" x2="-15.24" y2="124.46" width="0.1524" layer="91"/>
 <junction x="-15.24" y="124.46"/>
 <wire x1="7.62" y1="119.38" x2="-15.24" y2="119.38" width="0.1524" layer="91"/>
-<pinref part="VR2" gate="G$1" pin="E"/>
-<pinref part="VR2" gate="G$2" pin="E"/>
 <label x="-17.78" y="119.38" size="2.1844" layer="95" rot="R90"/>
+<pinref part="VR5" gate="R?" pin="CCW"/>
+<wire x1="7.62" y1="116.84" x2="7.62" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="VR4" gate="R?" pin="CCW"/>
+<wire x1="25.4" y1="121.92" x2="25.4" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="GND"/>
@@ -6215,8 +5827,6 @@ distributor Buerklin 78F2475</description>
 </segment>
 <segment>
 <pinref part="Q2" gate="A" pin="GND"/>
-<pinref part="5V_BAT" gate="G$1" pin="-"/>
-<junction x="-15.24" y="185.42"/>
 <wire x1="-15.24" y1="185.42" x2="-15.24" y2="162.56" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="2"/>
 <pinref part="C2" gate="G$1" pin="2"/>
@@ -6232,26 +5842,15 @@ distributor Buerklin 78F2475</description>
 <wire x1="76.2" y1="162.56" x2="76.2" y2="182.88" width="0.1524" layer="91"/>
 <label x="-20.32" y="182.88" size="1.778" layer="95"/>
 <label x="63.5" y="165.1" size="1.778" layer="95"/>
+<pinref part="BAT_GND" gate="1" pin="P"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="A" pin="VSS"/>
 <wire x1="198.12" y1="17.78" x2="195.58" y2="17.78" width="0.1524" layer="91"/>
 <label x="195.58" y="17.78" size="1.778" layer="95" rot="R90"/>
-<pinref part="U$1" gate="A" pin="VSS_3"/>
-<wire x1="198.12" y1="22.86" x2="195.58" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="22.86" x2="195.58" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="20.32" x2="195.58" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="22.86" x2="195.58" y2="25.4" width="0.1524" layer="91"/>
-<junction x="195.58" y="22.86"/>
-<pinref part="U$1" gate="A" pin="VSS_2"/>
-<wire x1="195.58" y1="25.4" x2="198.12" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="17.78" x2="195.58" y2="15.24" width="0.1524" layer="91"/>
-<junction x="195.58" y="17.78"/>
 <pinref part="U$1" gate="A" pin="AVSS"/>
 <wire x1="195.58" y1="15.24" x2="198.12" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="A" pin="VSS_4"/>
-<wire x1="198.12" y1="20.32" x2="195.58" y2="20.32" width="0.1524" layer="91"/>
-<junction x="195.58" y="20.32"/>
 </segment>
 <segment>
 <pinref part="S7" gate="G$1" pin="2"/>
@@ -6395,10 +5994,6 @@ distributor Buerklin 78F2475</description>
 <label x="17.78" y="-7.62" size="1.778" layer="95" rot="R180"/>
 </segment>
 <segment>
-<pinref part="ANTENNA" gate="G$1" pin="2"/>
-<wire x1="50.8" y1="55.88" x2="45.72" y2="55.88" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="S4" gate="G$1" pin="2"/>
 <wire x1="447.04" y1="175.26" x2="447.04" y2="170.18" width="0.1524" layer="91"/>
 <label x="447.04" y="170.18" size="1.778" layer="95"/>
@@ -6421,15 +6016,15 @@ distributor Buerklin 78F2475</description>
 <net name="N$11" class="0">
 <segment>
 <pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="7.62" y1="91.44" x2="7.62" y2="104.14" width="0.1524" layer="91"/>
-<pinref part="VR2" gate="G$1" pin="A"/>
+<wire x1="7.62" y1="91.44" x2="7.62" y2="106.68" width="0.1524" layer="91"/>
+<pinref part="VR5" gate="R?" pin="CW"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
 <pinref part="C3" gate="G$1" pin="1"/>
-<wire x1="25.4" y1="91.44" x2="25.4" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="VR2" gate="G$2" pin="A"/>
+<wire x1="25.4" y1="91.44" x2="25.4" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="VR4" gate="R?" pin="CW"/>
 </segment>
 </net>
 <net name="N$6" class="0">
@@ -6558,9 +6153,9 @@ distributor Buerklin 78F2475</description>
 </net>
 <net name="IN+(1)" class="0">
 <segment>
-<pinref part="VR2" gate="G$2" pin="S"/>
 <wire x1="30.48" y1="124.46" x2="30.48" y2="116.84" width="0.1524" layer="91"/>
 <label x="33.02" y="116.84" size="1.778" layer="95" rot="R90"/>
+<pinref part="VR4" gate="R?" pin="WIPER"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="IN+(1)"/>
@@ -6576,12 +6171,9 @@ distributor Buerklin 78F2475</description>
 </net>
 <net name="N$20" class="0">
 <segment>
-<pinref part="5V_BAT" gate="G$1" pin="+"/>
-<pinref part="S1" gate="1" pin="P"/>
-<wire x1="-5.08" y1="185.42" x2="0" y2="185.42" width="0.1524" layer="91"/>
-<pinref part="5V_BAT" gate="G$1" pin="+@1"/>
-<junction x="-5.08" y="185.42"/>
-<wire x1="-5.08" y1="185.42" x2="-7.62" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="-7.62" y1="185.42" x2="0" y2="185.42" width="0.1524" layer="91"/>
+<pinref part="BAT_5V" gate="1" pin="P"/>
+<pinref part="SWITCH2" gate="1" pin="P"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
@@ -6601,36 +6193,13 @@ distributor Buerklin 78F2475</description>
 <label x="-10.46" y="34" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="A" pin="VDD"/>
-<wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
-<label x="193.04" y="111.76" size="1.778" layer="95"/>
-<pinref part="U$1" gate="A" pin="AVDD"/>
-<wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="A" pin="VDD_2"/>
 <wire x1="198.12" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="119.38" x2="195.58" y2="116.84" width="0.1524" layer="91"/>
-<junction x="195.58" y="111.76"/>
-<pinref part="U$1" gate="A" pin="VDD_4"/>
-<wire x1="195.58" y1="116.84" x2="195.58" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="114.3" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="114.3" x2="195.58" y2="114.3" width="0.1524" layer="91"/>
-<junction x="195.58" y="114.3"/>
-<pinref part="U$1" gate="A" pin="VDD_3"/>
-<wire x1="198.12" y1="116.84" x2="195.58" y2="116.84" width="0.1524" layer="91"/>
-<junction x="195.58" y="116.84"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="444.5" y1="53.34" x2="447.04" y2="53.34" width="0.1524" layer="91"/>
 <label x="447.04" y="53.34" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP2" gate="A" pin="2"/>
-<label x="17.78" y="-43.18" size="1.778" layer="95" rot="R180"/>
-<pinref part="VR1" gate="R?" pin="WIPER"/>
-<wire x1="7.62" y1="-43.18" x2="33.02" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="-43.18" x2="33.02" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="VR1" gate="R?" pin="CW"/>
@@ -7107,9 +6676,9 @@ distributor Buerklin 78F2475</description>
 <net name="ANT" class="0">
 <segment>
 <pinref part="U$4" gate="G$1" pin="ANT"/>
-<wire x1="33.02" y1="53.34" x2="50.8" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="53.34" x2="53.34" y2="53.34" width="0.1524" layer="91"/>
 <label x="38.1" y="53.34" size="1.778" layer="95"/>
-<pinref part="ANTENNA" gate="G$1" pin="1"/>
+<pinref part="ANT" gate="1" pin="P"/>
 </segment>
 </net>
 <net name="RF0" class="0">
@@ -7221,9 +6790,9 @@ distributor Buerklin 78F2475</description>
 </net>
 <net name="IN+(2)" class="0">
 <segment>
-<pinref part="VR2" gate="G$1" pin="S"/>
 <wire x1="12.7" y1="111.76" x2="20.32" y2="111.76" width="0.1524" layer="91"/>
 <label x="15.24" y="111.76" size="1.778" layer="95"/>
+<pinref part="VR5" gate="R?" pin="WIPER"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="IN+(2)"/>
@@ -7328,11 +6897,29 @@ distributor Buerklin 78F2475</description>
 <wire x1="83.82" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$51" class="0">
+<segment>
+<pinref part="JP2" gate="A" pin="2"/>
+<label x="17.78" y="-43.18" size="1.778" layer="95" rot="R180"/>
+<pinref part="VR1" gate="R?" pin="WIPER"/>
+<wire x1="7.62" y1="-43.18" x2="33.02" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-43.18" x2="33.02" y2="-45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U$1" gate="A" pin="VDD"/>
+<wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="A" pin="AVDD"/>
+<wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<label x="193.04" y="111.76" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,58.42,132.08,U1,SUPPLY_VOLTAGE,VDD,,,"/>
 <approved hash="104,1,198.12,119.38,U$1,VDD_2,3.3V,,,"/>
 <approved hash="104,1,198.12,116.84,U$1,VDD_3,3.3V,,,"/>
 <approved hash="104,1,198.12,114.3,U$1,VDD_4,3.3V,,,"/>
@@ -7346,22 +6933,32 @@ distributor Buerklin 78F2475</description>
 <approved hash="104,1,198.12,20.32,U$1,VSS_4,GND,,,"/>
 <approved hash="104,1,198.12,17.78,U$1,VSS,GND,,,"/>
 <approved hash="104,1,198.12,15.24,U$1,AVSS,GND,,,"/>
-<approved hash="104,1,-15.24,185.42,5V_BAT,-,GND,,,"/>
-<approved hash="104,1,-5.08,185.42,5V_BAT,+,N$20,,,"/>
-<approved hash="104,1,-7.62,185.42,5V_BAT,+,N$20,,,"/>
 <approved hash="104,1,76.2,187.96,Q2,VIN,VDD,,,"/>
-<approved hash="113,1,162.797,133.481,X1,,,,,"/>
-<approved hash="113,1,11.3792,111.76,VR2,,,,,"/>
+<approved hash="105,0,?,?,3.3V2,,,,,"/>
+<approved hash="106,1,152.4,-35.56,PGM,,,,,"/>
+<approved hash="106,1,7.62,-40.64,VO,,,,,"/>
+<approved hash="113,1,164.614,133.481,AUXJACK,,,,,"/>
 <approved hash="113,1,387.35,48.7045,MDL1,,,,,"/>
 <approved hash="113,1,43.5017,179.07,D1,,,,,"/>
-<approved hash="113,1,5.08,188.841,S1,,,,,"/>
 <approved hash="113,1,3.89467,-28.0712,JP2,,,,,"/>
-<approved hash="113,1,144.437,-23.9988,ESP_PRG,,,,,"/>
-<approved hash="113,1,174.493,-27.8088,PIC_PRG,,,,,"/>
-<approved hash="113,1,207.161,-29.0788,AR_PRG,,,,,"/>
-<approved hash="113,1,229.224,-25.5312,INT_PINS,,,,,"/>
-<approved hash="113,1,261.857,-30.3488,JP3,,,,,"/>
-<approved hash="113,1,294.877,-23.9988,JP1,,,,,"/>
+<approved hash="113,1,129.197,-23.9988,ESP_PRG,,,,,"/>
+<approved hash="113,1,154.173,-27.8088,PIC_PRG,,,,,"/>
+<approved hash="113,1,181.761,-29.0788,AR_PRG,,,,,"/>
+<approved hash="113,1,207.656,-22.7288,INT_PINS,,,,,"/>
+<approved hash="113,1,234.087,-30.3488,SPARE,,,,,"/>
+<approved hash="113,1,-14.0674,183.49,BAT_GND,,,,,"/>
+<approved hash="113,1,-6.44737,184.762,BAT_5V,,,,,"/>
+<approved hash="113,1,1.17263,183.682,SWITCH2,,,,,"/>
+<approved hash="113,1,11.8979,189.133,SWITCH1,,,,,"/>
+<approved hash="113,1,53.6194,52.1674,ANT,,,,,"/>
+<approved hash="115,1,91.44,116.84,IN+(1),,,,,"/>
+<approved hash="115,1,49.53,101.6,GND,,,,,"/>
+<approved hash="115,1,91.44,109.22,IN+(2),,,,,"/>
+<approved hash="115,1,49.53,124.46,OUTPUT(1),,,,,"/>
+<approved hash="115,1,49.53,109.22,OUTPUT(2),,,,,"/>
+<approved hash="115,1,91.44,124.46,IN-(1),,,,,"/>
+<approved hash="115,1,49.53,116.84,VDD,,,,,"/>
+<approved hash="115,1,91.44,101.6,IN-(2),,,,,"/>
 </errors>
 </schematic>
 </drawing>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.0">
+<eagle version="8.0.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5848,21 +5848,9 @@ Source: http://www.osram.convergy.de/</description>
 <pinref part="U$1" gate="A" pin="VSS"/>
 <wire x1="198.12" y1="17.78" x2="195.58" y2="17.78" width="0.1524" layer="91"/>
 <label x="195.58" y="17.78" size="1.778" layer="95" rot="R90"/>
-<pinref part="U$1" gate="A" pin="VSS_3"/>
-<wire x1="198.12" y1="22.86" x2="195.58" y2="22.86" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="22.86" x2="195.58" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="20.32" x2="195.58" y2="17.78" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="22.86" x2="195.58" y2="25.4" width="0.1524" layer="91"/>
-<junction x="195.58" y="22.86"/>
-<pinref part="U$1" gate="A" pin="VSS_2"/>
-<wire x1="195.58" y1="25.4" x2="198.12" y2="25.4" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="17.78" x2="195.58" y2="15.24" width="0.1524" layer="91"/>
-<junction x="195.58" y="17.78"/>
 <pinref part="U$1" gate="A" pin="AVSS"/>
 <wire x1="195.58" y1="15.24" x2="198.12" y2="15.24" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="A" pin="VSS_4"/>
-<wire x1="198.12" y1="20.32" x2="195.58" y2="20.32" width="0.1524" layer="91"/>
-<junction x="195.58" y="20.32"/>
 </segment>
 <segment>
 <pinref part="S7" gate="G$1" pin="2"/>
@@ -6205,24 +6193,8 @@ Source: http://www.osram.convergy.de/</description>
 <label x="-10.46" y="34" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="A" pin="VDD"/>
-<wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
-<label x="193.04" y="111.76" size="1.778" layer="95"/>
-<pinref part="U$1" gate="A" pin="AVDD"/>
-<wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="A" pin="VDD_2"/>
 <wire x1="198.12" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="119.38" x2="195.58" y2="116.84" width="0.1524" layer="91"/>
-<junction x="195.58" y="111.76"/>
-<pinref part="U$1" gate="A" pin="VDD_4"/>
-<wire x1="195.58" y1="116.84" x2="195.58" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="114.3" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="114.3" x2="195.58" y2="114.3" width="0.1524" layer="91"/>
-<junction x="195.58" y="114.3"/>
-<pinref part="U$1" gate="A" pin="VDD_3"/>
-<wire x1="198.12" y1="116.84" x2="195.58" y2="116.84" width="0.1524" layer="91"/>
-<junction x="195.58" y="116.84"/>
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>
@@ -6864,8 +6836,7 @@ Source: http://www.osram.convergy.de/</description>
 </segment>
 <segment>
 <pinref part="MDL1" gate="G$1" pin="GPIO2"/>
-<wire x1="403.86" y1="50.8" x2="408.94" y2="50.8" width="0.1524" layer="91"/>
-<label x="416.56" y="50.8" size="1.778" layer="95"/>
+<wire x1="403.86" y1="50.8" x2="414.02" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FAV1" class="0">
@@ -6934,21 +6905,28 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="33.02" y1="-43.18" x2="33.02" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U$1" gate="A" pin="VDD"/>
+<wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="A" pin="AVDD"/>
+<wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<label x="193.04" y="111.76" size="1.778" layer="95"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
 <approved hash="104,1,198.12,119.38,U$1,VDD_2,3.3V,,,"/>
-<approved hash="104,1,198.12,116.84,U$1,VDD_3,3.3V,,,"/>
-<approved hash="104,1,198.12,114.3,U$1,VDD_4,3.3V,,,"/>
-<approved hash="104,1,198.12,111.76,U$1,VDD,3.3V,,,"/>
-<approved hash="104,1,198.12,109.22,U$1,AVDD,3.3V,,,"/>
+<approved hash="204,1,198.12,116.84,U$1,VDD_3,,,,"/>
+<approved hash="204,1,198.12,114.3,U$1,VDD_4,,,,"/>
 <approved hash="202,1,198.12,101.6,U$1,LCDBIAS1,,,,"/>
 <approved hash="202,1,198.12,99.06,U$1,LCDBIAS2,,,,"/>
 <approved hash="202,1,198.12,96.52,U$1,LCDBIAS3,,,,"/>
-<approved hash="104,1,198.12,25.4,U$1,VSS_2,GND,,,"/>
-<approved hash="104,1,198.12,22.86,U$1,VSS_3,GND,,,"/>
-<approved hash="104,1,198.12,20.32,U$1,VSS_4,GND,,,"/>
+<approved hash="204,1,198.12,25.4,U$1,VSS_2,,,,"/>
+<approved hash="204,1,198.12,22.86,U$1,VSS_3,,,,"/>
 <approved hash="104,1,198.12,17.78,U$1,VSS,GND,,,"/>
 <approved hash="104,1,198.12,15.24,U$1,AVSS,GND,,,"/>
 <approved hash="104,1,76.2,187.96,Q2,VIN,VDD,,,"/>
@@ -6969,14 +6947,14 @@ Source: http://www.osram.convergy.de/</description>
 <approved hash="113,1,1.17263,183.682,SWITCH2,,,,,"/>
 <approved hash="113,1,11.8979,189.133,SWITCH1,,,,,"/>
 <approved hash="113,1,53.6194,52.1674,ANT,,,,,"/>
-<approved hash="115,1,91.44,116.84,IN+(1),,,,,"/>
-<approved hash="115,1,49.53,101.6,GND,,,,,"/>
 <approved hash="115,1,91.44,109.22,IN+(2),,,,,"/>
 <approved hash="115,1,49.53,124.46,OUTPUT(1),,,,,"/>
 <approved hash="115,1,49.53,109.22,OUTPUT(2),,,,,"/>
-<approved hash="115,1,91.44,124.46,IN-(1),,,,,"/>
 <approved hash="115,1,49.53,116.84,VDD,,,,,"/>
+<approved hash="115,1,91.44,124.46,IN-(1),,,,,"/>
+<approved hash="115,1,49.53,101.6,GND,,,,,"/>
 <approved hash="115,1,91.44,101.6,IN-(2),,,,,"/>
+<approved hash="115,1,91.44,116.84,IN+(1),,,,,"/>
 </errors>
 </schematic>
 </drawing>
