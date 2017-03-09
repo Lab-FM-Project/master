@@ -14,18 +14,27 @@
 // including some headers that will be used for the receiver and esp chip
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+///#include "gpio.h"
 //#include <pins_nodeMCU.h>
 //#include <MQTT.h>
+/*#define D0 16
+    #define D1 5
+    #define D2 4
+    #define D3 0
+    #define D4 2
+    #define D5 14
+    #define D6 12
+    #define D7 13 */
 #define volUpPin D1
 #define volDownPin D2
 #define stationNextPin D6
 #define stationPrevPin D3
-#define mutePin D2
-#define fav1Pin D0
+#define mutePin D0
+#define fav1Pin D5
 #define fav2Pin D7
 #define fav3Pin D4
 
-#define msgDelay 100
+#define msgDelay 2000
 
 /*#define user twdgskxg
 #define password vkMS2TFzBxLc
@@ -35,7 +44,7 @@
 const char *password =  "xhct2880";  // insert your internet SSID and password */
 
 const char *ssid = "Landgate";
-const char *password = "GlaziersLand2EDgateLaneGU3"; 
+const char *password = "GlaziersLand2EDgateLaneGU3";
 /*const char *ssid = "G5_8814";
 const char *password = "Beano1234";*/
 const int output = 4; // output that will drive the PIC high or low
@@ -100,12 +109,31 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print("Message arrived [");
   Serial.print(topic);
   Serial.print("] ");
-  for (int i = 0; i < length; i++) {
+  Serial.println((char)payload[0]);
+  Serial.println(topic == "volume");
+  Serial.println(topic == "volume\r\n");
+  Serial.println(topic == "volume\n");
+  Serial.println((char)payload[0] == 'u');
+  Serial.println("");
+  int sLen = strlen(topic);
+for(int s=0; s<sLen; s++)
+{
+   Serial.print("topic[");
+   Serial.print(s);
+   Serial.print("] is {");
+   Serial.print(topic[s]);
+   Serial.print("} which has an ascii value of ");
+   Serial.println(topic[s], DEC);
+} 
+ /* for (int i = 0; i < length; i++) {
     Serial.print((char)payload[i]);
-  }
-  Serial.println();
-  if (topic == "volume" && (char)payload[0] == 'u'){
+  }*/
+  Serial.println("test1");
+  //esp is skipping this code????
+  if ((topic == "volume" || (topic == ("volume\r"))) && (char)payload[0] == 'u'){
+    Serial.println("test2");
     digitalWrite(volUpPin, LOW);
+    Serial.println("volup pin");
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(volUpPin, HIGH);
@@ -160,6 +188,7 @@ void callback(char* topic, byte* payload, unsigned int length) {
     digitalWrite(fav3Pin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
+  Serial.println("test3");
 }
 
 void reconnect() {
