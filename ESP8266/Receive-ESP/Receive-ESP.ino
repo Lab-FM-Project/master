@@ -43,10 +43,10 @@
 /*const char *ssid =  "AndroidAP";    // cannot be longer than 32 characters!
 const char *password =  "xhct2880";  // insert your internet SSID and password */
 
-const char *ssid = "Landgate";
-const char *password = "GlaziersLand2EDgateLaneGU3";
-/*const char *ssid = "G5_8814";
-const char *password = "Beano1234";*/
+/*const char *ssid = "Landgate";
+const char *password = "GlaziersLand2EDgateLaneGU3"; */
+const char *ssid = "G5_8814";
+const char *password = "Beano1234";
 const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";
 const char* clientID = "ESP8266Client";
@@ -110,85 +110,67 @@ void callback(char* topic, byte* payload, unsigned int length) {
   Serial.print(topic);
   Serial.print("] ");
   Serial.println((char)payload[0]);
-  Serial.println(topic == "volume");
-  Serial.println(topic == "volume\r\n");
-  Serial.println(topic == "volume\n");
-  Serial.println((char)payload[0] == 'u');
-  Serial.println("");
+  String topicString;
   int sLen = strlen(topic);
-for(int s=0; s<sLen; s++)
-{
-   Serial.print("topic[");
-   Serial.print(s);
-   Serial.print("] is {");
-   Serial.print(topic[s]);
-   Serial.print("} which has an ascii value of ");
-   Serial.println(topic[s], DEC);
-} 
- /* for (int i = 0; i < length; i++) {
-    Serial.print((char)payload[i]);
-  }*/
-  Serial.println("test1");
-  //esp is skipping this code????
-  if ((topic == "volume" || (topic == ("volume\r"))) && (char)payload[0] == 'u'){
-    Serial.println("test2");
+  for(int s=0; s<sLen; s++){
+    topicString += topic[s];
+  } 
+  if (topicString == "volume" && (char)payload[0] == 'u'){
     digitalWrite(volUpPin, LOW);
-    Serial.println("volup pin");
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(volUpPin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (topic == "volume" && (char)payload[0] == 'd'){
+  if (topicString == "volume" && (char)payload[0] == 'd'){
     digitalWrite(volDownPin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(volDownPin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (topic == "station" && (char)payload[0] == 'u'){
+  if (topicString == "station" && (char)payload[0] == 'u'){
     digitalWrite(stationNextPin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(stationNextPin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (topic == "station" && (char)payload[0] == 'd'){
+  if (topicString == "station" && (char)payload[0] == 'd'){
     digitalWrite(stationPrevPin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(stationPrevPin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (topic == "mute" && (char)payload[0] == 'u'){
+  if (topicString == "mute" && (char)payload[0] == 'u'){
     digitalWrite(mutePin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(mutePin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (topic == "favourite" && (char)payload[0] == '1'){
+  if (topicString == "favourite" && (char)payload[0] == '1'){
     digitalWrite(fav1Pin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(fav1Pin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (topic == "favourite" && (char)payload[0] == '2'){
+  if (topicString == "favourite" && (char)payload[0] == '2'){
     digitalWrite(fav2Pin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(fav2Pin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  if (topic == "favourite" && (char)payload[0] == '3'){
+  if (topicString == "favourite" && (char)payload[0] == '3'){
     digitalWrite(fav3Pin, LOW);
     digitalWrite(BUILTIN_LED, LOW);
     delay(msgDelay);
     digitalWrite(fav3Pin, HIGH);
     digitalWrite(BUILTIN_LED, HIGH);
   }
-  Serial.println("test3");
 }
 
 void reconnect() {
