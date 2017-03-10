@@ -6230,13 +6230,6 @@ Source: http://www.osram.convergy.de/</description>
 <label x="447.04" y="53.34" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="A" pin="2"/>
-<label x="17.78" y="-43.18" size="1.778" layer="95" rot="R180"/>
-<pinref part="VR1" gate="R?" pin="WIPER"/>
-<wire x1="7.62" y1="-43.18" x2="33.02" y2="-43.18" width="0.1524" layer="91"/>
-<wire x1="33.02" y1="-43.18" x2="33.02" y2="-45.72" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="VR1" gate="R?" pin="CW"/>
 <wire x1="38.1" y1="-50.8" x2="43.18" y2="-50.8" width="0.1524" layer="91"/>
 <label x="38.1" y="-50.8" size="1.778" layer="95"/>
@@ -6932,11 +6925,19 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="83.82" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$51" class="0">
+<segment>
+<pinref part="JP2" gate="A" pin="2"/>
+<label x="17.78" y="-43.18" size="1.778" layer="95" rot="R180"/>
+<pinref part="VR1" gate="R?" pin="WIPER"/>
+<wire x1="7.62" y1="-43.18" x2="33.02" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-43.18" x2="33.02" y2="-45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,58.42,132.08,U1,SUPPLY_VOLTAGE,VDD,,,"/>
 <approved hash="104,1,198.12,119.38,U$1,VDD_2,3.3V,,,"/>
 <approved hash="104,1,198.12,116.84,U$1,VDD_3,3.3V,,,"/>
 <approved hash="104,1,198.12,114.3,U$1,VDD_4,3.3V,,,"/>
@@ -6950,22 +6951,32 @@ Source: http://www.osram.convergy.de/</description>
 <approved hash="104,1,198.12,20.32,U$1,VSS_4,GND,,,"/>
 <approved hash="104,1,198.12,17.78,U$1,VSS,GND,,,"/>
 <approved hash="104,1,198.12,15.24,U$1,AVSS,GND,,,"/>
-<approved hash="104,1,-15.24,185.42,5V_BAT,-,GND,,,"/>
-<approved hash="104,1,-5.08,185.42,5V_BAT,+,N$20,,,"/>
-<approved hash="104,1,-7.62,185.42,5V_BAT,+,N$20,,,"/>
 <approved hash="104,1,76.2,187.96,Q2,VIN,VDD,,,"/>
-<approved hash="113,1,162.797,133.481,X1,,,,,"/>
-<approved hash="113,1,11.3792,111.76,VR2,,,,,"/>
+<approved hash="105,0,?,?,3.3V2,,,,,"/>
+<approved hash="106,1,152.4,-35.56,PGM,,,,,"/>
+<approved hash="106,1,7.62,-40.64,VO,,,,,"/>
+<approved hash="113,1,164.614,133.481,AUXJACK,,,,,"/>
 <approved hash="113,1,387.35,48.7045,MDL1,,,,,"/>
 <approved hash="113,1,43.5017,179.07,D1,,,,,"/>
-<approved hash="113,1,5.08,188.841,S1,,,,,"/>
 <approved hash="113,1,3.89467,-28.0712,JP2,,,,,"/>
-<approved hash="113,1,144.437,-23.9988,ESP_PRG,,,,,"/>
-<approved hash="113,1,174.493,-27.8088,PIC_PRG,,,,,"/>
-<approved hash="113,1,207.161,-29.0788,AR_PRG,,,,,"/>
-<approved hash="113,1,229.224,-25.5312,INT_PINS,,,,,"/>
-<approved hash="113,1,261.857,-30.3488,JP3,,,,,"/>
-<approved hash="113,1,294.877,-23.9988,JP1,,,,,"/>
+<approved hash="113,1,129.197,-23.9988,ESP_PRG,,,,,"/>
+<approved hash="113,1,154.173,-27.8088,PIC_PRG,,,,,"/>
+<approved hash="113,1,181.761,-29.0788,AR_PRG,,,,,"/>
+<approved hash="113,1,207.656,-22.7288,INT_PINS,,,,,"/>
+<approved hash="113,1,234.087,-30.3488,SPARE,,,,,"/>
+<approved hash="113,1,-14.0674,183.49,BAT_GND,,,,,"/>
+<approved hash="113,1,-6.44737,184.762,BAT_5V,,,,,"/>
+<approved hash="113,1,1.17263,183.682,SWITCH2,,,,,"/>
+<approved hash="113,1,11.8979,189.133,SWITCH1,,,,,"/>
+<approved hash="113,1,53.6194,52.1674,ANT,,,,,"/>
+<approved hash="115,1,91.44,116.84,IN+(1),,,,,"/>
+<approved hash="115,1,49.53,101.6,GND,,,,,"/>
+<approved hash="115,1,91.44,109.22,IN+(2),,,,,"/>
+<approved hash="115,1,49.53,124.46,OUTPUT(1),,,,,"/>
+<approved hash="115,1,49.53,109.22,OUTPUT(2),,,,,"/>
+<approved hash="115,1,91.44,124.46,IN-(1),,,,,"/>
+<approved hash="115,1,49.53,116.84,VDD,,,,,"/>
+<approved hash="115,1,91.44,101.6,IN-(2),,,,,"/>
 </errors>
 </schematic>
 </drawing>

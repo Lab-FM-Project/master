@@ -5627,6 +5627,7 @@ Source: http://www.osram.convergy.de/</description>
 <part name="ANT" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="VR4" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
 <part name="VR5" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
+<part name="R18" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
 </parts>
 <sheets>
 <sheet>
@@ -5774,6 +5775,7 @@ Source: http://www.osram.convergy.de/</description>
 <instance part="ANT" gate="1" x="55.88" y="53.34" rot="R180"/>
 <instance part="VR4" gate="R?" x="25.4" y="116.84"/>
 <instance part="VR5" gate="R?" x="7.62" y="111.76"/>
+<instance part="R18" gate="G$1" x="419.1" y="50.8" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -6278,6 +6280,11 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="472.44" y1="205.74" x2="500.38" y2="205.74" width="0.1524" layer="91"/>
 <junction x="472.44" y="205.74"/>
 <pinref part="R16" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<pinref part="R18" gate="G$1" pin="1"/>
+<wire x1="424.18" y1="50.8" x2="426.72" y2="50.8" width="0.1524" layer="91"/>
+<label x="424.18" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="L-OUT" class="0">
@@ -6836,7 +6843,8 @@ Source: http://www.osram.convergy.de/</description>
 </segment>
 <segment>
 <pinref part="MDL1" gate="G$1" pin="GPIO2"/>
-<wire x1="403.86" y1="50.8" x2="411.48" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="403.86" y1="50.8" x2="414.02" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="R18" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="FAV1" class="0">
