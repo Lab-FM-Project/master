@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.2">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6490,6 +6490,7 @@ distributor Buerklin 78F2475</description>
 <label x="-10.46" y="34" size="1.778" layer="95"/>
 </segment>
 <segment>
+<<<<<<< Updated upstream
 <pinref part="U$1" gate="A" pin="VDD"/>
 <wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
 <label x="193.04" y="111.76" size="1.778" layer="95"/>
@@ -6508,6 +6509,10 @@ distributor Buerklin 78F2475</description>
 <pinref part="U$1" gate="A" pin="VDD_3"/>
 <wire x1="198.12" y1="116.84" x2="195.58" y2="116.84" width="0.1524" layer="91"/>
 <junction x="195.58" y="116.84"/>
+=======
+<pinref part="U$1" gate="A" pin="VDD_2"/>
+<wire x1="198.12" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
+>>>>>>> Stashed changes
 </segment>
 <segment>
 <pinref part="R5" gate="G$1" pin="1"/>

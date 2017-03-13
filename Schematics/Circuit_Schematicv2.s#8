@@ -6902,6 +6902,7 @@ Source: http://www.osram.convergy.de/</description>
 <wire x1="33.02" y1="-43.18" x2="33.02" y2="-45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
+<<<<<<< Updated upstream
 <net name="N$1" class="0">
 <segment>
 <pinref part="U$1" gate="A" pin="VDD"/>
@@ -6912,6 +6913,8 @@ Source: http://www.osram.convergy.de/</description>
 <label x="193.04" y="111.76" size="1.778" layer="95"/>
 </segment>
 </net>
+=======
+>>>>>>> Stashed changes
 </nets>
 </sheet>
 </sheets>
