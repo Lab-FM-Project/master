@@ -17,24 +17,28 @@
 ///#include "gpio.h"
 //#include <pins_nodeMCU.h>
 //#include <MQTT.h>
-/*#define D0 16
-    #define D1 5
-    #define D2 4
-    #define D3 0
-    #define D4 2
-    #define D5 14
-    #define D6 12
-    #define D7 13 */
+#define D0 16
+#define D1 5
+#define D2 4
+#define D3 0
+#define D4 2
+#define D5 14
+#define D6 12
+#define D7 13 
+#define D8 9 //testing
+#define D9 10 //testing
 #define volUpPin D1
 #define volDownPin D2
+/*#define volUpPin D8
+#define volDownPin D9 */
 #define stationNextPin D6
-#define stationPrevPin D3
-#define mutePin D0
-#define fav1Pin D5
+#define stationPrevPin D3 //hmm gpio0
+#define mutePin D5
+#define fav1Pin D0 //hmm gpio14
 #define fav2Pin D7
 #define fav3Pin D4
 
-#define msgDelay 2000
+#define msgDelay 300
 
 /*#define user twdgskxg
 #define password vkMS2TFzBxLc
@@ -47,6 +51,7 @@ const char *password =  "xhct2880";  // insert your internet SSID and password *
 const char *password = "GlaziersLand2EDgateLaneGU3"; */
 const char *ssid = "G5_8814";
 const char *password = "Beano1234";
+
 const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";
 const char* clientID = "ESP8266Client";
