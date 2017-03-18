@@ -20,25 +20,23 @@
 #define D0 16
 #define D1 5
 #define D2 4
-#define D3 0
+//#define D3 0
 #define D4 2
 #define D5 14
 #define D6 12
 #define D7 13 
-#define D8 9 //testing
-#define D9 10 //testing
+//#define D8 9 //testing
+//#define D9 10 //testing
 #define volUpPin D1
 #define volDownPin D2
-/*#define volUpPin D8
-#define volDownPin D9 */
 #define stationNextPin D6
-#define stationPrevPin D3 //hmm gpio0
+#define stationPrevPin D4
 #define mutePin D5
-#define fav1Pin D0 //hmm gpio14
+#define fav1Pin D0
 #define fav2Pin D7
-#define fav3Pin D4
+//#define fav3Pin D4
 
-#define msgDelay 300
+#define msgDelay 200
 
 /*#define user twdgskxg
 #define password vkMS2TFzBxLc
@@ -68,123 +66,124 @@ int value = 0;
 char recvMsg[1];
 
 void setup() { //in the setup we initialise the RC switch to a specific pin (12) and setting output as output pin.
-  pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
-  digitalWrite(BUILTIN_LED, HIGH); //off
+ // pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
+ // //  digitalwrite(builtin_led, HIGH); //off
    pinMode(volUpPin, OUTPUT);
-  digitalWrite(volUpPin, HIGH);
+  digitalWrite(volUpPin, LOW);
    pinMode(volDownPin, OUTPUT);
-  digitalWrite(volDownPin, HIGH);
+  digitalWrite(volDownPin, LOW);
   pinMode(stationNextPin, OUTPUT);
-  digitalWrite(stationNextPin, HIGH);
+  digitalWrite(stationNextPin, LOW);
    pinMode(stationPrevPin, OUTPUT);
-  digitalWrite(stationPrevPin, HIGH);
+  digitalWrite(stationPrevPin, LOW);
   pinMode(mutePin, OUTPUT);
-  digitalWrite(mutePin, HIGH);
+  digitalWrite(mutePin, LOW);
    pinMode(fav1Pin, OUTPUT);
-  digitalWrite(fav1Pin, HIGH);
+  digitalWrite(fav1Pin, LOW);
   pinMode(fav2Pin, OUTPUT);
-  digitalWrite(fav2Pin, HIGH);
-   pinMode(fav3Pin, OUTPUT);
-  digitalWrite(fav3Pin, HIGH);
-  Serial.begin(115200);
+  digitalWrite(fav2Pin, LOW);
+//   pinMode(fav3Pin, OUTPUT);
+//  digitalWrite(fav3Pin, LOW);
+//  //  Serial.begin(115200);
+// //  Serial.println("TEST");
   setup_wifi();
   client.setServer(mqtt_server, port);
   client.setCallback(callback);
 }
 
 void setup_wifi() {
-  delay(10);
+  delay(1000);
   // We start by connecting to a WiFi network
-  Serial.println();
-  Serial.print("Connecting to ");
-  Serial.println(ssid);
+  //  Serial.println();
+  //  Serial.print("Connecting to ");
+  //  Serial.println(ssid);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
+    //  Serial.print(".");
   }
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address: ");
-  Serial.println(WiFi.localIP());
+  //  Serial.println("");
+  //  Serial.println("WiFi connected");
+  //  Serial.println("IP address: ");
+  //  Serial.println(WiFi.localIP());
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
-  Serial.println("callback function called");
-  Serial.print("Message arrived [");
-  Serial.print(topic);
-  Serial.print("] ");
-  Serial.println((char)payload[0]);
+  //  Serial.println("callback function called");
+  //  Serial.print("Message arrived [");
+  //  Serial.print(topic);
+  //  Serial.print("] ");
+  //  Serial.println((char)payload[0]);
   String topicString;
   int sLen = strlen(topic);
   for(int s=0; s<sLen; s++){
     topicString += topic[s];
   } 
   if (topicString == "volume" && (char)payload[0] == 'u'){
-    digitalWrite(volUpPin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
     digitalWrite(volUpPin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
+  //  //  digitalwrite(builtin_led, LOW);
+    delay(msgDelay);
+    digitalWrite(volUpPin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
   }
   if (topicString == "volume" && (char)payload[0] == 'd'){
-    digitalWrite(volDownPin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
     digitalWrite(volDownPin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
+    //  digitalwrite(builtin_led, LOW);
+    delay(msgDelay);
+    digitalWrite(volDownPin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
   }
   if (topicString == "station" && (char)payload[0] == 'u'){
-    digitalWrite(stationNextPin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
     digitalWrite(stationNextPin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
+    //  digitalwrite(builtin_led, LOW);
+    delay(msgDelay);
+    digitalWrite(stationNextPin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
   }
   if (topicString == "station" && (char)payload[0] == 'd'){
-    digitalWrite(stationPrevPin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
     digitalWrite(stationPrevPin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
+    //  digitalwrite(builtin_led, LOW);
+    delay(msgDelay);
+    digitalWrite(stationPrevPin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
   }
   if (topicString == "mute" && (char)payload[0] == 'u'){
-    digitalWrite(mutePin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
     digitalWrite(mutePin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
+    //  digitalwrite(builtin_led, LOW);
+    delay(msgDelay);
+    digitalWrite(mutePin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
   }
   if (topicString == "favourite" && (char)payload[0] == '1'){
-    digitalWrite(fav1Pin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
     digitalWrite(fav1Pin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
+    //  digitalwrite(builtin_led, LOW);
+    delay(msgDelay);
+    digitalWrite(fav1Pin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
   }
   if (topicString == "favourite" && (char)payload[0] == '2'){
-    digitalWrite(fav2Pin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
-    delay(msgDelay);
     digitalWrite(fav2Pin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
-  }
-  if (topicString == "favourite" && (char)payload[0] == '3'){
-    digitalWrite(fav3Pin, LOW);
-    digitalWrite(BUILTIN_LED, LOW);
+    //  digitalwrite(builtin_led, LOW);
     delay(msgDelay);
-    digitalWrite(fav3Pin, HIGH);
-    digitalWrite(BUILTIN_LED, HIGH);
+    digitalWrite(fav2Pin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
   }
+ /* if (topicString == "favourite" && (char)payload[0] == '3'){
+    digitalWrite(fav3Pin, HIGH);
+    //  digitalwrite(builtin_led, LOW);
+    delay(msgDelay);
+    digitalWrite(fav3Pin, LOW);
+    //  digitalwrite(builtin_led, HIGH);
+  } */
 }
 
 void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {
-    Serial.print("Attempting MQTT connection...");
+    //  Serial.print("Attempting MQTT connection...");
     // Attempt to connect
     if (client.connect(clientID, clientUserName, clientPassword)) {
-      Serial.println("connected");
+      //  Serial.println("connected");
       // Once connected, publish an announcement...
       client.publish("remote_rcv", "hello world");
       // ... and resubscribe
@@ -193,9 +192,9 @@ void reconnect() {
       client.subscribe("mute");
       client.subscribe("favourite");
     } else {
-      Serial.print("failed, rc=");
-      Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
+      //  Serial.print("failed, rc=");
+      //  Serial.print(client.state());
+      //  Serial.println(" try again in 5 seconds");
       // Wait 5 seconds before retrying
       delay(5000);
     }
@@ -214,9 +213,8 @@ void loop() {
     lastMsg = now;
     ++value;
  //   snprintf (msg, 75, "hello world #%ld", value);
- //   Serial.print("Publish message: ");
-  //  Serial.println(msg);
+ //     Serial.print("Publish message: ");
+  //    Serial.println(msg);
  //   client.publish("remote_rcv", msg);
   }
 }
-

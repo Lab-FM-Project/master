@@ -5953,7 +5953,8 @@ http://www.zetex.com&lt;p&gt;
 <segment>
 <pinref part="T1" gate="A" pin="G"/>
 <wire x1="248.92" y1="177.8" x2="246.38" y2="177.8" width="0.1524" layer="91"/>
-<label x="238.76" y="175.26" size="1.778" layer="95"/>
+<label x="241.3" y="167.64" size="1.778" layer="95"/>
+<wire x1="246.38" y1="177.8" x2="246.38" y2="170.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="MDL1" gate="G$1" pin="GPIO12"/>
