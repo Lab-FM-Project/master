@@ -14,6 +14,9 @@
 // including some headers that will be used for the receiver and esp chip
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
+#include <DNSServer.h>
+#include <ESP8266WebServer.h>
+#include <WiFiManager.h>
 ///#include "gpio.h"
 //#include <pins_nodeMCU.h>
 //#include <MQTT.h>
@@ -47,17 +50,17 @@ const char *password =  "xhct2880";  // insert your internet SSID and password *
 
 /*const char *ssid = "Landgate";
 const char *password = "GlaziersLand2EDgateLaneGU3"; */
-const char *ssid = "G5_8814";
-const char *password = "Beano1234";
+/*const char *ssid = "G5_8814";
+const char *password = "Beano1234"; */
 
-const int output = 4; // output that will drive the PIC high or low
+//const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";
 const char* clientID = "ESP8266Client";
 const char* clientUserName = clientID;
 const char* clientPassword = "mqtt";
 int port = 18296;
 
-
+WiFiManager wifiManager;
 WiFiClient espClient; //initialising new WifiClient
 PubSubClient client(espClient);
 long lastMsg = 0;
@@ -97,11 +100,13 @@ void setup_wifi() {
   //  Serial.println();
   //  Serial.print("Connecting to ");
   //  Serial.println(ssid);
-  WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED) {
-    delay(500);
+  
+wifiManager.autoConnect("AutoConnectAP");
+ // WiFi.begin(ssid, password);
+ // while (WiFi.status() != WL_CONNECTED) {
+ //   delay(500);
     //  Serial.print(".");
-  }
+//  }
   //  Serial.println("");
   //  Serial.println("WiFi connected");
   //  Serial.println("IP address: ");
