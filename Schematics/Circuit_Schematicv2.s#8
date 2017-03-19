@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.2">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -6490,6 +6490,7 @@ distributor Buerklin 78F2475</description>
 <label x="-10.46" y="34" size="1.778" layer="95"/>
 </segment>
 <segment>
+<<<<<<< Updated upstream
 <pinref part="U$1" gate="A" pin="VDD"/>
 <wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
 <label x="193.04" y="111.76" size="1.778" layer="95"/>
@@ -6510,6 +6511,15 @@ distributor Buerklin 78F2475</description>
 <junction x="195.58" y="116.84"/>
 </segment>
 <segment>
+=======
+<<<<<<< Updated upstream
+<pinref part="U$1" gate="A" pin="VDD_2"/>
+<wire x1="198.12" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="444.5" y1="53.34" x2="447.04" y2="53.34" width="0.1524" layer="91"/>
 <label x="447.04" y="53.34" size="1.778" layer="95"/>
@@ -7216,6 +7226,28 @@ distributor Buerklin 78F2475</description>
 <wire x1="83.82" y1="124.46" x2="99.06" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
+<<<<<<< Updated upstream
+=======
+<net name="N$51" class="0">
+<segment>
+<pinref part="JP2" gate="A" pin="2"/>
+<label x="17.78" y="-43.18" size="1.778" layer="95" rot="R180"/>
+<pinref part="VR1" gate="R?" pin="WIPER"/>
+<wire x1="7.62" y1="-43.18" x2="33.02" y2="-43.18" width="0.1524" layer="91"/>
+<wire x1="33.02" y1="-43.18" x2="33.02" y2="-45.72" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U$1" gate="A" pin="VDD"/>
+<wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="A" pin="AVDD"/>
+<wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<label x="193.04" y="111.76" size="1.778" layer="95"/>
+</segment>
+</net>
+>>>>>>> Stashed changes
 </nets>
 </sheet>
 </sheets>

@@ -4563,7 +4563,10 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <part name="VR4" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
 <part name="VR5" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
 <part name="R18" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
+<<<<<<< Updated upstream
 <part name="S1" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-6.0X3.5MM" value="GPIO0 ESP"/>
+=======
+>>>>>>> Stashed changes
 </parts>
 <sheets>
 <sheet>
@@ -4711,11 +4714,15 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <instance part="ANT" gate="1" x="55.88" y="53.34" rot="R180"/>
 <instance part="VR4" gate="R?" x="25.4" y="116.84"/>
 <instance part="VR5" gate="R?" x="7.62" y="111.76"/>
+<<<<<<< Updated upstream
 <instance part="R18" gate="G$1" x="345.44" y="53.34" rot="R180"/>
 <instance part="S1" gate="G$1" x="353.06" y="48.26" smashed="yes" rot="R90">
 <attribute name="NAME" x="351.536" y="48.26" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="363.728" y="45.72" size="1.778" layer="96" font="vector" rot="R180" align="top-center"/>
 </instance>
+=======
+<instance part="R18" gate="G$1" x="419.1" y="50.8" rot="R180"/>
+>>>>>>> Stashed changes
 </instances>
 <busses>
 </busses>
@@ -5782,7 +5789,14 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <segment>
 <pinref part="MDL1" gate="G$1" pin="GPIO2"/>
 <wire x1="403.86" y1="50.8" x2="414.02" y2="50.8" width="0.1524" layer="91"/>
+<<<<<<< Updated upstream
 <label x="416.56" y="50.8" size="1.778" layer="95"/>
+=======
+<<<<<<< Updated upstream
+=======
+<pinref part="R18" gate="G$1" pin="2"/>
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
 </segment>
 </net>
 <net name="FAV1" class="0">

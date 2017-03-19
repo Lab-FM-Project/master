@@ -4653,6 +4653,7 @@ http://www.zetex.com&lt;p&gt;
 <part name="ANT" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="VR4" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
 <part name="VR5" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="4.7k"/>
+<<<<<<< Updated upstream
 <part name="T1" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T2" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T3" library="zetex" deviceset="NMOSSOT223" device=""/>
@@ -4661,6 +4662,9 @@ http://www.zetex.com&lt;p&gt;
 <part name="T6" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T7" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T8" library="zetex" deviceset="NMOSSOT223" device=""/>
+=======
+<part name="R18" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
+>>>>>>> Stashed changes
 </parts>
 <sheets>
 <sheet>
@@ -4808,6 +4812,7 @@ http://www.zetex.com&lt;p&gt;
 <instance part="ANT" gate="1" x="55.88" y="53.34" rot="R180"/>
 <instance part="VR4" gate="R?" x="25.4" y="116.84"/>
 <instance part="VR5" gate="R?" x="7.62" y="111.76"/>
+<<<<<<< Updated upstream
 <instance part="T1" gate="A" x="254" y="180.34"/>
 <instance part="T2" gate="A" x="287.02" y="180.34"/>
 <instance part="T3" gate="A" x="317.5" y="180.34"/>
@@ -4816,6 +4821,9 @@ http://www.zetex.com&lt;p&gt;
 <instance part="T6" gate="A" x="439.42" y="180.34"/>
 <instance part="T7" gate="A" x="464.82" y="180.34"/>
 <instance part="T8" gate="A" x="492.76" y="180.34"/>
+=======
+<instance part="R18" gate="G$1" x="345.44" y="53.34" rot="R180"/>
+>>>>>>> Stashed changes
 </instances>
 <busses>
 </busses>
@@ -5441,9 +5449,18 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="R14" gate="G$1" pin="2"/>
 <wire x1="388.62" y1="187.96" x2="386.08" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="386.08" y1="187.96" x2="391.16" y2="187.96" width="0.1524" layer="91"/>
+<<<<<<< Updated upstream
 <pinref part="T5" gate="A" pin="D"/>
 <wire x1="381" y1="185.42" x2="386.08" y2="185.42" width="0.1524" layer="91"/>
 <junction x="386.08" y="185.42"/>
+=======
+</segment>
+<segment>
+<pinref part="MDL1" gate="G$1" pin="GPIO14"/>
+<wire x1="370.84" y1="53.34" x2="350.52" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="R18" gate="G$1" pin="1"/>
+<label x="355.6" y="53.34" size="1.778" layer="95"/>
+>>>>>>> Stashed changes
 </segment>
 </net>
 <net name="VOLUP" class="0">
