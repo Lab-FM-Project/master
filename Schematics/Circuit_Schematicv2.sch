@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.1.0">
+<eagle version="8.0.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4577,6 +4577,70 @@ http://www.zetex.com&lt;p&gt;
 </deviceset>
 </devicesets>
 </library>
+<library name="jumper">
+<description>&lt;b&gt;Jumpers&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="JP1">
+<description>&lt;b&gt;JUMPER&lt;/b&gt;</description>
+<wire x1="-1.016" y1="0" x2="-1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="0" x2="-1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="0" x2="1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="0" x2="1.27" y2="-0.254" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="-0.254" x2="1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="-2.54" x2="1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="2.286" x2="1.016" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="1.27" y1="2.286" x2="1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="1.016" y1="2.54" x2="-1.016" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="2.286" x2="-1.016" y2="2.54" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="2.286" x2="-1.27" y2="0.254" width="0.1524" layer="21"/>
+<wire x1="-1.27" y1="-0.254" x2="-1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="-2.54" x2="-1.27" y2="-2.286" width="0.1524" layer="21"/>
+<wire x1="-1.016" y1="-2.54" x2="1.016" y2="-2.54" width="0.1524" layer="21"/>
+<pad name="1" x="0" y="-1.27" drill="0.9144" shape="long"/>
+<pad name="2" x="0" y="1.27" drill="0.9144" shape="long"/>
+<text x="-1.651" y="-2.54" size="1.27" layer="25" ratio="10" rot="R90">&gt;NAME</text>
+<text x="2.921" y="-2.54" size="1.27" layer="27" ratio="10" rot="R90">&gt;VALUE</text>
+<rectangle x1="-0.3048" y1="0.9652" x2="0.3048" y2="1.5748" layer="51"/>
+<rectangle x1="-0.3048" y1="-1.5748" x2="0.3048" y2="-0.9652" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="JP2E">
+<wire x1="0" y1="0" x2="0" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.4064" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="1.27" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="2.54" x2="2.54" y2="1.27" width="0.4064" layer="94"/>
+<wire x1="-0.635" y1="0" x2="3.175" y2="0" width="0.4064" layer="94"/>
+<wire x1="3.175" y1="0" x2="3.175" y2="0.635" width="0.4064" layer="94"/>
+<wire x1="3.175" y1="0.635" x2="-0.635" y2="0.635" width="0.4064" layer="94"/>
+<wire x1="-0.635" y1="0.635" x2="-0.635" y2="0" width="0.4064" layer="94"/>
+<text x="-1.27" y="0" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="5.715" y="0" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="1" x="0" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="2" x="2.54" y="-2.54" visible="pad" length="short" direction="pas" rot="R90"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="JP1E" prefix="JP" uservalue="yes">
+<description>&lt;b&gt;JUMPER&lt;/b&gt;</description>
+<gates>
+<gate name="A" symbol="JP2E" x="2.54" y="0"/>
+</gates>
+<devices>
+<device name="" package="JP1">
+<connects>
+<connect gate="A" pin="1" pad="1"/>
+<connect gate="A" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -4620,7 +4684,6 @@ http://www.zetex.com&lt;p&gt;
 <part name="S11" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-PTH-6.0MM-KIT" value="MUTE"/>
 <part name="R15" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
-<part name="S2" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-SMD-6.0X3.5MM" value="GPIO0 ESP"/>
 <part name="JP2" library="MIRO" deviceset="LCD16X2HEADER" device=""/>
 <part name="VR3" library="SparkFun-Resistors" deviceset="TRIMPOT" device="-SMD-3MM-OPEN-1/10W-25%" value="10k"/>
 <part name="R6" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
@@ -4660,10 +4723,15 @@ http://www.zetex.com&lt;p&gt;
 <part name="T5" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T6" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T7" library="zetex" deviceset="NMOSSOT223" device=""/>
+<<<<<<< HEAD
 <part name="R18" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="10K"/>
 <part name="R19" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="10K"/>
 <part name="C11" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="10uF"/>
 <part name="C12" library="SparkFun-Capacitors" deviceset="10UF" device="-1210-50V-20%" value="100nF"/>
+=======
+<part name="JP1" library="jumper" deviceset="JP1E" device=""/>
+<part name="JP3" library="jumper" deviceset="JP1E" device=""/>
+>>>>>>> origin/master
 </parts>
 <sheets>
 <sheet>
@@ -4763,10 +4831,6 @@ http://www.zetex.com&lt;p&gt;
 </instance>
 <instance part="R15" gate="G$1" x="426.72" y="195.58" rot="R270"/>
 <instance part="R5" gate="G$1" x="449.58" y="53.34" rot="R180"/>
-<instance part="S2" gate="G$1" x="431.8" y="45.72" smashed="yes" rot="R90">
-<attribute name="NAME" x="430.276" y="45.72" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="442.468" y="43.18" size="1.778" layer="96" font="vector" rot="R180" align="top-center"/>
-</instance>
 <instance part="JP2" gate="A" x="5.08" y="-27.94" rot="R180"/>
 <instance part="VR3" gate="R?" x="38.1" y="-20.32" rot="R90"/>
 <instance part="R6" gate="G$1" x="358.14" y="58.42" rot="R180"/>
@@ -4818,10 +4882,15 @@ http://www.zetex.com&lt;p&gt;
 <instance part="T5" gate="A" x="381" y="180.34"/>
 <instance part="T6" gate="A" x="439.42" y="180.34"/>
 <instance part="T7" gate="A" x="464.82" y="180.34"/>
+<<<<<<< HEAD
 <instance part="R18" gate="G$1" x="289.56" y="99.06" rot="R270"/>
 <instance part="R19" gate="G$1" x="299.72" y="99.06" rot="R270"/>
 <instance part="C11" gate="G$1" x="43.18" y="25.4"/>
 <instance part="C12" gate="G$1" x="-10.16" y="25.4"/>
+=======
+<instance part="JP1" gate="A" x="365.76" y="43.18" rot="R180"/>
+<instance part="JP3" gate="A" x="434.34" y="48.26" rot="R270"/>
+>>>>>>> origin/master
 </instances>
 <busses>
 </busses>
@@ -4948,9 +5017,9 @@ http://www.zetex.com&lt;p&gt;
 <junction x="386.08" y="175.26"/>
 </segment>
 <segment>
-<pinref part="S2" gate="G$1" pin="1"/>
-<wire x1="431.8" y1="40.64" x2="431.8" y2="38.1" width="0.1524" layer="91"/>
 <label x="431.8" y="35.56" size="1.778" layer="95"/>
+<pinref part="JP3" gate="A" pin="2"/>
+<wire x1="431.8" y1="45.72" x2="431.8" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="JP2" gate="A" pin="1"/>
@@ -5263,11 +5332,6 @@ http://www.zetex.com&lt;p&gt;
 <label x="119.38" y="187.96" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MDL1" gate="G$1" pin="VCC"/>
-<wire x1="370.84" y1="45.72" x2="363.22" y2="45.72" width="0.1524" layer="91"/>
-<label x="360.68" y="45.72" size="2.1844" layer="95"/>
-</segment>
-<segment>
 <pinref part="U$4" gate="G$1" pin="VCC"/>
 <wire x1="0" y1="33.02" x2="-10.16" y2="33.02" width="0.1524" layer="91"/>
 <label x="-10.46" y="34" size="1.778" layer="95"/>
@@ -5370,6 +5434,7 @@ http://www.zetex.com&lt;p&gt;
 <label x="193.04" y="111.76" size="1.778" layer="95"/>
 </segment>
 <segment>
+<<<<<<< HEAD
 <pinref part="R18" gate="G$1" pin="1"/>
 <wire x1="289.56" y1="104.14" x2="289.56" y2="109.22" width="0.1524" layer="91"/>
 <label x="289.56" y="109.22" size="1.778" layer="95" rot="R90" xref="yes"/>
@@ -5383,6 +5448,11 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="C11" gate="G$1" pin="2"/>
 <wire x1="43.18" y1="22.86" x2="43.18" y2="17.78" width="0.1524" layer="91"/>
 <label x="43.18" y="17.78" size="1.778" layer="95" xref="yes"/>
+=======
+<pinref part="JP1" gate="A" pin="2"/>
+<wire x1="363.22" y1="45.72" x2="358.14" y2="45.72" width="0.1524" layer="91"/>
+<label x="353.06" y="45.72" size="1.778" layer="95"/>
+>>>>>>> origin/master
 </segment>
 </net>
 <net name="L-OUT" class="0">
@@ -6065,11 +6135,19 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="MDL1" gate="G$1" pin="GPIO0"/>
 <pinref part="R5" gate="G$1" pin="2"/>
 <wire x1="403.86" y1="53.34" x2="431.8" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="S2" gate="G$1" pin="2"/>
 <wire x1="431.8" y1="53.34" x2="444.5" y2="53.34" width="0.1524" layer="91"/>
 <wire x1="431.8" y1="50.8" x2="431.8" y2="53.34" width="0.1524" layer="91"/>
 <junction x="431.8" y="53.34"/>
 <label x="421.64" y="53.34" size="1.778" layer="95"/>
+<pinref part="JP3" gate="A" pin="1"/>
+<wire x1="431.8" y1="48.26" x2="431.8" y2="53.34" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="ESP_VCC" class="0">
+<segment>
+<pinref part="MDL1" gate="G$1" pin="VCC"/>
+<pinref part="JP1" gate="A" pin="1"/>
+<wire x1="370.84" y1="45.72" x2="365.76" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
