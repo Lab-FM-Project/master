@@ -28,6 +28,7 @@ unsigned short seek(char direction) {
 
     // 1 May put in later
     setHardmute(1);
+    
     // 2 Unset tune bit ------------------------------------------------------
     setBitInRegister(tune_bit[0], tune_bit[1], 0);
 
@@ -192,7 +193,8 @@ void tuneWithAutoHiLo() {
 unsigned short frequency() {
     unsigned int data;
     FMread(ADDR_STATUS, &data);
-    return (((data & MASK_READCHAN) >> SHIFT_READCHAN) + 690);
+    CurrentFreq = (((data & MASK_READCHAN) >> SHIFT_READCHAN) + 690);
+    return CurrentFreq;    
 }
 
 unsigned char setHardmute(unsigned char bitState){
@@ -229,13 +231,9 @@ unsigned char setVolume(int volume) {
     unsigned int dat;
     unsigned int cn; // AR1010 channel number
 
-    // Put volume value in range 0 - 18
-    signed char temp_vol = volume;
 
-    if (temp_vol < 0)
-        temp_vol = 0;
-    else if (temp_vol > 18)
-        temp_vol = 18;
+    if (VolControl < 0)  VolControl = 0;
+    else if (VolControl > 18) VolControl = 18;
 
 
     const unsigned char volume_map[19] = {
@@ -246,7 +244,7 @@ unsigned char setVolume(int volume) {
     };
 
     // Volume values are held in registers 3 (D7-10) and 14 (D12-15)
-    unsigned char volume_setting = volume_map[temp_vol];
+    unsigned char volume_setting = volume_map[VolControl];
 
     regImg[3] &= 0xF87F; // Zero the bits to change (D7-10)
     regImg[3] |= ((volume_setting & 0x0F) << 7); // Place 4 LSBs of volume at D7-10
@@ -341,6 +339,7 @@ unsigned char FMfrequenc(unsigned int f) {
         dly(2);
         if (FMready(&dat) != XS) return XF;
     } while (!dat);
+    
     return XS;
 }
 //

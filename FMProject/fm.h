@@ -50,8 +50,7 @@ const unsigned int regDflt[18] = {
 
 unsigned int regImg[18]; // FM register bank images
 unsigned char VolControl = 9;
-unsigned int FreqControl = 964;
-BOOL hardmute = 0;
+
 
 // Define register/bit arrays for particular functions
 const unsigned int hardmute_bit[2] = {1, 1}; // Register 1 -  xxxx xxxx xxxx xxDx
@@ -102,6 +101,8 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 #define FALSE			0
 #define TRUE			1
 
+
+
 enum { // Global error numbers
     GERNONE, // No error
     GERWCOL, // I2C write collision
@@ -135,22 +136,19 @@ void Init() {
     int i;
 
     OSCCON = 0b01110010; // Select 8 MHz internal oscillator
-    LCDCON = 0b10001000; // Enab LC controller. Static mode. INTRC clock
-    LCDPS = 0b00110110; // 37 Hz frame frequency
+    //LCDCON = 0b10001000; // Enab LC controller. Static mode. INTRC clock
+    //LCDPS = 0b00110110; // 37 Hz frame frequency
     ADCON1 = 0b00111111; // Make all ADC/IO pins digital
     TRISA = 0b00000011; // RA0 and RA1 pbutton
-    TRISB = 0b00000011; // RB0 and RB1 pbutton
+    TRISB = 0b00000011;// RB0 and RB1 pbutton
+    
     TRISC = 0b00011000; // RC3 and RC4 do the I2C bus
     TRISG = 0b11111111; // RG0, RG1 & RG3 pbutton
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
-    INTCONbits.TMR0IF = 0; // Clear timer flag
-    //T0CON = 0b00000011;				// Prescale by 16
-    T0CON = 0b00001000; // No prescale
-    TMR0H = 0; // Clear timer count
-    TMR0L = 0;
-    T0CONbits.TMR0ON = 1; // Start timer
+    
+    
     OpenI2C(MASTER, SLEW_OFF);
     SSPADD = 0x3F;
 }
@@ -175,90 +173,167 @@ void delay_10ms(unsigned int n) {
     }
 }
 
+
 /*
  * Obtain latest change in state for the pushbutton set.
  *
  * @param butn Which button changed.  See fm.h.
  *
- * @return 	0 if no button has changed state,
- *			1 if button is pushed,
- *			2 if button is released.
+ * @return time the button is held for
  *
  */
-int butnEvent(void) {
-    int timereturn;
-    if (NextChan == 0) //check if the switch is closed
+
+/*int Debounce(char *PORT, char PIN){
+unsigned int Ptime, DPtime, ret;
+char output[10];
+// PORT is a pointer that will point to PORT# address
+// PIN is a number between 0 - 7
+     //char Mask[] = {1,2,4,8,16,32,64,128};
+    
+     
+ 
+    if (*PORT[PIN] == 0) //check if the switch is closed
     {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+       Ptime = TMR0L + TMR0H*256; 
+        while (*PORT[PIN] == 0) //wait till the button is depressed
+        {                   
+                
+        } 
+       DPtime = TMR0L + TMR0H*256;       
+       ret = DPtime - Ptime; 
+       
+       
+    
+    }
+    else ret = 0;
+ 
+ return ret; 
+    
+}*/
+
+
+int butnEvent(void) {
+    signed int timereturn, HoldDuration = 17,  ButtonStateReading, PressTime, time;
+    char output[16];
+    timereturn = 0;
+    ButtonStateReading = NextChan;
+    if (ButtonStateReading != LastButtonState) {
+       
+        LastChangeTime = delaytime;
+    }
+    
+    /*Lcd_Set_Cursor(2, 1);
+    sprintf(output, "delay: %u", delaytime);
+    Lcd_Write_String(output);
+    
+    Lcd_Set_Cursor(1, 1);
+    sprintf(output, "Duration: %u", HoldDuration);
+    Lcd_Write_String(output);*/
+   
+    Lcd_Set_Cursor(1, 1);                
+    sprintf(output, "delaytime: %u   ", delaytime);
+    Lcd_Write_String(output);
+    time = delaytime;   
+   
+    
+    if (time - LastChangeTime > 10) {
+       
+        if (ButtonStateReading != ButtonState) {
+            ButtonState = ButtonStateReading;
+            if (ButtonState == 0) 
+            {    
+                            
+                
+                timereturn = 1;
+                
+                
+            }
+        
+        }  else  if (ButtonState == 0)
+        
+            {                                
+                
+                HoldDuration = delaytime - LastChangeTime;
+                
+                Lcd_Set_Cursor(2, 1);
+                sprintf(output, "HoldDuration: %u   ", HoldDuration);
+                Lcd_Write_String(output);
+                
+                if (HoldDuration > 3000) 
+                {
+                    
+                   
+                    timereturn = 4;
+                }
+                        
+                
+            }
+            
+            
+            
+        }
+   
+            
+        /*Lcd_Clear();
+                Lcd_Set_Cursor(1, 1);
+                sprintf(output, "Duration: %u", HoldDuration);
+                Lcd_Write_String(output);
+                Lcd_Set_Cursor(2, 1);
+                sprintf(output, "PT:%u RT:%u", PressTime, ReleaseTime);
+                Lcd_Write_String(output);*/
+       
+    
+
+LastButtonState = ButtonStateReading;
+
+
+      
+ /*   
+        
+     if (NextChan == 0) //check if the switch is closed
+    {
+        __delay_ms(100); //wait for 200ms 
         if (NextChan == 0) //check if the switch is still closed
         {
-
             timereturn = 1;
-            for (int c = 0; c <= 10; c++)__delay_ms(20);
-            if (NextChan == 0) {
-                timereturn = 6;
-            }
-            return timereturn;
-        } else {
-            timereturn = 0;
-            return timereturn;
-            PORTCbits.RC6 = 0;
-        }
-    }
-
-    if (PrevChan == 0) //check if the switch is closed
+            __delay_ms(200);//something
+        } 
+        else timereturn =0;
+        
+     }    
+        if (PrevChan == 0) //check if the switch is closed
     {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+        __delay_ms(100); //wait for 200ms 
         if (PrevChan == 0) //check if the switch is still closed
         {
             timereturn = 2;
-            for (int c = 0; c <= 10; c++)__delay_ms(12);
-            if (PrevChan == 0) {
-                timereturn = 7;
-            }
-
-            return timereturn;
-
-        } else {
-            timereturn = 0;
-            return timereturn;
+            __delay_ms(200);//something
+        } 
+        else timereturn =0;
+        
         }
-    }
+        
+    
+    
+    
 
-    if (VolUp == 0) //check if the switch is closed
-    {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
-        if (VolUp == 0) //check if the switch is still closed
-        {
-            return 3; //something
-        } else {
-            return 0; //something
-        }
-    }
-
-    if (VolDown == 0) //check if the switch is closed
-    {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
-        if (VolDown == 0) //check if the switch is still closed
-        {
-            return 4; //something
-        } else {
-            return 0; //something
-        }
-    }
+    
 
     if (MUTE == 0) //check if the switch is closed
     {
-        for (int c = 0; c <= 10; c++)__delay_ms(5); //wait for 100ms 
+        __delay_ms(100); //wait for 200ms 
         if (MUTE == 0) //check if the switch is still closed
         {
-            return 5; //something
-        } else {
-            return 0; //something
-        }
-    }
-    return 0;
+            timereturn = 3;
+            __delay_ms(200); //something
+        } 
+        else timereturn =0;    
+        
+        
+} */
+    return timereturn;
 }
+    
 //
 // end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
@@ -272,22 +347,34 @@ int butnEvent(void) {
  * @return XS on success or XF on error.
  *
  */
-unsigned char nextChannel() {
-    FMfrequenc(964);
-    PORTCbits.RC7 = 1;
-    delay_10ms(10);
-    PORTCbits.RC7 = 0;
+unsigned char nextChannel()
+{
+    
+    CurrentFreq = CurrentFreq + 1;
+    FMfrequenc(CurrentFreq);
+    //HomeScreen(CurrentFreq);
     return XS;
 }
 
 unsigned char previousChannel() {
 
-    FMfrequenc(958);
+    CurrentFreq = CurrentFreq - 1;
+    FMfrequenc(CurrentFreq);
+    //HomeScreen(CurrentFreq);
 
-    // Etc.
+    
     return XS;
 }
 
+
+/*unsigned char VolumeUp() 
+{
+    VolControl++;
+    setVolume(VolControl);
+    VolumeScreen(VolControl);
+    
+
+=======
 unsigned char VolumeUp() {
     //VolControl++;
     setVolume(18);
@@ -298,37 +385,29 @@ unsigned char VolumeUp() {
     Lcd_Clear();
     HomeScreen();
     //setHardmute(1);
+>>>>>>> origin/master
 
 
-    // Etc.
+    
     return XS;
 }
 
 unsigned char VolumeDown() {
-    //VolControl--;
-    setVolume(0);
-
-    // Etc.
+    VolControl--;
+    setVolume(VolControl);
+    VolumeScreen(VolControl);
+    
     return XS;
-}
+}*/
 
 unsigned char MuteHard() {
-    //hardmute = !hardmute;
-    //setHardmute(hardmute);
+    hardmute = !hardmute;
+    setHardmute(hardmute);
+    DisplayMuteSymbol(hardmute);
     return XS;
 }
 
-unsigned char SeekUP() {
-    char dir = 'u';
-    seek(dir);
-    return XS;
-}
 
-unsigned char SeekDOWN() {
-    char dir = 'd';
-    seek(dir);
-    return XS;
-}
 
 //
 // end nextChan ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
