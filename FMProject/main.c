@@ -181,7 +181,7 @@ void interrupt high_priority CheckButtonPressed() {
             HomeScreen(CurrentFreq);
         }*/
         
-        if (delaytime >= 1000000)
+        if (delaytime >= 10000000)
         {
             delaytime = 0;
             

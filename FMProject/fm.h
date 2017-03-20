@@ -213,7 +213,7 @@ char output[10];
 
 
 int butnEvent(void) {
-    signed int timereturn, HoldDuration = 17,  ButtonStateReading, PressTime, time;
+    signed int timereturn, HoldDuration,  ButtonStateReading, PressTime, time;
     char output[16];
     timereturn = 0;
     ButtonStateReading = NextChan;
@@ -230,44 +230,37 @@ int butnEvent(void) {
     sprintf(output, "Duration: %u", HoldDuration);
     Lcd_Write_String(output);*/
    
-    Lcd_Set_Cursor(1, 1);                
+    /*Lcd_Set_Cursor(1, 1);                
     sprintf(output, "delaytime: %u   ", delaytime);
-    Lcd_Write_String(output);
-    time = delaytime;   
+    Lcd_Write_String(output);*/
+    HoldDuration = delaytime - LastChangeTime; 
    
     
-    if (time - LastChangeTime > 10) {
+    if (HoldDuration > 50) {
        
         if (ButtonStateReading != ButtonState) {
             ButtonState = ButtonStateReading;
             if (ButtonState == 0) 
             {    
-                            
                 
-                timereturn = 1;
+                timereturn = 1;            
                 
                 
-            }
-        
-        }  else  if (ButtonState == 0)
-        
-            {                                
-                
-                HoldDuration = delaytime - LastChangeTime;
-                
-                Lcd_Set_Cursor(2, 1);
-                sprintf(output, "HoldDuration: %u   ", HoldDuration);
-                Lcd_Write_String(output);
-                
-                if (HoldDuration > 3000) 
-                {
-                    
-                   
-                    timereturn = 4;
-                }
-                        
                 
             }
+            
+        } else if (ButtonState == 0) {
+           
+            hardmute = 1;
+            
+            if (HoldDuration > 2000)
+            {
+                timereturn = 4;
+                hardmute = 0;
+            }
+        }
+        
+        
             
             
             
@@ -352,7 +345,7 @@ unsigned char nextChannel()
     
     CurrentFreq = CurrentFreq + 1;
     FMfrequenc(CurrentFreq);
-    //HomeScreen(CurrentFreq);
+    HomeScreen(CurrentFreq);
     return XS;
 }
 
@@ -360,7 +353,7 @@ unsigned char previousChannel() {
 
     CurrentFreq = CurrentFreq - 1;
     FMfrequenc(CurrentFreq);
-    //HomeScreen(CurrentFreq);
+    HomeScreen(CurrentFreq);
 
     
     return XS;
