@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.0.0">
+<eagle version="8.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -1921,45 +1921,45 @@ design rules under a new name.</description>
 </element>
 <element name="T1" library="zetex" package="SOT223" value="" x="-85.8266" y="2.6162">
 <attribute name="MF" value="" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
 </element>
 <element name="T2" library="zetex" package="SOT223" value="" x="-85.8266" y="-8.509">
 <attribute name="MF" value="" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
 </element>
 <element name="T3" library="zetex" package="SOT223" value="" x="-85.8266" y="-19.6342">
 <attribute name="MF" value="" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
 </element>
 <element name="T4" library="zetex" package="SOT223" value="" x="-85.8266" y="-30.7594">
 <attribute name="MF" value="" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
 </element>
 <element name="T5" library="zetex" package="SOT223" value="" x="-85.8266" y="-41.8846">
 <attribute name="MF" value="" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
 </element>
 <element name="T6" library="zetex" package="SOT223" value="" x="-85.8266" y="-53.0098">
 <attribute name="MF" value="" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
 </element>
 <element name="T7" library="zetex" package="SOT223" value="" x="-85.8266" y="-64.135">
 <attribute name="MF" value="" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
-<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
 </element>
 </elements>
 <signals>
@@ -2623,6 +2623,17 @@ design rules under a new name.</description>
 <wire x1="-12.7" y1="23.6728" x2="-12.6746" y2="23.6728" width="0.2032" layer="1"/>
 <wire x1="-10.6426" y1="23.6982" x2="-12.6746" y2="23.6982" width="0.2032" layer="16"/>
 <wire x1="-12.6746" y1="23.6982" x2="-12.7" y2="23.6728" width="0.2032" layer="16"/>
+<contactref element="U$1" pad="57"/>
+<contactref element="U$1" pad="19"/>
+<wire x1="-14.097" y1="40.9956" x2="-14.097" y2="41.6814" width="0.2032" layer="1"/>
+<wire x1="-16.5862" y1="31.9024" x2="-16.5862" y2="30.2006" width="0.2032" layer="1"/>
+<wire x1="-14.097" y1="41.6814" x2="-14.097" y2="40.6146" width="0.2032" layer="1"/>
+<wire x1="-14.097" y1="40.6146" x2="-14.5796" y2="40.132" width="0.2032" layer="1"/>
+<wire x1="-14.5796" y1="40.132" x2="-14.5796" y2="36.6014" width="0.2032" layer="1"/>
+<wire x1="-14.5796" y1="36.6014" x2="-14.986" y2="36.195" width="0.2032" layer="1"/>
+<wire x1="-14.986" y1="36.195" x2="-14.986" y2="33.5026" width="0.2032" layer="1"/>
+<wire x1="-14.986" y1="33.5026" x2="-16.5862" y2="31.9024" width="0.2032" layer="1"/>
+<wire x1="-13.081" y1="30.2006" x2="-16.5862" y2="30.2006" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="L-OUT">
 <contactref element="C4" pad="2"/>
@@ -3527,18 +3538,6 @@ design rules under a new name.</description>
 </signal>
 <signal name="VSS_2">
 <contactref element="U$1" pad="41"/>
-</signal>
-<signal name="N$1">
-<contactref element="U$1" pad="57"/>
-<contactref element="U$1" pad="19"/>
-<wire x1="-14.097" y1="40.9956" x2="-14.097" y2="41.6814" width="0.2032" layer="1"/>
-<wire x1="-16.5862" y1="31.9024" x2="-16.5862" y2="30.2006" width="0.2032" layer="1"/>
-<wire x1="-14.097" y1="41.6814" x2="-14.097" y2="40.6146" width="0.2032" layer="1"/>
-<wire x1="-14.097" y1="40.6146" x2="-14.5796" y2="40.132" width="0.2032" layer="1"/>
-<wire x1="-14.5796" y1="40.132" x2="-14.5796" y2="36.6014" width="0.2032" layer="1"/>
-<wire x1="-14.5796" y1="36.6014" x2="-14.986" y2="36.195" width="0.2032" layer="1"/>
-<wire x1="-14.986" y1="36.195" x2="-14.986" y2="33.5026" width="0.2032" layer="1"/>
-<wire x1="-14.986" y1="33.5026" x2="-16.5862" y2="31.9024" width="0.2032" layer="1"/>
 </signal>
 <signal name="VDD_4">
 <contactref element="U$1" pad="10"/>
