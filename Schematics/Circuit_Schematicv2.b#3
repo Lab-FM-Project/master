@@ -1960,12 +1960,21 @@ design rules under a new name.</description>
 <attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 </element>
 <element name="T8" library="zetex" package="SOT223" value="" x="-85.8266" y="-75.2602">
 <attribute name="MF" value="" x="-85.8266" y="-75.2602" size="1.778" layer="27" display="off"/>
 <attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-75.2602" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="" x="-85.8266" y="-75.2602" size="1.778" layer="27" display="off"/>
 <attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-75.2602" size="1.778" layer="27" display="off"/>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </element>
 </elements>
 <signals>
@@ -2239,8 +2248,16 @@ design rules under a new name.</description>
 <contactref element="T5" pad="3"/>
 <contactref element="T6" pad="3"/>
 <contactref element="T7" pad="3"/>
+<<<<<<< HEAD
 <contactref element="T8" pad="3"/>
 <wire x1="-83.5152" y1="-67.2338" x2="-83.5152" y2="-78.359" width="0" layer="19" extent="1-1"/>
+=======
+<<<<<<< HEAD
+=======
+<contactref element="T8" pad="3"/>
+<wire x1="-83.5152" y1="-67.2338" x2="-83.5152" y2="-78.359" width="0" layer="19" extent="1-1"/>
+>>>>>>> origin/master
+>>>>>>> origin/master
 <wire x1="-83.5152" y1="-56.1086" x2="-83.5152" y2="-67.2338" width="0" layer="19" extent="1-1"/>
 <wire x1="-83.5152" y1="-44.9834" x2="-83.5152" y2="-56.1086" width="0" layer="19" extent="1-1"/>
 <wire x1="-83.5152" y1="-33.8582" x2="-83.5152" y2="-44.9834" width="0" layer="19" extent="1-1"/>
@@ -3587,6 +3604,13 @@ design rules under a new name.</description>
 </signal>
 <signal name="PREVIOUS_GATE">
 <contactref element="T2" pad="1"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<contactref element="MDL1" pad="11"/>
+<wire x1="30.765" y1="28.25" x2="-88.138" y2="-11.6078" width="0" layer="19" extent="1-1"/>
+=======
+>>>>>>> origin/master
 <contactref element="MDL1" pad="12"/>
 <contactref element="R5" pad="2"/>
 <contactref element="S2" pad="2"/>
@@ -3603,6 +3627,10 @@ design rules under a new name.</description>
 <via x="32.86125" y="26.51125" extent="1-16" drill="0.6096"/>
 <via x="44.45" y="26.51125" extent="1-16" drill="0.6096"/>
 <wire x1="32.86125" y1="26.51125" x2="-88.138" y2="-11.6078" width="0" layer="19" extent="1-1"/>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </signal>
 <signal name="VOLUP_GATE">
 <contactref element="T3" pad="1"/>
@@ -3629,10 +3657,35 @@ design rules under a new name.</description>
 <contactref element="MDL1" pad="7"/>
 <wire x1="28.765" y1="44.45" x2="-88.138" y2="-67.2338" width="0" layer="19" extent="1-1"/>
 </signal>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<signal name="ESP_GPIO0">
+<contactref element="MDL1" pad="12"/>
+<contactref element="R5" pad="2"/>
+<contactref element="S2" pad="2"/>
+<wire x1="48.26" y1="24.92375" x2="46.19625" y2="24.92375" width="0.2032" layer="1"/>
+<wire x1="51.7525" y1="28.41625" x2="48.26" y2="24.92375" width="0.2032" layer="1"/>
+<wire x1="52.07" y1="28.41625" x2="51.7525" y2="28.41625" width="0.2032" layer="1"/>
+<wire x1="46.19625" y1="24.92375" x2="46.189" y2="24.892" width="0.2032" layer="1"/>
+<wire x1="52.07" y1="28.41625" x2="52.197" y2="28.473" width="0.2032" layer="1"/>
+<wire x1="32.86125" y1="26.51125" x2="32.86125" y2="28.09875" width="0.2032" layer="1"/>
+<wire x1="44.45" y1="26.51125" x2="32.86125" y2="26.51125" width="0.2032" layer="16"/>
+<wire x1="46.0375" y1="24.92375" x2="44.45" y2="26.51125" width="0.2032" layer="1"/>
+<wire x1="32.86125" y1="28.09875" x2="32.765" y2="28.25" width="0.2032" layer="1"/>
+<wire x1="46.0375" y1="24.92375" x2="46.189" y2="24.892" width="0.2032" layer="1"/>
+<via x="32.86125" y="26.51125" extent="1-16" drill="0.6096"/>
+<via x="44.45" y="26.51125" extent="1-16" drill="0.6096"/>
+=======
+>>>>>>> origin/master
 <signal name="FAV3_GATE">
 <contactref element="T8" pad="1"/>
 <contactref element="MDL1" pad="11"/>
 <wire x1="30.765" y1="28.25" x2="-88.138" y2="-78.359" width="0" layer="19" extent="1-1"/>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </signal>
 </signals>
 <errors>

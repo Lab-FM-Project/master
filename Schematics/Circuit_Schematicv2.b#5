@@ -1890,10 +1890,19 @@ design rules under a new name.</description>
 <element name="R18" library="SparkFun-Resistors" package="0603" value="300" x="-89.154" y="8.509">
 <attribute name="PROD_ID" value="RES-08269" x="-89.154" y="8.509" size="1.778" layer="27" display="off"/>
 </element>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <element name="S1" library="SparkFun-Switches" package="TACTILE_SWITCH_SMD_6.0X3.5MM" value="GPIO0 ESP" x="-84.8614" y="4.1148">
 <attribute name="SF_SKU" value="COM-08229" x="-84.8614" y="4.1148" size="1.778" layer="27" display="off"/>
 <attribute name="PROD_ID" value="SWCH-00815" x="-84.8614" y="4.1148" size="1.778" layer="27" display="off"/>
 </element>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </elements>
 <signals>
 <signal name="VDD">
@@ -2744,10 +2753,21 @@ design rules under a new name.</description>
 <wire x1="10.00125" y1="28.8544" x2="9.95045" y2="28.8036" width="0.2032" layer="1"/>
 <wire x1="-8.4582" y1="28.8036" x2="8.9154" y2="28.8036" width="0.2032" layer="16"/>
 <contactref element="MDL1" pad="5"/>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<contactref element="R18" pad="1"/>
+<wire x1="-58.9788" y1="28.9306" x2="-90.004" y2="8.509" width="0" layer="19" extent="1-16"/>
+=======
+>>>>>>> origin/master
 <contactref element="S1" pad="2"/>
 <contactref element="R18" pad="1"/>
 <wire x1="-81.7114" y1="4.1148" x2="-90.004" y2="8.509" width="0" layer="19" extent="1-1"/>
 <wire x1="-58.9788" y1="28.9306" x2="-81.7114" y2="4.1148" width="0" layer="19" extent="1-16"/>
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 <wire x1="32.765" y1="44.45" x2="25.0825" y2="37.30625" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VOLUP">

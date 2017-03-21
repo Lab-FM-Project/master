@@ -4660,6 +4660,8 @@ http://www.zetex.com&lt;p&gt;
 <part name="T5" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T6" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T7" library="zetex" deviceset="NMOSSOT223" device=""/>
+<part name="R18" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="10K"/>
+<part name="R19" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="10K"/>
 </parts>
 <sheets>
 <sheet>
@@ -4814,6 +4816,8 @@ http://www.zetex.com&lt;p&gt;
 <instance part="T5" gate="A" x="381" y="180.34"/>
 <instance part="T6" gate="A" x="439.42" y="180.34"/>
 <instance part="T7" gate="A" x="464.82" y="180.34"/>
+<instance part="R18" gate="G$1" x="289.56" y="99.06" rot="R270"/>
+<instance part="R19" gate="G$1" x="299.72" y="99.06" rot="R270"/>
 </instances>
 <busses>
 </busses>
@@ -5161,8 +5165,10 @@ http://www.zetex.com&lt;p&gt;
 <net name="DATA" class="0">
 <segment>
 <pinref part="U$1" gate="A" pin="RC4/SDI/SDA"/>
-<wire x1="284.48" y1="86.36" x2="292.1" y2="86.36" width="0.1524" layer="91"/>
 <label x="287.02" y="86.36" size="1.778" layer="95"/>
+<pinref part="R19" gate="G$1" pin="2"/>
+<wire x1="284.48" y1="86.36" x2="299.72" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="299.72" y1="86.36" x2="299.72" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="SDA"/>
@@ -5188,8 +5194,10 @@ http://www.zetex.com&lt;p&gt;
 <net name="CLOCK" class="0">
 <segment>
 <pinref part="U$1" gate="A" pin="RC3/SCK/SCL"/>
-<wire x1="284.48" y1="88.9" x2="292.1" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="284.48" y1="88.9" x2="289.56" y2="88.9" width="0.1524" layer="91"/>
 <label x="287.02" y="88.9" size="1.778" layer="95"/>
+<pinref part="R18" gate="G$1" pin="2"/>
+<wire x1="289.56" y1="88.9" x2="289.56" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$4" gate="G$1" pin="SCL"/>
@@ -5280,7 +5288,7 @@ http://www.zetex.com&lt;p&gt;
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
 <wire x1="365.76" y1="83.82" x2="365.76" y2="86.36" width="0.1524" layer="91"/>
-<label x="368.3" y="83.82" size="1.778" layer="95" rot="R90"/>
+<label x="365.76" y="86.36" size="1.778" layer="95" rot="R90" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U$3" gate="G$1" pin="VCC"/>
@@ -5348,6 +5356,22 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
 <label x="193.04" y="111.76" size="1.778" layer="95"/>
 </segment>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<segment>
+<pinref part="R18" gate="G$1" pin="1"/>
+<wire x1="289.56" y1="104.14" x2="289.56" y2="109.22" width="0.1524" layer="91"/>
+<label x="289.56" y="109.22" size="1.778" layer="95" rot="R90" xref="yes"/>
+</segment>
+<segment>
+<pinref part="R19" gate="G$1" pin="1"/>
+<wire x1="299.72" y1="104.14" x2="299.72" y2="109.22" width="0.1524" layer="91"/>
+<label x="299.72" y="109.22" size="1.778" layer="95" rot="R90" xref="yes"/>
+</segment>
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </net>
 <net name="L-OUT" class="0">
 <segment>
