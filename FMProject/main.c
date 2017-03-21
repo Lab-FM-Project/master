@@ -45,36 +45,21 @@ unsigned int ui;
 
 #include "fm_readwrite.h"
 #include "fm_functions.h"
-
-
-
-
-
-
-
-
-
+#include "eeprom.h"
 
 
 
 void main(void) {
-    
+    int *eepromfreq; 
     dly(20);
     Init();
-      
-     
-    
-    
-    
-        
-    
-     
-    
+
     FMvers(&ui); // Check we have comms with FM chip
     if (ui != 0x1010) errfm();
     if (FMinit() != XS) errfm();
     FMfrequenc(964);
-    
+    *eepromfreq = 964;
+    //HDPageWriteI2C(0x00, 0x01, &eepromfreq);
     
 
     /*OSCCONbits.IRCF0 = 1;
@@ -148,11 +133,6 @@ void interrupt high_priority CheckButtonPressed() {
         VolumeScreen(VolControl);
         
         INTCONbits.INT0F = 0;
-        
-        
-        
-        
-        
 
     } if (INTCON3bits.INT1F == 1) {
         
@@ -162,9 +142,6 @@ void interrupt high_priority CheckButtonPressed() {
         
         INTCON3bits.INT1F = 0;
 
-        
-        
-        
     }
     
     if (INTCONbits.TMR0IF == 1) 
@@ -188,18 +165,6 @@ void interrupt high_priority CheckButtonPressed() {
         }
         INTCONbits.TMR0IF = 0;
         T0CONbits.TMR0ON = 1;
-               
-        
-                    
-                    
-        
-                                           
-        
-             
-  
-  
-    
-    
 
 }
 }

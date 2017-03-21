@@ -75,6 +75,8 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 #define XF				1			// Exit fail
 
 #define FMI2CADR		0x20		// Address (for writes) of FM module on I2C bus
+#define EEPROMREAD      0xA0        // WRITE
+#define EEPROMWRITE     0xA1        // READ
 
 #define DEVRD			0x01		// Read not write an I2C device 
 #define FMCHIPVERSADR	0x1C		// Address of FM chip version
@@ -100,8 +102,6 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 #define FMLOWCHAN		(875-690)
 #define FALSE			0
 #define TRUE			1
-
-
 
 enum { // Global error numbers
     GERNONE, // No error
@@ -131,6 +131,16 @@ unsigned char setHardmute(unsigned char bitState);
 unsigned char setSeekDirection(char direction);
 unsigned char enableFM(unsigned char bitState);
 
+
+
+
+extern unsigned int PageSize;
+
+//Function Prototypes
+
+
+
+
 void Init() {
 
     int i;
@@ -140,15 +150,15 @@ void Init() {
     //LCDPS = 0b00110110; // 37 Hz frame frequency
     ADCON1 = 0b00111111; // Make all ADC/IO pins digital
     TRISA = 0b00000011; // RA0 and RA1 pbutton
-    TRISB = 0b00000011;// RB0 and RB1 pbutton
-    
+    TRISB = 0b00000011; // RB0 and RB1 pbutton
+
     TRISC = 0b00011000; // RC3 and RC4 do the I2C bus
     TRISG = 0b11111111; // RG0, RG1 & RG3 pbutton
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
-    
-    
+
+
     OpenI2C(MASTER, SLEW_OFF);
     SSPADD = 0x3F;
 }
@@ -213,15 +223,15 @@ char output[10];
 
 
 int butnEvent(void) {
-    signed int timereturn, HoldDuration,  ButtonStateReading, PressTime, time;
+    signed int timereturn, HoldDuration, ButtonStateReading, PressTime, time;
     char output[16];
     timereturn = 0;
     ButtonStateReading = NextChan;
     if (ButtonStateReading != LastButtonState) {
-       
+
         LastChangeTime = delaytime;
     }
-    
+
     /*Lcd_Set_Cursor(2, 1);
     sprintf(output, "delay: %u", delaytime);
     Lcd_Write_String(output);
@@ -229,82 +239,79 @@ int butnEvent(void) {
     Lcd_Set_Cursor(1, 1);
     sprintf(output, "Duration: %u", HoldDuration);
     Lcd_Write_String(output);*/
-   
+
     /*Lcd_Set_Cursor(1, 1);                
     sprintf(output, "delaytime: %u   ", delaytime);
     Lcd_Write_String(output);*/
-    HoldDuration = delaytime - LastChangeTime; 
-   
-    
+    HoldDuration = delaytime - LastChangeTime;
+
+
     if (HoldDuration > 50) {
-       
+
         if (ButtonStateReading != ButtonState) {
             ButtonState = ButtonStateReading;
-            if (ButtonState == 0) 
-            {    
-                
-                timereturn = 1;            
-                
-                
-                
+            if (ButtonState == 0) {
+
+                timereturn = 1;
+
+
+
             }
-            
+
         } else if (ButtonState == 0) {
-           
+
             hardmute = 1;
-            
-            if (HoldDuration > 2000)
-            {
+
+            if (HoldDuration > 2000) {
                 timereturn = 4;
                 hardmute = 0;
             }
         }
-        
-        
-            
-            
-            
-        }
-   
-            
-        /*Lcd_Clear();
-                Lcd_Set_Cursor(1, 1);
-                sprintf(output, "Duration: %u", HoldDuration);
-                Lcd_Write_String(output);
-                Lcd_Set_Cursor(2, 1);
-                sprintf(output, "PT:%u RT:%u", PressTime, ReleaseTime);
-                Lcd_Write_String(output);*/
-       
-    
-
-LastButtonState = ButtonStateReading;
 
 
-      
- /*   
+
+
+    }
+
+
+    /*Lcd_Clear();
+            Lcd_Set_Cursor(1, 1);
+            sprintf(output, "Duration: %u", HoldDuration);
+            Lcd_Write_String(output);
+            Lcd_Set_Cursor(2, 1);
+            sprintf(output, "PT:%u RT:%u", PressTime, ReleaseTime);
+            Lcd_Write_String(output);*/
+
+
+
+    LastButtonState = ButtonStateReading;
+
+
+
+    /*   
         
-     if (NextChan == 0) //check if the switch is closed
-    {
-        __delay_ms(100); //wait for 200ms 
-        if (NextChan == 0) //check if the switch is still closed
-        {
-            timereturn = 1;
-            __delay_ms(200);//something
-        } 
-        else timereturn =0;
+        if (NextChan == 0) //check if the switch is closed
+       {
+           __delay_ms(100); //wait for 200ms 
+           if (NextChan == 0) //check if the switch is still closed
+           {
+               timereturn = 1;
+               __delay_ms(200);//something
+           } 
+           else timereturn =0;
         
-     }    
-        if (PrevChan == 0) //check if the switch is closed
-    {
-        __delay_ms(100); //wait for 200ms 
-        if (PrevChan == 0) //check if the switch is still closed
-        {
-            timereturn = 2;
-            __delay_ms(200);//something
-        } 
-        else timereturn =0;
+        }    
+           if (PrevChan == 0) //check if the switch is closed
+       {
+           __delay_ms(100); //wait for 200ms 
+           if (PrevChan == 0) //check if the switch is still closed
+           {
+               timereturn = 2;
+               __delay_ms(200);//something
+           } 
+           else timereturn =0;
         
-        }
+           }
         
     
     
@@ -312,21 +319,21 @@ LastButtonState = ButtonStateReading;
 
     
 
-    if (MUTE == 0) //check if the switch is closed
-    {
-        __delay_ms(100); //wait for 200ms 
-        if (MUTE == 0) //check if the switch is still closed
-        {
-            timereturn = 3;
-            __delay_ms(200); //something
-        } 
-        else timereturn =0;    
+       if (MUTE == 0) //check if the switch is closed
+       {
+           __delay_ms(100); //wait for 200ms 
+           if (MUTE == 0) //check if the switch is still closed
+           {
+               timereturn = 3;
+               __delay_ms(200); //something
+           } 
+           else timereturn =0;    
         
         
-} */
+   } */
     return timereturn;
 }
-    
+
 //
 // end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
@@ -340,9 +347,8 @@ LastButtonState = ButtonStateReading;
  * @return XS on success or XF on error.
  *
  */
-unsigned char nextChannel()
-{
-    
+unsigned char nextChannel() {
+
     CurrentFreq = CurrentFreq + 1;
     FMfrequenc(CurrentFreq);
     HomeScreen(CurrentFreq);
@@ -355,10 +361,9 @@ unsigned char previousChannel() {
     FMfrequenc(CurrentFreq);
     HomeScreen(CurrentFreq);
 
-    
+
     return XS;
 }
-
 
 /*unsigned char VolumeUp() 
 {
