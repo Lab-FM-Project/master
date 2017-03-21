@@ -2019,6 +2019,7 @@ design rules under a new name.</description>
 <element name="SWITCH1" library="wirepad" package="2,15/1,0" value="" x="-59.69" y="24.9682" smashed="yes">
 <attribute name="VALUE" x="-59.69" y="25.9682" size="0.0254" layer="27"/>
 </element>
+<<<<<<< HEAD
 <element name="ANT" library="wirepad" package="2,15/1,0" value="" x="21.9456" y="14.351" smashed="yes">
 <attribute name="NAME" x="22.6568" y="12.9032" size="0.6096" layer="25" ratio="10" rot="R180"/>
 <attribute name="VALUE" x="21.9456" y="15.351" size="0.0254" layer="27"/>
@@ -2108,6 +2109,124 @@ design rules under a new name.</description>
 <element name="C12" library="SparkFun-Capacitors" package="1210" value="100nF" x="12.9032" y="20.2692" smashed="yes" rot="R270">
 <attribute name="NAME" x="14.3002" y="20.2692" size="0.6096" layer="25" font="vector" ratio="20" rot="R270" align="bottom-center"/>
 <attribute name="PROD_ID" value="CAP-09824" x="12.9032" y="20.2692" size="1.778" layer="27" rot="R270" display="off"/>
+=======
+<element name="S8" library="SparkFun-Switches" package="TACTILE_SWITCH_PTH_6.0MM_KIT" value="PREVIOUS" x="-47.244" y="36.83" rot="MR180">
+<attribute name="PROD_ID" value="SWCH-08441" x="-47.244" y="36.83" size="1.778" layer="28" rot="MR180" display="off"/>
+<attribute name="SF_SKU" value="COM-00097 " x="-47.244" y="36.83" size="1.778" layer="28" rot="MR180" display="off"/>
+</element>
+<element name="S9" library="SparkFun-Switches" package="TACTILE_SWITCH_PTH_6.0MM_KIT" value="VOLUP" x="-47.244" y="26.67" rot="MR0">
+<attribute name="PROD_ID" value="SWCH-08441" x="-47.244" y="26.67" size="1.778" layer="28" rot="MR0" display="off"/>
+<attribute name="SF_SKU" value="COM-00097 " x="-47.244" y="26.67" size="1.778" layer="28" rot="MR0" display="off"/>
+</element>
+<element name="SPARE" library="pinhead" package="1X08" value="" x="-25.527" y="20.955" rot="R180"/>
+<element name="TP11" library="testpad" package="P1-13" value="TPSPAD1-13" x="-54.356" y="49.149">
+<attribute name="TP_SIGNAL_NAME" value="" x="-54.356" y="49.149" size="1.778" layer="27" display="off"/>
+</element>
+<element name="U$1" library="Microchip_By_element14_Batch_1" package="QFP50P1200X1200X120-64N" value="PIC18F6490-I/PT" x="-13.843" y="35.941">
+<attribute name="BGA_OLD" x="-13.843" y="35.941" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="PIC18F6490-I/PT" x="-13.843" y="35.941" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="1332278" x="-13.843" y="35.941" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="08J9646" x="-13.843" y="35.941" size="1.778" layer="27" display="off"/>
+<attribute name="PACKAGE" value="QFP-64" x="-13.843" y="35.941" size="1.778" layer="27" display="off"/>
+<attribute name="SUPPLIER" value="Microchip" x="-13.843" y="35.941" size="1.778" layer="27" display="off"/>
+</element>
+<element name="U$3" library="MIRO" package="SOIC-8" value="24C64" x="-1.016" y="34.417" rot="R180"/>
+<element name="U$4" library="MIRO" package="AR1010" value="AR1010" x="13.716" y="35.814" rot="R180">
+<attribute name="BGA_OLD" x="13.716" y="35.814" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="VR1" library="SparkFun-Resistors" package="TRIMPOT-SMD-TC33X" value="10k" x="-39.878" y="21.209" rot="MR90">
+<attribute name="PROD_ID" value="RES-12428" x="-39.878" y="21.209" size="1.778" layer="28" rot="MR90" display="off"/>
+</element>
+<element name="VR3" library="SparkFun-Resistors" package="TRIMPOT-SMD-TC33X" value="10k" x="-54.991" y="21.59" rot="MR90">
+<attribute name="PROD_ID" value="RES-12428" x="-54.991" y="21.59" size="1.778" layer="28" rot="MR90" display="off"/>
+</element>
+<element name="R10" library="SparkFun-Resistors" package="0603" value="10k" x="-55.626" y="31.877" rot="MR270">
+<attribute name="PROD_ID" value="RES-00824" x="-79.756" y="31.877" size="1.778" layer="28" font="vector" rot="MR270" display="off"/>
+</element>
+<element name="S4" library="SparkFun-Switches" package="TACTILE_SWITCH_PTH_6.0MM_KIT" value="FAV1" x="-62.23" y="36.83" rot="MR0">
+<attribute name="PROD_ID" value="SWCH-08441" x="-62.23" y="33.02" size="1.778" layer="28" font="vector" rot="MR0" display="off"/>
+<attribute name="SF_SKU" value="COM-00097 " x="-62.23" y="33.02" size="1.778" layer="28" font="vector" rot="MR0" display="off"/>
+</element>
+<element name="S5" library="SparkFun-Switches" package="TACTILE_SWITCH_PTH_6.0MM_KIT" value="FAV2" x="-77.216" y="36.83" rot="MR0">
+<attribute name="PROD_ID" value="SWCH-08441" x="-77.216" y="33.02" size="1.778" layer="28" font="vector" rot="MR0" display="off"/>
+<attribute name="SF_SKU" value="COM-00097 " x="-77.216" y="33.02" size="1.778" layer="28" font="vector" rot="MR0" display="off"/>
+</element>
+<element name="R17" library="SparkFun-Resistors" package="0603" value="10k" x="-68.072" y="31.369" rot="MR270">
+<attribute name="PROD_ID" value="RES-00824" x="-92.202" y="31.369" size="1.778" layer="28" font="vector" rot="MR270" display="off"/>
+</element>
+<element name="S6" library="SparkFun-Switches" package="TACTILE_SWITCH_PTH_6.0MM_KIT" value="FAV3" x="-77.216" y="26.67" rot="MR0">
+<attribute name="PROD_ID" value="SWCH-08441" x="-77.216" y="22.86" size="1.778" layer="28" font="vector" rot="MR0" display="off"/>
+<attribute name="SF_SKU" value="COM-00097 " x="-77.216" y="22.86" size="1.778" layer="28" font="vector" rot="MR0" display="off"/>
+</element>
+<element name="R16" library="SparkFun-Resistors" package="0603" value="10k" x="-70.739" y="31.369" rot="MR270">
+<attribute name="PROD_ID" value="RES-00824" x="-70.739" y="31.369" size="1.778" layer="28" font="vector" rot="MR270" display="off"/>
+</element>
+<element name="U$2" library="smd-footprints" package="TDA2822M" value="TDA2822M" x="-48.387" y="43.688" rot="MR90"/>
+<element name="BAT_GND" library="wirepad" package="2,15/1,0" value="" x="-80.391" y="42.545"/>
+<element name="BAT_5V" library="wirepad" package="2,15/1,0" value="" x="-77.216" y="42.5704"/>
+<element name="SWITCH2" library="wirepad" package="2,15/1,0" value="" x="-79.756" y="31.242"/>
+<element name="SWITCH1" library="wirepad" package="2,15/1,0" value="" x="-76.708" y="31.242"/>
+<element name="ANT" library="wirepad" package="2,15/1,0" value="" x="6.0452" y="26.5938"/>
+<element name="VR4" library="SparkFun-Resistors" package="TRIMPOT-SMD-TC33X" value="4.7k" x="-33.274" y="43.942" rot="MR270">
+<attribute name="PROD_ID" value="RES-12428" x="-33.274" y="43.942" size="1.778" layer="28" font="vector" rot="MR270" display="off"/>
+</element>
+<element name="VR5" library="SparkFun-Resistors" package="TRIMPOT-SMD-TC33X" value="4.7k" x="-41.91" y="48.387" rot="MR270">
+<attribute name="PROD_ID" value="RES-12428" x="-41.91" y="48.387" size="1.778" layer="28" font="vector" rot="MR270" display="off"/>
+</element>
+<element name="T1" library="zetex" package="SOT223" value="" x="-85.8266" y="2.6162">
+<attribute name="MF" value="" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="2.6162" size="1.778" layer="27" display="off"/>
+</element>
+<element name="T2" library="zetex" package="SOT223" value="" x="-85.8266" y="-8.509">
+<attribute name="MF" value="" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-8.509" size="1.778" layer="27" display="off"/>
+</element>
+<element name="T3" library="zetex" package="SOT223" value="" x="-85.8266" y="-19.6342">
+<attribute name="MF" value="" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-19.6342" size="1.778" layer="27" display="off"/>
+</element>
+<element name="T4" library="zetex" package="SOT223" value="" x="-85.8266" y="-30.7594">
+<attribute name="MF" value="" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-30.7594" size="1.778" layer="27" display="off"/>
+</element>
+<element name="T5" library="zetex" package="SOT223" value="" x="-85.8266" y="-41.8846">
+<attribute name="MF" value="" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-41.8846" size="1.778" layer="27" display="off"/>
+</element>
+<element name="T6" library="zetex" package="SOT223" value="" x="-85.8266" y="-53.0098">
+<attribute name="MF" value="" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-53.0098" size="1.778" layer="27" display="off"/>
+</element>
+<element name="T7" library="zetex" package="SOT223" value="" x="-85.8266" y="-64.135">
+<attribute name="MF" value="" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
+<attribute name="OC_NEWARK" value="unknown" x="-85.8266" y="-64.135" size="1.778" layer="27" display="off"/>
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 </element>
 </elements>
 <signals>

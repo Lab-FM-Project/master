@@ -5410,6 +5410,24 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="R16" gate="G$1" pin="1"/>
 </segment>
 <segment>
+<<<<<<< HEAD
+=======
+<pinref part="U$1" gate="A" pin="VDD"/>
+<wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="A" pin="AVDD"/>
+<wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
+<label x="193.04" y="111.76" size="1.778" layer="95"/>
+</segment>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+<segment>
+<pinref part="R18" gate="G$1" pin="1"/>
+>>>>>>> origin/master
 <wire x1="289.56" y1="104.14" x2="289.56" y2="109.22" width="0.1524" layer="91"/>
 <label x="289.56" y="109.22" size="1.778" layer="95" rot="R90" xref="yes"/>
 <pinref part="R15" gate="G$1" pin="1"/>
@@ -5435,6 +5453,15 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="109.22" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
 </segment>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
 </net>
 <net name="L-OUT" class="0">
 <segment>

@@ -4661,6 +4661,18 @@ http://www.zetex.com&lt;p&gt;
 <part name="T6" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T7" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T8" library="zetex" deviceset="NMOSSOT223" device=""/>
+<<<<<<< HEAD
+=======
+=======
+<part name="R18" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 </parts>
 <sheets>
 <sheet>
@@ -4816,6 +4828,18 @@ http://www.zetex.com&lt;p&gt;
 <instance part="T6" gate="A" x="439.42" y="180.34"/>
 <instance part="T7" gate="A" x="464.82" y="180.34"/>
 <instance part="T8" gate="A" x="492.76" y="180.34"/>
+<<<<<<< HEAD
+=======
+=======
+<instance part="R18" gate="G$1" x="345.44" y="53.34" rot="R180"/>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+>>>>>>> origin/master
 </instances>
 <busses>
 </busses>
