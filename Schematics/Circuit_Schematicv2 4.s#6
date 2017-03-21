@@ -4660,7 +4660,6 @@ http://www.zetex.com&lt;p&gt;
 <part name="T5" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T6" library="zetex" deviceset="NMOSSOT223" device=""/>
 <part name="T7" library="zetex" deviceset="NMOSSOT223" device=""/>
-<part name="T8" library="zetex" deviceset="NMOSSOT223" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -4815,7 +4814,6 @@ http://www.zetex.com&lt;p&gt;
 <instance part="T5" gate="A" x="381" y="180.34"/>
 <instance part="T6" gate="A" x="439.42" y="180.34"/>
 <instance part="T7" gate="A" x="464.82" y="180.34"/>
-<instance part="T8" gate="A" x="492.76" y="180.34"/>
 </instances>
 <busses>
 </busses>
@@ -5070,9 +5068,6 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="S6" gate="G$1" pin="2"/>
 <wire x1="500.38" y1="175.26" x2="500.38" y2="170.18" width="0.1524" layer="91"/>
 <label x="500.38" y="170.18" size="1.778" layer="95"/>
-<pinref part="T8" gate="A" pin="S"/>
-<wire x1="492.76" y1="175.26" x2="500.38" y2="175.26" width="0.1524" layer="91"/>
-<junction x="500.38" y="175.26"/>
 </segment>
 <segment>
 <pinref part="U$2" gate="G$1" pin="GND"/>
@@ -5867,9 +5862,6 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="R17" gate="G$1" pin="2"/>
 <wire x1="502.92" y1="187.96" x2="500.38" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="500.38" y1="187.96" x2="505.46" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="T8" gate="A" pin="D"/>
-<wire x1="492.76" y1="185.42" x2="500.38" y2="185.42" width="0.1524" layer="91"/>
-<junction x="500.38" y="185.42"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="A" pin="RC7/RX1/DT1"/>
@@ -5953,12 +5945,8 @@ http://www.zetex.com&lt;p&gt;
 <segment>
 <pinref part="T1" gate="A" pin="G"/>
 <wire x1="248.92" y1="177.8" x2="246.38" y2="177.8" width="0.1524" layer="91"/>
-<<<<<<< HEAD
 <label x="241.3" y="167.64" size="1.778" layer="95"/>
 <wire x1="246.38" y1="177.8" x2="246.38" y2="170.18" width="0.1524" layer="91"/>
-=======
-<label x="238.76" y="175.26" size="1.778" layer="95"/>
->>>>>>> origin/master
 </segment>
 <segment>
 <pinref part="MDL1" gate="G$1" pin="GPIO12"/>
@@ -5973,14 +5961,9 @@ http://www.zetex.com&lt;p&gt;
 <label x="274.32" y="167.64" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="MDL1" gate="G$1" pin="GPIO0"/>
-<pinref part="R5" gate="G$1" pin="2"/>
-<wire x1="403.86" y1="53.34" x2="431.8" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="S2" gate="G$1" pin="2"/>
-<wire x1="431.8" y1="53.34" x2="444.5" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="431.8" y1="50.8" x2="431.8" y2="53.34" width="0.1524" layer="91"/>
-<junction x="431.8" y="53.34"/>
-<label x="421.64" y="53.34" size="1.778" layer="95"/>
+<pinref part="MDL1" gate="G$1" pin="GPIO2"/>
+<wire x1="403.86" y1="50.8" x2="414.02" y2="50.8" width="0.1524" layer="91"/>
+<label x="416.56" y="50.8" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VOLUP_GATE" class="0">
@@ -6043,16 +6026,16 @@ http://www.zetex.com&lt;p&gt;
 <label x="360.68" y="48.26" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="FAV3_GATE" class="0">
+<net name="ESP_GPIO0" class="0">
 <segment>
-<pinref part="T8" gate="A" pin="G"/>
-<wire x1="487.68" y1="177.8" x2="487.68" y2="170.18" width="0.1524" layer="91"/>
-<label x="482.6" y="167.64" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="MDL1" gate="G$1" pin="GPIO2"/>
-<wire x1="403.86" y1="50.8" x2="414.02" y2="50.8" width="0.1524" layer="91"/>
-<label x="416.56" y="50.8" size="1.778" layer="95"/>
+<pinref part="MDL1" gate="G$1" pin="GPIO0"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="403.86" y1="53.34" x2="431.8" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="S2" gate="G$1" pin="2"/>
+<wire x1="431.8" y1="53.34" x2="444.5" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="431.8" y1="50.8" x2="431.8" y2="53.34" width="0.1524" layer="91"/>
+<junction x="431.8" y="53.34"/>
+<label x="421.64" y="53.34" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
