@@ -5357,8 +5357,11 @@ http://www.zetex.com&lt;p&gt;
 <label x="193.04" y="111.76" size="1.778" layer="95"/>
 </segment>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <segment>
 <pinref part="R18" gate="G$1" pin="1"/>
 <wire x1="289.56" y1="104.14" x2="289.56" y2="109.22" width="0.1524" layer="91"/>
@@ -5371,6 +5374,9 @@ http://www.zetex.com&lt;p&gt;
 </segment>
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 </net>
 <net name="L-OUT" class="0">

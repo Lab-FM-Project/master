@@ -1543,8 +1543,13 @@ design rules under a new name.</description>
 <param name="mdSmdStop" value="0mil"/>
 <param name="msWidth" value="8mil"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<param name="msDrill" value="10mil"/>
+=======
+>>>>>>> origin/master
+=======
 <param name="msDrill" value="10mil"/>
 =======
 >>>>>>> origin/master
@@ -1735,10 +1740,21 @@ design rules under a new name.</description>
 <attribute name="TP_SIGNAL_NAME" value="" x="-11.6586" y="48.8696" size="1.778" layer="27" display="off"/>
 <<<<<<< HEAD
 </element>
+<<<<<<< HEAD
 <element name="D1" library="adafruit" package="SMARTLED-TTW" value="" x="-79.0702" y="20.7518" rot="R270"/>
 =======
 <<<<<<< HEAD
 </element>
+<element name="D1" library="SparkFun-LED" package="LED-1206" value="BLUE" x="-77.6224" y="19.7612">
+<attribute name="PROD_ID" value="DIO-09911" x="-77.6224" y="19.7612" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" value="BLUE" x="-77.6224" y="19.7612" size="1.778" layer="27" display="off"/>
+</element>
+=======
+</element>
+<element name="D1" library="adafruit" package="SMARTLED-TTW" value="" x="-79.0702" y="20.7518" rot="R270"/>
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 <element name="D1" library="SparkFun-LED" package="LED-1206" value="BLUE" x="-77.6224" y="19.7612">
 <attribute name="PROD_ID" value="DIO-09911" x="-77.6224" y="19.7612" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" value="BLUE" x="-77.6224" y="19.7612" size="1.778" layer="27" display="off"/>
@@ -1911,8 +1927,13 @@ design rules under a new name.</description>
 <wire x1="-76.67625" y1="31.115" x2="-74.295" y2="31.115" width="0.2032" layer="1"/>
 <wire x1="-71.12" y1="27.6225" x2="-70.993" y2="27.559" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-76.67625" y1="31.115" x2="-76.708" y2="31.242" width="0.2032" layer="1"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-76.67625" y1="31.115" x2="-76.708" y2="31.242" width="0.2032" layer="1"/>
 =======
 >>>>>>> origin/master
@@ -1921,6 +1942,9 @@ design rules under a new name.</description>
 =======
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -1937,8 +1961,11 @@ design rules under a new name.</description>
 <via x="-55.5625" y="43.18" extent="1-16" drill="0.6096"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-76.708" y1="23.614" x2="-76.708" y2="31.242" width="0.2032" layer="1"/>
 <wire x1="-76.708" y1="23.614" x2="-79.1224" y2="21.1996" width="0.2032" layer="1"/>
 <wire x1="-79.1224" y1="21.1996" x2="-79.1224" y2="19.7612" width="0.2032" layer="1"/>
@@ -1946,6 +1973,9 @@ design rules under a new name.</description>
 =======
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 <wire x1="-76.708" y1="31.242" x2="-76.708" y2="27.0002" width="0.2032" layer="1"/>
 <wire x1="-76.708" y1="27.0002" x2="-78.3336" y2="25.3746" width="0.2032" layer="1"/>
@@ -1954,6 +1984,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 =======
@@ -1961,6 +1994,9 @@ design rules under a new name.</description>
 <wire x1="-76.708" y1="23.614" x2="-79.5702" y2="20.7518" width="0.2032" layer="1"/>
 <wire x1="-76.67625" y1="31.115" x2="-76.708" y2="31.242" width="0" layer="19" extent="1-1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2084,11 +2120,17 @@ design rules under a new name.</description>
 <wire x1="-38.1" y1="36.98875" x2="-37.996" y2="36.957" width="0.2032" layer="16"/>
 <wire x1="-38.1" y1="41.91" x2="-38.123" y2="42.037" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-27.78125" y1="35.71875" x2="-20.6375" y2="35.71875" width="0.2032" layer="1"/>
 <wire x1="-20.6375" y1="35.71875" x2="-19.685" y2="35.71875" width="0.2032" layer="1"/>
 <wire x1="-28.8925" y1="34.6075" x2="-27.78125" y2="35.71875" width="0.2032" layer="1"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -2116,6 +2158,9 @@ design rules under a new name.</description>
 <wire x1="-22.1615" y1="35.71875" x2="-22.1615" y2="40.005" width="0.2032" layer="1"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2216,6 +2261,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="-7.9375" y1="20.955" x2="-7.874" y2="20.828" width="0.2032" layer="1"/>
@@ -2255,6 +2303,9 @@ design rules under a new name.</description>
 <wire x1="-15.4432" y1="25.9588" x2="-14.6812" y2="25.9588" width="0.2032" layer="1"/>
 <wire x1="-14.6812" y1="25.9588" x2="-14.605" y2="26.035" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2263,8 +2314,11 @@ design rules under a new name.</description>
 <wire x1="-8.7376" y1="24.13" x2="-8.7376" y2="21.6916" width="0.2032" layer="1"/>
 <wire x1="-8.7376" y1="21.6916" x2="-7.874" y2="20.828" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-73.9648" y1="24.4094" x2="-73.9648" y2="23.0242" width="0.2032" layer="1"/>
 <wire x1="-73.9648" y1="23.0242" x2="-72.5932" y2="21.6526" width="0.2032" layer="1"/>
 <via x="-14.605" y="25.8318" extent="1-16" drill="0.6" diameter="0.4064"/>
@@ -2278,6 +2332,9 @@ design rules under a new name.</description>
 <wire x1="-10.795" y1="26.67" x2="-16.1036" y2="30.2006" width="0" layer="19" extent="1-16"/>
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 >>>>>>> Stashed changes
 </signal>
@@ -2308,15 +2365,21 @@ design rules under a new name.</description>
 <wire x1="10.31875" y1="26.51125" x2="9.8425" y2="26.035" width="0.2032" layer="16"/>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
 <wire x1="-31.27375" y1="29.05125" x2="-29.5275" y2="27.305" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 =======
 <<<<<<< HEAD
 =======
 =======
+>>>>>>> origin/master
+=======
 <wire x1="-31.27375" y1="29.05125" x2="-29.5275" y2="27.305" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 <wire x1="11.90625" y1="26.51125" x2="10.31875" y2="26.51125" width="0.2032" layer="1"/>
 <wire x1="12.065" y1="26.67" x2="11.90625" y2="26.51125" width="0.2032" layer="1"/>
@@ -2328,6 +2391,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -2452,9 +2518,15 @@ design rules under a new name.</description>
 <wire x1="-3.01625" y1="31.90875" x2="-3.01625" y2="34.29" width="0.2032" layer="1"/>
 <wire x1="-3.01625" y1="31.90875" x2="-2.921" y2="31.8008" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -2470,6 +2542,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 =======
@@ -2480,6 +2555,9 @@ design rules under a new name.</description>
 <wire x1="16.002" y1="20.701" x2="15.875" y2="20.79625" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2488,8 +2566,13 @@ design rules under a new name.</description>
 <via x="-7.14375" y="29.845" extent="1-16" drill="0.6096"/>
 <via x="-3.96875" y="30.7975" extent="1-16" drill="0.6096"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<via x="-7.14375" y="24.60625" extent="1-16" drill="0.6096"/>
+=======
+>>>>>>> origin/master
+=======
 <via x="-7.14375" y="24.60625" extent="1-16" drill="0.6096"/>
 =======
 >>>>>>> origin/master
@@ -2499,6 +2582,9 @@ design rules under a new name.</description>
 <via x="-7.11835" y="23.56485" extent="1-16" drill="0.6096"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2513,6 +2599,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -2530,6 +2619,9 @@ design rules under a new name.</description>
 <wire x1="3.2258" y1="22.479" x2="6.477" y2="19.2278" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2565,11 +2657,17 @@ design rules under a new name.</description>
 <wire x1="-1.74625" y1="31.90875" x2="-1.74625" y2="33.655" width="0.2032" layer="1"/>
 <wire x1="-1.74625" y1="31.90875" x2="-1.651" y2="31.8008" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="15.875" y1="24.60625" x2="18.57375" y2="21.9075" width="0.2032" layer="16"/>
 <wire x1="0" y1="24.60625" x2="15.875" y2="24.60625" width="0.2032" layer="16"/>
 <wire x1="0" y1="26.82875" x2="0" y2="24.60625" width="0.2032" layer="1"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -2581,6 +2679,9 @@ design rules under a new name.</description>
 <wire x1="0" y1="26.82875" x2="-0.0254" y2="24.27605" width="0.2032" layer="1"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2591,8 +2692,13 @@ design rules under a new name.</description>
 <via x="-5.23875" y="30.7975" extent="1-16" drill="0.6096"/>
 <via x="-0.8509" y="46.6471" extent="1-16" drill="0.6096"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<via x="0" y="24.60625" extent="1-16" drill="0.6096"/>
+=======
+>>>>>>> origin/master
+=======
 <via x="0" y="24.60625" extent="1-16" drill="0.6096"/>
 =======
 >>>>>>> origin/master
@@ -2602,6 +2708,9 @@ design rules under a new name.</description>
 <via x="-0.0254" y="24.27605" extent="1-16" drill="0.6096"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2614,6 +2723,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -2625,6 +2737,9 @@ design rules under a new name.</description>
 <wire x1="2.39395" y1="24.27605" x2="6.8834" y2="19.7866" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2648,8 +2763,13 @@ design rules under a new name.</description>
 =======
 <contactref element="D1" pad="C@1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-76.161" y1="20.701" x2="-78.5702" y2="20.7518" width="0" layer="19" extent="1-1"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-76.161" y1="20.701" x2="-78.5702" y2="20.7518" width="0" layer="19" extent="1-1"/>
 =======
 >>>>>>> origin/master
@@ -2659,6 +2779,9 @@ design rules under a new name.</description>
 <wire x1="-78.5702" y1="20.7518" x2="-76.2118" y2="20.7518" width="0.2032" layer="1"/>
 <wire x1="-76.2118" y1="20.7518" x2="-76.161" y2="20.701" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2796,8 +2919,11 @@ design rules under a new name.</description>
 <via x="-62.07125" y="29.05125" extent="1-16" drill="0.6096"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-13.081" y1="30.2006" x2="-13.081" y2="24.0792" width="0.2032" layer="1"/>
 <wire x1="-12.6746" y1="23.6728" x2="-13.081" y2="24.0792" width="0.2032" layer="1"/>
 <via x="-10.6426" y="23.6982" extent="1-16" drill="0.6" diameter="0.4064"/>
@@ -2810,6 +2936,9 @@ design rules under a new name.</description>
 <wire x1="-12.6746" y1="23.6982" x2="-12.7" y2="23.6728" width="0.2032" layer="16"/>
 =======
 <wire x1="-10.414" y1="20.828" x2="-13.081" y2="30.2006" width="0" layer="19" extent="1-1"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="-10.414" y1="20.828" x2="-13.081" y2="30.2006" width="0" layer="19" extent="1-1"/>
@@ -2824,6 +2953,9 @@ design rules under a new name.</description>
 <wire x1="-10.6426" y1="21.0566" x2="-10.414" y2="20.828" width="0.2032" layer="1"/>
 <wire x1="-12.6746" y1="23.6728" x2="-10.6426" y2="23.6728" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2841,9 +2973,15 @@ design rules under a new name.</description>
 <wire x1="-34.13125" y1="48.895" x2="-34.186" y2="48.768" width="0.2032" layer="1"/>
 <wire x1="-15.5575" y1="48.895" x2="-15.494" y2="48.895" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -2853,14 +2991,20 @@ design rules under a new name.</description>
 <wire x1="2.2225" y1="39.6875" x2="2.54" y2="39.37" width="0.2032" layer="1"/>
 <wire x1="2.2225" y1="40.9575" x2="2.2225" y2="39.6875" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="2.69875" y1="41.43375" x2="2.2225" y2="40.9575" width="0.2032" layer="1"/>
 <wire x1="4.92125" y1="41.43375" x2="2.69875" y2="41.43375" width="0.2032" layer="1"/>
 <wire x1="8.255" y1="44.5897" x2="4.92125" y2="41.43375" width="0.2032" layer="1"/>
 <wire x1="-15.39875" y1="48.895" x2="-11.295421875" y2="44.6149125" width="0.2032" layer="16"/>
 <wire x1="-11.295421875" y1="44.6149125" x2="-11.27125" y2="44.5897" width="0.2032" layer="16"/>
 <wire x1="3.65125" y1="38.4175" x2="3.716" y2="38.314" width="0.2032" layer="1"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="2.69875" y1="41.43375" x2="2.2225" y2="40.9575" width="0.2032" layer="1"/>
@@ -2876,6 +3020,9 @@ design rules under a new name.</description>
 <wire x1="3.716" y1="38.314" x2="3.65125" y2="38.4175" width="0.2032" layer="1"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2898,8 +3045,14 @@ design rules under a new name.</description>
 <wire x1="26.035" y1="20.79625" x2="26.162" y2="20.701" width="0.2032" layer="1"/>
 <via x="8.255" y="44.5897" extent="1-16" drill="0.6096"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-11.295421875" y1="44.6149125" x2="-9.0803125" y2="44.6149125" width="0.2032" layer="16"/>
+<wire x1="-9.0803125" y1="44.6149125" x2="-8.5852" y2="44.1198" width="0.2032" layer="16"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-11.295421875" y1="44.6149125" x2="-9.0803125" y2="44.6149125" width="0.2032" layer="16"/>
 <wire x1="-9.0803125" y1="44.6149125" x2="-8.5852" y2="44.1198" width="0.2032" layer="16"/>
 =======
@@ -2910,6 +3063,9 @@ design rules under a new name.</description>
 =======
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2920,6 +3076,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -2960,8 +3119,13 @@ design rules under a new name.</description>
 <contactref element="S7" pad="1"/>
 <contactref element="MDL1" pad="6"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-28.09875" y1="39.21125" x2="-27.6225" y2="39.6875" width="0.2032" layer="16"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-28.09875" y1="39.21125" x2="-27.6225" y2="39.6875" width="0.2032" layer="16"/>
 =======
 >>>>>>> origin/master
@@ -2971,6 +3135,9 @@ design rules under a new name.</description>
 <wire x1="-27.6225" y1="39.6875" x2="-28.09875" y2="39.21125" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -2979,9 +3146,15 @@ design rules under a new name.</description>
 <wire x1="-26.82875" y1="40.48125" x2="-26.758" y2="40.513" width="0.2032" layer="16"/>
 <wire x1="-28.8925" y1="39.21125" x2="-29.0068" y2="39.0906" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -2992,9 +3165,15 @@ design rules under a new name.</description>
 <wire x1="-19.52625" y1="38.735" x2="-19.5834" y2="38.6842" width="0.2032" layer="1"/>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
 >>>>>>> Stashed changes
 =======
 <<<<<<< HEAD
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> origin/master
+>>>>>>> origin/master
 =======
 =======
 >>>>>>> Stashed changes
@@ -3010,9 +3189,15 @@ design rules under a new name.</description>
 <wire x1="-8.41375" y1="31.75" x2="2.06375" y2="31.75" width="0.2032" layer="16"/>
 <wire x1="-9.36625" y1="32.7025" x2="-8.41375" y2="31.75" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -3031,6 +3216,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 =======
@@ -3052,6 +3240,9 @@ design rules under a new name.</description>
 <wire x1="-12.4841" y1="34.82975" x2="-10.33145" y2="32.7025" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3069,9 +3260,15 @@ design rules under a new name.</description>
 <wire x1="21.2725" y1="35.40125" x2="24.765" y2="35.40125" width="0.2032" layer="1"/>
 <wire x1="-9.68375" y1="35.40125" x2="21.2725" y2="35.40125" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -3084,10 +3281,16 @@ design rules under a new name.</description>
 <wire x1="-38.25875" y1="30.32125" x2="-35.40125" y2="30.32125" width="0.2032" layer="16"/>
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
 <wire x1="-35.40125" y1="30.32125" x2="-38.25875" y2="30.32125" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 =======
 <<<<<<< HEAD
+=======
+=======
+<wire x1="-35.40125" y1="30.32125" x2="-38.25875" y2="30.32125" width="0.2032" layer="16"/>
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 =======
 =======
 <wire x1="-35.40125" y1="30.32125" x2="-38.25875" y2="30.32125" width="0.2032" layer="16"/>
@@ -3103,8 +3306,13 @@ design rules under a new name.</description>
 <via x="-15.39875" y="31.75" extent="1-16" drill="0.6096"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-15.39875" y1="31.75" x2="-15.42415" y2="31.7754" width="0.2032" layer="16"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-15.39875" y1="31.75" x2="-15.42415" y2="31.7754" width="0.2032" layer="16"/>
 =======
 >>>>>>> origin/master
@@ -3115,6 +3323,9 @@ design rules under a new name.</description>
 <wire x1="-15.42415" y1="31.7754" x2="-15.39875" y2="31.75" width="0.2032" layer="16"/>
 <wire x1="-22.4028" y1="31.7754" x2="-17.6022" y2="31.7754" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3134,8 +3345,11 @@ design rules under a new name.</description>
 <wire x1="-17.0434" y1="34.3662" x2="-16.2052" y2="33.528" width="0.2032" layer="1"/>
 <wire x1="-23.5966" y1="30.5816" x2="-22.4028" y2="31.7754" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <via x="-17.526" y="31.7246" extent="1-16" drill="0.6" diameter="0.4064"/>
 <wire x1="-22.4028" y1="31.7754" x2="-17.6276" y2="31.7754" width="0.2032" layer="16"/>
 <wire x1="-17.6276" y1="31.7754" x2="-17.526" y2="31.7246" width="0.2032" layer="16"/>
@@ -3147,6 +3361,9 @@ design rules under a new name.</description>
 <wire x1="-15.39875" y1="31.75" x2="-19.5834" y2="38.2016" width="0" layer="19" extent="1-1"/>
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 >>>>>>> Stashed changes
 </signal>
@@ -3168,12 +3385,18 @@ design rules under a new name.</description>
 <wire x1="10.00125" y1="32.22625" x2="19.84375" y2="32.22625" width="0.2032" layer="16"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="10.00125" y1="27.46375" x2="10.00125" y2="28.8544" width="0.2032" layer="1"/>
 <wire x1="10.00125" y1="28.8544" x2="10.00125" y2="32.22625" width="0.2032" layer="1"/>
 =======
 <wire x1="10.00125" y1="27.46375" x2="10.00125" y2="32.22625" width="0.2032" layer="1"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="10.00125" y1="27.46375" x2="10.00125" y2="32.22625" width="0.2032" layer="1"/>
@@ -3181,6 +3404,9 @@ design rules under a new name.</description>
 <wire x1="10.00125" y1="28.8036" x2="10.00125" y2="27.46375" width="0.2032" layer="1"/>
 <wire x1="10.00125" y1="28.8036" x2="10.00125" y2="32.22625" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3199,14 +3425,20 @@ design rules under a new name.</description>
 <via x="-49.37125" y="19.3675" extent="1-16" drill="0.6096"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 <wire x1="2.54" y1="20.0025" x2="-19.5834" y2="37.6936" width="0" layer="19" extent="1-1"/>
 =======
 =======
 <<<<<<< HEAD
 =======
+>>>>>>> origin/master
+=======
 <wire x1="2.54" y1="20.0025" x2="-19.5834" y2="37.6936" width="0" layer="19" extent="1-1"/>
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 <wire x1="-19.5834" y1="37.6936" x2="-18.7452" y2="37.6936" width="0.2032" layer="1"/>
 <wire x1="-18.7452" y1="37.6936" x2="-17.7038" y2="36.6522" width="0.2032" layer="1"/>
@@ -3216,8 +3448,11 @@ design rules under a new name.</description>
 <wire x1="-17.5768" y1="33.6042" x2="-17.7038" y2="33.7312" width="0.2032" layer="1"/>
 <wire x1="-13.1318" y1="33.4772" x2="-17.5768" y2="33.4772" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-13.1318" y1="33.4772" x2="-8.4582" y2="28.8036" width="0.2032" layer="16"/>
 <via x="8.9154" y="28.8036" extent="1-16" drill="0.6" diameter="0.4064"/>
 <wire x1="9.95045" y1="28.8036" x2="8.9154" y2="28.8036" width="0.2032" layer="1"/>
@@ -3226,12 +3461,18 @@ design rules under a new name.</description>
 =======
 <wire x1="2.54" y1="20.0025" x2="-19.5834" y2="37.6936" width="0" layer="19" extent="1-1"/>
 =======
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 <via x="8.9154" y="28.8036" extent="1-16" drill="0.6"/>
 <wire x1="8.9154" y1="28.8036" x2="10.00125" y2="28.8036" width="0.2032" layer="1"/>
 <wire x1="8.9154" y1="28.8036" x2="-8.4582" y2="28.8036" width="0.2032" layer="16"/>
 <wire x1="-8.4582" y1="28.8036" x2="-13.1318" y2="33.4772" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3250,13 +3491,19 @@ design rules under a new name.</description>
 <wire x1="-10.16" y1="40.16375" x2="-9.68375" y2="39.6875" width="0.2032" layer="1"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-11.43" y1="40.16375" x2="-10.16" y2="40.16375" width="0.2032" layer="16"/>
 =======
 <wire x1="-12.54125" y1="40.16375" x2="-10.16" y2="40.16375" width="0.2032" layer="16"/>
 <wire x1="-14.9225" y1="37.7825" x2="-12.54125" y2="40.16375" width="0.2032" layer="16"/>
 <wire x1="-21.59" y1="37.7825" x2="-14.9225" y2="37.7825" width="0.2032" layer="16"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="-12.54125" y1="40.16375" x2="-10.16" y2="40.16375" width="0.2032" layer="16"/>
@@ -3266,6 +3513,9 @@ design rules under a new name.</description>
 <wire x1="-11.43" y1="40.16375" x2="-12.54125" y2="40.16375" width="0" layer="19" extent="1-16"/>
 <wire x1="-11.43" y1="40.16375" x2="-10.16" y2="40.16375" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3298,6 +3548,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -3344,8 +3597,14 @@ design rules under a new name.</description>
 <wire x1="-21.74875" y1="35.71875" x2="-24.92375" y2="32.54375" width="0.2032" layer="16"/>
 <wire x1="-13.97" y1="35.71875" x2="-21.74875" y2="35.71875" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-13.97" y1="40.005" x2="-13.97" y2="35.71875" width="0.2032" layer="1"/>
+<wire x1="-12.85875" y1="41.11625" x2="-13.97" y2="40.005" width="0.2032" layer="16"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-13.97" y1="40.005" x2="-13.97" y2="35.71875" width="0.2032" layer="1"/>
 <wire x1="-12.85875" y1="41.11625" x2="-13.97" y2="40.005" width="0.2032" layer="16"/>
 =======
@@ -3356,6 +3615,9 @@ design rules under a new name.</description>
 =======
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3368,8 +3630,13 @@ design rules under a new name.</description>
 <wire x1="32.86125" y1="44.45" x2="32.765" y2="44.45" width="0.2032" layer="1"/>
 <via x="-13.97" y="35.71875" extent="1-16" drill="0.6096"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<via x="-13.97" y="40.005" extent="1-16" drill="0.6096"/>
+=======
+>>>>>>> origin/master
+=======
 <via x="-13.97" y="40.005" extent="1-16" drill="0.6096"/>
 =======
 >>>>>>> origin/master
@@ -3415,9 +3682,15 @@ design rules under a new name.</description>
 <wire x1="-10.4775" y1="43.815" x2="-10.16" y2="43.815" width="0.2032" layer="16"/>
 <wire x1="-10.16" y1="43.815" x2="-9.8806" y2="43.5356" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -3429,6 +3702,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 =======
@@ -3437,6 +3713,9 @@ design rules under a new name.</description>
 <wire x1="-9.8806" y1="43.5356" x2="16.8656" y2="43.5356" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3462,11 +3741,14 @@ design rules under a new name.</description>
 <wire x1="-10.31875" y1="42.8625" x2="-10.63625" y2="42.545" width="0.2032" layer="1"/>
 <wire x1="-10.16" y1="42.8625" x2="-10.31875" y2="42.8625" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <wire x1="-7.3025" y1="45.72" x2="-10.16" y2="42.8625" width="0.2032" layer="1"/>
 <wire x1="9.36625" y1="45.72" x2="-7.3025" y2="45.72" width="0.2032" layer="16"/>
 <wire x1="10.16" y1="44.92625" x2="9.36625" y2="45.72" width="0.2032" layer="16"/>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-7.3025" y1="45.7962" x2="-10.16" y2="42.8625" width="0.2032" layer="1"/>
 <wire x1="9.36625" y1="45.7962" x2="10.16" y2="44.92625" width="0.2032" layer="16"/>
 =======
@@ -3474,6 +3756,9 @@ design rules under a new name.</description>
 <wire x1="9.36625" y1="45.72" x2="-7.3025" y2="45.72" width="0.2032" layer="16"/>
 <wire x1="10.16" y1="44.92625" x2="9.36625" y2="45.72" width="0.2032" layer="16"/>
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 <wire x1="10.795" y1="44.92625" x2="10.16" y2="44.92625" width="0.2032" layer="1"/>
 <wire x1="11.1125" y1="45.24375" x2="10.795" y2="44.92625" width="0.2032" layer="1"/>
@@ -3482,10 +3767,13 @@ design rules under a new name.</description>
 <wire x1="16.51" y1="47.625" x2="16.51" y2="47.14875" width="0.2032" layer="1"/>
 <wire x1="-10.63625" y1="41.75125" x2="-10.5918" y2="41.6814" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <via x="-7.3025" y="45.72" extent="1-16" drill="0.6096"/>
 <via x="10.16" y="44.92625" extent="1-16" drill="0.6096"/>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <via x="-7.3025" y="45.7962" extent="1-16" drill="0.6096"/>
 <via x="10.16" y="44.92625" extent="1-16" drill="0.6096"/>
 <wire x1="-7.3025" y1="45.7962" x2="9.36625" y2="45.7962" width="0.2032" layer="16"/>
@@ -3493,6 +3781,9 @@ design rules under a new name.</description>
 <via x="-7.3025" y="45.72" extent="1-16" drill="0.6096"/>
 <via x="10.16" y="44.92625" extent="1-16" drill="0.6096"/>
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 </signal>
 <signal name="DB7">
@@ -3501,8 +3792,13 @@ design rules under a new name.</description>
 <wire x1="-10.00125" y1="41.75125" x2="-10.0838" y2="41.6814" width="0.2032" layer="1"/>
 <wire x1="-10.0838" y1="41.6814" x2="-9.0678" y2="41.6814" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-9.0678" y1="41.6814" x2="-6.9596" y2="43.7896" width="0.2032" layer="1"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-9.0678" y1="41.6814" x2="-6.9596" y2="43.7896" width="0.2032" layer="1"/>
 =======
 >>>>>>> origin/master
@@ -3516,6 +3812,9 @@ design rules under a new name.</description>
 <wire x1="1.1684" y1="44.9834" x2="4.7498" y2="44.9834" width="0.2032" layer="1"/>
 <wire x1="4.7498" y1="44.9834" x2="6.2738" y2="46.5074" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3525,8 +3824,11 @@ design rules under a new name.</description>
 <wire x1="13.97" y1="47.7774" x2="13.97" y2="47.625" width="0.2032" layer="1"/>
 <wire x1="7.2644" y1="49.53" x2="12.2174" y2="49.53" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <via x="-4.9022" y="44.9326" extent="1-16" drill="0.6" diameter="0.4064"/>
 <wire x1="-6.9596" y1="43.7896" x2="-6.9596" y2="44.4754" width="0.2032" layer="1"/>
 <wire x1="-6.9596" y1="44.4754" x2="-5.3594" y2="44.4754" width="0.2032" layer="1"/>
@@ -3537,6 +3839,9 @@ design rules under a new name.</description>
 <wire x1="4.699" y1="44.9326" x2="6.2738" y2="46.5074" width="0.2032" layer="1"/>
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 </signal>
 <signal name="VO">
@@ -3550,6 +3855,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <via x="36.2204" y="50.3936" extent="1-16" drill="0.5"/>
@@ -3671,8 +3979,14 @@ design rules under a new name.</description>
 <contactref element="U$3" pad="WP"/>
 <wire x1="-31.59125" y1="45.87875" x2="-54.13375" y2="45.87875" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<wire x1="-22.38375" y1="36.67125" x2="-31.59125" y2="45.87875" width="0.2032" layer="1"/>
+<wire x1="-13.49375" y1="36.67125" x2="-22.38375" y2="36.67125" width="0.2032" layer="16"/>
+=======
+>>>>>>> origin/master
+=======
 <wire x1="-22.38375" y1="36.67125" x2="-31.59125" y2="45.87875" width="0.2032" layer="1"/>
 <wire x1="-13.49375" y1="36.67125" x2="-22.38375" y2="36.67125" width="0.2032" layer="16"/>
 =======
@@ -3685,6 +3999,9 @@ design rules under a new name.</description>
 <wire x1="-13.49375" y1="36.67125" x2="-23.12035" y2="36.62045" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3699,8 +4016,13 @@ design rules under a new name.</description>
 <wire x1="-54.13375" y1="45.87875" x2="-54.268" y2="45.974" width="0.2032" layer="1"/>
 <wire x1="-0.47625" y1="31.90875" x2="-0.381" y2="31.8008" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<via x="-22.38375" y="36.67125" extent="1-16" drill="0.6096"/>
+=======
+>>>>>>> origin/master
+=======
 <via x="-22.38375" y="36.67125" extent="1-16" drill="0.6096"/>
 =======
 >>>>>>> origin/master
@@ -3710,6 +4032,9 @@ design rules under a new name.</description>
 <via x="-23.12035" y="36.62045" extent="1-16" drill="0.6096"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3831,11 +4156,17 @@ design rules under a new name.</description>
 <wire x1="8.09625" y1="34.44875" x2="5.55625" y2="34.44875" width="0.2032" layer="16"/>
 <wire x1="8.09625" y1="30.48" x2="8.09625" y2="34.44875" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="5.08" y1="27.46375" x2="8.09625" y2="30.48" width="0.2032" layer="1"/>
 <wire x1="3.81" y1="34.44875" x2="3.716" y2="34.314" width="0.2032" layer="1"/>
 <wire x1="5.08" y1="27.46375" x2="5.08" y2="27.432" width="0.2032" layer="1"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -3848,6 +4179,9 @@ design rules under a new name.</description>
 <wire x1="7.1882" y1="28.14955" x2="6.0452" y2="26.5938" width="0.2032" layer="1"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -3926,8 +4260,11 @@ design rules under a new name.</description>
 <wire x1="-21.3868" y1="34.6964" x2="-27.305" y2="28.7782" width="0.2032" layer="1"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-27.305" y1="28.7782" x2="-27.3304" y2="27.0764" width="0.2032" layer="1"/>
 <wire x1="-34.417" y1="20.955" x2="-32.8168" y2="22.5552" width="0.2032" layer="1"/>
 <via x="-28.8544" y="25.8318" extent="1-16" drill="0.6" diameter="0.4064"/>
@@ -3941,6 +4278,9 @@ design rules under a new name.</description>
 =======
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 <wire x1="-27.305" y1="27.051" x2="-27.305" y2="28.7782" width="0.2032" layer="1"/>
 <via x="-32.3088" y="24.0792" extent="1-16" drill="0.5"/>
@@ -3949,11 +4289,17 @@ design rules under a new name.</description>
 <wire x1="-28.2194" y1="26.1366" x2="-30.2514" y2="26.1366" width="0.2032" layer="16"/>
 <wire x1="-30.2514" y1="26.1366" x2="-32.3088" y2="24.0792" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-32.3088" y1="24.0792" x2="-32.3088" y2="23.0632" width="0.2032" layer="1"/>
 <wire x1="-32.3088" y1="23.0632" x2="-34.417" y2="20.955" width="0.2032" layer="1"/>
 >>>>>>> Stashed changes
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 =======
@@ -3967,6 +4313,9 @@ design rules under a new name.</description>
 <wire x1="-32.3088" y1="24.0792" x2="-32.3088" y2="23.0632" width="0.2032" layer="1"/>
 <wire x1="-32.3088" y1="23.0632" x2="-34.417" y2="20.955" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -4026,9 +4375,15 @@ design rules under a new name.</description>
 <wire x1="-73.81875" y1="29.05125" x2="-73.9648" y2="28.9306" width="0.2032" layer="16"/>
 <wire x1="-10.00125" y1="28.41625" x2="-10.00125" y2="30.1625" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -4050,9 +4405,15 @@ design rules under a new name.</description>
 <wire x1="28.73375" y1="32.54375" x2="30.63875" y2="30.63875" width="0.2032" layer="1"/>
 <wire x1="25.4" y1="29.21" x2="28.73375" y2="32.54375" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -4062,11 +4423,17 @@ design rules under a new name.</description>
 <wire x1="-7.77875" y1="27.94" x2="-5.55625" y2="27.94" width="0.2032" layer="16"/>
 <wire x1="-10.4775" y1="27.94" x2="-7.77875" y2="27.94" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="30.63875" y1="28.2575" x2="30.765" y2="28.25" width="0.2032" layer="1"/>
 <via x="28.73375" y="32.54375" extent="1-16" drill="0.6096"/>
 <via x="-7.77875" y="27.94" extent="1-16" drill="0.6096"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="30.63875" y1="28.2575" x2="30.765" y2="28.25" width="0.2032" layer="1"/>
@@ -4111,9 +4478,15 @@ design rules under a new name.</description>
 <wire x1="-55.72125" y1="31.115" x2="-55.626" y2="31.027" width="0.2032" layer="16"/>
 <wire x1="-58.89625" y1="39.0525" x2="-58.9788" y2="39.0906" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -4148,12 +4521,18 @@ design rules under a new name.</description>
 <wire x1="34.6075" y1="44.45" x2="34.765" y2="44.45" width="0.2032" layer="1"/>
 <via x="-57.62625" y="33.02" extent="1-16" drill="0.6096"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <via x="-13.17625" y="32.7025" extent="1-16" drill="0.6096"/>
 <via x="-35.71875" y="31.27375" extent="1-16" drill="0.6096"/>
 <via x="29.5275" y="37.1475" extent="1-16" drill="0.6096"/>
 <via x="-9.68375" y="34.13125" extent="1-16" drill="0.6096"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -4192,13 +4571,19 @@ design rules under a new name.</description>
 <wire x1="-73.81875" y1="39.0525" x2="-73.9648" y2="39.0906" width="0.2032" layer="16"/>
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-32.385" y1="30.00375" x2="-13.16355" y2="30.00375" width="0.2032" layer="16"/>
 =======
 <wire x1="-10.63625" y1="31.75" x2="-10.63625" y2="30.32125" width="0.2032" layer="1"/>
 <wire x1="-12.3825" y1="30.00375" x2="-10.795" y2="31.59125" width="0.2032" layer="16"/>
 <wire x1="-32.385" y1="30.00375" x2="-12.3825" y2="30.00375" width="0.2032" layer="16"/>
+=======
+<<<<<<< HEAD
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="-10.63625" y1="31.75" x2="-10.63625" y2="30.32125" width="0.2032" layer="1"/>
@@ -4207,6 +4592,9 @@ design rules under a new name.</description>
 =======
 <wire x1="-32.385" y1="30.00375" x2="-14.1605" y2="30.00375" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -4222,9 +4610,15 @@ design rules under a new name.</description>
 <wire x1="28.73375" y1="35.08375" x2="28.575" y2="35.2425" width="0.2032" layer="1"/>
 <wire x1="23.33625" y1="29.68625" x2="28.73375" y2="35.08375" width="0.2032" layer="16"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
 <<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 =======
 <<<<<<< Updated upstream
 >>>>>>> origin/master
@@ -4236,6 +4630,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <wire x1="28.73375" y1="44.45" x2="28.765" y2="44.45" width="0.2032" layer="1"/>
@@ -4289,6 +4686,9 @@ design rules under a new name.</description>
 =======
 <<<<<<< Updated upstream
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -4301,6 +4701,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 =======
@@ -4310,6 +4713,9 @@ design rules under a new name.</description>
 <wire x1="24.92375" y1="28.2575" x2="25.7175" y2="28.2575" width="0.2032" layer="16"/>
 >>>>>>> Stashed changes
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -4321,6 +4727,9 @@ design rules under a new name.</description>
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 <<<<<<< Updated upstream
@@ -4359,8 +4768,11 @@ design rules under a new name.</description>
 <contactref element="U$1" pad="57"/>
 <contactref element="U$1" pad="19"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <wire x1="-16.5862" y1="30.2006" x2="-14.097" y2="41.6814" width="0" layer="19" extent="1-1"/>
 =======
 >>>>>>> origin/master
@@ -4373,6 +4785,9 @@ design rules under a new name.</description>
 <wire x1="-14.986" y1="36.195" x2="-14.986" y2="33.5026" width="0.2032" layer="1"/>
 <wire x1="-14.986" y1="33.5026" x2="-16.5862" y2="31.9024" width="0.2032" layer="1"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -4384,8 +4799,14 @@ design rules under a new name.</description>
 <contactref element="U$1" pad="38"/>
 </signal>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> origin/master
+=======
 <<<<<<< Updated upstream
 =======
 >>>>>>> origin/master
@@ -4395,8 +4816,11 @@ design rules under a new name.</description>
 <signal name="N$3">
 </signal>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <signal name="N$4">
 <polygon width="0.2032" layer="16" isolate="0.3048">
 <vertex x="-83.693" y="18.0086"/>
@@ -4419,6 +4843,9 @@ design rules under a new name.</description>
 >>>>>>> Stashed changes
 =======
 >>>>>>> origin/master
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 </signals>
 <errors>
@@ -4498,13 +4925,21 @@ design rules under a new name.</description>
 <approved hash="4,1,9ab1181d49ac9544"/>
 <approved hash="4,16,9ab1181d49ac9544"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> origin/master
 <<<<<<< Updated upstream
 <approved hash="1,20,6a345244535e6b2e"/>
 <approved hash="1,20,d3de342e3530d2c0"/>
 <approved hash="19,1,dae81c869cf562db"/>
 <approved hash="19,1,6726ab301343e715"/>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> Stashed changes
+>>>>>>> origin/master
 =======
 >>>>>>> Stashed changes
 =======
@@ -4526,6 +4961,9 @@ design rules under a new name.</description>
 <approved hash="19,1,dae81c869cf562db"/>
 <approved hash="19,1,6726ab301343e715"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master

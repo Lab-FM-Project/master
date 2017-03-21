@@ -4665,6 +4665,9 @@ http://www.zetex.com&lt;p&gt;
 =======
 <part name="R18" library="SparkFun-Resistors" deviceset="1OHM" device="-0603-1/10W-1%" value="300"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
@@ -4827,6 +4830,9 @@ http://www.zetex.com&lt;p&gt;
 =======
 <instance part="R18" gate="G$1" x="345.44" y="53.34" rot="R180"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 >>>>>>> origin/master
