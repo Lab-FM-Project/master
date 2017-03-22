@@ -17,13 +17,9 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
 
-#include <SoftwareSerial.h>
-#include <OneWire.h>
-#define ONE_WIRE_BUS 8
-OneWire oneWire(ONE_WIRE_BUS);
-#define IP "184.106.153.149" // thingspeak.com
-String GET = "GET /update?key=[THINGSPEAK_KEY]&field1=";
-//SoftwareSerial monitor(10, 11); // RX, TX
+// ThingSpeak Settings
+char thingSpeakAddress[] = "https://api.thingspeak.com/apps/thingtweet/1/statuses/update";
+String thingtweetAPIKey = "AMLFP634YPWSZ1RI";
 
 ///#include "gpio.h"
 //#include <pins_nodeMCU.h>
@@ -58,8 +54,8 @@ const char *password =  "xhct2880";  // insert your internet SSID and password *
 
 /*const char *ssid = "Landgate";
 const char *password = "GlaziersLand2EDgateLaneGU3"; */
-/*const char *ssid = "G5_8814";
-const char *password = "Beano1234"; */
+const char *ssid = "G5_8814";
+const char *password = "Beano1234"; 
 
 //const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";
@@ -68,13 +64,17 @@ const char* clientUserName = clientID;
 const char* clientPassword = "mqtt";
 int port = 18296;
 
-WiFiManager wifiManager;
+//WiFiManager wifiManager;
 WiFiClient espClient; //initialising new WifiClient
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50];
 int value = 0;
 char recvMsg[1];
+// Variable Setup
+long lastConnectionTime = 0; 
+boolean lastConnected = false;
+int failedCounter = 0;
 
 void setup() { //in the setup we initialise the RC switch to a specific pin (12) and setting output as output pin.
  // pinMode(BUILTIN_LED, OUTPUT);     // Initialize the BUILTIN_LED pin as an output
@@ -95,9 +95,9 @@ void setup() { //in the setup we initialise the RC switch to a specific pin (12)
   digitalWrite(fav2Pin, LOW);
 //   pinMode(fav3Pin, OUTPUT);
 //  digitalWrite(fav3Pin, LOW);
-//  //  Serial.begin(115200);
-// //  Serial.println("TEST");
+ Serial.begin(115200);
   setup_wifi();
+   updateTwitterStatus("My thing is social @thingspeak");
   client.setServer(mqtt_server, port);
   client.setCallback(callback);
 }
@@ -109,24 +109,24 @@ void setup_wifi() {
   //  Serial.print("Connecting to ");
   //  Serial.println(ssid);
   
-wifiManager.autoConnect("AutoConnectAP");
- // WiFi.begin(ssid, password);
- // while (WiFi.status() != WL_CONNECTED) {
- //   delay(500);
-    //  Serial.print(".");
-//  }
-  //  Serial.println("");
-  //  Serial.println("WiFi connected");
-  //  Serial.println("IP address: ");
-  //  Serial.println(WiFi.localIP());
+//wifiManager.autoConnect("AutoConnectAP");
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+      Serial.print(".");
+  }
+    Serial.println("");
+    Serial.println("WiFi connected");
+    Serial.println("IP address: ");
+    Serial.println(WiFi.localIP());
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
-  //  Serial.println("callback function called");
-  //  Serial.print("Message arrived [");
-  //  Serial.print(topic);
-  //  Serial.print("] ");
-  //  Serial.println((char)payload[0]);
+    Serial.println("callback function called");
+    Serial.print("Message arrived [");
+    Serial.print(topic);
+    Serial.print("] ");
+   Serial.println((char)payload[0]);
   String topicString;
   int sLen = strlen(topic);
   for(int s=0; s<sLen; s++){
@@ -193,10 +193,10 @@ void callback(char* topic, byte* payload, unsigned int length) {
 void reconnect() {
   // Loop until we're reconnected
   while (!client.connected()) {
-    //  Serial.print("Attempting MQTT connection...");
+      Serial.print("Attempting MQTT connection...");
     // Attempt to connect
     if (client.connect(clientID, clientUserName, clientPassword)) {
-      //  Serial.println("connected");
+        Serial.println("connected");
       // Once connected, publish an announcement...
       client.publish("remote_rcv", "hello world");
       // ... and resubscribe
@@ -205,49 +205,55 @@ void reconnect() {
       client.subscribe("mute");
       client.subscribe("favourite");
     } else {
-      //  Serial.print("failed, rc=");
-      //  Serial.print(client.state());
-      //  Serial.println(" try again in 5 seconds");
+        Serial.print("failed, rc=");
+        Serial.print(client.state());
+        Serial.println(" try again in 5 seconds");
       // Wait 5 seconds before retrying
       delay(5000);
     }
   }
 }
 
-void updateTwitter(String updateString){
-  String cmd = "AT+CIPSTART=\"TCP\",\"";
-  cmd += IP;
-  cmd += "\",80";
-  sendDebug(cmd);
-  delay(2000);
-  if(Serial.find("Error")){
-    Serial.print("RECEIVED: Error");
-    return;
+void updateTwitterStatus(String tsData)
+{
+  if (espClient.connect(thingSpeakAddress, 80))
+  { 
+    // Create HTTP POST Data
+    tsData = "api_key="+thingtweetAPIKey+"&status="+tsData;
+            
+    espClient.print("POST /apps/thingtweet/1/statuses/update HTTP/1.1\n");
+    espClient.print("Host: api.thingspeak.com\n");
+    espClient.print("Connection: close\n");
+    espClient.print("Content-Type: application/x-www-form-urlencoded\n");
+    espClient.print("Content-Length: ");
+    espClient.print(tsData.length());
+    espClient.print("\n\n");
+    espClient.print(tsData);
+    lastConnectionTime = millis();
+    if (espClient.connected())
+    {
+      Serial.println("Connecting to ThingSpeak...");
+      Serial.println();
+      failedCounter = 0;
+    }
+    else
+    {
+      failedCounter++;
+      Serial.println("Connection to ThingSpeak failed ("+String(failedCounter, DEC)+")");   
+      Serial.println();
+    }
+    
   }
-  cmd = GET;
-  cmd += updateString;
-  cmd += "\r\n";
-  Serial.print("AT+CIPSEND=");
-  Serial.println(cmd.length());
-  if(Serial.find(">")){
-    Serial.print(">");
-    Serial.print(cmd);
-    Serial.print(cmd);
-  }else{
-    sendDebug("AT+CIPCLOSE");
-  }
-  if(Serial.find("OK")){
-    Serial.println("RECEIVED: OK");
-  }else{
-    Serial.println("RECEIVED: Error");
+  else
+  {
+    failedCounter++;
+    
+    Serial.println("Connection to ThingSpeak Failed ("+String(failedCounter, DEC)+")");   
+    Serial.println();
+    
+    lastConnectionTime = millis(); 
   }
 }
-
-void sendDebug(String cmd){
-  Serial.print("SEND: ");
-  Serial.println(cmd);
-  Serial.println(cmd);
-} 
 
 void loop() {
   if (!client.connected()) {
@@ -258,7 +264,6 @@ void loop() {
   if (now - lastMsg > 2000) {
     lastMsg = now;
     ++value;
-    updateTemp(tempF);
  //   snprintf (msg, 75, "hello world #%ld", value);
  //     Serial.print("Publish message: ");
   //    Serial.println(msg);
