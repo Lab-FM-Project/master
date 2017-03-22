@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.7.0">
+<eagle version="8.1.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5331,10 +5331,6 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="C12" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="A" pin="VDD_2"/>
-<wire x1="198.12" y1="119.38" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="R5" gate="G$1" pin="1"/>
 <wire x1="454.66" y1="53.34" x2="447.04" y2="53.34" width="0.1524" layer="91"/>
 <label x="457.2" y="53.34" size="1.778" layer="95"/>
@@ -5404,8 +5400,6 @@ http://www.zetex.com&lt;p&gt;
 <junction x="350.52" y="205.74"/>
 <junction x="386.08" y="205.74"/>
 <wire x1="386.08" y1="205.74" x2="447.04" y2="205.74" width="0.1524" layer="91"/>
-<wire x1="386.08" y1="205.74" x2="447.04" y2="205.74" width="0.1524" layer="91"/>
-<junction x="386.08" y="205.74"/>
 <wire x1="472.44" y1="200.66" x2="472.44" y2="205.74" width="0.1524" layer="91"/>
 <wire x1="447.04" y1="205.74" x2="472.44" y2="205.74" width="0.1524" layer="91"/>
 <junction x="447.04" y="205.74"/>
@@ -5416,18 +5410,6 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="R16" gate="G$1" pin="1"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="A" pin="VDD"/>
-<wire x1="198.12" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="A" pin="AVDD"/>
-<wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="109.22" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
-<label x="193.04" y="111.76" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="JP2" gate="A" pin="2"/>
-<wire x1="7.62" y1="-43.18" x2="17.78" y2="-43.18" width="0.1524" layer="91"/>
-<label x="17.78" y="-43.18" size="1.778" layer="95" rot="R180"/>
-<pinref part="R18" gate="G$1" pin="1"/>
 <wire x1="289.56" y1="104.14" x2="289.56" y2="109.22" width="0.1524" layer="91"/>
 <label x="289.56" y="109.22" size="1.778" layer="95" rot="R90" xref="yes"/>
 <pinref part="R15" gate="G$1" pin="1"/>
@@ -5452,6 +5434,11 @@ http://www.zetex.com&lt;p&gt;
 <pinref part="U$1" gate="A" pin="AVDD"/>
 <wire x1="198.12" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="109.22" x2="195.58" y2="119.38" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="JP2" gate="A" pin="2"/>
+<wire x1="7.62" y1="-43.18" x2="17.78" y2="-43.18" width="0.1524" layer="91"/>
+<label x="17.78" y="-43.18" size="1.778" layer="95" rot="R180"/>
 </segment>
 </net>
 <net name="L-OUT" class="0">
