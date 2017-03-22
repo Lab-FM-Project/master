@@ -3,7 +3,6 @@
 /* Alex Young Semester 2 2016/17
    Implementing WiFi connectivity and MQTT control for the radio receiver project.
  */
-
  /* cloudmqtt.com account details:
   mqtt email: alex's email
   company name: FM_Project
@@ -17,6 +16,15 @@
 #include <DNSServer.h>
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h>
+
+#include <SoftwareSerial.h>
+#include <OneWire.h>
+#define ONE_WIRE_BUS 8
+OneWire oneWire(ONE_WIRE_BUS);
+#define IP "184.106.153.149" // thingspeak.com
+String GET = "GET /update?key=[THINGSPEAK_KEY]&field1=";
+//SoftwareSerial monitor(10, 11); // RX, TX
+
 ///#include "gpio.h"
 //#include <pins_nodeMCU.h>
 //#include <MQTT.h>
@@ -206,17 +214,51 @@ void reconnect() {
   }
 }
 
-void loop() {
+void updateTwitter(String updateString){
+  String cmd = "AT+CIPSTART=\"TCP\",\"";
+  cmd += IP;
+  cmd += "\",80";
+  sendDebug(cmd);
+  delay(2000);
+  if(Serial.find("Error")){
+    Serial.print("RECEIVED: Error");
+    return;
+  }
+  cmd = GET;
+  cmd += updateString;
+  cmd += "\r\n";
+  Serial.print("AT+CIPSEND=");
+  Serial.println(cmd.length());
+  if(Serial.find(">")){
+    Serial.print(">");
+    Serial.print(cmd);
+    Serial.print(cmd);
+  }else{
+    sendDebug("AT+CIPCLOSE");
+  }
+  if(Serial.find("OK")){
+    Serial.println("RECEIVED: OK");
+  }else{
+    Serial.println("RECEIVED: Error");
+  }
+}
 
+void sendDebug(String cmd){
+  Serial.print("SEND: ");
+  Serial.println(cmd);
+  Serial.println(cmd);
+} 
+
+void loop() {
   if (!client.connected()) {
     reconnect();
   }
   client.loop();
-
   long now = millis();
   if (now - lastMsg > 2000) {
     lastMsg = now;
     ++value;
+    updateTemp(tempF);
  //   snprintf (msg, 75, "hello world #%ld", value);
  //     Serial.print("Publish message: ");
   //    Serial.println(msg);
