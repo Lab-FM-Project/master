@@ -4373,7 +4373,7 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <package name="LED-1206">
 <description>&lt;h3&gt;LED 1206 SMT&lt;/h3&gt;
 
-1206, surface mount. 
+1206, surface mount.
 
 &lt;p&gt;Specifications:
 &lt;ul&gt;&lt;li&gt;Pin count: 2&lt;/li&gt;
@@ -4700,7 +4700,7 @@ http://www.zetex.com&lt;p&gt;
 <part name="L-OUT" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="DATA" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="CLOCK" library="testpad" deviceset="TPS" device="PAD1-13"/>
-<part name="TP11" library="testpad" deviceset="TPS" device="PAD1-13"/>
+<part name="OUT1" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="R10" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="S4" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-PTH-6.0MM-KIT" value="FAV1"/>
 <part name="S5" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-PTH-6.0MM-KIT" value="FAV2"/>
@@ -4708,7 +4708,7 @@ http://www.zetex.com&lt;p&gt;
 <part name="S6" library="SparkFun-Switches" deviceset="MOMENTARY-SWITCH-SPST" device="-PTH-6.0MM-KIT" value="FAV3"/>
 <part name="R16" library="SparkFun-Resistors" deviceset="10KOHM" device="-0603-1/10W-1%" value="10k"/>
 <part name="U$2" library="smd-footprints" deviceset="TDA2822M" device=""/>
-<part name="BAT_GND" library="wirepad" deviceset="2,15/1,0" device=""/>
+<part name="BAT-" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="BAT_5V" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="SWITCH2" library="wirepad" deviceset="2,15/1,0" device=""/>
 <part name="SWITCH1" library="wirepad" deviceset="2,15/1,0" device=""/>
@@ -4846,7 +4846,7 @@ http://www.zetex.com&lt;p&gt;
 <instance part="L-OUT" gate="G$1" x="132.08" y="-58.42"/>
 <instance part="DATA" gate="G$1" x="139.7" y="-58.42"/>
 <instance part="CLOCK" gate="G$1" x="147.32" y="-58.42"/>
-<instance part="TP11" gate="G$1" x="154.94" y="-58.42"/>
+<instance part="OUT1" gate="G$1" x="154.94" y="-58.42"/>
 <instance part="R10" gate="G$1" x="447.04" y="195.58" rot="R270"/>
 <instance part="S4" gate="G$1" x="447.04" y="180.34" smashed="yes" rot="R270">
 <attribute name="NAME" x="452.12" y="179.324" size="1.778" layer="95" font="vector" align="bottom-center"/>
@@ -4863,7 +4863,7 @@ http://www.zetex.com&lt;p&gt;
 </instance>
 <instance part="R16" gate="G$1" x="472.44" y="195.58" rot="R270"/>
 <instance part="U$2" gate="G$1" x="71.12" y="119.38"/>
-<instance part="BAT_GND" gate="1" x="-15.24" y="187.96" rot="R270"/>
+<instance part="BAT-" gate="1" x="-15.24" y="187.96" rot="R270"/>
 <instance part="BAT_5V" gate="1" x="-7.62" y="187.96" rot="R270"/>
 <instance part="SWITCH2" gate="1" x="0" y="187.96" rot="R270"/>
 <instance part="SWITCH1" gate="1" x="7.62" y="187.96"/>
@@ -4953,7 +4953,7 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="76.2" y1="162.56" x2="76.2" y2="182.88" width="0.1524" layer="91"/>
 <label x="-20.32" y="182.88" size="1.778" layer="95"/>
 <label x="63.5" y="165.1" size="1.778" layer="95"/>
-<pinref part="BAT_GND" gate="1" pin="P"/>
+<pinref part="BAT-" gate="1" pin="P"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="A" pin="VSS"/>
@@ -5191,7 +5191,7 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="154.94" y1="134.62" x2="154.94" y2="137.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="TP11" gate="G$1" pin="PP"/>
+<pinref part="OUT1" gate="G$1" pin="PP"/>
 <wire x1="154.94" y1="-60.96" x2="154.94" y2="-68.58" width="0.1524" layer="91"/>
 <label x="154.94" y="-68.58" size="1.778" layer="95" rot="R90"/>
 </segment>

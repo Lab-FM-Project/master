@@ -1953,8 +1953,8 @@ design rules under a new name.</description>
 <attribute name="SUPPLIER" value="Microchip" x="-0.6858" y="29.1084" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="-13.4874" y="34.3662" size="0.6096" layer="27" ratio="7" rot="SR0"/>
 </element>
-<element name="U$3" library="MIRO" package="SOIC-8" value="24C64" x="16.3068" y="28.0416" smashed="yes" rot="R180">
-<attribute name="VALUE" x="17.5768" y="28.6766" size="0.6096" layer="27" ratio="7" rot="R180"/>
+<element name="24C64" library="MIRO" package="SOIC-8" value="24C64" x="16.3068" y="28.0416" smashed="yes" rot="R180">
+<attribute name="NAME" x="17.6784" y="32.4104" size="0.4064" layer="25" rot="R180"/>
 </element>
 <element name="U$4" library="MIRO" package="AR1010" value="AR1010" x="31.8262" y="29.6672" smashed="yes" rot="R180">
 <attribute name="BGA_OLD" x="31.8262" y="29.6672" size="1.778" layer="27" rot="R180" display="off"/>
@@ -2087,11 +2087,11 @@ design rules under a new name.</description>
 <attribute name="VALUE" x="57.3532" y="17.3482" size="1.27" layer="27" ratio="10" rot="R180"/>
 </element>
 <element name="R15" library="SparkFun-Resistors" package="0603" value="4.7k" x="11.2522" y="29.4132" smashed="yes" rot="R270">
-<attribute name="NAME" x="12.0142" y="29.4132" size="0.6096" layer="25" font="vector" ratio="7" rot="R270" align="bottom-center"/>
+<attribute name="NAME" x="12.1412" y="28.4226" size="0.6096" layer="25" font="vector" ratio="7" rot="R270" align="bottom-center"/>
 <attribute name="PROD_ID" value="RES-08269" x="11.2522" y="29.4132" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R18" library="SparkFun-Resistors" package="0603" value="4.7k" x="8.9662" y="29.4132" smashed="yes" rot="R270">
-<attribute name="NAME" x="9.7282" y="29.4132" size="0.6096" layer="25" font="vector" ratio="7" rot="R270" align="bottom-center"/>
+<attribute name="NAME" x="7.5184" y="28.5242" size="0.6096" layer="25" font="vector" ratio="7" rot="R270" align="bottom-center"/>
 <attribute name="PROD_ID" value="RES-08269" x="8.9662" y="29.4132" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C11" library="SparkFun-Capacitors" package="1210" value="10uF" x="8.763" y="20.2438" smashed="yes" rot="R90">
@@ -2178,10 +2178,10 @@ design rules under a new name.</description>
 <contactref element="VR3" pad="3"/>
 <contactref element="S3" pad="1"/>
 <contactref element="R8" pad="1"/>
-<contactref element="U$3" pad="GND"/>
-<contactref element="U$3" pad="A2"/>
-<contactref element="U$3" pad="A1"/>
-<contactref element="U$3" pad="A0"/>
+<contactref element="24C64" pad="GND"/>
+<contactref element="24C64" pad="A2"/>
+<contactref element="24C64" pad="A1"/>
+<contactref element="24C64" pad="A0"/>
 <contactref element="R9" pad="1"/>
 <contactref element="ESP_PRG" pad="3"/>
 <contactref element="PIC_PRG" pad="3"/>
@@ -2602,7 +2602,7 @@ design rules under a new name.</description>
 <signal name="DATA">
 <contactref element="U$1" pad="35"/>
 <contactref element="U$4" pad="SDA"/>
-<contactref element="U$3" pad="SDA"/>
+<contactref element="24C64" pad="SDA"/>
 <contactref element="AR_PRG" pad="7"/>
 <contactref element="DATA" pad="TP"/>
 <contactref element="R18" pad="2"/>
@@ -2650,7 +2650,7 @@ design rules under a new name.</description>
 <signal name="CLOCK">
 <contactref element="U$1" pad="34"/>
 <contactref element="U$4" pad="SCL"/>
-<contactref element="U$3" pad="SCL"/>
+<contactref element="24C64" pad="SCL"/>
 <contactref element="AR_PRG" pad="6"/>
 <contactref element="CLOCK" pad="TP"/>
 <contactref element="R15" pad="2"/>
@@ -2740,7 +2740,7 @@ design rules under a new name.</description>
 <contactref element="VR3" pad="1"/>
 <contactref element="R6" pad="2"/>
 <contactref element="R7" pad="1"/>
-<contactref element="U$3" pad="VCC"/>
+<contactref element="24C64" pad="VCC"/>
 <contactref element="PIC_PRG" pad="2"/>
 <contactref element="AR_PRG" pad="1"/>
 <contactref element="3.3V" pad="TP"/>
@@ -3212,15 +3212,10 @@ design rules under a new name.</description>
 <wire x1="29.0227375" y1="43.688" x2="29.4037375" y2="43.307" width="0.2032" layer="1"/>
 <wire x1="29.0227375" y1="43.688" x2="21.3849" y2="43.688" width="0.2032" layer="1"/>
 <wire x1="19.9879" y1="42.291" x2="21.3849" y2="43.688" width="0.2032" layer="1"/>
-<wire x1="2.54" y1="39.6748" x2="2.159" y2="39.2938" width="0.2032" layer="16"/>
-<wire x1="15.10279375" y1="39.6748" x2="2.54" y2="39.6748" width="0.2032" layer="16"/>
-<wire x1="2.159" y1="39.2938" x2="2.159" y2="38.52159375" width="0.2032" layer="16"/>
-<wire x1="2.159" y1="38.52159375" x2="1.9304" y2="38.29299375" width="0.2032" layer="16"/>
+<wire x1="2.54" y1="39.6748" x2="15.10279375" y2="39.6748" width="0.2032" layer="16"/>
 <via x="1.6764" y="37.1856" extent="1-16" drill="0.6" diameter="0.254"/>
-<wire x1="1.905" y1="37.4142" x2="1.9304" y2="38.29299375" width="0.2032" layer="16"/>
 <wire x1="2.5019" y1="35.71165" x2="2.5019" y2="34.9123" width="0.2032" layer="1"/>
 <wire x1="2.5019" y1="34.9123" x2="2.5654" y2="34.8488" width="0.2032" layer="1"/>
-<wire x1="1.6764" y1="37.1856" x2="1.905" y2="37.4142" width="0.2032" layer="16"/>
 <wire x1="1.6764" y1="37.1856" x2="1.6764" y2="36.53715" width="0.2032" layer="1"/>
 <wire x1="1.6764" y1="36.53715" x2="2.5019" y2="35.71165" width="0.2032" layer="1"/>
 <via x="29.972" y="43.307" extent="1-16" drill="0.6" diameter="0.254"/>
@@ -3230,6 +3225,8 @@ design rules under a new name.</description>
 <wire x1="17.9324" y1="42.291" x2="19.9879" y2="42.291" width="0.2032" layer="1"/>
 <wire x1="17.9324" y1="42.291" x2="17.71899375" y2="42.291" width="0.2032" layer="16"/>
 <wire x1="17.71899375" y1="42.291" x2="15.10279375" y2="39.6748" width="0.2032" layer="16"/>
+<wire x1="1.6764" y1="37.1856" x2="1.6764" y2="38.8112" width="0.2032" layer="16"/>
+<wire x1="1.6764" y1="38.8112" x2="2.54" y2="39.6748" width="0.2032" layer="16"/>
 </signal>
 <signal name="DB7">
 <contactref element="U$1" pad="49"/>
@@ -3402,7 +3399,7 @@ design rules under a new name.</description>
 </signal>
 <signal name="N$10">
 <contactref element="R9" pad="2"/>
-<contactref element="U$3" pad="WP"/>
+<contactref element="24C64" pad="WP"/>
 <wire x1="-38.2016" y1="40.64" x2="-37.3888" y2="39.8272" width="0.2032" layer="1"/>
 <wire x1="-39.624" y1="40.64" x2="-38.2016" y2="40.64" width="0.2032" layer="1"/>
 <wire x1="-41.0464" y1="39.2176" x2="-39.624" y2="40.64" width="0.2032" layer="1"/>
