@@ -5314,6 +5314,7 @@ http://www.zetex.com&lt;p&gt;
 <wire x1="-7.62" y1="185.42" x2="0" y2="185.42" width="0.1524" layer="91"/>
 <pinref part="BAT_5V" gate="1" pin="P"/>
 <pinref part="SWITCH2" gate="1" pin="P"/>
+<label x="-5.08" y="193.04" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="3.3V" class="0">
