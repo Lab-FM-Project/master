@@ -18,9 +18,9 @@
 #include <WiFiManager.h>
 
 // ThingSpeak Settings
-char thingSpeakAddress[] = "https://api.thingspeak.com/apps/thingtweet/1/statuses/update";
-String thingtweetAPIKey = "AMLFP634YPWSZ1RI";
-
+char thingSpeakAddress[] = "api.thingspeak.com";
+String thingtweetAPIKey = "2UX3X7IJV3BUW4QF";
+int testCounter = 0;
 ///#include "gpio.h"
 //#include <pins_nodeMCU.h>
 //#include <MQTT.h>
@@ -44,10 +44,6 @@ String thingtweetAPIKey = "AMLFP634YPWSZ1RI";
 //#define fav3Pin D4
 
 #define msgDelay 200
-
-/*#define user twdgskxg
-#define password vkMS2TFzBxLc
-#define sslport 28296 */
 
 /*const char *ssid =  "AndroidAP";    // cannot be longer than 32 characters!
 const char *password =  "xhct2880";  // insert your internet SSID and password */
@@ -97,7 +93,6 @@ void setup() { //in the setup we initialise the RC switch to a specific pin (12)
 //  digitalWrite(fav3Pin, LOW);
  Serial.begin(115200);
   setup_wifi();
-   updateTwitterStatus("My thing is social @thingspeak");
   client.setServer(mqtt_server, port);
   client.setCallback(callback);
 }
@@ -214,43 +209,36 @@ void reconnect() {
   }
 }
 
-void updateTwitterStatus(String tsData)
-{
-  if (espClient.connect(thingSpeakAddress, 80))
-  { 
+void updateTwitterStatus(String tsData){
+  Serial.println("updateTwitterStatus");
+  delay(3000);
+  if (espClient.connect(thingSpeakAddress, 80)){ 
     // Create HTTP POST Data
-    tsData = "api_key="+thingtweetAPIKey+"&status="+tsData;
-            
+    tsData = "api_key="+thingtweetAPIKey+"&status="+tsData +"#stillbetterthanStagRadio";
     espClient.print("POST /apps/thingtweet/1/statuses/update HTTP/1.1\n");
     espClient.print("Host: api.thingspeak.com\n");
     espClient.print("Connection: close\n");
     espClient.print("Content-Type: application/x-www-form-urlencoded\n");
-    espClient.print("Content-Length: ");
+    espClient.print("Content-Length:");
     espClient.print(tsData.length());
     espClient.print("\n\n");
     espClient.print(tsData);
     lastConnectionTime = millis();
-    if (espClient.connected())
-    {
-      Serial.println("Connecting to ThingSpeak...");
-      Serial.println();
-      failedCounter = 0;
+    if (espClient.connected()){
+        Serial.println("Connecting to ThingSpeak...");
+        Serial.println();
+        failedCounter = 0;
     }
-    else
-    {
-      failedCounter++;
-      Serial.println("Connection to ThingSpeak failed ("+String(failedCounter, DEC)+")");   
-      Serial.println();
+    else{
+        failedCounter++;
+        Serial.println("1 Connection to ThingSpeak failed ("+String(failedCounter, DEC)+")");   
+        Serial.println();
     }
-    
   }
-  else
-  {
+  else{
     failedCounter++;
-    
-    Serial.println("Connection to ThingSpeak Failed ("+String(failedCounter, DEC)+")");   
+    Serial.println("2 Connection to ThingSpeak Failed ("+String(failedCounter, DEC)+")");   
     Serial.println();
-    
     lastConnectionTime = millis(); 
   }
 }
@@ -259,7 +247,9 @@ void loop() {
   if (!client.connected()) {
     reconnect();
   }
+  testCounter++;
   client.loop();
+  updateTwitterStatus("hello twitter!" + String(testCounter));
   long now = millis();
   if (now - lastMsg > 2000) {
     lastMsg = now;
