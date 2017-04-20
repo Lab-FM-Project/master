@@ -97,6 +97,12 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 
 #define MUTE            PORTGbits.RG0
 
+#define FAV1            PORTGbits.RC5
+#define FAV2            PORTGbits.RC6
+#define FAV3            PORTGbits.RC7
+
+
+
 
 #define FMHIGHCHAN		(1080-690)	// Highest FM channel number
 #define FMLOWCHAN		(875-690)
@@ -383,7 +389,6 @@ unsigned char VolumeUp() {
     Lcd_Clear();
     HomeScreen();
     //setHardmute(1);
->>>>>>> origin/master
 
 
     
