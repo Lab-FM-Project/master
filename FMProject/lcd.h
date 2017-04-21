@@ -41,7 +41,7 @@ void Lcd_Shift_Left();
 void DisplayMuteSymbol(unsigned char muted);
 void HomeScreen(unsigned short freq);
 void VolumeScreen (int level);
-
+void SeekScreen(char direction);
 
 
 void Lcd_Write_Char(char a) {
@@ -251,11 +251,13 @@ void HomeScreen(unsigned short freq) {
     
 }
 
-void SeekScreen()
+void SeekScreen(char direction)
 {
     
     Lcd_Set_Cursor(1,1);
-    Lcd_Write_String("Seeking......");
+    if (direction == 'u')Lcd_Write_String("Seeking Up");
+    if (direction == 'd')Lcd_Write_String("Seeking Down");
+    
     
 }
 

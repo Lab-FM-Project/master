@@ -35,7 +35,10 @@
 
 unsigned short CurrentFreq;
 unsigned char hardmute = 0;
-int evt, LastButtonState = 1, ButtonState, delaytime = 0 , LastChangeTime = 0;
+unsigned int evt, delaytime = 0;
+int LastButtonState[4] = 1;
+int LastChangeTime[4] = 0;
+int ButtonState[4] = 1;
 unsigned int ui;
 #include <xc.h>
 #define _XTAL_FREQ 8000000
@@ -46,7 +49,7 @@ unsigned int ui;
 #include "fm_readwrite.h"
 #include "fm_functions.h"
 #include "eeprom.h"
-
+unsigned char ButtonRead (int ButtonStateReading, int ButtonIndex);
 
 
 void main(void) {
@@ -83,37 +86,34 @@ void main(void) {
     
     while (1) //infinite loop
     {
-        //actually we have to put the processor in sleep which i will cover
-        //  in later tutorials
-       evt = butnEvent();
-        switch (evt) {
-            case 1: nextChannel();
-                break;
-            case 2: previousChannel();
-                break;
-            case 3: 
-                MuteHard();
-                break;
-            case 4:
+        int PType;
+        PType = ButtonRead(NextChan, 0);
+        if (PType == 1) nextChannel();
+        if (PType == 2) 
+            {
                 Lcd_Clear();
-                SeekScreen();
+                SeekScreen('d');
                 seek('u');
                 Lcd_Clear();
                 HomeScreen(CurrentFreq);
-                break;
-            case 5:
+            }
+        PType = ButtonRead(PrevChan, 1);
+        if (PType == 1) previousChannel();
+        if (PType == 2) 
+            {
                 Lcd_Clear();
-                SeekScreen();
+                SeekScreen('u');
                 seek('d');
                 Lcd_Clear();
                 HomeScreen(CurrentFreq);
-                break;
-                
-            case 8:         
-                errfm();
-                break;
-            default: break;
-        } 
+            }
+        PType = ButtonRead(MUTE, 2);
+        if (PType == 1) MuteHard();
+        /*PType = ButtonRead(FavChanOne, 3);        
+        if (PType == 1) ;*/
+        
+        
+       
         
     }
 
@@ -124,48 +124,64 @@ void main(void) {
 //
 
 void interrupt high_priority CheckButtonPressed() {
-    //int vol;
-    //check if the interrupt is caused by the pin RB0
-    if (INTCONbits.INT0F == 1) {      
-        
+    
+    if (INTCONbits.INT0F == 1) 
+    {      
         VolControl--; 
         setVolume(VolControl);
-        VolumeScreen(VolControl);
-        
+        VolumeScreen(VolControl);        
         INTCONbits.INT0F = 0;
-
-    } if (INTCON3bits.INT1F == 1) {
-        
+    } 
+    
+    if (INTCON3bits.INT1F == 1) 
+    {        
         VolControl++; 
         setVolume(VolControl);
-        VolumeScreen(VolControl);
-        
+        VolumeScreen(VolControl);        
         INTCON3bits.INT1F = 0;
-
     }
     
     if (INTCONbits.TMR0IF == 1) 
     {
-        T0CONbits.TMR0ON = 0;
-        //char output [16];//INTCONbits.TMR0IE = 0; 
+        T0CONbits.TMR0ON = 0;  
         
         delaytime++;
         
-        /*if (delaytime == 3000)
-        {
-            
+        if (delaytime == 3000)
+        {            
             Lcd_Clear();
             HomeScreen(CurrentFreq);
-        }*/
-        
-        if (delaytime >= 10000000)
-        {
-            delaytime = 0;
-            
         }
+        
+        if (delaytime >=  65534)
+        {
+            delaytime = 0;            
+        }
+        
         INTCONbits.TMR0IF = 0;
         T0CONbits.TMR0ON = 1;
 
 }
 }
 
+unsigned char ButtonRead (int ButtonStateReading, int ButtonIndex)
+{
+    int HoldDuration;
+    unsigned char PType = 0;
+    if (ButtonStateReading != LastButtonState[ButtonIndex])  LastChangeTime[ButtonIndex] = delaytime;    
+    HoldDuration = delaytime - LastChangeTime[ButtonIndex];
+    if (HoldDuration > 30) 
+    {
+        if (ButtonStateReading != ButtonState[ButtonIndex]) 
+        {
+            ButtonState[ButtonIndex] = ButtonStateReading;
+            if (ButtonState[ButtonIndex] == 0) PType = 1;
+
+        } else if (ButtonState[ButtonIndex] == 0) 
+            {            
+                if (HoldDuration > 2000) PType = 2;                
+            }
+    }
+    LastButtonState[ButtonIndex] = ButtonStateReading;
+    return PType;
+}

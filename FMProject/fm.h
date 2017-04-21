@@ -49,7 +49,7 @@ const unsigned int regDflt[18] = {
 };
 
 unsigned int regImg[18]; // FM register bank images
-unsigned char VolControl = 9;
+signed char VolControl = 9;
 
 
 // Define register/bit arrays for particular functions
@@ -89,13 +89,18 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 #define FMASKSEEK		0x4000		// Register 3, bit 14
 #define FMASKRDCHAN		0xFF80		// Register 2, channel number bits
 
-#define NextChan        PORTGbits.RG1
-#define PrevChan        PORTGbits.RG2
+#define NextChan        PORTGbits.RG0
+#define PrevChan        PORTGbits.RG1
+
+#define FavChanOne        PORTCbits.RC5
+#define FavChanTwo        PORTCbits.RC6
+#define FavChanThree      PORTCbits.RC7
+
 
 #define VolUp           PORTBbits.RB0
 #define VolDown         PORTBbits.RB1
 
-#define MUTE            PORTGbits.RG0
+#define MUTE            PORTGbits.RG2
 
 #define FAV1            PORTGbits.RC5
 #define FAV2            PORTGbits.RC6
@@ -129,7 +134,7 @@ unsigned char previousChannel();
 void delay_10ms(unsigned int n);
 void tuneWithAutoHiLo();
 unsigned short frequency();
-unsigned char writeFrequencyEEPROM();
+unsigned char WriteFrequencyEEPROM();
 unsigned short seek(char direction);
 unsigned char setVolume(int volume);
 unsigned char FMfrequenc(unsigned int f);
@@ -157,7 +162,6 @@ void Init() {
     ADCON1 = 0b00111111; // Make all ADC/IO pins digital
     TRISA = 0b00000011; // RA0 and RA1 pbutton
     TRISB = 0b00000011; // RB0 and RB1 pbutton
-
     TRISC = 0b00011000; // RC3 and RC4 do the I2C bus
     TRISG = 0b11111111; // RG0, RG1 & RG3 pbutton
     PORTA = 0;
@@ -199,98 +203,15 @@ void delay_10ms(unsigned int n) {
  *
  */
 
-/*int Debounce(char *PORT, char PIN){
-unsigned int Ptime, DPtime, ret;
-char output[10];
-// PORT is a pointer that will point to PORT# address
-// PIN is a number between 0 - 7
-     //char Mask[] = {1,2,4,8,16,32,64,128};
-    
-     
- 
-    if (*PORT[PIN] == 0) //check if the switch is closed
-    {
-       Ptime = TMR0L + TMR0H*256; 
-        while (*PORT[PIN] == 0) //wait till the button is depressed
-        {                   
-                
-        } 
-       DPtime = TMR0L + TMR0H*256;       
-       ret = DPtime - Ptime; 
-       
-       
-    
-    }
-    else ret = 0;
- 
- return ret; 
-    
-}*/
+
+/*
 
 
 int butnEvent(void) {
-    signed int timereturn, HoldDuration, ButtonStateReading, PressTime, time;
-    char output[16];
-    timereturn = 0;
-    ButtonStateReading = NextChan;
-    if (ButtonStateReading != LastButtonState) {
-
-        LastChangeTime = delaytime;
-    }
-
-    /*Lcd_Set_Cursor(2, 1);
-    sprintf(output, "delay: %u", delaytime);
-    Lcd_Write_String(output);
     
-    Lcd_Set_Cursor(1, 1);
-    sprintf(output, "Duration: %u", HoldDuration);
-    Lcd_Write_String(output);*/
-
-    /*Lcd_Set_Cursor(1, 1);                
-    sprintf(output, "delaytime: %u   ", delaytime);
-    Lcd_Write_String(output);*/
-    HoldDuration = delaytime - LastChangeTime;
-
-
-    if (HoldDuration > 50) {
-
-        if (ButtonStateReading != ButtonState) {
-            ButtonState = ButtonStateReading;
-            if (ButtonState == 0) {
-
-                timereturn = 1;
-
-
-
-            }
-
-        } else if (ButtonState == 0) {
-
-            hardmute = 1;
-
-            if (HoldDuration > 2000) {
-                timereturn = 4;
-                hardmute = 0;
-            }
-        }
-
-
-
-
-    }
-
-
-    /*Lcd_Clear();
-            Lcd_Set_Cursor(1, 1);
-            sprintf(output, "Duration: %u", HoldDuration);
-            Lcd_Write_String(output);
-            Lcd_Set_Cursor(2, 1);
-            sprintf(output, "PT:%u RT:%u", PressTime, ReleaseTime);
-            Lcd_Write_String(output);*/
-
-
-
-    LastButtonState = ButtonStateReading;
+    
+    
+    
 
 
 
@@ -336,9 +257,9 @@ int butnEvent(void) {
            else timereturn =0;    
         
         
-   } */
+   } 
     return timereturn;
-}
+} */
 
 //
 // end butnEvent ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

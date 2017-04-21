@@ -13,7 +13,7 @@
  ********************************************************************/
 
 unsigned char HDPageWriteI2C(unsigned char HighAdd, unsigned char LowAdd, unsigned char *wrptr) {
-    char output[16];
+    
     IdleI2C(); // ensure module is idle
     StartI2C(); // initiate START condition
     while (SSPCON2bits.SEN); // wait until start condition is over 
@@ -27,10 +27,10 @@ unsigned char HDPageWriteI2C(unsigned char HighAdd, unsigned char LowAdd, unsign
     //putstringI2C ( wrptr );         // pointer to data for page write
     IdleI2C(); // ensure module is idle
     StopI2C(); // send STOP condition
-    Lcd_Clear();
+    /*Lcd_Clear();
     Lcd_Set_Cursor(1, 1);
     sprintf(output, "WRITE COMPLETE");
-    Lcd_Write_String(output);
+    Lcd_Write_String(output);*/
     while (SSPCON2bits.PEN){}; //wait until stop condition if over
     
     return ( 0); // return with no error
