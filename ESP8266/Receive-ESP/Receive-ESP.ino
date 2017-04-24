@@ -52,8 +52,8 @@ const char *password =  "xhct2880";  // insert your internet SSID and password *
 
 /*const char *ssid = "Landgate";
 const char *password = "GlaziersLand2EDgateLaneGU3"; */
-const char *ssid = "G5_8814";
-const char *password = "Beano1234"; 
+const char *ssid = "AndroidAP";
+const char *password = "xhct2880"; 
 
 //const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";

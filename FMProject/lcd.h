@@ -51,11 +51,11 @@ void Lcd_Write_Char(char a) {
    RS = 1;             // => RS = 1
    Lcd_Port(y>>4);             //Data transfer
    EN = 1;
-   __delay_us(40);
+   __delay_us(60);
    EN = 0;
    Lcd_Port(temp);
    EN = 1;
-   __delay_us(40);
+   __delay_us(60);
     EN = 0;
 }
 
@@ -132,11 +132,11 @@ void Store_mute_symbol()
 void Lcd_Init() {
   TRISD = 0x00;
   Lcd_Port(0x00);
-   __delay_ms(20);
+   __delay_ms(40);
   Lcd_Cmd(0x03);
-	__delay_ms(5);
+	__delay_ms(10);
   Lcd_Cmd(0x03);
-	__delay_ms(11);
+	__delay_ms(22);
   Lcd_Cmd(0x03);
   /////////////////////////////////////////////////////
   Lcd_Cmd(0x02);

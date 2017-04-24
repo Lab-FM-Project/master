@@ -102,7 +102,7 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 
 #define MUTE            PORTGbits.RG2
 
-#define FAV1            PORTGbits.RC5
+#define FAV1            PORTGbits.RC5 
 #define FAV2            PORTGbits.RC6
 #define FAV3            PORTGbits.RC7
 
@@ -167,10 +167,13 @@ void Init() {
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
+    SSPCON1bits.SSPEN   = 1;    // enable SSP module
 
 
-    OpenI2C(MASTER, SLEW_OFF);
+    OpenI2C(MASTER, SLEW_ON);
+	//SSPADD  = ((_XTAL_FREQ/4000)/32) - 1;	
     SSPADD = 0x3F;
+    //SSPADD = 19;
 }
 //
 // end Init ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
