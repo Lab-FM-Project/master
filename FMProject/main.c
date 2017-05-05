@@ -35,10 +35,11 @@
 unsigned short CurrentFreq;
 unsigned char hardmute = 0;
 unsigned int evt, delaytime = 0;
-int LastButtonState[4] = 1;
-int LastChangeTime[4] = 0;
-int ButtonState[4] = 1;
+int LastButtonState[7];
+int LastChangeTime[7];
+int ButtonState[7];
 unsigned int ui;
+int c = 0;
 #include <xc.h>
 #define _XTAL_FREQ 8000000
 #include <plib/i2c.h>
@@ -49,32 +50,71 @@ unsigned int ui;
 #include "fm_functions.h"
 #include "eeprom.h"
 unsigned char ButtonRead(int ButtonStateReading, int ButtonIndex);
+void FavChannelButton(unsigned char Ptype, int button);
 
 void main(void) {
-    int *eepromfreq;
-        char output[15];
+    //int *eepromfreq;
+        //char output[15];
 
-    unsigned int length;
-    dly(20);
+    //unsigned int length;
     Init();
+    INTCONbits.GIEH = 0; // Enable High Level interrupts
+    INTCONbits.INT0IE = 0; // Enable the INT0 external interrupt
+    INTCON3bits.INT1IE = 0; // Enable the INT1 external interrupt
+
+    INTCON2bits.INTEDG0 = 0; // INT0 interrupt on rising edge
+    INTCON2bits.INTEDG1 = 0; // INT1 interrupt on rising edge
+
+    INTCONbits.INT0F = 0; //reset interrupt flag
+    INTCON3bits.INT1F = 0; //reset interrupt flag
     Lcd_Init();
+    
+    
+    dly(20);
+    
+    
     Lcd_Clear();
     Lcd_Set_Cursor(1, 1);
-    Lcd_Write_String("HEY");    
+    Lcd_Write_String("Checking FM Comms");  
+    __delay_ms(1000);
     FMvers(&ui); // Check we have comms with FM chip
     if (ui != 0x1010) errfm();
     if (FMinit() != XS) errfm();
+    Lcd_Clear();
+    Lcd_Set_Cursor(1, 1);
+    Lcd_Write_String("Setting Home Frequency");
+    __delay_ms(1000);
     FMfrequenc(964);
+    Lcd_Clear();
+    Lcd_Set_Cursor(1, 1);
+    Lcd_Write_String("Setting Volume");
+    __delay_ms(1000);
+    setVolume(VolControl);
+    for (int count = 0; count < 8; count++)
+    {
+      LastButtonState[count] = 0;
+      LastChangeTime[count] = 0;
+      ButtonState[count] = 1;  
+    }
+     
     //*eepromfreq = 964;
     //write_EEPROM(0x05, 10); 
-    length = read_EEPROM(0x00);
+   // length = read_EEPROM(0x00);
     
     //EERandomRead1(0xA0, 0x00);
 
     /*OSCCONbits.IRCF0 = 1;
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;*/
-
+    
+  
+    Lcd_Clear();
+    Lcd_Set_Cursor(1, 1);
+    Lcd_Write_String("Getting Current Freq");
+    __delay_ms(1000);
+    CurrentFreq = frequency();
+    Lcd_Clear();
+    HomeScreen(CurrentFreq);
     INTCONbits.GIEH = 1; // Enable High Level interrupts
     INTCONbits.INT0IE = 1; // Enable the INT0 external interrupt
     INTCON3bits.INT1IE = 1; // Enable the INT1 external interrupt
@@ -83,16 +123,22 @@ void main(void) {
     INTCON2bits.INTEDG1 = 1; // INT1 interrupt on rising edge
 
     INTCONbits.INT0F = 0; //reset interrupt flag
-    INTCON3bits.INT1F = 0; //reset interrupt flag*/
-
-    CurrentFreq = frequency();
-
-    HomeScreen(964);
-    setVolume(VolControl);
+    INTCON3bits.INT1F = 0; //reset interrupt flag
+    
+    T0CON = 0b01000010;				// Prescale by 16
+    TMR0L =  TIMER_RESET_VALUE;
+    
+    INTCONbits.TMR0IF = 0; // Clear timer flag
+    INTCONbits.TMR0IE = 1;
+    
+    T0CONbits.TMR0ON = 1;
+   
+ 
 
     while (1) //infinite loop
     {
-        int PType;
+        char output[5];
+        unsigned char PType;
         PType = ButtonRead(NextChan, 0);
         if (PType == 1) nextChannel();
         if (PType == 2) {
@@ -113,19 +159,59 @@ void main(void) {
         }
         PType = ButtonRead(MUTE, 2);
         if (PType == 1) MuteHard();
-        /*PType = ButtonRead(FavChanOne, 3);        
-        if (PType == 1) ;*/
+       PType = ButtonRead(FavChanOne, 3);
+       FavChannelButton(PType, 3);
+       PType = ButtonRead(FavChanTwo, 4);
+       FavChannelButton(PType, 4);
+       PType = ButtonRead(FavChanThree, 5);
+       FavChannelButton(PType, 5);
+        
+        
+           
+            
+            
+        
 
 
-
-
-    }
-
-
+}
 }
 //
 // end main ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
+    void FavChannelButton(unsigned char Ptype, int button)
+    {
+        char output[5];
+        if (Ptype == 1)
+        {     
+            
+            
+            
+         
+            CurrentFreq = read_EEPROM(button);
+            /*Lcd_Clear();
+            Lcd_Set_Cursor(1, 1);
+            sprintf(output, "freq: %u", CurrentFreq);
+            Lcd_Write_String(output);
+            __delay_ms(1000);*/
+            FMfrequenc(CurrentFreq);
+            HomeScreen(CurrentFreq);
+        } else if (Ptype == 2)
+        {     
+          
+           
+            //HomeScreen(CurrentFreq);
+            /* c++;
+            Lcd_Clear();
+           Lcd_Set_Cursor(1, 1);
+           sprintf(output, "%u", c);
+            Lcd_Write_String(output);
+            __delay_ms(1000);*/
+           write_EEPROM(button, CurrentFreq);
+           
+           HomeScreen(CurrentFreq);
+        }
+        
+    }
 
 void interrupt high_priority CheckButtonPressed() {
 
@@ -171,12 +257,15 @@ unsigned char ButtonRead(int ButtonStateReading, int ButtonIndex) {
     if (HoldDuration > 30) {
         if (ButtonStateReading != ButtonState[ButtonIndex]) {
             ButtonState[ButtonIndex] = ButtonStateReading;
-            if (ButtonState[ButtonIndex] == 0) PType = 1;
+            if (ButtonState[ButtonIndex] == 1) PType = 1;
 
         } else if (ButtonState[ButtonIndex] == 0) {
             if (HoldDuration > 2000) PType = 2;
         }
     }
     LastButtonState[ButtonIndex] = ButtonStateReading;
+    
+    
+   
     return PType;
 }

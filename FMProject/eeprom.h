@@ -29,7 +29,7 @@
     return ( 0); // return with no error
 } */
 
-unsigned int read_EEPROM(unsigned int address) {
+unsigned short read_EEPROM(unsigned int address) {
 
     /*    unsigned char firstByt;
 
@@ -55,44 +55,59 @@ unsigned int read_EEPROM(unsigned int address) {
        IdleI2C();*/
 
 
-    char output[15];
+    
 
-    unsigned int temp = 0;
+    unsigned short temp = 0;
+    char output[5];
     StartI2C(); //Start bit
-
+    address = (address *2) - 6;
     WriteI2C(0xA0); //1010 send byte via I2C (device address + W)
     WriteI2C(address >> 8); //sending higher order address
     WriteI2C(address & 0xFF); //sending lower order address
 
     RestartI2C();
     WriteI2C(0xA1); // send byte (device address + R)
-    temp = ReadI2C(); // Returns the LSB of the temperature
+    temp = ReadI2C();
+    AckI2C();
+    IdleI2C();
+    temp = ((temp << 8) | ReadI2C());// Returns the LSB of the temp
     NotAckI2C();
     IdleI2C();
     StopI2C();
     __delay_ms(10);
-    Lcd_Clear();
+   /* Lcd_Clear();
+    sprintf(output, "%u", temp);
     Lcd_Set_Cursor(1, 1);
-    Lcd_Write_String("read");
+    Lcd_Write_String(output);*/
 
     return temp;
 }
 
-void write_EEPROM(unsigned int address, unsigned int dat) {
-    StartI2C(); //Start bit
+void write_EEPROM(unsigned int address, unsigned short dat) {
+    /*char output[15];
+    Lcd_Clear();
+    Lcd_Set_Cursor(1, 1);
+    sprintf(output, "%u", dat);
+    
+   Lcd_Write_String(output);//sending higher order address
+    Lcd_Set_Cursor(2, 1);
+    sprintf(output, "%u", CurrentFreq);
+    Lcd_Write_String(output);*/
+    address = (address *2) - 6;
+    StartI2C(); //Start bits
     WriteI2C(0xA0);
     IdleI2C();
-    WriteI2C(address >> 8); //sending higher order address
-    IdleI2C();
+    WriteI2C(address >> 8);
+    IdleI2C();   
     WriteI2C(address & 0xFF); //sending lower order address
     IdleI2C();
-    WriteI2C(dat); // send data (data to be written)
+    WriteI2C(dat >> 8);
+    IdleI2C();
+    WriteI2C(dat & 0xFF);// send data (data to be written)
     IdleI2C();
     StopI2C(); //Stop bit.
     __delay_ms(20);
-    Lcd_Clear();
-    Lcd_Set_Cursor(1, 1);
-    Lcd_Write_String("write2");
+    
     return;
 }
 //unsigned char HDSequentialReadI2C(unsigned char HighAdd, unsigned char LowAdd, unsigned char *rdptr, unsigned char length) {

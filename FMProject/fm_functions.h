@@ -325,10 +325,10 @@ unsigned char FMfrequenc(unsigned int f) {
     cn = f - 690;
     // Correct out of lower range
     if (cn < FMLOWCHAN)
-        cn = FMLOWCHAN;
-    else if (cn > FMHIGHCHAN)
         cn = FMHIGHCHAN;
-
+    else if (cn > FMHIGHCHAN)
+        cn = FMLOWCHAN;
+    CurrentFreq = cn + 690;
     // NB AR1010 retunes on 0 to 1 transition of TUNE bit -	
     regImg[2] &= ~FMASKTUNE;
     if (FMwrite(2) != XS) return XF;

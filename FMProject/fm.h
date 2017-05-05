@@ -102,9 +102,7 @@ const unsigned int enable[2] = {0, 0}; // Register 11 - Dxxx xxxx xxxx xxxx
 
 #define MUTE            PORTGbits.RG2
 
-#define FAV1            PORTGbits.RC5 
-#define FAV2            PORTGbits.RC6
-#define FAV3            PORTGbits.RC7
+
 
 
 
@@ -162,11 +160,12 @@ void Init() {
     ADCON1 = 0b00111111; // Make all ADC/IO pins digital
     TRISA = 0b00000011; // RA0 and RA1 pbutton
     TRISB = 0b00000011; // RB0 and RB1 pbutton
-    TRISC = 0b00011000; // RC3 and RC4 do the I2C bus
+    TRISC = 0b11111111; // RC3 and RC4 do the I2C bus
     TRISG = 0b11111111; // RG0, RG1 & RG3 pbutton
     PORTA = 0;
     PORTB = 0;
     PORTC = 0;
+    
     SSPCON1bits.SSPEN   = 1;    // enable SSP module
 
 

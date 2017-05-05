@@ -150,13 +150,7 @@ void Lcd_Init() {
   Store_mute_symbol();
   Lcd_Clear();
   
-    T0CON = 0b01000010;				// Prescale by 16
-    TMR0L =  TIMER_RESET_VALUE;
     
-    INTCONbits.TMR0IF = 0; // Clear timer flag
-    INTCONbits.TMR0IE = 1;
-    
-    T0CONbits.TMR0ON = 1;
     
  
 //T1CONbits.TMR1ON = 0;
@@ -234,6 +228,7 @@ void HomeScreen(unsigned short freq) {
     
     char output[5];
     int decimal, number;
+    Lcd_Clear();
     Lcd_Set_Cursor(1,1);
     if ((103 < freq) && (freq < 105)) Lcd_Write_String("BBC Surrey");
     else Lcd_Write_String("Unknown");
@@ -241,7 +236,7 @@ void HomeScreen(unsigned short freq) {
     Lcd_Set_Cursor(2, 1);    
     decimal = freq % 10;
     number = freq/10 ;  
-    sprintf(output, "%u.%u MHZ", number, decimal);      
+    sprintf(output, "%u.%u MHZ ", number, decimal);      
     Lcd_Write_String(output);
     DisplayMuteSymbol(hardmute);
    
@@ -253,7 +248,7 @@ void HomeScreen(unsigned short freq) {
 
 void SeekScreen(char direction)
 {
-    
+    Lcd_Clear();
     Lcd_Set_Cursor(1,1);
     if (direction == 'u')Lcd_Write_String("Seeking Up");
     if (direction == 'd')Lcd_Write_String("Seeking Down");
@@ -267,16 +262,16 @@ void VolumeScreen (int level)
     TMR1L = 0x00;
     TMR1H = 0x00;
     T0CONbits.TMR0ON = 0;*/
-    
+    Lcd_Clear();
     delaytime = 0;
     
     
-    Lcd_Clear();
+    //Lcd_Clear();
     int count;
     char output[5];
     
     Lcd_Set_Cursor(1, 1);
-    sprintf(output, "Volume: %u", level);
+    sprintf(output, "Volume: %u ", level);
     Lcd_Write_String(output);    
     level = level - 2;
     Lcd_Set_Cursor(2, 1);
