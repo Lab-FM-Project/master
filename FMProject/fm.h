@@ -325,6 +325,7 @@ unsigned char VolumeDown() {
 unsigned char MuteHard() {
     hardmute = !hardmute;
     setHardmute(hardmute);
+    HomeScreen(CurrentFreq);
     
     return XS;
 }
