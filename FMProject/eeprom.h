@@ -2,7 +2,7 @@
 //Constant Definitions
 //********************************************************************
 
-
+void write_EEPROM(unsigned int address, unsigned short dat);
 
 /********************************************************************
  *     Function Name:    HDPageWriteI2C                              *
@@ -60,7 +60,7 @@ unsigned short read_EEPROM(unsigned int address) {
     unsigned short temp = 0;
     char output[5];
     StartI2C(); //Start bit
-    address = (address *2) - 6;
+    //address = (address *2) - 5;
     WriteI2C(0xA0); //1010 send byte via I2C (device address + W)
     WriteI2C(address >> 8); //sending higher order address
     WriteI2C(address & 0xFF); //sending lower order address
@@ -93,7 +93,7 @@ void write_EEPROM(unsigned int address, unsigned short dat) {
     Lcd_Set_Cursor(2, 1);
     sprintf(output, "%u", CurrentFreq);
     Lcd_Write_String(output);*/
-    address = (address *2) - 6;
+    
     StartI2C(); //Start bits
     WriteI2C(0xA0);
     IdleI2C();

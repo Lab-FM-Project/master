@@ -278,17 +278,13 @@ int butnEvent(void) {
  */
 unsigned char nextChannel() {
 
-    CurrentFreq = CurrentFreq + 1;
-    FMfrequenc(CurrentFreq);
-    HomeScreen(CurrentFreq);
+    
     return XS;
 }
 
 unsigned char previousChannel() {
 
-    CurrentFreq = CurrentFreq - 1;
-    FMfrequenc(CurrentFreq);
-    HomeScreen(CurrentFreq);
+    
 
 
     return XS;
@@ -329,7 +325,7 @@ unsigned char VolumeDown() {
 unsigned char MuteHard() {
     hardmute = !hardmute;
     setHardmute(hardmute);
-    DisplayMuteSymbol(hardmute);
+    
     return XS;
 }
 

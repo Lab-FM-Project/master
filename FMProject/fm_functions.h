@@ -194,11 +194,14 @@ unsigned short frequency() {
     unsigned int data;
     FMread(ADDR_STATUS, &data);
     CurrentFreq = (((data & MASK_READCHAN) >> SHIFT_READCHAN) + 690);
+    write_EEPROM(0, CurrentFreq);
     return CurrentFreq;    
 }
 
 unsigned char setHardmute(unsigned char bitState){
+    
     setBitInRegister(hardmute_bit[0], hardmute_bit[1], bitState);
+    //DisplayMuteSymbol(bitState);
     return XS;
 }
 

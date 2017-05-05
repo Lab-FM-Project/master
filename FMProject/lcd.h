@@ -42,6 +42,7 @@ void DisplayMuteSymbol(unsigned char muted);
 void HomeScreen(unsigned short freq);
 void VolumeScreen (int level);
 void SeekScreen(char direction);
+void Lcd_Write(char * Text, unsigned char CursorRow, unsigned char CursorCol, unsigned char Clear);
 
 
 void Lcd_Write_Char(char a) {
@@ -203,6 +204,13 @@ void Lcd_Write_String(char *a) {
     int i;
 	for(i=0;a[i]!='\0';i++)
 	   Lcd_Write_Char(a[i]);
+}
+
+void Lcd_Write(char * Text, unsigned char CursorRow, unsigned char CursorCol, unsigned char Clear) 
+{
+    if (Clear == 1) Lcd_Clear();
+    Lcd_Set_Cursor(CursorRow, CursorCol);
+    Lcd_Write_String(Text);
 }
 
 /*void Lcd_Shift_Right() {
