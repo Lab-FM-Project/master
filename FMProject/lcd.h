@@ -26,7 +26,7 @@
 
 
 
-int delayTime = 0; //A global variable to store the time that has
+
 //elapsed. This must be global!
 void Store_mute_symbol();
 void Lcd_Port(char a);
@@ -235,17 +235,17 @@ void DisplayMuteSymbol(unsigned char muted) {
 void HomeScreen(unsigned short freq) {
     
     char output[5];
-    int decimal, number;
-    Lcd_Clear();
-    Lcd_Set_Cursor(1,1);
-    if ((103 < freq) && (freq < 105)) Lcd_Write_String("BBC Surrey");
-    else Lcd_Write_String("Unknown");
-
-    Lcd_Set_Cursor(2, 1);    
+    unsigned short decimal, number;
+    
+    
+    if ((103 < freq) && (freq < 105)) Lcd_Write("BBC Surrey", 1,1,1);
+    if ((96 < freq) && (freq < 97)) Lcd_Write("Eagle Radio", 1,1,1);
+    else Lcd_Write("Unknown", 1,1,1);
+   
     decimal = freq % 10;
-    number = freq/10 ;  
+    number = freq/10;  
     sprintf(output, "%u.%u MHZ ", number, decimal);      
-    Lcd_Write_String(output);
+    Lcd_Write(output, 2,1,0);
     DisplayMuteSymbol(hardmute);
    
     

@@ -4,7 +4,21 @@
  * Comments:
  * Revision history: 
  */
+unsigned char FMinit(); // Initialise the chip
+unsigned char FMready(unsigned int *rdy); // Status is ready or busy
+unsigned char FMid(unsigned int *id); // Obtain ID number
+unsigned char showFreq(void); // Display the current f in MHz
+unsigned char FMvers(unsigned int *vsn); // Obtain version number
+unsigned short seek(char direction);
+unsigned char setVolume(int volume);
+unsigned char FMfrequenc(unsigned int f);
+unsigned char setHardmute(unsigned char bitState);
+unsigned char setSeekDirection(char direction);
 
+void dly(int d);
+
+void tuneWithAutoHiLo();
+unsigned short frequency();
 // Seek method ============================================================
 
 unsigned short seek(char direction) {
@@ -216,10 +230,7 @@ unsigned char setSeekDirection(char direction)
     return XS;
 }
 
-unsigned char enableFM(unsigned char bitState){
-    setBitInRegister(enable[0], enable[1], bitState);
-    return XS;
-}
+
 
 /*
  * SetVolume(volume) -  Tune the FM module achieve new volume.  
@@ -312,7 +323,7 @@ unsigned char FMinit() {
 
     regImg[0] = dat | 1;
     if (FMwrite(0) != XS) return XF;
-    delay_10ms(2);
+    __delay_ms(20);
     while (FMready(&dat), !dat) __delay_ms(2);
     return XS;
 }
@@ -383,4 +394,10 @@ unsigned char FMid(unsigned int *id) {
 //
 
 
+void dly(int d) {
 
+    int i = 0;
+
+    for (; d; --d)
+        for (i = 100; i; --i);
+}

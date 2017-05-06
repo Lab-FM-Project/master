@@ -3,7 +3,7 @@
 //********************************************************************
 
 void write_EEPROM(unsigned int address, unsigned short dat);
-
+unsigned short read_EEPROM(unsigned int address);
 /********************************************************************
  *     Function Name:    HDPageWriteI2C                              *
  *     Parameters:       EE memory ControlByte, address and pointer  *

@@ -4,8 +4,9 @@
  * Comments:
  * Revision history: 
  */
-
-
+unsigned char FMread(unsigned char regAddr, unsigned int *data);
+unsigned char FMwrite(unsigned char adr); // Write a new value to a register
+void setBitInRegister(unsigned char address, unsigned char bitRegister, unsigned char bitState);
 /*
  * FMwrite() -  Write a two byte word to the FM module.  The new 
  * register contents are obtained from the image bank.
