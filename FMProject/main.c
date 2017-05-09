@@ -50,10 +50,10 @@ unsigned short CurrentFreq; // stores current frequency
 unsigned char hardmute = 0; // stores mute state
 unsigned char Home = 0;
 
-unsigned int LastButtonState[6] = {1,1,1,1,1,1}; // stores the previous button states
-unsigned int LastChangeTime[6]= {0,0,0,0,0,0}; // stores the time since the last change;
-unsigned int ButtonState[6]= {1,1,1,1,1,1}; // stores the current button states
-unsigned int ui;// stores memory address to check FM chip is working
+unsigned int LastButtonState[6] = {1, 1, 1, 1, 1, 1}; // stores the previous button states
+unsigned int LastChangeTime[6] = {0, 0, 0, 0, 0, 0}; // stores the time since the last change;
+unsigned int ButtonState[6] = {1, 1, 1, 1, 1, 1}; // stores the current button states
+unsigned int ui; // stores memory address to check FM chip is working
 signed char VolControl = 9; // store the volume control
 
 void PICInit(); // PIC initialisation.
@@ -81,13 +81,13 @@ void FavChannelButton(unsigned int Ptype, int button); //
 #define FMASKRDCHAN		0xFF80		// Register 2, channel number bits
 #define XS				0			// Exit success
 #define XF				1	        // Exit fail
-#define NextChan        PORTGbits.RG0
-#define PrevChan        PORTGbits.RG1
+#define PrevChan        PORTGbits.RG0
+#define NextChan        PORTGbits.RG1
 #define FavChanOne        PORTCbits.RC5
 #define FavChanTwo        PORTCbits.RC6
 #define FavChanThree      PORTCbits.RC7
-#define VolUp           PORTBbits.RB0
-#define VolDown         PORTBbits.RB1
+#define VolDown           PORTBbits.RB0
+#define VolUp         PORTBbits.RB1
 #define MUTE         PORTGbits.RG2
 #define FMHIGHCHAN		(1080-690)	// Highest FM channel number
 #define FMLOWCHAN		(875-690)   // Lowest FM channel number
@@ -106,74 +106,73 @@ enum { // Global error numbers
     GERFMID // Could not read chip ID (0x1010)
 };
 
+void main(void) {
 
-void main(void) 
-{
-    
     PICInit(); // intialise PIC
+    Lcd_Write("Setting PIC Init", 1, 1, 1);
+    __delay_ms(1000);
     setHardmute(1); // mute the radio while it loads    
     Lcd_Init(); // Intialise LCD Screen     
+    Lcd_Write("Setting LCD Init", 1, 1, 1);
+    __delay_ms(1000);
+
     FMvers(&ui); // Check we have comms with FM chip
     if (ui != 0x1010 || FMinit() == XF) Lcd_Write("FM Com Chip Error", 1, 1, 1);
     Lcd_Write("Setting Frequency", 1, 1, 1);
-    CurrentFreq = read_EEPROM(0);  // get the frequency the radio was at before  
-    FMfrequenc(CurrentFreq);    // set frequency on FM Chip
+    CurrentFreq = read_EEPROM(0); // get the frequency the radio was at before  
+    FMfrequenc(CurrentFreq); // set frequency on FM Chip
     Lcd_Write("Setting Volume", 1, 1, 1);
     setVolume(VolControl); // set volume on FM Chip
-    HomeScreen(CurrentFreq);   // update the screen 
+    HomeScreen(CurrentFreq); // update the screen 
     setHardmute(0); //turn on sound again
+    Lcd_Write("FM radio initialised", 1, 1, 1);
+    __delay_ms(1000);
 
     while (1) //infinite loop
     {
         // this function updates the screen for the timer interupt
-        if (Home) 
-        {
+        if (Home) {
             HomeScreen(CurrentFreq);
             Home = 0;
         }
-        
+
         unsigned char PType;
         PType = ButtonRead(NextChan, 0); // read next channel button
         /* if a short press, increment frequency*/
-            if (PType == 1) 
-            {
-                CurrentFreq = CurrentFreq + 1; // increment Frequency
-                write_EEPROM(0, CurrentFreq); // update stored frequency on EEPROM
-                FMfrequenc(CurrentFreq); // update FM Chip    
-                HomeScreen(CurrentFreq); // update Screen
-            }
-            /* if a long press, seek up */
-            if (PType == 2) 
-            {
-                Lcd_Write("Seeking Up",1,1,1); // display seeking message
-                seek('u'); // set FM chip to seek up
-                HomeScreen(CurrentFreq); // display home screen
-            }
+        if (PType == 1) {
+            CurrentFreq = CurrentFreq + 1; // increment Frequency
+            write_EEPROM(0, CurrentFreq); // update stored frequency on EEPROM
+            FMfrequenc(CurrentFreq); // update FM Chip    
+            HomeScreen(CurrentFreq); // update Screen
+        }
+        /* if a long press, seek up */
+        if (PType == 2) {
+            Lcd_Write("Seeking Up", 1, 1, 1); // display seeking message
+            seek('u'); // set FM chip to seek up
+            HomeScreen(CurrentFreq); // display home screen
+        }
         PType = ButtonRead(PrevChan, 1); // read Previous channel button
         /* if a short press, decrement frequency*/
-            if (PType == 1) 
-            {
-                 CurrentFreq = CurrentFreq - 1; // decrement frequency
-                 write_EEPROM(0, CurrentFreq); // update stored current frequency
-                 FMfrequenc(CurrentFreq); // update frequency on FM chip           
-                 HomeScreen(CurrentFreq); // update frequency on screen
-            }
+        if (PType == 1) {
+            CurrentFreq = CurrentFreq - 1; // decrement frequency
+            write_EEPROM(0, CurrentFreq); // update stored current frequency
+            FMfrequenc(CurrentFreq); // update frequency on FM chip           
+            HomeScreen(CurrentFreq); // update frequency on screen
+        }
         /* if a long press, seek down*/
-            if (PType == 2) 
-            {
-                Lcd_Write("Seeking DOWN",1,1,1); // display seeking message
-                seek('d'); // Set FM chip to seek down
-                HomeScreen(CurrentFreq); // update frequency on screen
-            } 
+        if (PType == 2) {
+            Lcd_Write("Seeking DOWN", 1, 1, 1); // display seeking message
+            seek('d'); // Set FM chip to seek down
+            HomeScreen(CurrentFreq); // update frequency on screen
+        }
         // read Mute button
-        PType = ButtonRead(MUTE, 2); 
+        PType = ButtonRead(MUTE, 2);
         /*if short press, toggle mute on/off*/
-            if (PType == 1) 
-            {
-                hardmute = !hardmute; // toggle mute state
-                setHardmute(hardmute); //update FM chip           
-                DisplayMuteSymbol(hardmute); // update Screen Symbol          
-            }
+        if (PType == 1) {
+            hardmute = !hardmute; // toggle mute state
+            setHardmute(hardmute); //update FM chip           
+            DisplayMuteSymbol(hardmute); // update Screen Symbol          
+        }
         // read Fav Channel 1 Button (actual button 3)  
         PType = ButtonRead(FavChanOne, 3);
         FavChannelButton(PType, 3);
@@ -188,63 +187,55 @@ void main(void)
 //
 // end main ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 //
-void FavChannelButton(unsigned int Ptype, int button)
-    {
-        unsigned int address = (button *2) - 4; // calculate 2 byte address from button number
-        char output[16];
-        /*if fav channel button press is short, change frequency to it's stored frequency*/
-        if (Ptype == 1)
-        {                       
-            CurrentFreq = read_EEPROM(address); // get saved frequency
-            write_EEPROM(0, CurrentFreq);  // update stored current frequency          
-            FMfrequenc(CurrentFreq);  // set frequency on FM chip          
-            HomeScreen(CurrentFreq); // update screen
-        } 
-        /*if fav channel button press is long, save current frequency*/
-        else if (Ptype == 2)
-        {     
-            write_EEPROM(address, CurrentFreq);// save current frequency to FM chip  
-            // show saved message
-            sprintf(output, "Channel %u Saved", button - 2); 
-            Lcd_Write(output, 1,1,1);
-            __delay_ms(2000);
-            HomeScreen(CurrentFreq); // go back to home screen           
-        }        
-    }
 
-void interrupt high_priority CheckButtonPressed() 
-{
-    
+void FavChannelButton(unsigned int Ptype, int button) {
+    unsigned int address = (button * 2) - 4; // calculate 2 byte address from button number
+    char output[16];
+    /*if fav channel button press is short, change frequency to it's stored frequency*/
+    if (Ptype == 1) {
+        CurrentFreq = read_EEPROM(address); // get saved frequency
+        write_EEPROM(0, CurrentFreq); // update stored current frequency          
+        FMfrequenc(CurrentFreq); // set frequency on FM chip          
+        HomeScreen(CurrentFreq); // update screen
+    }
+        /*if fav channel button press is long, save current frequency*/
+    else if (Ptype == 2) {
+        write_EEPROM(address, CurrentFreq); // save current frequency to FM chip  
+        // show saved message
+        sprintf(output, "Channel %u Saved", button - 2);
+        Lcd_Write(output, 1, 1, 1);
+        __delay_ms(2000);
+        HomeScreen(CurrentFreq); // go back to home screen           
+    }
+}
+
+void interrupt high_priority CheckButtonPressed() {
+
     // if volume down button is pressed
-    if (INTCONbits.INT0F == 1)  
-    {
-        VolControl--; // decrement volume
+    if (INTCONbits.INT0F == 1) {
+        VolControl++; // decrement volume
         setVolume(VolControl); // set volume on FM chip
         VolumeScreen(VolControl); // show volume screen with new level
         INTCONbits.INT0F = 0; // clear interrupt flag for this interrupt button
     }
     // if volume up button is pressed
-    if (INTCON3bits.INT1F == 1) 
-    {
-        VolControl++; //increment volume
+    if (INTCON3bits.INT1F == 1) {
+        VolControl--; //increment volume
         setVolume(VolControl); // set volume on FM chip
         VolumeScreen(VolControl); // show Volume screen with new level
         INTCON3bits.INT1F = 0; // clear interrupt flag for this interrupt button
     }
     // if timer0 register overflows
-    if (INTCONbits.TMR0IF == 1) 
-    {
+    if (INTCONbits.TMR0IF == 1) {
         T0CONbits.TMR0ON = 0; // stop timer0 module
         delaytime++; // increment time variable
         // if time since last press is 3 seconds, return to home screen
         if (delaytime == 2000) Home = 1;
-          
+
         // if time variable overflows
-        if (delaytime >= 65534) 
-        {
+        if (delaytime >= 65534) {
             delaytime = 0; // reset time variable
-            for (int cunt =0; cunt < 7; cunt++)
-            {
+            for (int cunt = 0; cunt < 7; cunt++) {
                 LastButtonState[cunt] = 1; // reset previous button states
                 ButtonState[cunt] = 1; // reset the current button states
             }
@@ -263,21 +254,19 @@ unsigned int ButtonRead(int ButtonStateReading, int ButtonIndex) {
     // if state has change, store the time    
     if (ButtonStateReading != LastButtonState[ButtonIndex]) LastChangeTime[ButtonIndex] = delaytime;
     HoldDuration = delaytime - LastChangeTime[ButtonIndex]; // calculate button hold duration
-    if (HoldDuration > 30)
-    {        
-        if (ButtonStateReading != ButtonState[ButtonIndex]) 
-        {       
+    if (HoldDuration > 30) {
+        if (ButtonStateReading != ButtonState[ButtonIndex]) {
             ButtonState[ButtonIndex] = ButtonStateReading; //update button state 
             if (ButtonState[ButtonIndex] == 1) PType = 1; // on button release, return short press
-            
+
         } else if (ButtonState[ButtonIndex] == 0) // if button is presssed
         {
             if (HoldDuration > 2000) // if button is held for more than 2 seconds
             {
-                PType = 2;//return long press
+                PType = 2; //return long press
                 //set state and previous state so short press isn't triggered on exit
-                ButtonState[ButtonIndex] = 1; 
-                ButtonStateReading = 1;               
+                ButtonState[ButtonIndex] = 1;
+                ButtonStateReading = 1;
             }
         }
     }
@@ -312,12 +301,12 @@ void PICInit() {
     INTCON2bits.INTEDG1 = 1; // INT1 interrupt on rising edge
     INTCON3bits.INT1F = 0; //reset interrupt flag
     INTCON3bits.INT1IE = 1; // Enable the INT1 external interrupt
-    
+
     T0CON = 0b11000010; // Enable Timer0, set Prescaler to 8, set Timer0 to 8 8 bit counter;
-    TMR0L =  TIMER_RESET_VALUE; // Load TMR0 register with reset time;
+    TMR0L = TIMER_RESET_VALUE; // Load TMR0 register with reset time;
     /* IC2 set up*/
-    SSPCON1bits.SSPEN   = 1;    // enable SSP module
+    SSPCON1bits.SSPEN = 1; // enable SSP module
     OpenI2C(MASTER, SLEW_ON);
     SSPADD = 0x3F;
-    
+
 }
