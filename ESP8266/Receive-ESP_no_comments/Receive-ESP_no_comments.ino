@@ -43,11 +43,6 @@ String talkBackID = "14909";
 const int checkTalkBackInterval = 15 * 1000;    // Time interval in milliseconds to check TalkBack (number of seconds * 1000 = interval)
 String talkBackAPIKey = "XIAJGWMZ731MXAK7";
 
-const char *ssid = "G5_8814";
-const char *password = "Beano1234";
-/*
-  const char *ssid = "Landgate";
-  const char *password = "GlaziersLand2EDgateLaneGU3";*/
 
 const int timeZone = 1; // Central European Time
 static const char ntpServerName[] = "us.pool.ntp.org";

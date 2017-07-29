@@ -43,12 +43,6 @@ String talkBackID = "14909";
 const int checkTalkBackInterval = 15 * 1000;    // Time interval in milliseconds to check TalkBack (number of seconds * 1000 = interval)
 String talkBackAPIKey = "XIAJGWMZ731MXAK7";
 
-const char *ssid = "G5_8814";
-const char *password = "Beano1234";
-/*
-  const char *ssid = "Landgate";
-  const char *password = "GlaziersLand2EDgateLaneGU3";*/
-
 const int timeZone = 1; // Central European Time
 static const char ntpServerName[] = "us.pool.ntp.org";
 WiFiUDP Udp;
@@ -237,8 +231,8 @@ String checkTalkBack() {
     // file found at server
     if (httpCode == HTTP_CODE_OK) {
       talkBackReturnJSON = client_http.getString();
-      Serial.print("talkBackReturnJSON = ");
-      Serial.println(talkBackReturnJSON);
+    //  Serial.print("talkBackReturnJSON = ");
+    //  Serial.println(talkBackReturnJSON);
       command = getCommand(talkBackReturnJSON);
       //        Serial.print("command = ");
       //        Serial.println(command);
@@ -348,7 +342,7 @@ void reactToTwitterControl(String twitterCommand) {
   if (minute() < 10) {
     minutes = "0" + String(minute());
   } else {
-    minutes = String(minute());f
+    minutes = String(minute());
   }
   if (second() < 10) {
     seconds = "0" + String(second());
@@ -422,7 +416,7 @@ void loop() {
   if (twitterCommand != "") {
     reactToTwitterControl(twitterCommand);
   }
-  delay(checkTalkBackInterval);
+  //delay(checkTalkBackInterval);
   long now = millis();
   if (now - lastMsg > 2000) {
     lastMsg = now;

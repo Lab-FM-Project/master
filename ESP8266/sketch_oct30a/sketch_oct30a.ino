@@ -24,7 +24,7 @@ unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 unsigned long debounceDelay = 50;    // the debounce time; increase if the output flickers
 
 const char *ssid =  "Landgate";    // cannot be longer than 32 characters!
-const char *pass =  "TLdRFAHymPW6";   //
+const char *pass =  "";   //
 
 #define BUFFER_SIZE 100
 

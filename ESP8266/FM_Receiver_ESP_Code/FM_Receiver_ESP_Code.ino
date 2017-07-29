@@ -27,13 +27,8 @@
 #define password vkMS2TFzBxLc
 #define sslport 28296 */
 
-/*const char *ssid =  "AndroidAP";    // cannot be longer than 32 characters!
-const char *password =  "xhct2880";  // insert your internet SSID and password */
 
-/*const char *ssid = "Landgate";
-const char *password = "GlaziersLand2EDgateLaneGU3"; */
-const char *ssid = "G5_8814";
-const char *password = "Beano1234";
+
 const int output = 4; // output that will drive the PIC high or low
 const char* mqtt_server = "m21.cloudmqtt.com";
 const char* clientID = "ESP8266Client";
